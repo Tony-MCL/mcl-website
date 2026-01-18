@@ -62,44 +62,71 @@ main.page {
   justify-content: space-between;
   padding: 0 1.75rem;
 
-  /* Bruk theme-token direkte (speiler Progress) */
-  background: var(--mcl-header);
-  border-bottom: 1px solid var(--mcl-outline);
-
-  /* Glass-følelse */
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 10;
+
+  /* trengs for ::after highlight */
+  position: fixed;
 }
 
-/* Hvis browser støtter color-mix: gjør headeren litt "glass"/transparent */
+.header {
+  /* fallback (ser bra ut uten color-mix) */
+  background: linear-gradient(
+    180deg,
+    #d7c2a8 0%,
+    #ead8c4 55%,
+    #fffaf4 100%
+  );
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Når color-mix støttes: bruk tokens og få “Progress-gradient” automatisk */
 @supports (background: color-mix(in srgb, #000 50%, transparent)) {
   .header {
-    background: color-mix(in srgb, var(--mcl-header) 72%, transparent);
-    border-bottom: 1px solid
-      color-mix(in srgb, var(--mcl-outline) 70%, transparent);
-  }
-}
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--mcl-header) 92%, var(--mcl-bg)) 0%,
+      color-mix(in srgb, var(--mcl-header) 72%, var(--mcl-bg)) 55%,
+      color-mix(in srgb, var(--mcl-bg) 96%, var(--mcl-header)) 100%
+    );
 
-/* Dark mode – samme tokens, men eget blandeforhold */
-html[data-theme="dark"] .header {
-  background: var(--mcl-header);
-  border-bottom: 1px solid var(--mcl-outline);
-}
-
-@supports (background: color-mix(in srgb, #000 50%, transparent)) {
-  html[data-theme="dark"] .header {
-    background: color-mix(in srgb, var(--mcl-header) 78%, transparent);
     border-bottom: 1px solid
       color-mix(in srgb, var(--mcl-outline) 75%, transparent);
   }
 }
 
+/* Dark mode: samme idé, men miks mot --mcl-bg i dark */
+html[data-theme="dark"] .header {
+  background: linear-gradient(
+    180deg,
+    #3b2e23 0%,
+    #221d17 55%,
+    #12110f 100%
+  );
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@supports (background: color-mix(in srgb, #000 50%, transparent)) {
+  html[data-theme="dark"] .header {
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--mcl-header) 92%, var(--mcl-bg)) 0%,
+      color-mix(in srgb, var(--mcl-header) 72%, var(--mcl-bg)) 55%,
+      color-mix(in srgb, var(--mcl-bg) 96%, var(--mcl-header)) 100%
+    );
+
+    border-bottom: 1px solid
+      color-mix(in srgb, var(--mcl-outline) 75%, transparent);
+  }
+}
 
 .header-actions {
   display: flex;
