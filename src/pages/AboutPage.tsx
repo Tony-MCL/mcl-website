@@ -1,119 +1,62 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
-const HomePage: React.FC = () => {
+const AboutPage: React.FC = () => {
   return (
-    <main className="page home-page">
-      <section className="hero">
-        <h1 className="hero-title">Morning Coffee Labs</h1>
-
-        <p className="hero-tagline">
-          Verktøy for folk som faktisk har ansvar.
+    <main className="page about-page">
+      <section className="about-hero">
+        <h1>Om Morning Coffee Labs</h1>
+        <p className="about-tagline">
+          Et produktverksted for verktøy som gir ro, kontroll og tillit.
         </p>
+      </section>
 
-        <p className="hero-sub" style={{ maxWidth: 820 }}>
-          Et lite verksted for digitale arbeidsverktøy – bygget for virkeligheten,
-          ikke for demoer. Her prioriteres ro, kontroll og tillit foran støy,
-          hype og funksjonslister.
+      <section className="about-section">
+        <h2>Et verksted, ikke en fabrikk</h2>
+        <p>
+          Morning Coffee Labs fremstår mer som et fagmiljø som bygger verktøy enn
+          et generisk SaaS-selskap. Tempoet kan være høyt, men retningen er
+          stabil: lav terskel, høy presisjon – og null toleranse for støy.
         </p>
-
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "0.8rem" }}>
-          <Link to="/progress" className="hero-cta">
-            Se Progress → (lanseres 1. februar)
-          </Link>
-
-          <Link
-            to="/kontakt"
-            style={{
-              alignSelf: "center",
-              fontSize: "0.95rem",
-              textDecoration: "underline",
-            }}
-          >
-            Spørsmål? Ta kontakt →
-          </Link>
-        </div>
       </section>
 
-      <section>
-        <h2 style={{ marginBottom: "0.6rem" }}>Hva som bygges</h2>
-
-        <section className="intro-grid">
-          <div className="intro-card">
-            <h3>Verktøy for prosjekter</h3>
-            <p>
-              Løsninger for planlegging, oppfølging og dokumentasjon – laget for
-              ekte arbeid. Enkle å ta i bruk på dag én, uten å låse når behovene
-              vokser.
-            </p>
-          </div>
-
-          <div className="intro-card">
-            <h3>Manage Progress</h3>
-            <p>
-              En ren Gantt-app med lav terskel og høy presisjon. Bygget for
-              daglig bruk under tidspress – og for å tåle endring, print og
-              dokumentasjon uten overraskelser.
-            </p>
-            <p style={{ marginTop: "0.7rem" }}>
-              <Link to="/progress">Se mer om Progress →</Link>
-            </p>
-          </div>
-
-          <div className="intro-card">
-            <h3>Idébank</h3>
-            <p>
-              Et rom for idéer som fortjener å bli realisert, men som mangler
-              struktur, timing eller gjennomføring. Et tydelig “nei” til hype –
-              og et tydelig “ja” til praktisk verdi.
-            </p>
-            <p style={{ marginTop: "0.7rem" }}>
-              <Link to="/idebank">Gå til Idébanken →</Link>
-            </p>
-          </div>
-        </section>
+      <section className="about-section">
+        <h2>Kvalitet betyr kontroll</h2>
+        <p>
+          Kvalitet handler ikke om perfeksjon, men om kontroll: kontroll på data,
+          flyt, eierskap og forutsigbarhet. Robusthet prioriteres foran “smart”
+          magi som ikke tåler tid.
+        </p>
       </section>
 
-      <section>
-        <h2 style={{ marginBottom: "0.6rem" }}>Prinsipper</h2>
-
-        <section className="intro-grid">
-          <div className="intro-card">
-            <h3>Én kilde til sannhet</h3>
-            <p>
-              Ingen dobbeltlogikk, ingen skjult magi. Det som gjelder, gjelder –
-              og kan forklares, feilsøkes og stoles på.
-            </p>
-          </div>
-
-          <div className="intro-card">
-            <h3>Forutsigbarhet foran wow</h3>
-            <p>
-              Samme handling gir samme resultat. Design og teknikk henger sammen
-              – eller så bygges det ikke.
-            </p>
-          </div>
-
-          <div className="intro-card">
-            <h3>Respekt for tid og hode</h3>
-            <p>
-              Alt som stjeler fokus uten å gi verdi regnes som en feil. Målet er
-              rolig trygghet: “det bare fungerer”.
-            </p>
-          </div>
-        </section>
+      <section className="about-section">
+        <h2>Prinsipper som styrer alt</h2>
+        <p>
+          Én kilde til sannhet. Tydelig ansvar og hard lagdeling. Forutsigbarhet
+          foran wow-effekter. Respekt for brukerens tid og hode. Bygget for ekte
+          arbeid – inkludert print, dokumentasjon og sporbarhet.
+        </p>
       </section>
 
-      <section>
-        <h2 style={{ marginBottom: "0.6rem" }}>Hvem dette passer for</h2>
-        <p style={{ maxWidth: 820 }}>
-          Ikke laget for alle – og det er bevisst. Dette treffer best hos folk
-          som kjenner smerten: prosjektbasert arbeid, ansvar, tidspress og behov
-          for dokumenterbar kontroll.
+      <section className="about-section">
+        <h2>Produkter og retning</h2>
+        <p>
+          Første produkt ut er Manage Progress: en ren Gantt-app med lav terskel
+          og høy faglig integritet. Over tid kan flere verktøy komme – men aldri
+          på bekostning av klarhet, struktur og reell nytte.
+        </p>
+      </section>
+
+      <section className="about-section">
+        <h2>Hva dette aldri skal bli</h2>
+        <p>
+          Aldri et buzzword-selskap som selger “features”. Aldri et system som
+          tvinger brukeren til å jobbe på verktøyets premisser. Aldri et produkt
+          som vokser i kompleksitet raskere enn i verdi. Aldri “Microsoft Project
+          med bedre farger”.
         </p>
       </section>
     </main>
   );
 };
 
-export default HomePage;
+export default AboutPage;
