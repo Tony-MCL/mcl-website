@@ -86,3 +86,32 @@ html[data-theme="dark"] {
   --mcl-text-dim:     var(--mcl-muted);
   --mcl-accent-light: var(--mcl-accent);
 }
+/* =========================================================
+   Compatibility aliases (website ↔︎ app tokens)
+   Makes website CSS use the same palette/contract as Progress
+   ========================================================= */
+
+:root {
+  /* Layout contract */
+  --header-height: var(--mcl-header-h);
+
+  /* Common UI tokens */
+  --mcl-border: var(--mcl-outline);
+  --mcl-radius: var(--radius);
+  --mcl-shadow: var(--elev-1);
+
+  /* Text */
+  --mcl-text-dim: var(--mcl-muted);
+
+  /* Accent */
+  --mcl-accent-light: var(--mcl-accent);
+}
+
+html[data-theme="dark"] {
+  --header-height: var(--mcl-header-h);
+  --mcl-border: var(--mcl-outline);
+  --mcl-radius: var(--radius);
+  --mcl-shadow: var(--elev-1);
+  --mcl-text-dim: var(--mcl-muted);
+  --mcl-accent-light: var(--mcl-accent);
+}
