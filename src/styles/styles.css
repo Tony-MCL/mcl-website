@@ -346,3 +346,17 @@ html[data-theme="dark"] .theme-toggle {
     display: block;
   }
 }
+.header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.25);
+  pointer-events: none;
+}
+
+html[data-theme="dark"] .header::after {
+  background: rgba(255, 255, 255, 0.10);
+}
