@@ -1,15 +1,46 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const assetBase = import.meta.env.BASE_URL || "/";
 const logoUrl = `${assetBase}mcl-logo.png`;
 
+type ThemeMode = "light" | "dark";
+
+function applyTheme(mode: ThemeMode) {
+  const html = document.documentElement;
+  if (mode === "dark") html.setAttribute("data-theme", "dark");
+  else html.removeAttribute("data-theme");
+}
+
+function getInitialTheme(): ThemeMode {
+  const saved = localStorage.getItem("mcl_theme");
+  if (saved === "dark" || saved === "light") return saved;
+  const prefersDark =
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches;
+  return prefersDark ? "dark" : "light";
+}
+
 const Header: React.FC = () => {
   const [open, setOpen] = useState(false);
+  const [theme, setTheme] = useState<ThemeMode>("light");
   const location = useLocation();
+
+  useEffect(() => {
+    const initial = getInitialTheme();
+    setTheme(initial);
+    applyTheme(initial);
+  }, []);
 
   const closeMenu = () => setOpen(false);
   const isActive = (path: string) => location.pathname === path;
+
+  const toggleTheme = () => {
+    const next: ThemeMode = theme === "dark" ? "light" : "dark";
+    setTheme(next);
+    localStorage.setItem("mcl_theme", next);
+    applyTheme(next);
+  };
 
   return (
     <>
@@ -38,8 +69,25 @@ const Header: React.FC = () => {
           </Link>
         </nav>
 
-        <div className="hamburger" onClick={() => setOpen((prev) => !prev)}>
-          ☰
+        <div className="header-actions">
+          <button
+            type="button"
+            className="theme-toggle"
+            onClick={toggleTheme}
+            aria-label={theme === "dark" ? "Bytt til lys modus" : "Bytt til mørk modus"}
+            title={theme === "dark" ? "Lys modus" : "Mørk modus"}
+          >
+            <span className="theme-icon" aria-hidden="true">
+              {theme === "dark" ? "🌙" : "☀️"}
+            </span>
+            <span className="theme-label">
+              {theme === "dark" ? "Mørk" : "Lys"}
+            </span>
+          </button>
+
+          <div className="hamburger" onClick={() => setOpen((prev) => !prev)}>
+            ☰
+          </div>
         </div>
       </header>
 
@@ -59,6 +107,15 @@ const Header: React.FC = () => {
         <Link to="/progress" onClick={closeMenu}>
           Progress
         </Link>
+
+        <button type="button" className="theme-toggle mobile" onClick={toggleTheme}>
+          <span className="theme-icon" aria-hidden="true">
+            {theme === "dark" ? "🌙" : "☀️"}
+          </span>
+          <span className="theme-label">
+            {theme === "dark" ? "Mørk modus" : "Lys modus"}
+          </span>
+        </button>
       </div>
     </>
   );
