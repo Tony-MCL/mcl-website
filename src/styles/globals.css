@@ -397,3 +397,10 @@ html[data-theme="dark"] .hero-sub {
 [data-theme="light"] .intro-card {
   color: #1f1f1f;
 }
+.model-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  opacity: 0.7;
+  margin: 0 0 0.35rem 0;
+}
