@@ -284,33 +284,26 @@ html[data-theme="dark"] .header {
   }
 }
 /* ===============================
-   Hero text contrast fix
+   Hero text – use theme tokens (fix light-mode grey)
    =============================== */
 
-/* Light mode (default) */
 .hero-title {
-  color: #1a1a1a;
+  color: var(--mcl-text);
 }
 
 .hero-tagline {
-  color: #2a2a2a;
+  color: var(--mcl-text);
+  opacity: 0.92; /* litt “rolig”, men fortsatt mørk nok i light */
 }
 
 .hero-sub {
-  color: #3a3a3a;
+  color: var(--mcl-text);
+  opacity: 0.86;
 }
 
-/* Dark mode overrides */
-html[data-theme="dark"] .hero-title {
-  color: #ffffff;
-}
-
-html[data-theme="dark"] .hero-tagline {
-  color: rgba(255, 255, 255, 0.92);
-}
-
-html[data-theme="dark"] .hero-sub {
-  color: rgba(255, 255, 255, 0.78);
+/* Hvis dere bruker fs-hero på flere sider: sørg for at brødtekst ikke arver dim */
+.fs-hero p {
+  color: var(--mcl-text);
 }
 
 /* ======================================================
