@@ -7,15 +7,21 @@ const ContactPage: React.FC = () => {
         <h1>Kontakt</h1>
 
         <p className="fs-tagline" style={{ maxWidth: 900 }}>
-          For generelle henvendelser er e-post den beste måten å nå oss på.
+          For generelle henvendelser er e-post eller telefon den beste måten å nå oss på.
         </p>
 
         <p style={{ maxWidth: 900, marginTop: "1rem" }}>
-          Send en e-post til{" "}
+          E-post:{" "}
           <a href="mailto:post@morningcoffeelabs.no">
             post@morningcoffeelabs.no
           </a>
-          , så svarer vi så fort vi kan.
+        </p>
+
+        <p style={{ maxWidth: 900 }}>
+          Telefon:{" "}
+          <a href="tel:+4795097892">
+            950&nbsp;97&nbsp;892
+          </a>
         </p>
       </section>
     </main>
