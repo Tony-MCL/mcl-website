@@ -8,7 +8,10 @@ const ContactPage: React.FC = () => {
       <header className="form-header">
         <h1>Kontakt</h1>
         <p>
-          Send oss en melding – så svarer vi så fort vi kan.
+          For generelle henvendelser, kontakt oss på{" "}
+          <a href="mailto:post@morningcoffeelabs.no">
+            post@morningcoffeelabs.no
+          </a>.
         </p>
       </header>
 
