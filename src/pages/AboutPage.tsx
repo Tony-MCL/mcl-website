@@ -87,7 +87,7 @@ const AboutPage: React.FC = () => {
           </p>
         </div>
 
-        <section className="intro-grid two-columns">
+        <div className="intro-card">
           <h3>Hva vi leverer</h3>
           <p>
             Vi bygger egne produkter – og vi kan også bygge løsninger på bestilling.
