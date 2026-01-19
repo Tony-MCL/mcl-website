@@ -9,8 +9,7 @@ const IdeaBankPage: React.FC = () => {
         <h1>Tjenester</h1>
 
         <p className="fs-tagline" style={{ maxWidth: 900 }}>
-          To måter å bygge verdi på: enten en løsning på bestilling som kunden eier,
-          eller en idé som kan bli til et MCL-produkt.
+          Fra utfordringer til idéer – og videre til løsninger som tåler virkeligheten.
         </p>
 
         <p style={{ maxWidth: 980, marginTop: "0.9rem" }}>
@@ -21,8 +20,8 @@ const IdeaBankPage: React.FC = () => {
         </p>
 
         <p style={{ maxWidth: 980 }}>
-          Vi starter med å forstå arbeidsflyt, friksjon og ønsket effekt – og vi
-          prioriterer det som gir praktisk verdi fremfor “features” og støy.
+          Vi starter med et problem som faktisk koster tid, fokus eller kvalitet. Deretter gjør vi det om til en idé som kan testes og bygges.
+          Til slutt leverer vi en løsning som er enkel å ta i bruk, lett å vedlikeholde – og tydelig i hva den gjør.
         </p>
 
         <div
@@ -53,8 +52,7 @@ const IdeaBankPage: React.FC = () => {
           <p className="model-label">Modell 1</p>
           <h3 style={{ marginTop: "0.35rem" }}>Bestillingsutvikling</h3>
           <p>
-            For bedrifter som trenger et konkret verktøy – levert mot avtalt betaling
-            og overlevert som kundens eiendel.
+            For bedrifter som trenger et konkret verktøy – overlevert som kundens eiendel.
           </p>
 
           <ul style={{ marginTop: "0.9rem" }}>
@@ -71,8 +69,8 @@ const IdeaBankPage: React.FC = () => {
           </ul>
 
           <p style={{ marginTop: "0.9rem" }}>
-            Ved overlevering er løsningen kundens ansvar. En begrenset serviceperiode
-            kan inngå, men langsiktig drift og videreutvikling bør normalt ligge hos
+            Ved overlevering er løsningen kundens eiendom. En begrenset serviceperiode
+            kan avtales, men ansvaret for langsiktig drift og eventuell videreutvikling ligger hos
             kunden.
           </p>
 
