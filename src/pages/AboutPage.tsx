@@ -15,7 +15,7 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* CONTENT (fliser) */}
-      <section className="intro-grid">
+      <section className="intro-grid two-columns">
         <div className="intro-card" style={{ gridColumn: "1 / -1" }}>
           <h2 style={{ marginTop: 0 }}>Hvordan dette startet</h2>
           <p>
@@ -87,7 +87,7 @@ const AboutPage: React.FC = () => {
           </p>
         </div>
 
-        <div className="intro-card">
+        <section className="intro-grid two-columns">
           <h3>Hva vi leverer</h3>
           <p>
             Vi bygger egne produkter – og vi kan også bygge løsninger på bestilling.
