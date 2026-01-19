@@ -115,3 +115,18 @@ html[data-theme="dark"] {
   --mcl-text-dim: var(--mcl-muted);
   --mcl-accent-light: var(--mcl-accent);
 }
+/* Watermark tuning */
+:root {
+  --wm-opacity: 0.10;
+  --wm-blend: multiply;
+  --wm-filter: grayscale(1) saturate(0.9) contrast(1.05) brightness(1.03);
+}
+
+html[data-theme="dark"] {
+  --wm-opacity: 0.58;
+  --wm-blend: soft-light;
+  --wm-filter:
+    drop-shadow(0 0 55px rgba(200, 120, 255, 0.28))
+    drop-shadow(0 0 32px rgba(0, 0, 0, 0.85))
+    blur(0.6px);
+}
