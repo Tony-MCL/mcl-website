@@ -14,6 +14,7 @@ import ProgressPage from "./pages/ProgressPage";
 import KjopsvilkarPage from "./pages/KjopsvilkarPage";
 import BrukervilkarPage from "./pages/BrukervilkarPage";
 import PersonvernPage from "./pages/PersonvernPage";
+import RefusjonPage from "./pages/RefusjonPage"
 
 const App: React.FC = () => {
   return (
@@ -36,7 +37,7 @@ const App: React.FC = () => {
           <Route path="/kjopsvilkar" element={<KjopsvilkarPage />} />
           <Route path="/brukervilkar" element={<BrukervilkarPage />} />
           <Route path="/personvern" element={<PersonvernPage />} />
-
+          <Route path="/refusjon" element={<RefusjonPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>
