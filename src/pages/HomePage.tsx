@@ -19,6 +19,11 @@ const HomePage: React.FC = () => {
           laget for daglig bruk, under reelle rammer.
         </p>
 
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "0.8rem" }}>
+          <Link to="/progress" className="hero-cta">
+            Se Progress → (lanseres 1. februar)
+          </Link>
+
           <Link
             to="/kontakt"
             style={{
@@ -77,12 +82,9 @@ const HomePage: React.FC = () => {
           <p>
             Start enkelt. Utvid når behovet oppstår.
           </p>
-          
-          </p>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "0.8rem" }}>
-          <Link to="/progress" className="hero-cta">
-            Se Progress → (lanseres 1. februar)
-          </Link>
+
+          <p style={{ marginTop: "0.7rem" }}>
+            <Link to="/progress">Se mer om Progress →</Link>
           </p>
         </section>
       </section>
