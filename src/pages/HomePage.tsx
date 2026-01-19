@@ -1,39 +1,32 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useI18n } from "../i18n/useI18n";
 
 const HomePage: React.FC = () => {
+  const { t } = useI18n();
+
   return (
     <main className="page home-page">
       {/* HERO */}
       <section className="hero">
-        <h1 className="hero-title">Enkle verktøy for komplekst arbeid</h1>
+        <h1 className="hero-title">{t("home.hero.title")}</h1>
 
-        <p className="hero-tagline">
-          Digitale verktøy for struktur, oversikt og gjennomføring – bygget for
-          virkeligheten, ikke for demoer.
-        </p>
+        <p className="hero-tagline">{t("home.hero.tagline")}</p>
 
         <p className="hero-sub" style={{ maxWidth: 820 }}>
-          Her prioriteres tydelig struktur, forutsigbar funksjonalitet og verktøy
-          som er enkle å ta i bruk – også når behovene vokser. Løsninger laget
-          for daglig bruk, under reelle rammer.
+          {t("home.hero.sub")}
         </p>
       </section>
 
       {/* HVA SOM BYGGES */}
       <section>
-        <h2 style={{ marginBottom: "0.6rem" }}>Hva som bygges</h2>
+        <h2 style={{ marginBottom: "0.6rem" }}>{t("home.sections.building")}</h2>
 
         <section className="intro-grid">
           {/* MANAGE PROGRESS – FULL BREDD */}
           <div className="intro-card" style={{ gridColumn: "1 / -1" }}>
-            <h3>Manage Progress</h3>
-            <p>
-              Manage Progress er et lettvekts verktøy for planlegging og
-              oppfølging av prosjekter. Det er laget for å gi rask oversikt,
-              tydelig struktur og kontroll – uten tunge oppsett, komplekse
-              begreper eller unødvendige valg.
-            </p>
+            <h3>{t("home.cards.progress.title")}</h3>
+            <p>{t("home.cards.progress.body")}</p>
 
             <div
               style={{
@@ -44,7 +37,7 @@ const HomePage: React.FC = () => {
               }}
             >
               <Link to="/progress" className="hero-cta">
-                Se Progress → (lanseres 1. februar)
+                {t("home.cards.progress.cta")} {t("home.cards.progress.launchNote")}
               </Link>
 
               <Link
@@ -55,81 +48,59 @@ const HomePage: React.FC = () => {
                   textDecoration: "underline",
                 }}
               >
-                Spørsmål? Ta kontakt →
+                {t("home.cards.progress.contactCta")}
               </Link>
             </div>
           </div>
 
-          {/* TJENESTER (erstatter "Fremdrift og planlegging") */}
+          {/* TJENESTER */}
           <div className="intro-card">
-            <h3>Fra utfordring til løsning</h3>
-            <p>
-              Vi bygger verktøy som starter i en reell utfordring, formes som en tydelig idé – og ender som en løsning som fungerer i praksis.
-              Du kan bestille en app dere eier, eller dele en idé som kan bli et MCL-produkt.
-            </p>
+            <h3>{t("home.cards.services.title")}</h3>
+            <p>{t("home.cards.services.body")}</p>
 
             <p style={{ marginTop: "0.7rem" }}>
-              <Link to="/idebank">Se tjenester og idébank →</Link>
+              <Link to="/idebank">{t("home.cards.services.cta")}</Link>
             </p>
           </div>
 
           <div className="intro-card">
-            <h3>Struktur og dokumentasjon</h3>
-            <p>
-              Løsninger som gjør det enkelt å følge opp arbeid, beslutninger og
-              endringer – og hente det frem igjen når det faktisk trengs.
-            </p>
+            <h3>{t("home.cards.documentation.title")}</h3>
+            <p>{t("home.cards.documentation.body")}</p>
           </div>
 
           <div className="intro-card">
-            <h3>Verktøy som tåler virkeligheten</h3>
-            <p>
-              Bygget for daglig bruk under tidspress, endringer og reelle
-              rammebetingelser – ikke for perfekte demo-scenarioer.
-            </p>
+            <h3>{t("home.cards.realWorld.title")}</h3>
+            <p>{t("home.cards.realWorld.body")}</p>
           </div>
         </section>
       </section>
 
       {/* PRINSIPPER */}
       <section>
-        <h2 style={{ marginBottom: "0.6rem" }}>Prinsipper</h2>
+        <h2 style={{ marginBottom: "0.6rem" }}>{t("home.sections.principles")}</h2>
 
         <section className="intro-grid">
           <div className="intro-card">
-            <h3>Én kilde til sannhet</h3>
-            <p>
-              Ingen dobbeltlogikk, ingen skjult magi. Det som gjelder, gjelder –
-              og kan forklares, feilsøkes og stoles på.
-            </p>
+            <h3>{t("home.principles.singleSource.title")}</h3>
+            <p>{t("home.principles.singleSource.body")}</p>
           </div>
 
           <div className="intro-card">
-            <h3>Forutsigbarhet foran wow</h3>
-            <p>
-              Samme handling gir samme resultat. Design og teknikk henger sammen
-              – eller så bygges det ikke.
-            </p>
+            <h3>{t("home.principles.predictability.title")}</h3>
+            <p>{t("home.principles.predictability.body")}</p>
           </div>
 
           <div className="intro-card">
-            <h3>Respekt for tid og hode</h3>
-            <p>
-              Alt som stjeler fokus uten å gi verdi regnes som en feil. Målet er
-              rolig trygghet: “det bare fungerer”.
-            </p>
+            <h3>{t("home.principles.respect.title")}</h3>
+            <p>{t("home.principles.respect.body")}</p>
           </div>
         </section>
       </section>
 
       {/* HVEM DETTE PASSER FOR */}
       <section>
-        <h2 style={{ marginBottom: "0.6rem" }}>Hvem dette passer for</h2>
-        <p style={{ maxWidth: 820 }}>
-          Dette er verktøy for folk som jobber strukturert med prosjekter,
-          oppfølging og gjennomføring – og som ønsker oversikt, kontroll og
-          dokumentasjon uten at verktøyet blir en belastning i seg selv.
-        </p>
+        <h2 style={{ marginBottom: "0.6rem" }}>{t("home.sections.audience")}</h2>
+        <p style={{ maxWidth: 820 }}>{t("home.audience")}</p>
       </section>
     </main>
   );
