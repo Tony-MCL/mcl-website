@@ -283,4 +283,33 @@ html[data-theme="dark"] .header {
     user-select: none;
   }
 }
+/* ===============================
+   Hero text contrast fix
+   =============================== */
+
+/* Light mode (default) */
+.hero-title {
+  color: #1a1a1a;
+}
+
+.hero-tagline {
+  color: #2a2a2a;
+}
+
+.hero-sub {
+  color: #3a3a3a;
+}
+
+/* Dark mode overrides */
+html[data-theme="dark"] .hero-title {
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .hero-tagline {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+html[data-theme="dark"] .hero-sub {
+  color: rgba(255, 255, 255, 0.78);
+}
 
