@@ -53,7 +53,7 @@ const IdeaBankPage: React.FC = () => {
 
           {/* Modell 1 */}
           <div className="intro-card">
-            <p style={{ margin: 0, opacity: 0.85, fontWeight: 600 }}>Modell 1</p>
+            <p className="model-label">Modell 1</p>
             <h3 style={{ marginTop: "0.35rem" }}>Bestillingsutvikling</h3>
             <p>
               For bedrifter som trenger et konkret verktøy – levert mot avtalt betaling
@@ -86,7 +86,7 @@ const IdeaBankPage: React.FC = () => {
 
           {/* Modell 2 */}
           <div className="intro-card">
-            <p style={{ margin: 0, opacity: 0.85, fontWeight: 600 }}>Modell 2</p>
+            <p className="model-label">Modell 2</p>
             <h3 style={{ marginTop: "0.35rem" }}>Idébanken</h3>
             <p>
               For idéer som kan bli til et nytt MCL-produkt. Her er eierskap og risiko
