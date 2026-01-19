@@ -168,6 +168,14 @@ home: {
   },
 },
 
+  contact: {
+  title: "Kontakt",
+  tagline:
+    "For generelle henvendelser er e-post eller telefon den beste måten å nå oss på.",
+  emailLabel: "E-post:",
+  phoneLabel: "Telefon:",
+},
+
 } as const;
 
 export default no;
