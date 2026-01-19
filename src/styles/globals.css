@@ -247,7 +247,7 @@ html[data-theme="dark"] .header {
     height: 118vh;
     width: auto;
 
-    opacity: 0.18;
+    opacity: 0.58;
 
     filter: drop-shadow(0 0 55px rgba(200, 120, 255, 0.28))
       drop-shadow(0 0 32px rgba(0, 0, 0, 0.85))
