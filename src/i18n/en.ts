@@ -168,6 +168,14 @@ home: {
   },
 },
 
+  contact: {
+  title: "Contact",
+  tagline:
+    "For general inquiries, email or phone is the best way to reach us.",
+  emailLabel: "Email:",
+  phoneLabel: "Phone:",
+},
+
 } as const;
 
 export default en;
