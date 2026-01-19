@@ -101,7 +101,73 @@ home: {
   audience:
     "Tools for people who work in a structured way with projects, follow-up, and delivery — and who want overview, control, and documentation without the tool becoming a burden.",
 },
-  
+
+  about: {
+  hero: {
+    title: "About Morning Coffee Labs",
+    tagline:
+      "A small product workshop building digital work tools — with low friction, high precision, and respect for how work is actually done.",
+  },
+
+  started: {
+    title: "How it started",
+    p1:
+      "Morning Coffee Labs started from a simple need: better flow and better overview in work that is often complex, full of dependencies — and where changes happen along the way. We don’t believe more “system” always means more control. Often it’s the opposite: control comes from clear choices, predictability, and tools that don’t get in the way.",
+    p2:
+      "That’s why we’d rather build a few things properly than many things halfway. Like a workshop — not a factory.",
+  },
+
+  workshop: {
+    title: "A workshop, not a factory",
+    p1:
+      "We build with the same mindset as good craft: it should withstand use, withstand time, and be easy to understand. The pace can be high, but the direction is stable: low friction, high precision, and zero tolerance for noise.",
+    p2:
+      "When we add something, it should make the job easier — not just add more buttons.",
+  },
+
+  quality: {
+    title: "Quality means control",
+    p1:
+      "For us, quality is more about control than perfection: control of data, flow, ownership, and consequences. The same action should yield the same result. What’s stored should be explainable. And what’s shown should be trustworthy.",
+    p2:
+      "We prioritize robustness over “smart” magic that works — until it doesn’t.",
+  },
+
+  principles: {
+    title: "Our principles",
+    lead:
+      "We have a few simple principles that show up in everything we build. They aren’t “nice words” — they are working rules:",
+    bullets: {
+      singleSource: "One source of truth",
+      singleSourceBody: "no duplicated logic, no hidden deviations.",
+      predictability: "Predictability over wow",
+      predictabilityBody: "design and engineering must align — or it doesn’t ship.",
+      respect: "Respect for time and headspace",
+      respectBody: "anything that steals focus without adding value is a bug.",
+      realWork: "Built for real work",
+      realWorkBody: "including printing, documentation, and traceability.",
+    },
+    outro: "The result should feel calm:",
+    outroEm: "it just works.",
+  },
+
+  deliver: {
+    title: "What we deliver",
+    p1:
+      "We build our own products — and we can also build commissioned solutions. The common denominator is always the same: clear structure, low friction, and practical value.",
+    linkLead: "Want to read more about how we work?",
+    linkCta: "See working models →",
+  },
+
+  direction: {
+    title: "Products and direction",
+    p1:
+      "Our first product is Manage Progress: a focused Gantt app with low friction and high precision. Over time, more tools may come — but never at the expense of clarity, structure, and real usefulness.",
+    linkLead: "See the product here:",
+    linkCta: "Manage Progress →",
+  },
+},
+
 } as const;
 
 export default en;
