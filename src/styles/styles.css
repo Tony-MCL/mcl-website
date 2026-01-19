@@ -59,6 +59,12 @@
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
+/* ===== Intro grid – 2-column variant (samme bredde som 3) ===== */
+.intro-grid.two-columns {
+  max-width: 1080px; /* samme bredde som forsiden */
+  grid-template-columns: repeat(2, 1fr);
+}
+
 .intro-card {
   background: var(--mcl-surface);
   padding: 1.5rem;
