@@ -102,6 +102,72 @@ home: {
     "Dette er verktøy for folk som jobber strukturert med prosjekter, oppfølging og gjennomføring – og som ønsker oversikt, kontroll og dokumentasjon uten at verktøyet blir en belastning i seg selv.",
 },
 
+  about: {
+  hero: {
+    title: "Om Morning Coffee Labs",
+    tagline:
+      "Et lite produktverksted som lager digitale arbeidsverktøy – med lav terskel, høy presisjon og respekt for hvordan arbeid faktisk gjøres.",
+  },
+
+  started: {
+    title: "Hvordan dette startet",
+    p1:
+      "Morning Coffee Labs ble til av et ganske enkelt behov: å få bedre flyt og bedre oversikt i arbeid som ofte er komplekst, fullt av avhengigheter – og hvor endringer skjer underveis. Vi tror ikke at mer “system” alltid gir mer kontroll. Ofte er det motsatt: kontroll kommer av tydelige valg, forutsigbarhet og verktøy som ikke står i veien.",
+    p2:
+      "Derfor bygger vi heller få ting skikkelig, enn mange ting halvveis. Som et verksted – ikke som en fabrikk.",
+  },
+
+  workshop: {
+    title: "Et verksted, ikke en fabrikk",
+    p1:
+      "Vi bygger med samme tankesett som i godt fagarbeid: det skal tåle bruk, tåle tid og være lett å forstå. Tempoet kan være høyt, men retningen er stabil: lav terskel, høy presisjon og null toleranse for støy.",
+    p2:
+      "Når vi legger til noe, skal det gjøre jobben enklere – ikke bare gi flere knapper.",
+  },
+
+  quality: {
+    title: "Kvalitet betyr kontroll",
+    p1:
+      "For oss handler kvalitet mer om kontroll enn om perfeksjon: kontroll på data, flyt, eierskap og konsekvens. Samme handling skal gi samme resultat. Det som lagres, skal kunne forklares. Og det som vises, skal være mulig å stole på.",
+    p2:
+      "Vi prioriterer robusthet foran “smart” magi som virker – helt til det ikke gjør det.",
+  },
+
+  principles: {
+    title: "Prinsippene våre",
+    lead:
+      "Vi har noen enkle prinsipper som går igjen i alt vi lager. De er ikke “fine ord” – de er arbeidsregler:",
+    bullets: {
+      singleSource: "Én kilde til sannhet",
+      singleSourceBody: "ingen dobbeltlogikk, ingen skjulte avvik.",
+      predictability: "Forutsigbarhet foran wow",
+      predictabilityBody: "design og teknikk må henge sammen – ellers bygges det ikke.",
+      respect: "Respekt for tid og hode",
+      respectBody: "alt som stjeler fokus uten å gi verdi regnes som en feil.",
+      realWork: "Bygget for ekte arbeid",
+      realWorkBody: "også når det skal printes, dokumenteres og etterprøves.",
+    },
+    outro: "Resultatet skal føles rolig:",
+    outroEm: "det bare fungerer.",
+  },
+
+  deliver: {
+    title: "Hva vi leverer",
+    p1:
+      "Vi bygger egne produkter – og vi kan også bygge løsninger på bestilling. Fellesnevneren er alltid den samme: tydelig struktur, lav friksjon og praktisk nytte.",
+    linkLead: "Vil du lese mer om hvordan vi jobber?",
+    linkCta: "Se arbeidsmodeller →",
+  },
+
+  direction: {
+    title: "Produkter og retning",
+    p1:
+      "Første produkt ut er Manage Progress: en ren Gantt-app med lav terskel og høy presisjon. Over tid kan flere verktøy komme – men aldri på bekostning av klarhet, struktur og reell nytte.",
+    linkLead: "Se produktet her:",
+    linkCta: "Manage Progress →",
+  },
+},
+
 } as const;
 
 export default no;
