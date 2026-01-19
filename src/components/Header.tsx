@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useI18n } from "../i18n/useI18n";
+import type { Lang } from "../i18n";
 
 const assetBase = import.meta.env.BASE_URL || "/";
 const logoUrl = `${assetBase}mcl-logo.png`;
@@ -26,6 +28,8 @@ const Header: React.FC = () => {
   const [theme, setTheme] = useState<ThemeMode>("light");
   const location = useLocation();
 
+  const { t, lang, setLang } = useI18n();
+
   useEffect(() => {
     const initial = getInitialTheme();
     setTheme(initial);
@@ -42,6 +46,12 @@ const Header: React.FC = () => {
     applyTheme(next);
   };
 
+  const toggleLang = () => {
+    const next: Lang = lang === "no" ? "en" : "no";
+    setLang(next);
+    closeMenu(); // nice: lukker mobilmeny ved språkbytte
+  };
+
   return (
     <>
       <header className="header">
@@ -53,37 +63,53 @@ const Header: React.FC = () => {
 
         <nav className="header-nav">
           <Link className={isActive("/") ? "active" : ""} to="/">
-            Hjem
+            {t("header.nav.home")}
           </Link>
 
           {/* Ren label-endring: /idebank beholdes */}
           <Link className={isActive("/idebank") ? "active" : ""} to="/idebank">
-            Tjenester
+            {t("header.nav.services")}
           </Link>
 
           <Link className={isActive("/om") ? "active" : ""} to="/om">
-            Om
+            {t("header.nav.about")}
           </Link>
           <Link className={isActive("/kontakt") ? "active" : ""} to="/kontakt">
-            Kontakt
+            {t("header.nav.contact")}
           </Link>
           <Link className={isActive("/progress") ? "active" : ""} to="/progress">
-            Progress
+            {t("header.nav.progress")}
           </Link>
         </nav>
 
         <div className="header-actions">
+          {/* Språk-toggle (super enkel, skalerbar) */}
+          <button
+            type="button"
+            className="theme-toggle"
+            onClick={toggleLang}
+            aria-label={t("header.lang.aria")}
+            title={t("header.lang.label")}
+          >
+            <span className="theme-icon" aria-hidden="true">🌐</span>
+            <span className="theme-label">
+              {lang === "no" ? t("header.lang.nb") : t("header.lang.en")}
+            </span>
+          </button>
+
           <button
             type="button"
             className="theme-toggle"
             onClick={toggleTheme}
-            aria-label={theme === "dark" ? "Bytt til lys modus" : "Bytt til mørk modus"}
-            title={theme === "dark" ? "Lys modus" : "Mørk modus"}
+            aria-label={theme === "dark" ? t("header.theme.ariaToLight") : t("header.theme.ariaToDark")}
+            title={theme === "dark" ? t("header.theme.titleLight") : t("header.theme.titleDark")}
           >
             <span className="theme-icon" aria-hidden="true">
               {theme === "dark" ? "🌙" : "☀️"}
             </span>
-            <span className="theme-label">{theme === "dark" ? "Mørk" : "Lys"}</span>
+            <span className="theme-label">
+              {theme === "dark" ? t("header.theme.labelDark") : t("header.theme.labelLight")}
+            </span>
           </button>
 
           <div className="hamburger" onClick={() => setOpen((prev) => !prev)}>
@@ -94,30 +120,37 @@ const Header: React.FC = () => {
 
       <div className={`mobile-menu ${open ? "open" : ""}`}>
         <Link to="/" onClick={closeMenu}>
-          Hjem
+          {t("header.nav.home")}
         </Link>
 
-        {/* Samme label i mobilmeny */}
         <Link to="/idebank" onClick={closeMenu}>
-          Tjenester
+          {t("header.nav.services")}
         </Link>
 
         <Link to="/om" onClick={closeMenu}>
-          Om
+          {t("header.nav.about")}
         </Link>
         <Link to="/kontakt" onClick={closeMenu}>
-          Kontakt
+          {t("header.nav.contact")}
         </Link>
         <Link to="/progress" onClick={closeMenu}>
-          Progress
+          {t("header.nav.progress")}
         </Link>
+
+        {/* Språk i mobilmeny (samme stil) */}
+        <button type="button" className="theme-toggle mobile" onClick={toggleLang}>
+          <span className="theme-icon" aria-hidden="true">🌐</span>
+          <span className="theme-label">
+            {t("header.lang.label")}: {lang === "no" ? t("header.lang.nb") : t("header.lang.en")}
+          </span>
+        </button>
 
         <button type="button" className="theme-toggle mobile" onClick={toggleTheme}>
           <span className="theme-icon" aria-hidden="true">
             {theme === "dark" ? "🌙" : "☀️"}
           </span>
           <span className="theme-label">
-            {theme === "dark" ? "Mørk modus" : "Lys modus"}
+            {theme === "dark" ? t("header.theme.mobileDark") : t("header.theme.mobileLight")}
           </span>
         </button>
       </div>
