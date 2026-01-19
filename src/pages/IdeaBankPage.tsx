@@ -70,7 +70,7 @@ const IdeaBankPage: React.FC = () => {
 
           <p style={{ marginTop: "0.9rem" }}>
             Ved overlevering er løsningen kundens eiendom. En begrenset serviceperiode
-            kan avtales, men ansvaret for langsiktig drift og eventuell videreutvikling ligger hos
+            kan avtales, men ansvaret for langsiktig drift og eventuell videreutvikling vil normalt ligge hos
             kunden.
           </p>
 
