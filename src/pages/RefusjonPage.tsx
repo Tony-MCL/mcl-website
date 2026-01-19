@@ -66,8 +66,8 @@ const RefusjonPage: React.FC = () => {
         <h2>5. Slik kontakter du oss</h2>
         <p>
           Send en e-post til{" "}
-          <a href="mailto:support@morningcoffeelabs.no">
-            support@morningcoffeelabs.no
+          <a href="mailto:post@morningcoffeelabs.no">
+            post@morningcoffeelabs.no
           </a>{" "}
           med:
         </p>
