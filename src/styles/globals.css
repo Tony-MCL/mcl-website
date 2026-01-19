@@ -395,3 +395,14 @@ html[data-theme="dark"] .header {
 [data-theme="light"] .intro-card {
   color: #1f1f1f;
 }
+/* ===============================
+   Home hero – force readable text
+   (fix grey tagline/sub in both themes)
+   =============================== */
+
+.home-page .hero,
+.home-page .hero .hero-tagline,
+.home-page .hero .hero-sub {
+  color: var(--mcl-text) !important;
+  opacity: 1 !important;
+}
