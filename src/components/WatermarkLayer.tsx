@@ -1,7 +1,7 @@
 import React from "react";
 
 const assetBase = import.meta.env.BASE_URL || "/";
-const watermarkUrl = `${assetBase}watermark.png`;
+const watermarkUrl = `${assetBase}watermark.svg`;
 
 const WatermarkLayer: React.FC = () => {
   return (
