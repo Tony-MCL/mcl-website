@@ -108,7 +108,9 @@ const IdeaBankPage: React.FC = () => {
           </p>
 
           <p style={{ marginTop: "0.7rem" }}>
-            <Link to="/kontakt">Send inn en idé via kontakt →</Link>
+            <a href="mailto:idebank@morningcoffeelabs.no">
+              Send inn en idé → idebank@morningcoffeelabs.no
+            </a>
           </p>
         </div>
 
