@@ -4,20 +4,21 @@ import { Link } from "react-router-dom";
 const ProgressPage: React.FC = () => {
   return (
     <main className="page">
-      <section className="hero">
-        <h1 className="hero-title">Manage Progress</h1>
+      {/* HERO */}
+      <section className="fs-hero">
+        <h1>Manage Progress</h1>
 
-        <p className="hero-tagline">
+        <p className="fs-tagline" style={{ maxWidth: 980 }}>
           Fremdriftsplanlegging uten støy.
         </p>
 
-        <p className="hero-sub" style={{ maxWidth: 820 }}>
-          Manage Progress er et rendyrket Gantt-verktøy for prosjektbasert
-          arbeid. Utviklet for daglig bruk, under tidspress, og for situasjoner
-          der oversikt, forutsigbarhet og dokumentasjon faktisk betyr noe.
+        <p style={{ maxWidth: 980, marginTop: "1rem" }}>
+          Manage Progress er et rendyrket Gantt-verktøy for prosjektbasert arbeid.
+          Utviklet for daglig bruk under tidspress – og for situasjoner der oversikt,
+          forutsigbarhet og dokumentasjon faktisk betyr noe.
         </p>
 
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "0.8rem" }}>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "0.8rem", marginTop: "1rem" }}>
           <span className="badge">Lanseres 1. februar</span>
 
           <Link
@@ -33,89 +34,61 @@ const ProgressPage: React.FC = () => {
         </div>
       </section>
 
-      <section>
-        <h2 style={{ marginBottom: "0.6rem" }}>Hva Progress er</h2>
+      {/* INNHOLD */}
+      <section className="intro-grid">
+        <div className="intro-card">
+          <h3>Én plan, én sannhet</h3>
+          <p>
+            Tabellen er kilden til sannhet. Gantt-visningen speiler nøyaktig det samme
+            innholdet. Ingen skjult logikk, ingen overraskelser.
+          </p>
+        </div>
 
-        <section className="intro-grid">
-          <div className="intro-card">
-            <h3>Én plan, én sannhet</h3>
-            <p>
-              Tabellen er kilden til sannhet. Gantt-visningen speiler nøyaktig
-              det samme innholdet. Ingen skjult logikk, ingen overraskelser.
-            </p>
-          </div>
+        <div className="intro-card">
+          <h3>Bygget for virkelige prosjekter</h3>
+          <p>
+            Endringer, avhengigheter, forskyvninger og omplanlegging håndteres uten at
+            strukturen kollapser. Dette er laget for prosjekter som faktisk lever.
+          </p>
+        </div>
 
-          <div className="intro-card">
-            <h3>Bygget for virkelige prosjekter</h3>
-            <p>
-              Endringer, avhengigheter, forskyvninger og omplanlegging håndteres
-              uten at strukturen kollapser. Dette er laget for prosjekter som
-              faktisk lever.
-            </p>
-          </div>
+        <div className="intro-card">
+          <h3>Print er en funksjon</h3>
+          <p>
+            Utskrift og eksport er ikke ettertanker. Planer kan tas med i møter, legges
+            i dokumentasjon og brukes videre – med forutsigbart resultat hver gang.
+          </p>
+        </div>
 
-          <div className="intro-card">
-            <h3>Print er en funksjon</h3>
-            <p>
-              Utskrift og eksport er ikke ettertanker. Planer kan tas med i
-              møter, legges i dokumentasjon og brukes videre – med forutsigbart
-              resultat hver gang.
-            </p>
-          </div>
-        </section>
-      </section>
+        <div className="intro-card">
+          <h3>Lav terskel, høy presisjon</h3>
+          <p>
+            Kom i gang raskt og hold planen ryddig. Fokus er å gi struktur og kontroll
+            uten at verktøyet blir et eget prosjekt.
+          </p>
+        </div>
 
-      <section>
-        <h2 style={{ marginBottom: "0.6rem" }}>Hva Progress ikke er</h2>
+        <div className="intro-card" style={{ gridColumn: "1 / -1" }}>
+          <h3 style={{ marginTop: 0 }}>Hvem dette passer for</h3>
+          <p style={{ maxWidth: 980 }}>
+            Manage Progress passer for prosjektledere, tekniske miljøer og team som
+            jobber prosjektbasert – og som trenger en plan som tåler endringer, kan
+            dokumenteres og er enkel å ta med videre i møter og leveranser.
+          </p>
+        </div>
 
-        <section className="intro-grid">
-          <div className="intro-card">
-            <h3>Ikke et dashboardsystem</h3>
-            <p>
-              Ingen overflødige grafer, KPI-er eller visuelle distraksjoner.
-              Fokus ligger på planen – ikke på pynt.
-            </p>
-          </div>
+        <div className="intro-card" style={{ gridColumn: "1 / -1" }}>
+          <h3 style={{ marginTop: 0 }}>Videre</h3>
+          <p style={{ maxWidth: 980, marginBottom: 0 }}>
+            Manage Progress er del av det som over tid blir Manage System – et
+            økosystem av små, selvstendige verktøy som kan fungere alene, men også
+            sammen når behovet oppstår.
+          </p>
 
-          <div className="intro-card">
-            <h3>Ikke et enterprise-mareritt</h3>
-            <p>
-              Ingen kurs for å komme i gang. Ingen skjulte regler. Ingen
-              prosesser som tvinger brukeren til å jobbe på systemets premisser.
-            </p>
-          </div>
-
-          <div className="intro-card">
-            <h3>Ikke bygget for hype</h3>
-            <p>
-              Ingen buzzwords. Ingen funksjoner bare for å se imponerende ut.
-              Hvis noe ikke tåler tid og reell bruk, hører det ikke hjemme her.
-            </p>
-          </div>
-        </section>
-      </section>
-
-      <section>
-        <h2 style={{ marginBottom: "0.6rem" }}>Hvem dette passer for</h2>
-        <p style={{ maxWidth: 820 }}>
-          Manage Progress er laget for folk som har ansvar: prosjektledere,
-          tekniske miljøer og team som trenger oversikt, kontroll og
-          dokumenterbar fremdrift – uten å bruke mer tid på verktøyet enn på
-          selve prosjektet.
-        </p>
-      </section>
-
-      <section>
-        <h2 style={{ marginBottom: "0.6rem" }}>Videre</h2>
-        <p style={{ maxWidth: 820 }}>
-          Manage Progress er del av det som over tid blir Manage System – et
-          økosystem av små, selvstendige verktøy som kan fungere alene, men også
-          sammen når behovet oppstår.
-        </p>
-
-        <p style={{ marginTop: "1rem" }}>
-          <Link to="/">← Tilbake til Morning Coffee Labs</Link>
-        </p>
+          <p style={{ marginTop: "1rem", marginBottom: 0 }}>
+            <Link to="/">← Tilbake til Morning Coffee Labs</Link>
+          </p>
+        </div>
       </section>
     </main>
   );
