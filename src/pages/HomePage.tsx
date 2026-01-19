@@ -60,12 +60,17 @@ const HomePage: React.FC = () => {
             </div>
           </div>
 
-          {/* ØVRIGE FLISER */}
+          {/* TJENESTER (erstatter "Fremdrift og planlegging") */}
           <div className="intro-card">
-            <h3>Fremdrift og planlegging</h3>
+            <h3>Tjenester</h3>
             <p>
-              Verktøy som gir rask oversikt og tydelig struktur – uten tunge
-              oppsett eller skjulte avhengigheter.
+              Vi bygger apper på bestilling for bedrifter som trenger et konkret
+              verktøy – levert som et produkt dere eier. I tillegg driver vi en
+              idébank der gode idéer kan bli til lisensprodukter over tid.
+            </p>
+
+            <p style={{ marginTop: "0.7rem" }}>
+              <Link to="/idebank">Se tjenester og idébank →</Link>
             </p>
           </div>
 
