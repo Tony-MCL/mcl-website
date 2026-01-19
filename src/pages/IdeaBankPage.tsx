@@ -1,28 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useI18n } from "../i18n/useI18n";
 
 const IdeaBankPage: React.FC = () => {
+  const { t } = useI18n();
+
   return (
     <main className="page services-page">
       {/* HERO / INTRO (uten flis) */}
       <section className="fs-hero">
-        <h1>Tjenester</h1>
+        <h1>{t("services.hero.title")}</h1>
 
         <p className="fs-tagline" style={{ maxWidth: 900 }}>
-          Fra utfordringer til idéer – og videre til løsninger som tåler virkeligheten.
+          {t("services.hero.tagline")}
         </p>
 
         <p style={{ maxWidth: 980, marginTop: "0.9rem" }}>
-          Morning Coffee Labs bygger digitale arbeidsverktøy med lav terskel og høy
-          presisjon. Enten det gjelder bestillingsutvikling eller idébanken er målet
-          det samme: tydelig struktur, forutsigbar funksjonalitet og løsninger som
-          tåler reell bruk over tid.
+          {t("services.hero.p1")}
         </p>
 
-        <p style={{ maxWidth: 980 }}>
-          Vi starter med et problem som faktisk koster tid, fokus eller kvalitet. Deretter gjør vi det om til en idé som kan testes og bygges.
-          Til slutt leverer vi en løsning som er enkel å ta i bruk, lett å vedlikeholde – og tydelig i hva den gjør.
-        </p>
+        <p style={{ maxWidth: 980 }}>{t("services.hero.p2")}</p>
 
         <div
           style={{
@@ -33,14 +30,14 @@ const IdeaBankPage: React.FC = () => {
           }}
         >
           <Link to="/" className="status-button" style={{ textDecoration: "none" }}>
-            ← Tilbake til forsiden
+            {t("services.hero.back")}
           </Link>
           <Link
             to="/kontakt"
             className="status-button"
             style={{ textDecoration: "none" }}
           >
-            Ta kontakt →
+            {t("services.hero.contact")}
           </Link>
         </div>
       </section>
@@ -49,88 +46,80 @@ const IdeaBankPage: React.FC = () => {
       <section className="intro-grid two-columns">
         {/* Modell 1 */}
         <div className="intro-card">
-          <p className="model-label">Modell 1</p>
-          <h3 style={{ marginTop: "0.35rem" }}>Bestillingsutvikling</h3>
-          <p>
-            For bedrifter som trenger et konkret verktøy – overlevert som kundens eiendel.
-          </p>
+          <p className="model-label">{t("services.model1.label")}</p>
+          <h3 style={{ marginTop: "0.35rem" }}>{t("services.model1.title")}</h3>
+          <p>{t("services.model1.lead")}</p>
 
           <ul style={{ marginTop: "0.9rem" }}>
             <li>
-              <strong>Behov → leveranse:</strong> dere beskriver mål, rammer og ønsket
-              resultat
+              <strong>{t("services.model1.bullets.b1Strong")}</strong>{" "}
+              {t("services.model1.bullets.b1")}
             </li>
             <li>
-              <strong>Utvikling:</strong> leveres mot avtalt betaling og scope
+              <strong>{t("services.model1.bullets.b2Strong")}</strong>{" "}
+              {t("services.model1.bullets.b2")}
             </li>
             <li>
-              <strong>Eierskap:</strong> løsningen overleveres og eies av kunden
+              <strong>{t("services.model1.bullets.b3Strong")}</strong>{" "}
+              {t("services.model1.bullets.b3")}
             </li>
           </ul>
 
-          <p style={{ marginTop: "0.9rem" }}>
-            Ved overlevering er løsningen kundens eiendom. En begrenset serviceperiode
-            kan avtales, men ansvaret for langsiktig drift og eventuell videreutvikling vil normalt ligge hos
-            kunden.
-          </p>
+          <p style={{ marginTop: "0.9rem" }}>{t("services.model1.p1")}</p>
 
           <p style={{ marginTop: "0.7rem" }}>
-            <Link to="/kontakt">Ta kontakt om bestillingsutvikling →</Link>
+            <Link to="/kontakt">{t("services.model1.cta")}</Link>
           </p>
         </div>
 
         {/* Modell 2 */}
         <div className="intro-card">
-          <p className="model-label">Modell 2</p>
-          <h3 style={{ marginTop: "0.35rem" }}>Idébanken</h3>
-          <p>
-            For idéer som kan bli til et nytt MCL-produkt. Her er eierskap og risiko
-            på MCL – og produktet kan senere tilbys som lisensiert løsning.
-          </p>
+          <p className="model-label">{t("services.model2.label")}</p>
+          <h3 style={{ marginTop: "0.35rem" }}>{t("services.model2.title")}</h3>
+          <p>{t("services.model2.lead")}</p>
 
           <ul style={{ marginTop: "0.9rem" }}>
             <li>
-              <strong>Du deler en idé:</strong> problem, målgruppe og ønsket effekt
+              <strong>{t("services.model2.bullets.b1Strong")}</strong>{" "}
+              {t("services.model2.bullets.b1")}
             </li>
             <li>
-              <strong>Vi vurderer:</strong> praktisk nytte, lav terskel og produktretning
+              <strong>{t("services.model2.bullets.b2Strong")}</strong>{" "}
+              {t("services.model2.bullets.b2")}
             </li>
             <li>
-              <strong>Hvis idéen bygges:</strong> utvikles den som et MCL-produkt og
-              lanseres
+              <strong>{t("services.model2.bullets.b3Strong")}</strong>{" "}
+              {t("services.model2.bullets.b3")}
             </li>
           </ul>
 
           <p style={{ marginTop: "0.9rem" }}>
-            Idébanken er ikke en bestilling og gir ingen garanti for realisering. Men
-            hvis idéen ender som en lansert MCL-app, får idé-giver som takk{" "}
-            <strong>livstidstilgang</strong> til produktet (gratis abonnement).
+            {t("services.model2.p1a")} <strong>{t("services.model2.p1bStrong")}</strong>{" "}
+            {t("services.model2.p1c")}
           </p>
 
           <p style={{ marginTop: "0.7rem" }}>
             <a href="mailto:idebank@morningcoffeelabs.no">
-              Send inn en idé → idebank@morningcoffeelabs.no
+              {t("services.model2.submitEmailCta")} idebank@morningcoffeelabs.no
             </a>
           </p>
         </div>
 
         {/* Hva som gjør en idé interessant (full bredde flis) */}
         <div className="intro-card" style={{ gridColumn: "1 / -1" }}>
-          <h3 style={{ marginTop: 0 }}>Hva som gjør en idé interessant</h3>
-          <p>
-            De beste idéene har lav terskel og høy verdi: et konkret problem, en tydelig
-            brukergruppe og et resultat som kan dokumenteres.
-          </p>
+          <h3 style={{ marginTop: 0 }}>{t("services.interesting.title")}</h3>
+          <p>{t("services.interesting.lead")}</p>
 
           <ul style={{ marginTop: "0.9rem" }}>
-            <li>Beskriv dagens arbeidsflyt og hvor friksjonen oppstår</li>
-            <li>Beskriv hva som må bli enklere eller tryggere</li>
-            <li>Beskriv hvem som bruker verktøyet – og i hvilken situasjon</li>
-            <li>Beskriv hva som bør være “nok” – og hva som ikke trengs</li>
+            <li>{t("services.interesting.bullets.b1")}</li>
+            <li>{t("services.interesting.bullets.b2")}</li>
+            <li>{t("services.interesting.bullets.b3")}</li>
+            <li>{t("services.interesting.bullets.b4")}</li>
           </ul>
 
           <p style={{ marginTop: "0.9rem", marginBottom: 0 }}>
-            Ønsker du et eksempel på et MCL-produkt? <Link to="/progress">Se Progress →</Link>
+            {t("services.interesting.exampleLead")}{" "}
+            <Link to="/progress">{t("services.interesting.exampleCta")}</Link>
           </p>
         </div>
       </section>
