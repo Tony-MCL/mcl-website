@@ -313,3 +313,87 @@ html[data-theme="dark"] .hero-sub {
   color: rgba(255, 255, 255, 0.78);
 }
 
+/* ======================================================
+   PAGE STRUCTURE – felles uttrykk for alle sider
+   ====================================================== */
+
+/* Hero / introduksjon */
+.fs-hero {
+  max-width: 1100px;
+  margin-bottom: 2.5rem;
+}
+
+.fs-hero h1 {
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  line-height: 1.15;
+  margin-bottom: 0.6rem;
+}
+
+.fs-hero .fs-tagline {
+  font-size: 1.05rem;
+  opacity: 0.9;
+  margin-bottom: 1.2rem;
+}
+
+/* ======================================================
+   INTRO GRID – fliser (samme som forsiden)
+   ====================================================== */
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.intro-card {
+  background: var(--card-bg);
+  border-radius: 14px;
+  padding: 1.3rem 1.35rem;
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--card-border);
+}
+
+.intro-card h2,
+.intro-card h3 {
+  margin-top: 0;
+}
+
+/* Tekst i fliser */
+.intro-card p,
+.intro-card li {
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+/* Lister i fliser */
+.intro-card ul {
+  padding-left: 1.1rem;
+  margin: 0.8rem 0;
+}
+
+/* ======================================================
+   MODELL-MERKING (Modell 1 / Modell 2)
+   ====================================================== */
+
+.intro-card .model-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  opacity: 0.7;
+  margin-bottom: 0.35rem;
+}
+
+/* ======================================================
+   MØRK / LYS MODUS – tekstkontrast
+   ====================================================== */
+
+[data-theme="dark"] .fs-hero,
+[data-theme="dark"] .intro-card {
+  color: #f2f2f2;
+}
+
+[data-theme="light"] .fs-hero,
+[data-theme="light"] .intro-card {
+  color: #1f1f1f;
+}
