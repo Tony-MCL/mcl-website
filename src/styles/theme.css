@@ -38,13 +38,23 @@
   --mcl-link-bad: rgba(220, 60, 60, 0.70);
 
   /* ===== Aliases used around the site ===== */
-  --header-height:   var(--mcl-header-h);
-  --mcl-border:      var(--mcl-outline);
-  --mcl-radius:      var(--radius);
-  --mcl-shadow:      var(--elev-1);
-  --mcl-shadow-2:    var(--elev-2);
-  --mcl-text-dim:    var(--mcl-muted);
+  --header-height:    var(--mcl-header-h);
+  --mcl-border:       var(--mcl-outline);
+  --mcl-radius:       var(--radius);
+  --mcl-shadow:       var(--elev-1);
+  --mcl-shadow-2:     var(--elev-2);
+  --mcl-text-dim:     var(--mcl-muted);
   --mcl-accent-light: var(--mcl-accent);
+
+  /* ===== Watermark tuning (light) ===== */
+  --wm-opacity: 0.18;
+  --wm-blend: multiply;
+  --wm-filter:
+    grayscale(1)
+    contrast(1.06)
+    brightness(1.02)
+    drop-shadow(-1px -1px 0 rgba(255, 255, 255, 0.55))
+    drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.10));
 }
 
 /* ---------- Mørk modus ---------- */
@@ -77,7 +87,7 @@ html[data-theme="dark"] {
   --mcl-link: rgba(255, 255, 255, 0.38);
   --mcl-link-bad: rgba(255, 120, 120, 0.78);
 
-  /* aliases inherit automatically, but keep consistent */
+  /* Aliases inherit automatically, but keep consistent */
   --header-height:    var(--mcl-header-h);
   --mcl-border:       var(--mcl-outline);
   --mcl-radius:       var(--radius);
@@ -85,57 +95,10 @@ html[data-theme="dark"] {
   --mcl-shadow-2:     var(--elev-2);
   --mcl-text-dim:     var(--mcl-muted);
   --mcl-accent-light: var(--mcl-accent);
-}
-/* =========================================================
-   Compatibility aliases (website ↔︎ app tokens)
-   Makes website CSS use the same palette/contract as Progress
-   ========================================================= */
 
-:root {
-  /* Layout contract */
-  --header-height: var(--mcl-header-h);
-
-  /* Common UI tokens */
-  --mcl-border: var(--mcl-outline);
-  --mcl-radius: var(--radius);
-  --mcl-shadow: var(--elev-1);
-
-  /* Text */
-  --mcl-text-dim: var(--mcl-muted);
-
-  /* Accent */
-  --mcl-accent-light: var(--mcl-accent);
-}
-
-html[data-theme="dark"] {
-  --header-height: var(--mcl-header-h);
-  --mcl-border: var(--mcl-outline);
-  --mcl-radius: var(--radius);
-  --mcl-shadow: var(--elev-1);
-  --mcl-text-dim: var(--mcl-muted);
-  --mcl-accent-light: var(--mcl-accent);
-}
-/* Watermark tuning (neutral + subtle 3D in both themes) */
-:root {
-  /* Light theme */
-  --wm-opacity: 0.18;
-  --wm-blend: multiply;
-
-  /* Neutralize color + gentle paper-print feel + slight emboss */
-  --wm-filter:
-    grayscale(1)
-    contrast(1.06)
-    brightness(1.02)
-    drop-shadow(-1px -1px 0 rgba(255, 255, 255, 0.55))
-    drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.10));
-}
-
-html[data-theme="dark"] {
-  /* Dark theme */
+  /* ===== Watermark tuning (dark) ===== */
   --wm-opacity: 0.42;
   --wm-blend: soft-light;
-
-  /* Neutralize color + stronger definition + subtle emboss */
   --wm-filter:
     grayscale(1)
     contrast(1.15)
