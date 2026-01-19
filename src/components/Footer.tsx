@@ -14,6 +14,8 @@ const Footer: React.FC = () => {
           <Link to="/brukervilkar">Brukervilkår</Link>
           <span>·</span>
           <Link to="/personvern">Personvern</Link>
+          <span>·</span>
+          <Link to="/refusjon">Refusjon</Link>
         </nav>
       </div>
     </footer>
