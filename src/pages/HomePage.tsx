@@ -4,17 +4,19 @@ import { Link } from "react-router-dom";
 const HomePage: React.FC = () => {
   return (
     <main className="page home-page">
+      {/* ================= Hero ================= */}
       <section className="hero">
-        <h1 className="hero-title">Morning Coffee Labs</h1>
+        <h1 className="hero-title">Enkle verktøy for komplekst arbeid</h1>
 
         <p className="hero-tagline">
-          Verktøy for folk som faktisk har ansvar.
+          Digitale verktøy for struktur, oversikt og gjennomføring – bygget for
+          virkeligheten, ikke for demoer.
         </p>
 
         <p className="hero-sub" style={{ maxWidth: 820 }}>
-          Et lite verksted for digitale arbeidsverktøy – bygget for virkeligheten,
-          ikke for demoer. Her prioriteres ro, kontroll og tillit foran støy,
-          hype og funksjonslister.
+          Her prioriteres tydelig struktur, forutsigbar funksjonalitet og
+          verktøy som er enkle å ta i bruk – også når behovene vokser. Løsninger
+          laget for daglig bruk, under reelle rammer.
         </p>
 
         <div style={{ display: "flex", flexWrap: "wrap", gap: "0.8rem" }}>
@@ -35,45 +37,59 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
+      {/* ================= Hva som bygges ================= */}
       <section>
         <h2 style={{ marginBottom: "0.6rem" }}>Hva som bygges</h2>
 
         <section className="intro-grid">
           <div className="intro-card">
-            <h3>Verktøy for prosjekter</h3>
+            <h3>Fremdrift og planlegging</h3>
             <p>
-              Løsninger for planlegging, oppfølging og dokumentasjon – laget for
-              ekte arbeid. Enkle å ta i bruk på dag én, uten å låse når behovene
-              vokser.
+              Verktøy som gir rask oversikt og tydelig struktur – uten tunge
+              oppsett eller skjulte avhengigheter.
             </p>
           </div>
 
           <div className="intro-card">
-            <h3>Manage Progress</h3>
+            <h3>Struktur og dokumentasjon</h3>
             <p>
-              En ren Gantt-app med lav terskel og høy presisjon. Bygget for
-              daglig bruk under tidspress – og for å tåle endring, print og
-              dokumentasjon uten overraskelser.
-            </p>
-            <p style={{ marginTop: "0.7rem" }}>
-              <Link to="/progress">Se mer om Progress →</Link>
+              Løsninger som gjør det enkelt å følge opp arbeid, beslutninger og
+              endringer – og hente det frem igjen når det faktisk trengs.
             </p>
           </div>
 
           <div className="intro-card">
-            <h3>Idébank</h3>
+            <h3>Verktøy som tåler virkeligheten</h3>
             <p>
-              Et rom for idéer som fortjener å bli realisert, men som mangler
-              struktur, timing eller gjennomføring. Et tydelig “nei” til hype –
-              og et tydelig “ja” til praktisk verdi.
-            </p>
-            <p style={{ marginTop: "0.7rem" }}>
-              <Link to="/idebank">Gå til Idébanken →</Link>
+              Bygget for daglig bruk under tidspress, endringer og reelle
+              rammebetingelser – ikke for perfekte demo-scenarier.
             </p>
           </div>
         </section>
       </section>
 
+      {/* ================= Progress – egen bred flis ================= */}
+      <section>
+        <section className="intro-card" style={{ marginTop: "1.5rem" }}>
+          <h3>Manage Progress</h3>
+          <p>
+            Manage Progress er et lavterskel verktøy for planlegging og
+            oppfølging av prosjekter. Det er laget for å gi rask oversikt,
+            tydelig struktur og kontroll – uten tunge oppsett, komplekse
+            begreper eller unødvendige valg.
+          </p>
+
+          <p>
+            Start enkelt. Utvid når behovet oppstår.
+          </p>
+
+          <p style={{ marginTop: "0.7rem" }}>
+            <Link to="/progress">Se mer om Progress →</Link>
+          </p>
+        </section>
+      </section>
+
+      {/* ================= Prinsipper ================= */}
       <section>
         <h2 style={{ marginBottom: "0.6rem" }}>Prinsipper</h2>
 
@@ -104,12 +120,17 @@ const HomePage: React.FC = () => {
         </section>
       </section>
 
+      {/* ================= Hvem dette passer for ================= */}
       <section>
         <h2 style={{ marginBottom: "0.6rem" }}>Hvem dette passer for</h2>
         <p style={{ maxWidth: 820 }}>
-          Ikke laget for alle – og det er bevisst. Dette treffer best hos folk
-          som kjenner smerten: prosjektbasert arbeid, ansvar, tidspress og behov
-          for dokumenterbar kontroll.
+          Morning Coffee Labs lager verktøy for alle som har behov for struktur,
+          oversikt og dokumenterbar kontroll i arbeidet sitt.
+          <br />
+          <br />
+          Enten du jobber alene eller i team, med små eller større prosjekter,
+          er målet det samme: å gjøre arbeidet enklere å planlegge, følge opp og
+          fullføre – uten unødvendig kompleksitet.
         </p>
       </section>
     </main>
