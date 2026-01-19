@@ -115,18 +115,31 @@ html[data-theme="dark"] {
   --mcl-text-dim: var(--mcl-muted);
   --mcl-accent-light: var(--mcl-accent);
 }
-/* Watermark tuning */
+/* Watermark tuning (neutral + subtle 3D in both themes) */
 :root {
-  --wm-opacity: 0.10;
+  /* Light theme */
+  --wm-opacity: 0.18;
   --wm-blend: multiply;
-  --wm-filter: grayscale(1) saturate(0.9) contrast(1.05) brightness(1.03);
+
+  /* Neutralize color + gentle paper-print feel + slight emboss */
+  --wm-filter:
+    grayscale(1)
+    contrast(1.06)
+    brightness(1.02)
+    drop-shadow(-1px -1px 0 rgba(255, 255, 255, 0.55))
+    drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.10));
 }
 
 html[data-theme="dark"] {
-  --wm-opacity: 0.58;
+  /* Dark theme */
+  --wm-opacity: 0.42;
   --wm-blend: soft-light;
+
+  /* Neutralize color + stronger definition + subtle emboss */
   --wm-filter:
-    drop-shadow(0 0 55px rgba(200, 120, 255, 0.28))
-    drop-shadow(0 0 32px rgba(0, 0, 0, 0.85))
-    blur(0.6px);
+    grayscale(1)
+    contrast(1.15)
+    brightness(1.06)
+    drop-shadow(-1px -1px 0 rgba(255, 255, 255, 0.18))
+    drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.70));
 }
