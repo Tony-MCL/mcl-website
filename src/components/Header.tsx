@@ -55,9 +55,12 @@ const Header: React.FC = () => {
           <Link className={isActive("/") ? "active" : ""} to="/">
             Hjem
           </Link>
+
+          {/* Ren label-endring: /idebank beholdes */}
           <Link className={isActive("/idebank") ? "active" : ""} to="/idebank">
-            Idébank
+            Tjenester
           </Link>
+
           <Link className={isActive("/om") ? "active" : ""} to="/om">
             Om
           </Link>
@@ -80,9 +83,7 @@ const Header: React.FC = () => {
             <span className="theme-icon" aria-hidden="true">
               {theme === "dark" ? "🌙" : "☀️"}
             </span>
-            <span className="theme-label">
-              {theme === "dark" ? "Mørk" : "Lys"}
-            </span>
+            <span className="theme-label">{theme === "dark" ? "Mørk" : "Lys"}</span>
           </button>
 
           <div className="hamburger" onClick={() => setOpen((prev) => !prev)}>
@@ -95,9 +96,12 @@ const Header: React.FC = () => {
         <Link to="/" onClick={closeMenu}>
           Hjem
         </Link>
+
+        {/* Samme label i mobilmeny */}
         <Link to="/idebank" onClick={closeMenu}>
-          Idébank
+          Tjenester
         </Link>
+
         <Link to="/om" onClick={closeMenu}>
           Om
         </Link>
