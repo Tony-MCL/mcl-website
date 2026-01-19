@@ -95,7 +95,8 @@ const AboutPage: React.FC = () => {
             praktisk nytte.
           </p>
           <p style={{ marginBottom: 0 }}>
-            Vil du lese mer om hvordan vi jobber? <Link to="/idebank">Se arbeidsmodeller →</Link>
+            Vil du lese mer om hvordan vi jobber?{" "}
+            <Link to="/idebank">Se arbeidsmodeller →</Link>
           </p>
         </div>
 
@@ -108,22 +109,6 @@ const AboutPage: React.FC = () => {
           </p>
           <p style={{ marginBottom: 0 }}>
             Se produktet her: <Link to="/progress">Manage Progress →</Link>
-          </p>
-        </div>
-
-        <div className="intro-card" style={{ gridColumn: "1 / -1" }}>
-          <h2 style={{ marginTop: 0 }}>Hva dette aldri skal bli</h2>
-          <p>
-            Vi prøver bevisst å styre unna noen klassiske feller:
-          </p>
-          <ul style={{ marginTop: "0.8rem" }}>
-            <li>Et buzzword-selskap som selger “features” uten verdi.</li>
-            <li>Et system som tvinger brukeren til å jobbe på verktøyets premisser.</li>
-            <li>Et produkt som vokser i kompleksitet raskere enn i nytte.</li>
-            <li>“Microsoft Project med bedre farger.”</li>
-          </ul>
-          <p style={{ marginBottom: 0 }}>
-            Vi vil heller være lille og presise, enn store og uklare.
           </p>
         </div>
       </section>
