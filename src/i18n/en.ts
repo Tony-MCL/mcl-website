@@ -24,6 +24,17 @@ const en = {
       aria: "Switch language",
     },
   },
+
+  footer: {
+  copyright: "Morning Coffee Labs",
+  links: {
+    termsPurchase: "Purchase terms",
+    termsUse: "Terms of use",
+    privacy: "Privacy policy",
+    refund: "Refunds",
+  },
+},
+
 } as const;
 
 export default en;
