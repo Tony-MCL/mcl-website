@@ -35,7 +35,7 @@ const ProgressPage: React.FC = () => {
       </section>
 
       {/* INNHOLD */}
-      <section className="intro-grid">
+      <section className="intro-grid two-columns">
         <div className="intro-card">
           <h3>Én plan, én sannhet</h3>
           <p>
