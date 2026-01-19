@@ -176,6 +176,72 @@ home: {
   phoneLabel: "Phone:",
 },
 
+  services: {
+  hero: {
+    title: "Services",
+    tagline:
+      "From challenges to ideas — and onward to solutions built for real life.",
+    p1:
+      "Morning Coffee Labs builds digital work tools with low friction and high precision. Whether it’s commissioned development or the idea bank, the goal is the same: clear structure, predictable functionality, and solutions that hold up over time.",
+    p2:
+      "We start from a problem that actually costs time, focus, or quality. Then we shape it into an idea that can be tested and built. Finally, we deliver a solution that’s easy to adopt, easy to maintain — and clear about what it does.",
+    back: "← Back to home",
+    contact: "Get in touch →",
+  },
+
+  model1: {
+    label: "Model 1",
+    title: "Commissioned development",
+    lead:
+      "For companies that need a specific tool — delivered as the customer’s owned asset.",
+    bullets: {
+      b1Strong: "Need → delivery:",
+      b1: "you describe goals, constraints, and the desired outcome",
+      b2Strong: "Development:",
+      b2: "delivered for an agreed price and scope",
+      b3Strong: "Ownership:",
+      b3: "the solution is handed over and owned by the customer",
+    },
+    p1:
+      "Upon delivery, the solution is the customer’s property. A limited service period can be agreed, but long-term operation and any further development will normally be the customer’s responsibility.",
+    cta: "Contact us about commissioned development →",
+  },
+
+  model2: {
+    label: "Model 2",
+    title: "Idea bank",
+    lead:
+      "For ideas that can become a new MCL product. Ownership and risk stay with MCL — and the product can later be offered as a licensed solution.",
+    bullets: {
+      b1Strong: "You share an idea:",
+      b1: "problem, audience, and desired impact",
+      b2Strong: "We evaluate:",
+      b2: "practical value, low friction, and product direction",
+      b3Strong: "If it’s built:",
+      b3: "it becomes an MCL product and is launched",
+    },
+    p1a:
+      "The idea bank is not a commission and provides no guarantee of delivery. But if the idea becomes a launched MCL app, the idea contributor receives",
+    p1bStrong: "lifetime access",
+    p1c: "to the product (free subscription) as a thank you.",
+    submitEmailCta: "Submit an idea →",
+  },
+
+  interesting: {
+    title: "What makes an idea interesting",
+    lead:
+      "The best ideas have low friction and high value: a concrete problem, a clear user group, and a result that can be documented.",
+    bullets: {
+      b1: "Describe today’s workflow and where the friction occurs",
+      b2: "Describe what must become easier or safer",
+      b3: "Describe who uses the tool — and in what situation",
+      b4: "Describe what should be “enough” — and what isn’t needed",
+    },
+    exampleLead: "Want to see an example of an MCL product?",
+    exampleCta: "See Progress →",
+  },
+},
+
 } as const;
 
 export default en;
