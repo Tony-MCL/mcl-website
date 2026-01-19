@@ -62,11 +62,10 @@ const HomePage: React.FC = () => {
 
           {/* TJENESTER (erstatter "Fremdrift og planlegging") */}
           <div className="intro-card">
-            <h3>Tjenester</h3>
+            <h3>Fra utfordring til løsning</h3>
             <p>
-              Vi bygger apper på bestilling for bedrifter som trenger et konkret
-              verktøy – levert som et produkt dere eier. I tillegg driver vi en
-              idébank der gode idéer kan bli til lisensprodukter over tid.
+              Vi bygger verktøy som starter i en reell utfordring, formes som en tydelig idé – og ender som en løsning som fungerer i praksis.
+              Du kan bestille en app dere eier, eller dele en idé som kan bli et MCL-produkt.
             </p>
 
             <p style={{ marginTop: "0.7rem" }}>
