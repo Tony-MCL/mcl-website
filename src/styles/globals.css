@@ -247,15 +247,11 @@ html[data-theme="dark"] .header {
     height: 118vh;
     width: auto;
 
-    opacity: 0.5;
+    opacity: var(--wm-opacity);
+    filter: var(--wm-filter);
+    mix-blend-mode: var(--wm-blend);
 
-    filter: drop-shadow(0 0 55px rgba(200, 120, 255, 0.28))
-      drop-shadow(0 0 32px rgba(0, 0, 0, 0.85))
-      blur(0.6px);
-
-    mix-blend-mode: soft-light;
     user-select: none;
-
     transform: translateY(1.2%);
   }
 }
@@ -278,11 +274,13 @@ html[data-theme="dark"] .header {
     width: 100vw;
     height: auto;
 
-    opacity: 0.22;
+    /* Theme-aware watermark */
+    opacity: calc(var(--wm-opacity) * 0.6);
+    filter: var(--wm-filter);
+    mix-blend-mode: var(--wm-blend);
 
-    filter: drop-shadow(0 0 35px rgba(180, 110, 240, 0.25)) blur(0.4px);
-
-    mix-blend-mode: soft-light;
     transform: translateY(-5%);
+    user-select: none;
   }
 }
+
