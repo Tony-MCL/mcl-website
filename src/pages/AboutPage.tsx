@@ -1,114 +1,84 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useI18n } from "../i18n/useI18n";
 
 const AboutPage: React.FC = () => {
+  const { t } = useI18n();
+
   return (
     <main className="page about-page">
       {/* HERO */}
       <section className="fs-hero">
-        <h1>Om Morning Coffee Labs</h1>
+        <h1>{t("about.hero.title")}</h1>
 
         <p className="fs-tagline" style={{ maxWidth: 980 }}>
-          Et lite produktverksted som lager digitale arbeidsverktøy – med lav terskel,
-          høy presisjon og respekt for hvordan arbeid faktisk gjøres.
+          {t("about.hero.tagline")}
         </p>
       </section>
 
       {/* CONTENT (fliser) */}
       <section className="intro-grid two-columns">
         <div className="intro-card" style={{ gridColumn: "1 / -1" }}>
-          <h2 style={{ marginTop: 0 }}>Hvordan dette startet</h2>
-          <p>
-            Morning Coffee Labs ble til av et ganske enkelt behov: å få bedre flyt og
-            bedre oversikt i arbeid som ofte er komplekst, fullt av avhengigheter – og
-            hvor endringer skjer underveis. Vi tror ikke at mer “system” alltid gir
-            mer kontroll. Ofte er det motsatt: kontroll kommer av tydelige valg,
-            forutsigbarhet og verktøy som ikke står i veien.
-          </p>
-          <p style={{ marginBottom: 0 }}>
-            Derfor bygger vi heller få ting skikkelig, enn mange ting halvveis. Som et
-            verksted – ikke som en fabrikk.
-          </p>
+          <h2 style={{ marginTop: 0 }}>{t("about.started.title")}</h2>
+          <p>{t("about.started.p1")}</p>
+          <p style={{ marginBottom: 0 }}>{t("about.started.p2")}</p>
         </div>
 
         <div className="intro-card">
-          <h3>Et verksted, ikke en fabrikk</h3>
-          <p>
-            Vi bygger med samme tankesett som i godt fagarbeid: det skal tåle bruk,
-            tåle tid og være lett å forstå. Tempoet kan være høyt, men retningen er
-            stabil: lav terskel, høy presisjon og null toleranse for støy.
-          </p>
-          <p style={{ marginBottom: 0 }}>
-            Når vi legger til noe, skal det gjøre jobben enklere – ikke bare gi flere
-            knapper.
-          </p>
+          <h3>{t("about.workshop.title")}</h3>
+          <p>{t("about.workshop.p1")}</p>
+          <p style={{ marginBottom: 0 }}>{t("about.workshop.p2")}</p>
         </div>
 
         <div className="intro-card">
-          <h3>Kvalitet betyr kontroll</h3>
-          <p>
-            For oss handler kvalitet mer om kontroll enn om perfeksjon: kontroll på
-            data, flyt, eierskap og konsekvens. Samme handling skal gi samme resultat.
-            Det som lagres, skal kunne forklares. Og det som vises, skal være mulig å
-            stole på.
-          </p>
-          <p style={{ marginBottom: 0 }}>
-            Vi prioriterer robusthet foran “smart” magi som virker – helt til det ikke
-            gjør det.
-          </p>
+          <h3>{t("about.quality.title")}</h3>
+          <p>{t("about.quality.p1")}</p>
+          <p style={{ marginBottom: 0 }}>{t("about.quality.p2")}</p>
         </div>
 
         <div className="intro-card" style={{ gridColumn: "1 / -1" }}>
-          <h2 style={{ marginTop: 0 }}>Prinsippene våre</h2>
-          <p>
-            Vi har noen enkle prinsipper som går igjen i alt vi lager. De er ikke
-            “fine ord” – de er arbeidsregler:
-          </p>
+          <h2 style={{ marginTop: 0 }}>{t("about.principles.title")}</h2>
+          <p>{t("about.principles.lead")}</p>
+
           <ul style={{ marginTop: "0.8rem" }}>
             <li>
-              <strong>Én kilde til sannhet:</strong> ingen dobbeltlogikk, ingen skjulte
-              avvik.
+              <strong>{t("about.principles.bullets.singleSource")}:</strong>{" "}
+              {t("about.principles.bullets.singleSourceBody")}
             </li>
             <li>
-              <strong>Forutsigbarhet foran wow:</strong> design og teknikk må henge
-              sammen – ellers bygges det ikke.
+              <strong>{t("about.principles.bullets.predictability")}:</strong>{" "}
+              {t("about.principles.bullets.predictabilityBody")}
             </li>
             <li>
-              <strong>Respekt for tid og hode:</strong> alt som stjeler fokus uten å gi
-              verdi regnes som en feil.
+              <strong>{t("about.principles.bullets.respect")}:</strong>{" "}
+              {t("about.principles.bullets.respectBody")}
             </li>
             <li>
-              <strong>Bygget for ekte arbeid:</strong> også når det skal printes,
-              dokumenteres og etterprøves.
+              <strong>{t("about.principles.bullets.realWork")}:</strong>{" "}
+              {t("about.principles.bullets.realWorkBody")}
             </li>
           </ul>
+
           <p style={{ marginBottom: 0 }}>
-            Resultatet skal føles rolig: <em>“det bare fungerer.”</em>
+            {t("about.principles.outro")} <em>{t("about.principles.outroEm")}</em>
           </p>
         </div>
 
         <div className="intro-card">
-          <h3>Hva vi leverer</h3>
-          <p>
-            Vi bygger egne produkter – og vi kan også bygge løsninger på bestilling.
-            Fellesnevneren er alltid den samme: tydelig struktur, lav friksjon og
-            praktisk nytte.
-          </p>
+          <h3>{t("about.deliver.title")}</h3>
+          <p>{t("about.deliver.p1")}</p>
           <p style={{ marginBottom: 0 }}>
-            Vil du lese mer om hvordan vi jobber?{" "}
-            <Link to="/idebank">Se arbeidsmodeller →</Link>
+            {t("about.deliver.linkLead")}{" "}
+            <Link to="/idebank">{t("about.deliver.linkCta")}</Link>
           </p>
         </div>
 
         <div className="intro-card">
-          <h3>Produkter og retning</h3>
-          <p>
-            Første produkt ut er <strong>Manage Progress</strong>: en ren Gantt-app med
-            lav terskel og høy presisjon. Over tid kan flere verktøy komme – men aldri
-            på bekostning av klarhet, struktur og reell nytte.
-          </p>
+          <h3>{t("about.direction.title")}</h3>
+          <p>{t("about.direction.p1")}</p>
           <p style={{ marginBottom: 0 }}>
-            Se produktet her: <Link to="/progress">Manage Progress →</Link>
+            {t("about.direction.linkLead")}{" "}
+            <Link to="/progress">{t("about.direction.linkCta")}</Link>
           </p>
         </div>
       </section>
