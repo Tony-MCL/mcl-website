@@ -176,6 +176,72 @@ home: {
   phoneLabel: "Telefon:",
 },
 
+  services: {
+  hero: {
+    title: "Tjenester",
+    tagline:
+      "Fra utfordringer til idéer – og videre til løsninger som tåler virkeligheten.",
+    p1:
+      "Morning Coffee Labs bygger digitale arbeidsverktøy med lav terskel og høy presisjon. Enten det gjelder bestillingsutvikling eller idébanken er målet det samme: tydelig struktur, forutsigbar funksjonalitet og løsninger som tåler reell bruk over tid.",
+    p2:
+      "Vi starter med et problem som faktisk koster tid, fokus eller kvalitet. Deretter gjør vi det om til en idé som kan testes og bygges. Til slutt leverer vi en løsning som er enkel å ta i bruk, lett å vedlikeholde – og tydelig i hva den gjør.",
+    back: "← Tilbake til forsiden",
+    contact: "Ta kontakt →",
+  },
+
+  model1: {
+    label: "Modell 1",
+    title: "Bestillingsutvikling",
+    lead:
+      "For bedrifter som trenger et konkret verktøy – overlevert som kundens eiendel.",
+    bullets: {
+      b1Strong: "Behov → leveranse:",
+      b1: "dere beskriver mål, rammer og ønsket resultat",
+      b2Strong: "Utvikling:",
+      b2: "leveres mot avtalt betaling og scope",
+      b3Strong: "Eierskap:",
+      b3: "løsningen overleveres og eies av kunden",
+    },
+    p1:
+      "Ved overlevering er løsningen kundens eiendom. En begrenset serviceperiode kan avtales, men ansvaret for langsiktig drift og eventuell videreutvikling vil normalt ligge hos kunden.",
+    cta: "Ta kontakt om bestillingsutvikling →",
+  },
+
+  model2: {
+    label: "Modell 2",
+    title: "Idébanken",
+    lead:
+      "For idéer som kan bli til et nytt MCL-produkt. Her er eierskap og risiko på MCL – og produktet kan senere tilbys som lisensiert løsning.",
+    bullets: {
+      b1Strong: "Du deler en idé:",
+      b1: "problem, målgruppe og ønsket effekt",
+      b2Strong: "Vi vurderer:",
+      b2: "praktisk nytte, lav terskel og produktretning",
+      b3Strong: "Hvis idéen bygges:",
+      b3: "utvikles den som et MCL-produkt og lanseres",
+    },
+    p1a:
+      "Idébanken er ikke en bestilling og gir ingen garanti for realisering. Men hvis idéen ender som en lansert MCL-app, får idé-giver som takk",
+    p1bStrong: "livstidstilgang",
+    p1c: "til produktet (gratis abonnement).",
+    submitEmailCta: "Send inn en idé →",
+  },
+
+  interesting: {
+    title: "Hva som gjør en idé interessant",
+    lead:
+      "De beste idéene har lav terskel og høy verdi: et konkret problem, en tydelig brukergruppe og et resultat som kan dokumenteres.",
+    bullets: {
+      b1: "Beskriv dagens arbeidsflyt og hvor friksjonen oppstår",
+      b2: "Beskriv hva som må bli enklere eller tryggere",
+      b3: "Beskriv hvem som bruker verktøyet – og i hvilken situasjon",
+      b4: "Beskriv hva som bør være “nok” – og hva som ikke trengs",
+    },
+    exampleLead: "Ønsker du et eksempel på et MCL-produkt?",
+    exampleCta: "Se Progress →",
+  },
+},
+
 } as const;
 
 export default no;
