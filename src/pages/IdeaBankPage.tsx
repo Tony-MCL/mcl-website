@@ -47,7 +47,7 @@ const IdeaBankPage: React.FC = () => {
       </section>
 
       {/* MODELLER + VIDERE INNHOLD (i fliser) */}
-      <section className="intro-grid">
+      <section className="intro-grid two-columns">
         {/* Modell 1 */}
         <div className="intro-card">
           <p className="model-label">Modell 1</p>
