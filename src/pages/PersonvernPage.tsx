@@ -1,105 +1,63 @@
 import React from "react";
+import { useI18n } from "../i18n/useI18n";
 
 const PersonvernPage: React.FC = () => {
+  const { t } = useI18n();
+
+  const s2Bullets = (t("legal.privacy.s2.bullets") as unknown) as string[];
+  const s3Bullets = (t("legal.privacy.s3.bullets") as unknown) as string[];
+
   return (
     <main className="page legal-page">
       <section className="legal-header">
-        <h1>Personvernerklæring</h1>
-        <p className="legal-intro">
-          Denne personvernerklæringen beskriver hvordan Mathisens Morning Coffee
-          Labs behandler personopplysninger i tilknytning til våre nettsider og
-          digitale tjenester.
-        </p>
+        <h1>{t("legal.privacy.title")}</h1>
+        <p className="legal-intro">{t("legal.privacy.intro")}</p>
       </section>
 
       <section className="legal-section">
-        <h2>1. Behandlingsansvarlig</h2>
-        <p>
-          Mathisens Morning Coffee Labs er behandlingsansvarlig for
-          personopplysninger som samles inn gjennom nettsiden og tjenestene.
-        </p>
+        <h2>{t("legal.privacy.s1.title")}</h2>
+        <p>{t("legal.privacy.s1.body")}</p>
       </section>
 
       <section className="legal-section">
-        <h2>2. Hvilke opplysninger vi samler inn</h2>
-        <p>Typiske opplysninger vi kan behandle er for eksempel:</p>
+        <h2>{t("legal.privacy.s2.title")}</h2>
+        <p>{t("legal.privacy.s2.lead")}</p>
         <ul>
-          <li>Navn og kontaktinformasjon (for eksempel e-postadresse)</li>
-          <li>
-            Faktureringsopplysninger ved kjøp (håndteres hovedsakelig via
-            Stripe)
-          </li>
-          <li>
-            Tekst som sendes inn via kontaktskjema, idebank eller andre
-            skjemaer
-          </li>
-          <li>
-            Tekniske data om bruk av tjenesten (for eksempel hvilke sider som
-            besøkes)
-          </li>
+          {Array.isArray(s2Bullets) ? s2Bullets.map((x, i) => <li key={i}>{x}</li>) : null}
         </ul>
       </section>
 
       <section className="legal-section">
-        <h2>3. Formål og behandlingsgrunnlag</h2>
-        <p>
-          Opplysningene brukes blant annet til å:
-        </p>
+        <h2>{t("legal.privacy.s3.title")}</h2>
+        <p>{t("legal.privacy.s3.lead")}</p>
         <ul>
-          <li>levere og administrere tjenester og lisenser</li>
-          <li>håndtere kjøp, betaling og kundeservice</li>
-          <li>forbedre og videreutvikle tjenestene</li>
-          <li>
-            sende relevant informasjon dersom du har samtykket til dette
-            (nyhetsbrev o.l.).
-          </li>
+          {Array.isArray(s3Bullets) ? s3Bullets.map((x, i) => <li key={i}>{x}</li>) : null}
         </ul>
       </section>
 
       <section className="legal-section">
-        <h2>4. Lagring og sletting</h2>
-        <p>
-          Vi lagrer personopplysninger så lenge det er nødvendig for formålet
-          de ble samlet inn for, eller så lenge vi er pålagt det gjennom
-          regnskaps- og bokføringsregler. Opplysninger som ikke lenger er
-          nødvendige blir slettet eller anonymisert.
-        </p>
+        <h2>{t("legal.privacy.s4.title")}</h2>
+        <p>{t("legal.privacy.s4.body")}</p>
       </section>
 
       <section className="legal-section">
-        <h2>5. Dine rettigheter</h2>
-        <p>
-          Du har rett til innsyn, retting og i noen tilfeller sletting av
-          personopplysninger vi har om deg. Du kan også protestere mot eller
-          be om begrensning av behandlingen, samt trekke tilbake eventuelle
-          samtykker.
-        </p>
+        <h2>{t("legal.privacy.s5.title")}</h2>
+        <p>{t("legal.privacy.s5.body")}</p>
       </section>
 
       <section className="legal-section">
-        <h2>6. Tredjeparter og databehandlere</h2>
-        <p>
-          Vi kan bruke underleverandører (for eksempel Stripe for betaling og
-          hosting-leverandører) til å behandle data på våre vegne. Disse er
-          bundet av databehandleravtaler og kan ikke bruke opplysningene til
-          egne formål.
-        </p>
+        <h2>{t("legal.privacy.s6.title")}</h2>
+        <p>{t("legal.privacy.s6.body")}</p>
       </section>
 
       <section className="legal-section">
-        <h2>7. Endringer i personvernerklæringen</h2>
-        <p>
-          Personvernerklæringen kan oppdateres ved behov. Oppdatert versjon vil
-          alltid være tilgjengelig på denne siden.
-        </p>
+        <h2>{t("legal.privacy.s7.title")}</h2>
+        <p>{t("legal.privacy.s7.body")}</p>
       </section>
 
       <section className="legal-section">
-        <h2>8. Kontakt</h2>
-        <p>
-          For spørsmål om personvern kan du kontakte oss via kontaktskjemaet på
-          nettsiden.
-        </p>
+        <h2>{t("legal.privacy.s8.title")}</h2>
+        <p>{t("legal.privacy.s8.body")}</p>
       </section>
     </main>
   );
