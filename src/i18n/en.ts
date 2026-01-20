@@ -287,7 +287,6 @@ progressPage: {
   },
 },
 
-} as const;
 legal: {
   terms: {
     title: "Terms of use",
@@ -336,5 +335,5 @@ legal: {
     s5: { title: "5. How to contact us", lead: "Send an email to", bodyAfterEmail: "including:", bullets: ["Content coming."] },
   },
 },
-
+} as const;
 export default en;
