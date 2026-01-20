@@ -241,7 +241,100 @@ home: {
     exampleCta: "See Progress →",
   },
 },
+progressPage: {
+  hero: {
+    tagline: "Project planning without noise.",
+    intro:
+      "Manage Progress is a focused Gantt tool for project-based work. Built for daily use under time pressure — and for situations where overview, predictability, and documentation actually matter.",
+    badge: "Launching February 1",
+    notifyCta: "Want a heads-up at launch? Get in touch →",
+  },
+
+  cards: {
+    oneTruth: {
+      title: "One plan, one truth",
+      body:
+        "The table is the source of truth. The Gantt view mirrors the exact same content. No hidden logic, no surprises.",
+    },
+    realProjects: {
+      title: "Built for real projects",
+      body:
+        "Changes, dependencies, shifts, and replanning are handled without the structure collapsing. Built for projects that actually live.",
+    },
+    print: {
+      title: "Printing is a feature",
+      body:
+        "Print and export aren’t afterthoughts. Plans can be brought to meetings, included in documentation, and reused — with predictable results every time.",
+    },
+    lowFriction: {
+      title: "Low friction, high precision",
+      body:
+        "Get started quickly and keep the plan tidy. The focus is structure and control — without the tool becoming a project of its own.",
+    },
+  },
+
+  audience: {
+    title: "Who this is for",
+    body:
+      "Manage Progress is for project managers, technical teams, and project-based organizations that need a plan that handles change, can be documented, and is easy to bring into meetings and deliveries.",
+  },
+
+  next: {
+    title: "Next",
+    body:
+      "Manage Progress is part of what will become Manage System over time — an ecosystem of small, independent tools that can work alone, or together when needed.",
+    back: "← Back to Morning Coffee Labs",
+  },
+},
 
 } as const;
+legal: {
+  terms: {
+    title: "Terms of use",
+    intro: "These terms govern how you may use services and apps provided by Mathisens Morning Coffee Labs.",
+    s1: { title: "1. License and use", body: "Content coming." },
+    s2: { title: "2. Account and access", body: "Content coming." },
+    s3: { title: "3. Acceptable use", body: "Content coming." },
+    s4: { title: "4. Availability and changes", body: "Content coming." },
+    s5: { title: "5. Limitation of liability", body: "Content coming." },
+    s6: { title: "6. Changes to terms", body: "Content coming." },
+  },
+
+  privacy: {
+    title: "Privacy policy",
+    intro: "This privacy policy describes how Mathisens Morning Coffee Labs processes personal data related to our websites and digital services.",
+    s1: { title: "1. Data controller", body: "Content coming." },
+    s2: { title: "2. What we collect", lead: "We may process:", bullets: ["Content coming."] },
+    s3: { title: "3. Purpose and legal basis", lead: "We use data to:", bullets: ["Content coming."] },
+    s4: { title: "4. Storage and deletion", body: "Content coming." },
+    s5: { title: "5. Your rights", body: "Content coming." },
+    s6: { title: "6. Processors", body: "Content coming." },
+    s7: { title: "7. Changes", body: "Content coming." },
+    s8: { title: "8. Contact", body: "Content coming." },
+  },
+
+  purchase: {
+    title: "Purchase terms",
+    intro: "These terms apply to purchases of digital products from Mathisens Morning Coffee Labs.",
+    s1: { title: "1. Parties", body: "Content coming." },
+    s2: { title: "2. Product and license", body: "Content coming." },
+    s3: { title: "3. Price and payment", body: "Content coming." },
+    s4: { title: "4. Delivery of digital content", body: "Content coming." },
+    s5: { title: "5. Withdrawal and cancellation", body: "Content coming." },
+    s6: { title: "6. Complaints", body: "Content coming." },
+    s7: { title: "7. Changes", body: "Content coming." },
+    s8: { title: "8. Contact information", body: "Content coming." },
+  },
+
+  refund: {
+    title: "Refunds and complaints",
+    intro: "How we handle refunds, cancelled purchases, and complaints for digital licenses.",
+    s1: { title: "1. Digital goods and right of withdrawal", p1: "Content coming.", bullets: ["Content coming."], p2: "Content coming." },
+    s2: { title: "2. Refunds for technical issues", p1: "Content coming.", bullets: ["Content coming."] },
+    s3: { title: "3. Subscription cancellation", body: "Content coming." },
+    s4: { title: "4. Incorrect charges", body: "Content coming." },
+    s5: { title: "5. How to contact us", lead: "Send an email to", bodyAfterEmail: "including:", bullets: ["Content coming."] },
+  },
+},
 
 export default en;
