@@ -290,50 +290,188 @@ progressPage: {
 legal: {
   terms: {
     title: "Terms of use",
-    intro: "These terms govern how you may use services and apps provided by Mathisens Morning Coffee Labs.",
-    s1: { title: "1. License and use", body: "Content coming." },
-    s2: { title: "2. Account and access", body: "Content coming." },
-    s3: { title: "3. Acceptable use", body: "Content coming." },
-    s4: { title: "4. Availability and changes", body: "Content coming." },
-    s5: { title: "5. Limitation of liability", body: "Content coming." },
-    s6: { title: "6. Changes to terms", body: "Content coming." },
+    intro:
+      "These terms of use govern how you may use services and apps provided by Mathisens Morning Coffee Labs.",
+    s1: {
+      title: "1. License and use",
+      body:
+        "You receive a personal, non-transferable license to use the service in accordance with the selected license model. The license permits normal internal use within your own organization, but not resale or redistribution of the service.",
+    },
+    s2: {
+      title: "2. Account and access",
+      body:
+        "Where the service requires login, you are responsible for keeping your login details secure and ensuring that unauthorized parties do not gain access. Misuse or suspected misuse must be reported to us as soon as possible.",
+    },
+    s3: {
+      title: "3. Acceptable use",
+      body:
+        "The services must not be used in a manner that violates applicable law, infringes the rights of others, or attempts to circumvent technical limitations and licensing mechanisms.",
+    },
+    s4: {
+      title: "4. Availability and changes",
+      body:
+        "We aim for stable operation, but we cannot guarantee 100% uptime. The services may be updated or changed over time, including to improve functionality or security.",
+    },
+    s5: {
+      title: "5. Limitation of liability",
+      body:
+        "The services are provided “as is”. We are not liable for indirect losses, such as loss of profit or business interruption, to the extent permitted by applicable law.",
+    },
+    s6: {
+      title: "6. Changes to these terms",
+      body:
+        "These terms may be updated when needed. Material changes will be communicated via the website or by email. The latest version will always be available here.",
+    },
   },
 
   privacy: {
     title: "Privacy policy",
-    intro: "This privacy policy describes how Mathisens Morning Coffee Labs processes personal data related to our websites and digital services.",
-    s1: { title: "1. Data controller", body: "Content coming." },
-    s2: { title: "2. What we collect", lead: "We may process:", bullets: ["Content coming."] },
-    s3: { title: "3. Purpose and legal basis", lead: "We use data to:", bullets: ["Content coming."] },
-    s4: { title: "4. Storage and deletion", body: "Content coming." },
-    s5: { title: "5. Your rights", body: "Content coming." },
-    s6: { title: "6. Processors", body: "Content coming." },
-    s7: { title: "7. Changes", body: "Content coming." },
-    s8: { title: "8. Contact", body: "Content coming." },
+    intro:
+      "This privacy policy describes how Mathisens Morning Coffee Labs processes personal data in connection with our websites and digital services.",
+    s1: {
+      title: "1. Data controller",
+      body:
+        "Mathisens Morning Coffee Labs is the data controller for personal data collected through the website and the services.",
+    },
+    s2: {
+      title: "2. What data we collect",
+      lead: "Typical information we may process includes, for example:",
+      bullets: [
+        "Name and contact details (for example, email address)",
+        "Billing details for purchases (primarily handled via Stripe)",
+        "Text submitted via contact forms, the idea bank, or other forms",
+        "Technical data about use of the service (for example, which pages are visited)",
+      ],
+    },
+    s3: {
+      title: "3. Purpose and legal basis",
+      lead: "We use the information, among other things, to:",
+      bullets: [
+        "Provide and administer services and licenses",
+        "Handle purchases, payments, and customer support",
+        "Improve and further develop the services",
+        "Send relevant information if you have consented to this (newsletters, etc.)",
+      ],
+    },
+    s4: {
+      title: "4. Storage and deletion",
+      body:
+        "We store personal data for as long as necessary for the purpose for which it was collected, or as long as we are required to do so under accounting and bookkeeping rules. Data that is no longer necessary is deleted or anonymized.",
+    },
+    s5: {
+      title: "5. Your rights",
+      body:
+        "You have the right to access, correct, and in some cases delete personal data we hold about you. You may also object to or request restriction of processing, and withdraw any consent you have given.",
+    },
+    s6: {
+      title: "6. Third parties and processors",
+      body:
+        "We may use subcontractors (for example, Stripe for payments and hosting providers) to process data on our behalf. These parties are bound by data processing agreements and may not use the information for their own purposes.",
+    },
+    s7: {
+      title: "7. Changes to this privacy policy",
+      body:
+        "This privacy policy may be updated when needed. The latest version will always be available on this page.",
+    },
+    s8: {
+      title: "8. Contact",
+      body:
+        "If you have questions about privacy, you can contact us via the contact page on the website.",
+    },
   },
 
   purchase: {
     title: "Purchase terms",
-    intro: "These terms apply to purchases of digital products from Mathisens Morning Coffee Labs.",
-    s1: { title: "1. Parties", body: "Content coming." },
-    s2: { title: "2. Product and license", body: "Content coming." },
-    s3: { title: "3. Price and payment", body: "Content coming." },
-    s4: { title: "4. Delivery of digital content", body: "Content coming." },
-    s5: { title: "5. Withdrawal and cancellation", body: "Content coming." },
-    s6: { title: "6. Complaints", body: "Content coming." },
-    s7: { title: "7. Changes", body: "Content coming." },
-    s8: { title: "8. Contact information", body: "Content coming." },
+    intro:
+      "These purchase terms apply to purchases of digital products from Mathisens Morning Coffee Labs (“we”, “us”, or “the seller”).",
+    s1: {
+      title: "1. The parties",
+      body:
+        "The seller is Mathisens Morning Coffee Labs. The buyer is the person or organization that completes the order in the online store or via our apps.",
+    },
+    s2: {
+      title: "2. Product and license",
+      body:
+        "Our products are delivered as digital services and software. Upon purchase, you receive a non-exclusive license to use the service in accordance with the selected license model (for example monthly, yearly, or a one-time license), and within the scope described in the product information.",
+    },
+    s3: {
+      title: "3. Price and payment",
+      body:
+        "The prices shown in the online store apply at the time of ordering and are stated in NOK, and in some cases also as an indicative price in EUR. Payments are processed via Stripe. For subscriptions, the amount will be charged automatically upon each renewal until the subscription is cancelled.",
+    },
+    s4: {
+      title: "4. Delivery of digital content",
+      body:
+        "The license is normally activated immediately after payment has been completed. By confirming the purchase, you consent to delivery starting before any withdrawal period has expired.",
+    },
+    s5: {
+      title: "5. Right of withdrawal and cancellation",
+      body:
+        "For digital services delivered immediately, the right of withdrawal lapses once you have consented to delivery starting before the withdrawal period expires. Subscriptions can be cancelled at any time and will then remain active until the end of the current paid period.",
+    },
+    s6: {
+      title: "6. Complaints",
+      body:
+        "If the service does not work as described, you can contact us via the contact page on the website. We will then attempt to fix the issue, provide guidance, or offer another reasonable solution.",
+    },
+    s7: {
+      title: "7. Changes to these terms",
+      body:
+        "We may update these terms when needed. For material changes, we will inform you via the website or email. The latest version will always be available on this page.",
+    },
+    s8: {
+      title: "8. Contact information",
+      body:
+        "Questions about purchases or licenses can be directed via the contact page on the website.",
+    },
   },
 
   refund: {
     title: "Refunds and complaints",
-    intro: "How we handle refunds, cancelled purchases, and complaints for digital licenses.",
-    s1: { title: "1. Digital goods and right of withdrawal", p1: "Content coming.", bullets: ["Content coming."], p2: "Content coming." },
-    s2: { title: "2. Refunds for technical issues", p1: "Content coming.", bullets: ["Content coming."] },
-    s3: { title: "3. Subscription cancellation", body: "Content coming." },
-    s4: { title: "4. Incorrect charges", body: "Content coming." },
-    s5: { title: "5. How to contact us", lead: "Send an email to", bodyAfterEmail: "including:", bullets: ["Content coming."] },
+    intro:
+      "Here we describe how we handle refunds, cancelled purchases, and complaints for digital licenses.",
+    s1: {
+      title: "1. Digital goods and right of withdrawal",
+      p1:
+        "Our licenses are delivered digitally and are activated immediately after payment has been completed. Under the Norwegian Right of Withdrawal Act (Angrerettloven) section 22 (n) and the EU Digital Content Directive, the right of withdrawal lapses when:",
+      bullets: [
+        "you request immediate delivery, and",
+        "you confirm that the right of withdrawal lapses once the license has been delivered and activated.",
+      ],
+      p2: "This consent is given in the purchase flow before payment.",
+    },
+    s2: {
+      title: "2. Refunds in case of technical issues",
+      p1:
+        "If you have paid but do not get access to the license or PRO features due to a technical error on our side, we will:",
+      bullets: [
+        "attempt to fix the issue and activate the license as quickly as possible",
+        "consider a refund or an extension of the license period if the issue cannot be resolved within a reasonable time",
+      ],
+    },
+    s3: {
+      title: "3. Subscription cancellation",
+      body:
+        "For subscriptions, you can stop renewals at any time via Stripe or by contacting us. Already charged periods are normally not refunded, but you will keep access until the end of the current period.",
+    },
+    s4: {
+      title: "4. Incorrect charges",
+      body:
+        "If you believe you have been charged incorrectly, please contact us as soon as possible, and no later than 30 days after you discovered the issue. We will review the transaction together with you and Stripe.",
+    },
+    s5: {
+      title: "5. How to contact us",
+      lead: "Send an email to",
+      bodyAfterEmail: "including:",
+      bullets: [
+        "name and email address",
+        "which product the license relates to",
+        "purchase date and, if available, the Stripe receipt",
+        "a short description of the issue",
+      ],
+    },
   },
 },
+
 } as const;
 export default en;
