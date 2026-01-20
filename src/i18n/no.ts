@@ -241,6 +241,156 @@ home: {
     exampleCta: "Se Progress →",
   },
 },
+progressPage: {
+  hero: {
+    tagline: "Fremdriftsplanlegging uten støy.",
+    intro:
+      "Manage Progress er et rendyrket Gantt-verktøy for prosjektbasert arbeid. Utviklet for daglig bruk under tidspress – og for situasjoner der oversikt, forutsigbarhet og dokumentasjon faktisk betyr noe.",
+    badge: "Lanseres 1. februar",
+    notifyCta: "Ønsker du beskjed ved lansering? Ta kontakt →",
+  },
+
+  cards: {
+    oneTruth: {
+      title: "Én plan, én sannhet",
+      body:
+        "Tabellen er kilden til sannhet. Gantt-visningen speiler nøyaktig det samme innholdet. Ingen skjult logikk, ingen overraskelser.",
+    },
+    realProjects: {
+      title: "Bygget for virkelige prosjekter",
+      body:
+        "Endringer, avhengigheter, forskyvninger og omplanlegging håndteres uten at strukturen kollapser. Dette er laget for prosjekter som faktisk lever.",
+    },
+    print: {
+      title: "Print er en funksjon",
+      body:
+        "Utskrift og eksport er ikke ettertanker. Planer kan tas med i møter, legges i dokumentasjon og brukes videre – med forutsigbart resultat hver gang.",
+    },
+    lowFriction: {
+      title: "Lav terskel, høy presisjon",
+      body:
+        "Kom i gang raskt og hold planen ryddig. Fokus er å gi struktur og kontroll uten at verktøyet blir et eget prosjekt.",
+    },
+  },
+
+  audience: {
+    title: "Hvem dette passer for",
+    body:
+      "Manage Progress passer for prosjektledere, tekniske miljøer og team som jobber prosjektbasert – og som trenger en plan som tåler endringer, kan dokumenteres og er enkel å ta med videre i møter og leveranser.",
+  },
+
+  next: {
+    title: "Videre",
+    body:
+      "Manage Progress er del av det som over tid blir Manage System – et økosystem av små, selvstendige verktøy som kan fungere alene, men også sammen når behovet oppstår.",
+    back: "← Tilbake til Morning Coffee Labs",
+  },
+},
+legal: {
+  terms: {
+    title: "Brukervilkår",
+    intro:
+      "Disse brukervilkårene regulerer hvordan du kan bruke tjenester og apper levert av Mathisens Morning Coffee Labs.",
+    s1: { title: "1. Lisens og bruk", body: "Du får en personlig, ikke-overførbar lisens til å bruke tjenesten i henhold til valgt lisensmodell. Lisensen gir rett til normal bruk internt i egen virksomhet, men ikke til videresalg eller videredistribusjon av tjenesten." },
+    s2: { title: "2. Konto og tilgang", body: "Der tjenesten krever innlogging, er du ansvarlig for å ta vare på innloggingsinformasjonen og sørge for at uvedkommende ikke får tilgang. Misbruk eller mistenkt misbruk må meldes til oss så snart som mulig." },
+    s3: { title: "3. Akseptabel bruk", body: "Tjenestene skal ikke brukes på en måte som bryter gjeldende lovverk, krenker andres rettigheter eller forsøker å omgå tekniske begrensninger og lisensmekanismer." },
+    s4: { title: "4. Tilgjengelighet og endringer", body: "Vi tilstreber stabil drift, men kan ikke garantere 100 % oppetid. Tjenestene kan oppdateres eller endres over tid, blant annet for å forbedre funksjonalitet eller sikkerhet." },
+    s5: { title: "5. Ansvarsbegrensning", body: "Tjenestene leveres «som de er». Vi er ikke ansvarlige for indirekte tap, som f.eks. tapt fortjeneste eller driftsstans, så langt dette er tillatt etter gjeldende rett." },
+    s6: { title: "6. Endringer i brukervilkår", body: "Brukervilkårene kan oppdateres ved behov. Vesentlige endringer vil bli varslet gjennom nettsiden eller per e-post. Oppdatert versjon vil alltid være tilgjengelig her." },
+  },
+
+  privacy: {
+    title: "Personvernerklæring",
+    intro:
+      "Denne personvernerklæringen beskriver hvordan Mathisens Morning Coffee Labs behandler personopplysninger i tilknytning til våre nettsider og digitale tjenester.",
+    s1: { title: "1. Behandlingsansvarlig", body: "Mathisens Morning Coffee Labs er behandlingsansvarlig for personopplysninger som samles inn gjennom nettsiden og tjenestene." },
+    s2: {
+      title: "2. Hvilke opplysninger vi samler inn",
+      lead: "Typiske opplysninger vi kan behandle er for eksempel:",
+      bullets: [
+        "Navn og kontaktinformasjon (for eksempel e-postadresse)",
+        "Faktureringsopplysninger ved kjøp (håndteres hovedsakelig via Stripe)",
+        "Tekst som sendes inn via kontaktskjema, idebank eller andre skjemaer",
+        "Tekniske data om bruk av tjenesten (for eksempel hvilke sider som besøkes)",
+      ],
+    },
+    s3: {
+      title: "3. Formål og behandlingsgrunnlag",
+      lead: "Opplysningene brukes blant annet til å:",
+      bullets: [
+        "levere og administrere tjenester og lisenser",
+        "håndtere kjøp, betaling og kundeservice",
+        "forbedre og videreutvikle tjenestene",
+        "sende relevant informasjon dersom du har samtykket til dette (nyhetsbrev o.l.).",
+      ],
+    },
+    s4: { title: "4. Lagring og sletting", body: "Vi lagrer personopplysninger så lenge det er nødvendig for formålet de ble samlet inn for, eller så lenge vi er pålagt det gjennom regnskaps- og bokføringsregler. Opplysninger som ikke lenger er nødvendige blir slettet eller anonymisert." },
+    s5: { title: "5. Dine rettigheter", body: "Du har rett til innsyn, retting og i noen tilfeller sletting av personopplysninger vi har om deg. Du kan også protestere mot eller be om begrensning av behandlingen, samt trekke tilbake eventuelle samtykker." },
+    s6: { title: "6. Tredjeparter og databehandlere", body: "Vi kan bruke underleverandører (for eksempel Stripe for betaling og hosting-leverandører) til å behandle data på våre vegne. Disse er bundet av databehandleravtaler og kan ikke bruke opplysningene til egne formål." },
+    s7: { title: "7. Endringer i personvernerklæringen", body: "Personvernerklæringen kan oppdateres ved behov. Oppdatert versjon vil alltid være tilgjengelig på denne siden." },
+    s8: { title: "8. Kontakt", body: "For spørsmål om personvern kan du kontakte oss via kontaktskjemaet på nettsiden." },
+  },
+
+  purchase: {
+    title: "Kjøpsvilkår",
+    intro:
+      "Disse kjøpsvilkårene gjelder for kjøp av digitale produkter fra Mathisens Morning Coffee Labs («vi», «oss» eller «selgeren»).",
+    s1: { title: "1. Partene", body: "Selger er Mathisens Morning Coffee Labs. Kjøper er den personen eller virksomheten som gjennomfører bestillingen i nettbutikken eller via våre apper." },
+    s2: { title: "2. Produkt og lisens", body: "Produktene våre leveres som digitale tjenester og programvare. Ved kjøp får du en ikke-eksklusiv lisens til å bruke tjenesten i henhold til valgt lisensmodell (for eksempel månedlig, årlig eller engangslisens), og innenfor de rammer som er beskrevet i produktinformasjonen." },
+    s3: { title: "3. Pris og betaling", body: "Prisene som vises i nettbutikken gjelder på bestillingstidspunktet og oppgis i NOK, og i noen tilfeller også veiledende pris i EUR. Betaling håndteres via Stripe. For abonnement vil beløpet trekkes automatisk ved hver fornyelse inntil abonnementet sies opp." },
+    s4: { title: "4. Levering av digitalt innhold", body: "Lisensen aktiveres normalt umiddelbart etter gjennomført betaling. Ved å bekrefte kjøpet samtykker du til at leveringen starter før angrefristen er utløpt." },
+    s5: { title: "5. Angrerett og oppsigelse", body: "For digitale tjenester som leveres umiddelbart, bortfaller retten til å angre når du har samtykket til at leveringen starter før angrefristen utløper. Abonnement kan sies opp når som helst og vil da løpe ut inneværende betalte periode." },
+    s6: { title: "6. Reklamasjon", body: "Dersom tjenesten ikke fungerer som beskrevet, kan du kontakte oss via kontaktskjemaet på nettsiden. Vi vil da forsøke å rette feilen, gi veiledning eller tilby annen rimelig løsning." },
+    s7: { title: "7. Endringer i vilkår", body: "Vi kan oppdatere disse vilkårene ved behov. Ved vesentlige endringer vil vi informere gjennom nettsiden eller e-post. Oppdatert versjon vil alltid være tilgjengelig på denne siden." },
+    s8: { title: "8. Kontaktinformasjon", body: "Spørsmål om kjøp eller lisens kan rettes via kontaktsiden på nettsiden." },
+  },
+
+  refund: {
+    title: "Refusjon og klage",
+    intro:
+      "Her beskriver vi hvordan vi håndterer refusjon, avbrutte kjøp og reklamasjoner for digitale lisenser.",
+    s1: {
+      title: "1. Digitale varer og angrerett",
+      p1:
+        "Lisensene våre leveres digitalt og aktiveres umiddelbart etter gjennomført betaling. I henhold til Angrerettloven §22 n og EU Digital Content Directive bortfaller angreretten når:",
+      bullets: [
+        "du ber om umiddelbar levering, og",
+        "du bekrefter at angreretten bortfaller når lisensen er levert og aktivert.",
+      ],
+      p2: "Dette samtykket gis i kjøpsdialogen før betaling.",
+    },
+    s2: {
+      title: "2. Refusjon ved tekniske problemer",
+      p1:
+        "Dersom du har betalt, men ikke får tilgang til lisensen eller PRO funksjoner på grunn av teknisk feil hos oss, vil vi:",
+      bullets: [
+        "forsøke å rette feilen og aktivere lisensen så raskt som mulig",
+        "vurdere refusjon eller forlengelse av lisensperioden dersom problemet ikke kan løses innen rimelig tid",
+      ],
+    },
+    s3: {
+      title: "3. Avslutning av abonnement",
+      body:
+        "Ved abonnement kan du når som helst stoppe videre fornyelse via Stripe eller ved å kontakte oss. Allerede belastede perioder refunderes normalt ikke, men du beholder tilgangen ut inneværende periode.",
+    },
+    s4: {
+      title: "4. Feil ved belastning",
+      body:
+        "Dersom du mener at det er gjort en feilbelastning, ber vi deg ta kontakt med oss så snart som mulig, og senest innen 30 dager etter at du oppdaget feilen. Vi vil da gjennomgå transaksjonen sammen med deg og Stripe.",
+    },
+    s5: {
+      title: "5. Slik kontakter du oss",
+      lead: "Send en e-post til",
+      bodyAfterEmail: "med:",
+      bullets: [
+        "navn og e-postadresse",
+        "hvilket produkt lisensen gjelder",
+        "dato for kjøp og eventuelt Stripe-kvittering",
+        "en kort beskrivelse av problemet",
+      ],
+    },
+  },
+},
 
 } as const;
 
