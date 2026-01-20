@@ -28,10 +28,9 @@ function deepGet(obj: unknown, path: string): unknown {
 }
 
 export function createT(dict: Dict) {
-  return function t(key: string): string {
+  return function t<T = unknown>(key: string): T {
     const v = deepGet(dict, key);
-    if (typeof v === "string") return v;
-    // Under utvikling: vis key hvis noe mangler
-    return key;
+    return (v === undefined ? (key as unknown) : v) as T;
   };
 }
+
