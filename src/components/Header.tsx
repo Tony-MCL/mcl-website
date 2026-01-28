@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useI18n } from "../i18n/useI18n";
 import type { Lang } from "../i18n";
+import { LINKS } from "../config/links";
 
 const assetBase = import.meta.env.BASE_URL || "/";
 const logoUrl = `${assetBase}mcl-logo.png`;
@@ -18,8 +19,7 @@ function getInitialTheme(): ThemeMode {
   const saved = localStorage.getItem("mcl_theme");
   if (saved === "dark" || saved === "light") return saved;
   const prefersDark =
-    window.matchMedia &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches;
+    window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
   return prefersDark ? "dark" : "light";
 }
 
@@ -49,7 +49,7 @@ const Header: React.FC = () => {
   const toggleLang = () => {
     const next: Lang = lang === "no" ? "en" : "no";
     setLang(next);
-    closeMenu(); // nice: lukker mobilmeny ved språkbytte
+    closeMenu();
   };
 
   return (
@@ -66,7 +66,6 @@ const Header: React.FC = () => {
             {t("header.nav.home")}
           </Link>
 
-          {/* Ren label-endring: /idebank beholdes */}
           <Link className={isActive("/idebank") ? "active" : ""} to="/idebank">
             {t("header.nav.services")}
           </Link>
@@ -74,16 +73,23 @@ const Header: React.FC = () => {
           <Link className={isActive("/om") ? "active" : ""} to="/om">
             {t("header.nav.about")}
           </Link>
+
           <Link className={isActive("/kontakt") ? "active" : ""} to="/kontakt">
             {t("header.nav.contact")}
           </Link>
-          <Link className={isActive("/progress") ? "active" : ""} to="/progress">
+
+          {/* Ekstern lenke til ManageSystem (Progress-landingsside) */}
+          <a
+            className={isActive("/progress") ? "active" : ""}
+            href={LINKS.ms}
+            onClick={closeMenu}
+            rel="noopener noreferrer"
+          >
             {t("header.nav.progress")}
-          </Link>
+          </a>
         </nav>
 
         <div className="header-actions">
-          {/* Språk-toggle (super enkel, skalerbar) */}
           <button
             type="button"
             className="theme-toggle"
@@ -91,7 +97,9 @@ const Header: React.FC = () => {
             aria-label={t("header.lang.aria")}
             title={t("header.lang.label")}
           >
-            <span className="theme-icon" aria-hidden="true">🌐</span>
+            <span className="theme-icon" aria-hidden="true">
+              🌐
+            </span>
             <span className="theme-label">
               {lang === "no" ? t("header.lang.nb") : t("header.lang.en")}
             </span>
@@ -130,16 +138,20 @@ const Header: React.FC = () => {
         <Link to="/om" onClick={closeMenu}>
           {t("header.nav.about")}
         </Link>
+
         <Link to="/kontakt" onClick={closeMenu}>
           {t("header.nav.contact")}
         </Link>
-        <Link to="/progress" onClick={closeMenu}>
-          {t("header.nav.progress")}
-        </Link>
 
-        {/* Språk i mobilmeny (samme stil) */}
+        {/* Ekstern lenke til ManageSystem (Progress-landingsside) */}
+        <a href={LINKS.ms} onClick={closeMenu} rel="noopener noreferrer">
+          {t("header.nav.progress")}
+        </a>
+
         <button type="button" className="theme-toggle mobile" onClick={toggleLang}>
-          <span className="theme-icon" aria-hidden="true">🌐</span>
+          <span className="theme-icon" aria-hidden="true">
+            🌐
+          </span>
           <span className="theme-label">
             {t("header.lang.label")}: {lang === "no" ? t("header.lang.nb") : t("header.lang.en")}
           </span>
