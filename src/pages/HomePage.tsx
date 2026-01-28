@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useI18n } from "../i18n/useI18n";
+import { LINKS } from "../config/links";
 
 const HomePage: React.FC = () => {
   const { t } = useI18n();
@@ -36,9 +37,14 @@ const HomePage: React.FC = () => {
                 marginTop: "1rem",
               }}
             >
-              <Link to="/progress" className="hero-cta">
-                {t("home.cards.progress.cta")} {t("home.cards.progress.launchNote")}
-              </Link>
+              {/* Ekstern lenke til ManageSystem */}
+              <a
+                href={LINKS.ms}
+                className="hero-cta"
+                rel="noopener noreferrer"
+              >
+                {t("home.cards.progress.cta")}
+              </a>
 
               <Link
                 to="/kontakt"
