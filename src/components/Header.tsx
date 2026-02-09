@@ -15,12 +15,52 @@ function applyTheme(mode: ThemeMode) {
   else html.removeAttribute("data-theme");
 }
 
+function readPrefsFromUrl(): { theme?: ThemeMode; lang?: Lang } {
+  // Leser både vanlig query (?a=b) og hash-query (#/path?a=b)
+  const href = window.location.href;
+  const url = new URL(href);
+
+  const out: { theme?: ThemeMode; lang?: Lang } = {};
+
+  const lang = url.searchParams.get("lang");
+  const theme = url.searchParams.get("theme");
+
+  if (lang === "no" || lang === "en") out.lang = lang;
+  if (theme === "dark" || theme === "light") out.theme = theme;
+
+  // HashRouter kan legge parametre etter ? i hash
+  if (url.hash && url.hash.includes("?")) {
+    const idx = url.hash.indexOf("?");
+    const qs = url.hash.slice(idx + 1);
+    const sp = new URLSearchParams(qs);
+
+    const hLang = sp.get("lang");
+    const hTheme = sp.get("theme");
+
+    if (!out.lang && (hLang === "no" || hLang === "en")) out.lang = hLang;
+    if (!out.theme && (hTheme === "dark" || hTheme === "light")) out.theme = hTheme as ThemeMode;
+  }
+
+  return out;
+}
+
 function getInitialTheme(): ThemeMode {
+  const fromUrl = readPrefsFromUrl().theme;
+  if (fromUrl === "dark" || fromUrl === "light") return fromUrl;
+
   const saved = localStorage.getItem("mcl_theme");
   if (saved === "dark" || saved === "light") return saved;
+
   const prefersDark =
     window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
   return prefersDark ? "dark" : "light";
+}
+
+function withPrefs(href: string, prefs: { lang: Lang; theme: ThemeMode }) {
+  const u = new URL(href);
+  u.searchParams.set("lang", prefs.lang);
+  u.searchParams.set("theme", prefs.theme);
+  return u.toString();
 }
 
 const Header: React.FC = () => {
@@ -33,6 +73,7 @@ const Header: React.FC = () => {
   useEffect(() => {
     const initial = getInitialTheme();
     setTheme(initial);
+    localStorage.setItem("mcl_theme", initial);
     applyTheme(initial);
   }, []);
 
@@ -51,6 +92,9 @@ const Header: React.FC = () => {
     setLang(next);
     closeMenu();
   };
+
+  // Ekstern lenke til ManageSystem med handoff
+  const msHref = withPrefs(LINKS.ms, { lang, theme });
 
   return (
     <>
@@ -81,7 +125,7 @@ const Header: React.FC = () => {
           {/* Ekstern lenke til ManageSystem (Progress-landingsside) */}
           <a
             className={isActive("/progress") ? "active" : ""}
-            href={LINKS.ms}
+            href={msHref}
             onClick={closeMenu}
             rel="noopener noreferrer"
           >
@@ -144,7 +188,7 @@ const Header: React.FC = () => {
         </Link>
 
         {/* Ekstern lenke til ManageSystem (Progress-landingsside) */}
-        <a href={LINKS.ms} onClick={closeMenu} rel="noopener noreferrer">
+        <a href={msHref} onClick={closeMenu} rel="noopener noreferrer">
           {t("header.nav.progress")}
         </a>
 
