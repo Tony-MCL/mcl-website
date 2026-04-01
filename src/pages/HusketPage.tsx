@@ -32,7 +32,7 @@ const HusketPage: React.FC = () => {
             rel="noopener noreferrer"
             className="hero-cta"
           >
-            Get Early Access
+            Download on Google Play
           </a>
         </div>
       </section>
