@@ -27,7 +27,7 @@ const HusketPage: React.FC = () => {
           <p className="husket-hero-intro">{t("husket.hero.intro")}</p>
         
           <a
-            href="https://groups.google.com/g/husket-testpanel/about"
+            href="https://play.google.com/store/apps/details?id=no.morningcoffeelabs.husket"
             target="_blank"
             rel="noopener noreferrer"
             className="hero-cta"
@@ -112,7 +112,7 @@ const HusketPage: React.FC = () => {
           <p style={{ marginBottom: "1rem" }}>{t("husket.next.body")}</p>
         
           <a
-            href="https://groups.google.com/g/husket-testpanel/about"
+            href="https://play.google.com/store/apps/details?id=no.morningcoffeelabs.husket"
             target="_blank"
             rel="noopener noreferrer"
             className="hero-cta"
