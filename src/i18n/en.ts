@@ -175,10 +175,10 @@ const en = {
       },
     },
     next: {
-      title: "Early access",
+      title: "Now available",
       body:
-        "husk'et is now available in early access on Google Play. If you would like to try the app before the official launch, you can join the husk'et test panel. Members of the group get access to the current test version and can help shape the app before release.",
-      cta: "Join the test panel →",
+        "husk'et is now available on Google Play. You can download the app and start saving the things you want to remember right away.",
+      cta: "Download on Google Play →",
     },
   },
 
