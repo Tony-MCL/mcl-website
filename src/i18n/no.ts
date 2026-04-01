@@ -175,10 +175,10 @@ const no = {
       },
     },
     next: {
-      title: "Early access",
+      title: "Nå tilgjengelig",
       body:
-        "husk'et er nå tilgjengelig i early access på Google Play. Hvis du vil prøve appen før den offisielle lanseringen, kan du bli med i husk'et testpanel. Medlemmer av gruppen får tilgang til den nåværende testversjonen og kan være med og forme appen før lansering.",
-      cta: "Bli med i testpanelet →",
+        "husk'et er nå tilgjengelig på Google Play. Du kan laste ned appen og begynne å lagre det du vil huske med én gang.",
+      cta: "Last ned på Google Play →",
     },
   },
 
