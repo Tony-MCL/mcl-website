@@ -79,7 +79,7 @@ const no = {
         badge: "App",
         body:
           "En praktisk mobilapp for å lagre, organisere og finne igjen kvitteringer når du faktisk trenger dem. Ta bilde, importer PDF eller skjermbilder, og ha dokumentasjonen klar for refusjon, retur, garanti eller videresalg.",
-        cta: "Se kvitteringsappen →",
+        cta: "Se kvittek →",
       },
 
       services: {
