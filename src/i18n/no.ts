@@ -749,7 +749,7 @@ const no = {
   receipt: {
     hero: {
       title: "Mist aldri en kvittering igjen.",
-      sub: "Fra fangst til garanti, alt på ett sted. Klart når du trenger det.",
+      sub: "Fra innkjøp til garanti, alt på ett sted. Klart når du trenger det.",
       line: "Ingen bunker. Ingen leting i bilder eller e-poster. Bare kvitteringene dine, organisert.",
       cta: "Prøv tidlig tilgang",
     },
