@@ -774,7 +774,7 @@ const no = {
         title: "Lagre den",
         capture: {
           title: "Ta bilde eller importer på sekunder.",
-          body: "Åpne appen og fang den med en gang. Fart betyr noe.",
+          body: "Åpne appen og legg den inn med en gang. Fart betyr noe.",
         },
         import: {
           title: "Importer digitale kvitteringer",
