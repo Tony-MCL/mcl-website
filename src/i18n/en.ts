@@ -79,7 +79,7 @@ const en = {
         badge: "App",
         body:
           "A practical mobile app for saving, organizing, and finding receipts when they actually matter. Snap them, import PDFs or screenshots, and keep your documentation ready for reimbursements, returns, warranties, or resale.",
-        cta: "See the receipt app →",
+        cta: "See the Kvittek app →",
       },
 
       services: {
