@@ -75,11 +75,11 @@ const no = {
       },
 
       receipts: {
-        title: "Kvittek",
+        title: "Kvitteringsapp (arbeidstittel)",
         badge: "App",
         body:
           "En praktisk mobilapp for å lagre, organisere og finne igjen kvitteringer når du faktisk trenger dem. Ta bilde, importer PDF eller skjermbilder, og ha dokumentasjonen klar for refusjon, retur, garanti eller videresalg.",
-        cta: "Se Kvittek →",
+        cta: "Se kvitteringsappen →",
       },
 
       services: {
@@ -185,8 +185,8 @@ const no = {
     next: {
       title: "Early access",
       body:
-        "husk'et er nå tilgjengelig i early access på Google Play. Hvis du vil prøve appen før den offisielle lanseringen, kan du bli med i husk'et testpanel. Medlemmer av gruppen får tilgang til den nåværende testversjonen og kan være med og forme appen før lansering.",
-      cta: "Bli med i testpanelet →",
+        "husk'et er nå tilgjengelig på Google Play.",
+      cta: "Last ned fra Google Play →",
     },
   },
 
@@ -749,7 +749,7 @@ const no = {
   receipt: {
     hero: {
       title: "Mist aldri en kvittering igjen.",
-      sub: "Fra anskaffelse til garanti, alt på ett sted. Klart når du trenger det.",
+      sub: "Fra fangst til garanti, alt på ett sted. Klart når du trenger det.",
       line: "Ingen bunker. Ingen leting i bilder eller e-poster. Bare kvitteringene dine, organisert.",
       cta: "Prøv tidlig tilgang",
     },
@@ -774,7 +774,7 @@ const no = {
         title: "Lagre den",
         capture: {
           title: "Ta bilde eller importer på sekunder.",
-          body: "Åpne appen og legg den inn med en gang. Fart betyr noe.",
+          body: "Åpne appen og fang den med en gang. Fart betyr noe.",
         },
         import: {
           title: "Importer digitale kvitteringer",
