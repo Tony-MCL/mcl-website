@@ -75,7 +75,7 @@ const en = {
       },
 
       receipts: {
-        title: "Receipt app (production name)" ,
+        title: "Kvittek" ,
         badge: "App",
         body:
           "A practical mobile app for saving, organizing, and finding receipts when they actually matter. Snap them, import PDFs or screenshots, and keep your documentation ready for reimbursements, returns, warranties, or resale.",
