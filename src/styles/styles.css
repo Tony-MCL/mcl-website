@@ -403,7 +403,7 @@ html[data-theme="dark"] .form-row textarea {
   justify-content: flex-start;
 
   /* 🔥 Fjern hack som flyttet logoen opp */
-  margin-top: -4px;
+  margin-top: -8px;
 }
 
 .receipt-logo-image {
