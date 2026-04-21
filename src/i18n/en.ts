@@ -75,11 +75,11 @@ const en = {
       },
 
       receipts: {
-        title: "Kvittek" ,
+        title: "Receipt app (production name)" ,
         badge: "App",
         body:
           "A practical mobile app for saving, organizing, and finding receipts when they actually matter. Snap them, import PDFs or screenshots, and keep your documentation ready for reimbursements, returns, warranties, or resale.",
-        cta: "See the Kvittek app →",
+        cta: "See the receipt app →",
       },
 
       services: {
@@ -185,8 +185,8 @@ const en = {
     next: {
       title: "Early access",
       body:
-        "husk'et is now available in early access on Google Play. If you would like to try the app before the official launch, you can join the husk'et test panel. Members of the group get access to the current test version and can help shape the app before release.",
-      cta: "Join the test panel →",
+        "husk'et is now available on Google Play.",
+      cta: "Download from Google Play →",
     },
   },
 
