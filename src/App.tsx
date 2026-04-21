@@ -1,4 +1,5 @@
 import React from "react";
+import ScrollToTop from "./ScrollToTop";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 
 import Header from "./components/Header";
@@ -34,6 +35,8 @@ const AppShell: React.FC = () => {
 
   return (
     <div className="app-shell">
+      <ScrollToTop />
+
       {!isCleanProductRoute ? <WatermarkLayer /> : null}
 
       <Header />
@@ -57,9 +60,18 @@ const AppShell: React.FC = () => {
           <Route path="/refusjon" element={<RefusjonPage />} />
 
           {/* Husket legal */}
-          <Route path="/husket/kjopsvilkar" element={<HusketKjopsvilkarPage />} />
-          <Route path="/husket/brukervilkar" element={<HusketBrukervilkarPage />} />
-          <Route path="/husket/personvern" element={<HusketPersonvernPage />} />
+          <Route
+            path="/husket/kjopsvilkar"
+            element={<HusketKjopsvilkarPage />}
+          />
+          <Route
+            path="/husket/brukervilkar"
+            element={<HusketBrukervilkarPage />}
+          />
+          <Route
+            path="/husket/personvern"
+            element={<HusketPersonvernPage />}
+          />
           <Route path="/husket/refusjon" element={<HusketRefusjonPage />} />
 
           <Route path="*" element={<Navigate to="/" replace />} />
