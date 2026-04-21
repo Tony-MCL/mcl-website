@@ -14,17 +14,29 @@ const ReceiptPage: React.FC = () => {
       {/* =============================== */}
       {/* HERO */}
       {/* =============================== */}
-      <section className="fs-hero">
-        <h1 className="hero-title">{t("receipt.hero.title")}</h1>
-        <p className="hero-tagline">{t("receipt.hero.sub")}</p>
-        <p className="hero-sub">{t("receipt.hero.line")}</p>
-
-        <a
-          href="mailto:post@morningcoffeelabs.no?subject=Interest%20in%20receipt%20app"
-          className="hero-cta"
-        >
-          {t("receipt.cta.button")}
-        </a>
+      <section className="receipt-hero-layout">
+        <div className="receipt-logo-wrap" aria-hidden="true">
+          <img
+            src={`${import.meta.env.BASE_URL}kvitteklogo.png`}
+            alt="Kvittek"
+            className="receipt-logo-image"
+          />
+        </div>
+      
+        <div className="receipt-hero-copy">
+          <h1 className="hero-title">{t("receipt.hero.title")}</h1>
+      
+          <p className="hero-tagline">{t("receipt.hero.sub")}</p>
+      
+          <p className="hero-sub">{t("receipt.hero.line")}</p>
+      
+          <a
+            href="mailto:post@morningcoffeelabs.no?subject=Interest%20in%20receipt%20app"
+            className="hero-cta"
+          >
+            {t("receipt.cta.button")}
+          </a>
+        </div>
       </section>
 
       {/* =============================== */}
