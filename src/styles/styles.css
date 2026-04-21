@@ -277,6 +277,12 @@ html[data-theme="dark"] .form-row textarea {
   max-width: 220px;
   height: auto;
   object-fit: contain;
+
+  border-radius: 18px;
+  /* ✨ samme stil */
+  border: 1px solid var(--mcl-border);
+  box-shadow: var(--mcl-shadow);
+  background: #000;
 }
 
 .husket-hero-copy {
@@ -409,9 +415,12 @@ html[data-theme="dark"] .form-row textarea {
   max-width: 220px;
   height: auto;
   object-fit: contain;
-
   /* ✨ NYTT */
   border-radius: 18px;
+  /* ✨ floating */
+  border: 1px solid var(--mcl-border);
+  box-shadow: var(--mcl-shadow);
+  background: #000; /* viktig for PNG med transparent kanter */
 }
 
 .receipt-hero-copy {
