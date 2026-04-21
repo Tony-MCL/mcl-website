@@ -405,13 +405,13 @@ html[data-theme="dark"] .form-row textarea {
 
 .receipt-logo-image {
   display: block;
-
-  /* 🔥 Gjør logo større */
   width: 220px;
   max-width: 220px;
-
   height: auto;
   object-fit: contain;
+
+  /* ✨ NYTT */
+  border-radius: 18px;
 }
 
 .receipt-hero-copy {
