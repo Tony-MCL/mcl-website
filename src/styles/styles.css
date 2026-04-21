@@ -387,21 +387,24 @@ html[data-theme="dark"] .form-row textarea {
 
 .receipt-hero-layout {
   display: grid;
-  grid-template-columns: 180px minmax(0, 1fr);
+  grid-template-columns: 220px minmax(0, 1fr);
   column-gap: 2rem;
-  align-items: center;
+  align-items: start;
   margin-top: 1rem;
-  max-width: 1000px;
+  max-width: 1100px;
 }
 
 .receipt-logo-wrap {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
+  margin-top: -0.35rem;
 }
 
 .receipt-logo-image {
-  width: 160px;
+  display: block;
+  width: 180px;
+  max-width: 180px;
   height: auto;
   object-fit: contain;
 }
@@ -410,6 +413,34 @@ html[data-theme="dark"] .form-row textarea {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  min-width: 0;
+  align-items: flex-start;
+}
+
+.receipt-hero-copy .hero-title,
+.receipt-hero-copy .hero-tagline,
+.receipt-hero-copy .hero-sub {
+  width: 100%;
+}
+
+.receipt-hero-copy .hero-cta {
+  align-self: flex-start;
+}
+
+@media (max-width: 680px) {
+  .receipt-hero-layout {
+    grid-template-columns: 1fr;
+    row-gap: 1rem;
+  }
+
+  .receipt-logo-wrap {
+    margin-top: 0;
+  }
+
+  .receipt-logo-image {
+    width: 140px;
+    max-width: 140px;
+  }
 }
 
 /* ===== Receipt flow section ===== */
