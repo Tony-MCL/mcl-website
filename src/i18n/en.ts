@@ -834,6 +834,7 @@ const en = {
       button: "Get in touch",
       note: "No commitment. Just genuine interest.",
     },
+ },
 
    receiptLegal: {
     privacy: {
@@ -901,7 +902,6 @@ const en = {
       },
     },
   },
-  }
 } as const;
 
 export default en;
