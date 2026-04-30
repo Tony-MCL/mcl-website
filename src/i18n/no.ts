@@ -834,6 +834,73 @@ const no = {
       button: "Ta kontakt",
       note: "Ingen forpliktelser. Bare ekte interesse.",
     },
+
+    receiptLegal: {
+      privacy: {
+        title: "Personvern for Kvittek",
+        intro:
+          "Denne erklæringen forklarer hvilke opplysninger vi samler inn, hvordan de brukes, og hvilke rettigheter du har.",
+    
+        s1: {
+          title: "1. Hvilke data vi samler inn",
+          body:
+            "Kvittek lagrer informasjon du selv legger inn, inkludert bilder av kvitteringer, PDF-filer, OCR-data, utsteder, dato, beløp, notater, kategorier og garantidata. Ved konto registreres e-post og autentiseringsdata via tredjepart.",
+        },
+    
+        s2: {
+          title: "2. Hvordan data brukes",
+          body:
+            "Data brukes til å lagre og vise kvitteringer, organisere data, muliggjøre synkronisering mellom enheter og sette opp varslinger.",
+        },
+    
+        s3: {
+          title: "3. Lagring av data",
+          body:
+            "Data lagres lokalt på enheten og i din konto dersom synkronisering er aktivert. Vi bruker tredjepartstjenester for lagring og autentisering.",
+        },
+    
+        s4: {
+          title: "4. Deling av data",
+          body:
+            "Vi selger ikke dine data. Data deles kun når det er nødvendig for lagring, synkronisering og autentisering.",
+        },
+    
+        s5: {
+          title: "5. Kamera og filtilgang",
+          body:
+            "Appen bruker kamera for skanning og filtilgang for import og lagring av dokumenter.",
+        },
+    
+        s6: {
+          title: "6. Varslinger",
+          body:
+            "Kvittek kan sende varslinger relatert til garantier og utlegg. Dette kan deaktiveres.",
+        },
+    
+        s7: {
+          title: "7. Dine rettigheter",
+          body:
+            "Du kan slette data i appen og be om sletting av konto ved å kontakte oss.",
+        },
+    
+        s8: {
+          title: "8. Sikkerhet",
+          body:
+            "Vi bruker rimelige tekniske tiltak for å beskytte data, men kan ikke garantere full sikkerhet.",
+        },
+    
+        s9: {
+          title: "9. Endringer",
+          body:
+            "Erklæringen kan oppdateres. Endringer publiseres med oppdatert dato.",
+        },
+    
+        s10: {
+          title: "10. Kontakt",
+          body: "Kontakt oss på",
+        },
+      },
+    },
   }
 } as const;
 
