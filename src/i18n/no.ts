@@ -904,45 +904,45 @@ const no = {
     },
 
   terms: {
-  title: "Bruksvilkår for Kvittek",
-  intro: "Ved å bruke Kvittek godtar du disse vilkårene.",
-
-  s1: {
-    title: "1. Bruk av appen",
-    lead: "Kvittek er et verktøy for lagring og organisering av kvitteringer.",
-    bullets: [
-      "Riktigheten av data du legger inn",
-      "Hvordan data brukes",
-    ],
+    title: "Bruksvilkår for Kvittek",
+    intro: "Ved å bruke Kvittek godtar du disse vilkårene.",
+  
+    s1: {
+      title: "1. Bruk av appen",
+      lead: "Kvittek er et verktøy for lagring og organisering av kvitteringer.",
+      bullets: [
+        "Riktigheten av data du legger inn",
+        "Hvordan data brukes",
+      ],
+    },
+  
+    s2: {
+      title: "2. Ansvarsbegrensning",
+      lead: "Vi gir ingen garanti for:",
+      bullets: [
+        "Fullstendighet av OCR-data",
+        "At varslinger alltid leveres",
+      ],
+      body: "Appen brukes på eget ansvar.",
+    },
+  
+    s3: {
+      title: "3. Data og tap",
+      lead: "Du er ansvarlig for:",
+      bullets: ["Å ta backup ved behov"],
+      body: "Vi er ikke ansvarlig for tap av data.",
+    },
+  
+    s4: {
+      title: "4. Endringer",
+      body: "Vi kan oppdatere appen og vilkårene når som helst.",
+    },
+  
+    s5: {
+      title: "5. Kontakt",
+      lead: "Mathisens Morning Coffee Labs – kontakt oss på",
+    },
   },
-
-  s2: {
-    title: "2. Ansvarsbegrensning",
-    lead: "Vi gir ingen garanti for:",
-    bullets: [
-      "Fullstendighet av OCR-data",
-      "At varslinger alltid leveres",
-    ],
-    body: "Appen brukes på eget ansvar.",
-  },
-
-  s3: {
-    title: "3. Data og tap",
-    lead: "Du er ansvarlig for:",
-    bullets: ["Å ta backup ved behov"],
-    body: "Vi er ikke ansvarlig for tap av data.",
-  },
-
-  s4: {
-    title: "4. Endringer",
-    body: "Vi kan oppdatere appen og vilkårene når som helst.",
-  },
-
-  s5: {
-    title: "5. Kontakt",
-    lead: "Mathisens Morning Coffee Labs – kontakt oss på",
-  },
-},
 } as const;
 
 export default no;
