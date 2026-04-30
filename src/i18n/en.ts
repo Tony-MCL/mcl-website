@@ -834,6 +834,73 @@ const en = {
       button: "Get in touch",
       note: "No commitment. Just genuine interest.",
     },
+
+   receiptLegal: {
+    privacy: {
+      title: "Privacy Policy for Kvittek",
+      intro:
+        "This policy explains what information we collect, how it is used, and what rights you have.",
+  
+      s1: {
+        title: "1. Data we collect",
+        body:
+          "Kvittek stores data you provide, including receipt images, PDF files, OCR-extracted text, issuer, date, amount, notes, categories, organization, warranty data and reminder data. If you create an account, your email address and authentication data are handled through secure third-party services.",
+      },
+  
+      s2: {
+        title: "2. How data is used",
+        body:
+          "Data is used to store and display receipts, organize and categorize data, enable synchronization between devices, and provide reminders.",
+      },
+  
+      s3: {
+        title: "3. Data storage",
+        body:
+          "Your data is stored locally on your device and in your account when synchronization is enabled. We use third-party infrastructure for storage and authentication.",
+      },
+  
+      s4: {
+        title: "4. Data sharing",
+        body:
+          "We do not sell your data. Data is only shared when necessary for storage, synchronization and authentication.",
+      },
+  
+      s5: {
+        title: "5. Camera and file access",
+        body:
+          "The app uses the camera for scanning receipts and file access for importing and storing documents.",
+      },
+  
+      s6: {
+        title: "6. Notifications",
+        body:
+          "Kvittek may send reminders related to warranty and expense tracking. You can disable notifications at any time.",
+      },
+  
+      s7: {
+        title: "7. Your rights",
+        body:
+          "You can delete your data in the app and request account deletion by contacting us.",
+      },
+  
+      s8: {
+        title: "8. Security",
+        body:
+          "We take reasonable technical measures to protect your data, but we cannot guarantee absolute security.",
+      },
+  
+      s9: {
+        title: "9. Changes",
+        body:
+          "This policy may be updated. Changes will be reflected with a new date.",
+      },
+  
+      s10: {
+        title: "10. Contact",
+        body: "Contact us at",
+      },
+    },
+  },
   }
 } as const;
 
