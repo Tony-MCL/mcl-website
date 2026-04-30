@@ -943,6 +943,71 @@ const no = {
       lead: "Mathisens Morning Coffee Labs – kontakt oss på",
     },
   },
+
+  purchase: {
+    title: "Kjøpsvilkår for Kvittek",
+    intro:
+      "Disse vilkårene gjelder for kjøp av funksjoner i Kvittek.",
+  
+    s1: {
+      title: "1. Kjøp",
+      body:
+        "Kjøp av funksjoner eller abonnement i Kvittek gjøres via Google Play.",
+    },
+  
+    s2: {
+      title: "2. Levering",
+      body:
+        "Tilgang til funksjoner aktiveres normalt umiddelbart etter gjennomført kjøp.",
+    },
+  
+    s3: {
+      title: "3. Abonnement",
+      body:
+        "Eventuelle abonnement administreres via Google Play og kan stoppes derfra.",
+    },
+  
+    s4: {
+      title: "4. Konto og synk",
+      body:
+        "Ved bruk av konto lagres data i din konto for å muliggjøre synkronisering mellom enheter.",
+    },
+  
+    s5: {
+      title: "5. Endringer",
+      body:
+        "Vi kan oppdatere appen og vilkårene ved behov.",
+    },
+  },
+  
+  refund: {
+    title: "Refusjon for Kvittek",
+    intro:
+      "Denne siden beskriver hvordan refusjon håndteres for Kvittek.",
+  
+    s1: {
+      title: "1. Google Play",
+      body:
+        "Refusjon og betaling håndteres via Google Play i henhold til deres regler.",
+    },
+  
+    s2: {
+      title: "2. Tekniske problemer",
+      body:
+        "Dersom du opplever problemer med tilgang til kjøpte funksjoner, vil vi forsøke å løse dette så raskt som mulig.",
+    },
+  
+    s3: {
+      title: "3. Begrensninger",
+      body:
+        "Vi kan ikke garantere refusjon utenfor det som tilbys av Google Play.",
+    },
+  
+    s4: {
+      title: "4. Kontakt",
+      lead: "Kontakt oss på",
+    },
+  },
 } as const;
 
 export default no;
