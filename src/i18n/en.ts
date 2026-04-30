@@ -902,6 +902,47 @@ const en = {
       },
     },
   },
+
+  terms: {
+    title: "Terms of Use for Kvittek",
+    intro: "By using Kvittek, you agree to these terms.",
+  
+    s1: {
+      title: "1. Use of the app",
+      lead: "Kvittek is a tool for storing and organizing receipts.",
+      bullets: [
+        "The accuracy of your data",
+        "How the data is used",
+      ],
+    },
+  
+    s2: {
+      title: "2. Limitation of liability",
+      lead: "We do not guarantee:",
+      bullets: [
+        "Accuracy of OCR data",
+        "Delivery of notifications",
+      ],
+      body: "Use the app at your own risk.",
+    },
+  
+    s3: {
+      title: "3. Data responsibility",
+      lead: "You are responsible for:",
+      bullets: ["Backing up your data if needed"],
+      body: "We are not responsible for data loss.",
+    },
+  
+    s4: {
+      title: "4. Changes",
+      body: "We may update the app and terms at any time.",
+    },
+  
+    s5: {
+      title: "5. Contact",
+      lead: "Mathisens Morning Coffee Labs – contact us at",
+    },
+  },
 } as const;
 
 export default en;
