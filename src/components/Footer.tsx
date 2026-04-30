@@ -10,14 +10,20 @@ const Footer: React.FC = () => {
   const isHusketRoute =
     location.pathname === "/husket" ||
     location.pathname.startsWith("/husket/");
-  
+
   const isReceiptRoute =
     location.pathname === "/receipts" ||
     location.pathname.startsWith("/receipts/");
-  
+
   let legalBase = "";
-  if (isHusketRoute) legalBase = "/husket";
-  if (isReceiptRoute) legalBase = "/receipts";
+
+  if (isHusketRoute) {
+    legalBase = "/husket";
+  }
+
+  if (isReceiptRoute) {
+    legalBase = "/receipts";
+  }
 
   return (
     <footer className="footer">
