@@ -7,8 +7,17 @@ const Footer: React.FC = () => {
   const { t } = useI18n();
   const location = useLocation();
 
-  const isHusketRoute = location.pathname === "/husket" || location.pathname.startsWith("/husket/");
-  const legalBase = isHusketRoute ? "/husket" : "";
+  const isHusketRoute =
+    location.pathname === "/husket" ||
+    location.pathname.startsWith("/husket/");
+  
+  const isReceiptRoute =
+    location.pathname === "/receipts" ||
+    location.pathname.startsWith("/receipts/");
+  
+  let legalBase = "";
+  if (isHusketRoute) legalBase = "/husket";
+  if (isReceiptRoute) legalBase = "/receipts";
 
   return (
     <footer className="footer">
