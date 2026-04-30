@@ -834,6 +834,7 @@ const no = {
       button: "Ta kontakt",
       note: "Ingen forpliktelser. Bare ekte interesse.",
     },
+  },
 
     receiptLegal: {
       privacy: {
@@ -901,7 +902,6 @@ const no = {
         },
       },
     },
-  }
 } as const;
 
 export default no;
