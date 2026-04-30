@@ -20,11 +20,13 @@ import RefusjonPage from "./pages/RefusjonPage";
 import HusketPage from "./pages/HusketPage";
 import ReceiptPage from "./pages/ReceiptPage";
 import HusketKjopsvilkarPage from "./pages/HusketKjopsvilkarPage";
+import ReceiptKjopsvilkarPage from "./pages/ReceiptKjopsvilkarPage";
 import HusketBrukervilkarPage from "./pages/HusketBrukervilkarPage";
 import ReceiptBrukervilkarPage from "./pages/ReceiptBrukervilkarPage";
 import HusketPersonvernPage from "./pages/HusketPersonvernPage";
 import ReceiptPersonvernPage from "./pages/ReceiptPersonvernPage";
 import HusketRefusjonPage from "./pages/HusketRefusjonPage";
+import ReceiptRefusjonPage from "./pages/ReceiptRefusjonPage";
 
 const AppShell: React.FC = () => {
   const location = useLocation();
@@ -84,6 +86,16 @@ const AppShell: React.FC = () => {
           <Route
             path="/receipts/brukervilkar"
             element={<ReceiptBrukervilkarPage />}
+          />
+
+          <Route
+            path="/receipts/kjopsvilkar"
+            element={<ReceiptKjopsvilkarPage />}
+          />
+          
+          <Route
+            path="/receipts/refusjon"
+            element={<ReceiptRefusjonPage />}
           />
 
           <Route path="*" element={<Navigate to="/" replace />} />
