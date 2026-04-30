@@ -21,6 +21,7 @@ import HusketPage from "./pages/HusketPage";
 import ReceiptPage from "./pages/ReceiptPage";
 import HusketKjopsvilkarPage from "./pages/HusketKjopsvilkarPage";
 import HusketBrukervilkarPage from "./pages/HusketBrukervilkarPage";
+import ReceiptBrukervilkarPage from "./pages/ReceiptBrukervilkarPage";
 import HusketPersonvernPage from "./pages/HusketPersonvernPage";
 import ReceiptPersonvernPage from "./pages/ReceiptPersonvernPage";
 import HusketRefusjonPage from "./pages/HusketRefusjonPage";
@@ -78,6 +79,11 @@ const AppShell: React.FC = () => {
           <Route
             path="/receipts/personvern"
             element={<ReceiptPersonvernPage />}
+          />
+
+          <Route
+            path="/receipts/brukervilkar"
+            element={<ReceiptBrukervilkarPage />}
           />
 
           <Route path="*" element={<Navigate to="/" replace />} />
