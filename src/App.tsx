@@ -57,6 +57,7 @@ const AppShell: React.FC = () => {
           <Route path="/progress" element={<ProgressPage />} />
           <Route path="/husket" element={<HusketPage />} />
           <Route path="/receipts" element={<ReceiptPage />} />
+          <Route path="/receipts/delete-account" element={<ReceiptDeleteAccountPage />} />
 
           {/* Generell legal */}
           <Route path="/kjopsvilkar" element={<KjopsvilkarPage />} />
