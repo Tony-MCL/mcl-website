@@ -837,34 +837,53 @@ const en = {
  },
 
   receiptDeleteAccount: {
-  title: "Delete Kvittek account",
-  intro:
-    "This page explains how you can request deletion of your Kvittek account and related data.",
-  s1: {
-    title: "What will be deleted?",
-    body:
-      "When a Kvittek account is deleted, the account and data linked to the account will be deleted, including synced receipts, categories and related files where technically possible and where we are not required to retain them for legal reasons.",
+    title: "Delete Kvittek account",
+    intro:
+      "Kvittek users can request deletion of their account and associated cloud data at any time.",
+  
+    s1: {
+      title: "Request deletion",
+      body:
+        "To request account deletion, please contact post@morningcoffeelabs.no.",
+    },
+  
+    s2: {
+      title: "Please include",
+      bullets: [
+        "The email address connected to your Kvittek account",
+        "A short confirmation that you want your account deleted",
+      ],
+    },
+  
+    s3: {
+      title: "What will be deleted",
+      bullets: [
+        "Kvittek account information",
+        "Synced receipt metadata stored in cloud services",
+        "Associated account-linked settings and backups",
+      ],
+    },
+  
+    s4: {
+      title: "What may be retained temporarily",
+      bullets: [
+        "Certain backup or recovery data may be retained for a limited period for security, fraud prevention, legal compliance, or recovery handling purposes.",
+        "Deleted receipt files may remain in secure backup storage for up to 12 months before permanent removal.",
+      ],
+    },
+  
+    s5: {
+      title: "Local device data",
+      body:
+        "Local data stored only on your personal device is controlled by you and can also be removed directly from the app by uninstalling the application or deleting local content manually.",
+    },
+  
+    s6: {
+      title: "Processing time",
+      body:
+        "Account deletion requests are normally processed within 48 hours, but may take up to 15 days.",
+    },
   },
-  s2: {
-    title: "What may be retained temporarily?",
-    body:
-      "Some information may be retained for a limited period if needed for security, troubleshooting, support, accounting or legal requirements. Data deleted from the app may also be temporarily available for recovery through support for up to 12 months.",
-  },
-  s3: {
-    title: "How to request deletion",
-    lead: "Send an email to",
-    bullets: [
-      "The email address connected to your Kvittek account",
-      "That you want to delete your Kvittek account",
-      "Any additional information that can help us identify the correct account",
-    ],
-  },
-  s4: {
-    title: "Processing time",
-    body:
-      "We process deletion requests as soon as possible. You will receive a reply when the request has been received, and we may ask for confirmation if we need to verify that the correct account is deleted.",
-  },
-},
 
    receiptLegal: {
     privacy: {
