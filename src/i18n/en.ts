@@ -836,6 +836,36 @@ const en = {
     },
  },
 
+  receiptDeleteAccount: {
+  title: "Delete Kvittek account",
+  intro:
+    "This page explains how you can request deletion of your Kvittek account and related data.",
+  s1: {
+    title: "What will be deleted?",
+    body:
+      "When a Kvittek account is deleted, the account and data linked to the account will be deleted, including synced receipts, categories and related files where technically possible and where we are not required to retain them for legal reasons.",
+  },
+  s2: {
+    title: "What may be retained temporarily?",
+    body:
+      "Some information may be retained for a limited period if needed for security, troubleshooting, support, accounting or legal requirements. Data deleted from the app may also be temporarily available for recovery through support for up to 12 months.",
+  },
+  s3: {
+    title: "How to request deletion",
+    lead: "Send an email to",
+    bullets: [
+      "The email address connected to your Kvittek account",
+      "That you want to delete your Kvittek account",
+      "Any additional information that can help us identify the correct account",
+    ],
+  },
+  s4: {
+    title: "Processing time",
+    body:
+      "We process deletion requests as soon as possible. You will receive a reply when the request has been received, and we may ask for confirmation if we need to verify that the correct account is deleted.",
+  },
+},
+
    receiptLegal: {
     privacy: {
       title: "Privacy Policy for Kvittek",
