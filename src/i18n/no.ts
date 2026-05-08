@@ -837,34 +837,53 @@ const no = {
   },
 
   receiptDeleteAccount: {
-    title: "Slett Kvittek-konto",
-    intro:
-      "Denne siden forklarer hvordan du kan be om sletting av konto og tilhørende data for Kvittek.",
-    s1: {
-      title: "Hva slettes?",
-      body:
-        "Når en Kvittek-konto slettes, slettes kontoen og data som er knyttet til kontoen, inkludert synkroniserte kvitteringer, kategorier og tilhørende filer der dette er teknisk mulig og ikke må beholdes av lovpålagte grunner.",
-    },
-    s2: {
-      title: "Hva kan beholdes midlertidig?",
-      body:
-        "Noen opplysninger kan beholdes i en begrenset periode dersom det er nødvendig for sikkerhet, feilsøking, support, regnskap eller lovpålagte krav. Data som er slettet fra appen kan også være midlertidig tilgjengelig for gjenoppretting via support i opptil 12 måneder.",
-    },
-    s3: {
-      title: "Slik ber du om sletting",
-      lead: "Send en e-post til",
-      bullets: [
-        "E-postadressen som er knyttet til Kvittek-kontoen",
-        "At du ønsker å slette Kvittek-kontoen din",
-        "Eventuell tilleggsinformasjon som kan hjelpe oss å finne riktig konto",
-      ],
-    },
-    s4: {
-      title: "Behandlingstid",
-      body:
-        "Vi behandler forespørsler om sletting så raskt som mulig. Du vil få svar når forespørselen er mottatt, og vi kan be om bekreftelse dersom vi må verifisere at riktig konto slettes.",
-    },
+  title: "Slett Kvittek-konto",
+  intro:
+    "Kvittek-brukere kan når som helst be om sletting av konto og tilhørende skylagrede data.",
+
+  s1: {
+    title: "Be om sletting",
+    body:
+      "For å be om sletting av konto, kontakt oss på post@morningcoffeelabs.no.",
   },
+
+  s2: {
+    title: "Vennligst inkluder",
+    bullets: [
+      "E-postadressen som er knyttet til Kvittek-kontoen din",
+      "En kort bekreftelse på at du ønsker å slette kontoen",
+    ],
+  },
+
+  s3: {
+    title: "Hva som vil bli slettet",
+    bullets: [
+      "Kvittek-kontoinformasjon",
+      "Synkroniserte kvitteringsdata lagret i skytjenester",
+      "Kontotilknyttede innstillinger og sikkerhetskopier",
+    ],
+  },
+
+  s4: {
+    title: "Hva som kan beholdes midlertidig",
+    bullets: [
+      "Visse backup- eller gjenopprettingsdata kan beholdes i en begrenset periode av hensyn til sikkerhet, svindelforebygging, juridiske krav eller håndtering av gjenoppretting.",
+      "Slettede kvitteringsfiler kan forbli i sikker backup-lagring i opptil 12 måneder før permanent sletting.",
+    ],
+  },
+
+  s5: {
+    title: "Lokale data på enheten",
+    body:
+      "Lokale data som kun er lagret på din personlige enhet kontrolleres av deg, og kan også fjernes direkte fra appen ved å avinstallere applikasjonen eller slette lokalt innhold manuelt.",
+  },
+
+  s6: {
+    title: "Behandlingstid",
+    body:
+      "Forespørsler om sletting behandles normalt innen 48 timer, men kan i enkelte tilfeller ta opptil 15 dager.",
+  },
+},
 
     receiptLegal: {
       privacy: {
