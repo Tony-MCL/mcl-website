@@ -19,6 +19,7 @@ import RefusjonPage from "./pages/RefusjonPage";
 
 import HusketPage from "./pages/HusketPage";
 import ReceiptPage from "./pages/ReceiptPage";
+import ReceiptDeleteAccountPage from "./pages/ReceiptDeleteAccountPage";
 import HusketKjopsvilkarPage from "./pages/HusketKjopsvilkarPage";
 import ReceiptKjopsvilkarPage from "./pages/ReceiptKjopsvilkarPage";
 import HusketBrukervilkarPage from "./pages/HusketBrukervilkarPage";
