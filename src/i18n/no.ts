@@ -836,6 +836,36 @@ const no = {
     },
   },
 
+  receiptDeleteAccount: {
+    title: "Slett Kvittek-konto",
+    intro:
+      "Denne siden forklarer hvordan du kan be om sletting av konto og tilhørende data for Kvittek.",
+    s1: {
+      title: "Hva slettes?",
+      body:
+        "Når en Kvittek-konto slettes, slettes kontoen og data som er knyttet til kontoen, inkludert synkroniserte kvitteringer, kategorier og tilhørende filer der dette er teknisk mulig og ikke må beholdes av lovpålagte grunner.",
+    },
+    s2: {
+      title: "Hva kan beholdes midlertidig?",
+      body:
+        "Noen opplysninger kan beholdes i en begrenset periode dersom det er nødvendig for sikkerhet, feilsøking, support, regnskap eller lovpålagte krav. Data som er slettet fra appen kan også være midlertidig tilgjengelig for gjenoppretting via support i opptil 12 måneder.",
+    },
+    s3: {
+      title: "Slik ber du om sletting",
+      lead: "Send en e-post til",
+      bullets: [
+        "E-postadressen som er knyttet til Kvittek-kontoen",
+        "At du ønsker å slette Kvittek-kontoen din",
+        "Eventuell tilleggsinformasjon som kan hjelpe oss å finne riktig konto",
+      ],
+    },
+    s4: {
+      title: "Behandlingstid",
+      body:
+        "Vi behandler forespørsler om sletting så raskt som mulig. Du vil få svar når forespørselen er mottatt, og vi kan be om bekreftelse dersom vi må verifisere at riktig konto slettes.",
+    },
+  },
+
     receiptLegal: {
       privacy: {
         title: "Personvern for Kvittek",
