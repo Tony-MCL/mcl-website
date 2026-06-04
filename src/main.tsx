@@ -8,6 +8,18 @@ import "./styles/styles.css";
 
 import { I18nProvider } from "./i18n/I18nProvider";
 
+function redirectOldHashRoutes() {
+  const hash = window.location.hash;
+
+  if (!hash.startsWith("#/")) return;
+
+  const newPath = hash.substring(1);
+
+  window.location.replace(newPath);
+}
+
+redirectOldHashRoutes();
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
