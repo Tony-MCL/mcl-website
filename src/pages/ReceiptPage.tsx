@@ -20,7 +20,7 @@ const ReceiptPage: React.FC = () => {
         <p className="hero-sub">{t("receipt.hero.line")}</p>
 
         <a
-          href="mailto:post@morningcoffeelabs.no?subject=Interest%20in%20receipt%20app"
+          href="https://play.google.com/store/apps/details?id=com.morningcoffeelabs.kvittek"
           className="hero-cta"
         >
           {t("receipt.cta.button")}
@@ -183,7 +183,7 @@ const ReceiptPage: React.FC = () => {
           <p className="receipt-cta-sub">{t("receipt.cta.sub")}</p>
 
           <a
-            href="mailto:post@morningcoffeelabs.no?subject=Interest%20in%20receipt%20app"
+            href="https://play.google.com/store/apps/details?id=com.morningcoffeelabs.kvittek"
             className="hero-cta receipt-cta-button"
           >
             {t("receipt.cta.button")}
