@@ -829,9 +829,9 @@ const no = {
     },
 
     cta: {
-      title: "Vil du ha tidlig tilgang?",
+      title: "KVITTEK er nå tilgjengelig på Google Play",
       sub: "Få tidlig tilgang og hjelp oss forme produktet videre.",
-      button: "Ta kontakt",
+      button: "Last ned fra Google Play",
       note: "Ingen forpliktelser. Bare ekte interesse.",
     },
   },
