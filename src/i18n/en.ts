@@ -831,7 +831,7 @@ const en = {
     cta: {
       title: "KVITTEK is now available on Google Play",
       sub: "Get early access and help shape the product.",
-      button: "Download from Google Play",
+      button: "Download from Google Play →",
       note: "No commitment. Just genuine interest.",
     },
   },
