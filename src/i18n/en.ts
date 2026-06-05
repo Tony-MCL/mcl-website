@@ -829,9 +829,9 @@ const en = {
     },
 
     cta: {
-      title: "Want early access?",
+      title: "KVITTEK is now available on Google Play",
       sub: "Get early access and help shape the product.",
-      button: "Get in touch",
+      button: "Download from Google Play",
       note: "No commitment. Just genuine interest.",
     },
   },
