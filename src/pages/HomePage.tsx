@@ -2,88 +2,91 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useI18n } from "../i18n/useI18n";
 import { LINKS } from "../config/links";
-import { PRODUCTS, type ProductDefinition } from "../config/products";
-import { getHomeCardValue, getProductVisibility, readProductOverrides } from "../config/productOverrides";
-import { getLocalizedValue, readCustomProducts, type CustomProduct } from "../config/customProducts";
-
-const imageStyle: React.CSSProperties = {
-  width: "100%",
-  aspectRatio: "16 / 9",
-  objectFit: "cover",
-  borderRadius: "14px",
-  marginBottom: "0.9rem",
-};
 
 const HomePage: React.FC = () => {
-  const { t, lang } = useI18n();
-  const overrides = readProductOverrides();
-  const customProducts = readCustomProducts().filter((product) => product.visible && product.status === "published");
+  const { t } = useI18n();
 
   return (
     <main className="page home-page">
+      {/* HERO */}
       <section className="hero">
         <h1 className="hero-title">{t("home.hero.title")}</h1>
+
         <p className="hero-tagline">{t("home.hero.tagline")}</p>
+
         <p className="hero-sub" style={{ maxWidth: 820 }}>
           {t("home.hero.sub")}
         </p>
       </section>
 
+      {/* HVA SOM BYGGES */}
       <section>
         <h2 style={{ marginBottom: "0.6rem" }}>{t("home.sections.building")}</h2>
 
         <section className="intro-grid">
+          {/* MANAGE PROGRESS – FULL BREDD */}
           <div className="intro-card" style={{ gridColumn: "1 / -1" }}>
             <h3>{t("home.cards.progress.title")}</h3>
             <p>{t("home.cards.progress.body")}</p>
 
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.8rem", marginTop: "1rem" }}>
-              <a href={LINKS.ms} className="hero-cta" rel="noopener noreferrer">
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "0.8rem",
+                marginTop: "1rem",
+              }}
+            >
+              <a
+                href={LINKS.ms}
+                className="hero-cta"
+                rel="noopener noreferrer"
+              >
                 {t("home.cards.progress.cta")}
               </a>
 
-              <Link to="/kontakt" style={{ alignSelf: "center", fontSize: "0.95rem", textDecoration: "underline" }}>
+              <Link
+                to="/kontakt"
+                style={{
+                  alignSelf: "center",
+                  fontSize: "0.95rem",
+                  textDecoration: "underline",
+                }}
+              >
                 {t("home.cards.progress.contactCta")}
               </Link>
             </div>
           </div>
 
-          {PRODUCTS.filter((product: ProductDefinition) => getProductVisibility(product, overrides)).map((product: ProductDefinition) => (
-            <div key={product.slug} className="intro-card">
-              {product.home.badgeKey ? (
-                <div className="app-card-topline">
-                  <span className="badge">{t(product.home.badgeKey)}</span>
-                </div>
-              ) : null}
-
-              <h3>{getHomeCardValue(product, overrides, lang, t(product.home.titleKey), "homeTitle")}</h3>
-              <p>{getHomeCardValue(product, overrides, lang, t(product.home.bodyKey), "homeBody")}</p>
-
-              <p style={{ marginTop: "0.7rem" }}>
-                <Link to={product.routePath}>{getHomeCardValue(product, overrides, lang, t(product.home.ctaKey), "homeCta")}</Link>
-              </p>
+          {/* HUSKET */}
+          <div className="intro-card">
+            <div className="app-card-topline">
+              <span className="badge">{t("home.cards.husket.badge")}</span>
             </div>
-          ))}
 
-          {customProducts.map((product: CustomProduct) => (
-            <div key={product.slug} className="intro-card">
-              {product.imageUrl ? <img src={product.imageUrl} alt={getLocalizedValue(product.homeTitle, lang)} style={imageStyle} /> : null}
+            <h3>{t("home.cards.husket.title")}</h3>
+            <p>{t("home.cards.husket.body")}</p>
 
-              {product.badge ? (
-                <div className="app-card-topline">
-                  <span className="badge">{getLocalizedValue(product.badge, lang)}</span>
-                </div>
-              ) : null}
+            <p style={{ marginTop: "0.7rem" }}>
+              <Link to="/husket">{t("home.cards.husket.cta")}</Link>
+            </p>
+          </div>
 
-              <h3>{getLocalizedValue(product.homeTitle, lang)}</h3>
-              <p>{getLocalizedValue(product.homeBody, lang)}</p>
-
-              <p style={{ marginTop: "0.7rem" }}>
-                <Link to={product.routePath}>{getLocalizedValue(product.homeCta, lang)}</Link>
-              </p>
+          {/* RECEIPT APP */}
+          <div className="intro-card">
+            <div className="app-card-topline">
+              <span className="badge">{t("home.cards.receipts.badge")}</span>
             </div>
-          ))}
 
+            <h3>{t("home.cards.receipts.title")}</h3>
+            <p>{t("home.cards.receipts.body")}</p>
+
+            <p style={{ marginTop: "0.7rem" }}>
+              <Link to="/kvittek">{t("home.cards.receipts.cta")}</Link>
+            </p>
+          </div>
+
+          {/* TJENESTER */}
           <div className="intro-card">
             <h3>{t("home.cards.services.title")}</h3>
             <p>{t("home.cards.services.body")}</p>
@@ -105,6 +108,7 @@ const HomePage: React.FC = () => {
         </section>
       </section>
 
+      {/* PRINSIPPER */}
       <section>
         <h2 style={{ marginBottom: "0.6rem" }}>{t("home.sections.principles")}</h2>
 
@@ -126,6 +130,7 @@ const HomePage: React.FC = () => {
         </section>
       </section>
 
+      {/* HVEM DETTE PASSER FOR */}
       <section>
         <h2 style={{ marginBottom: "0.6rem" }}>{t("home.sections.audience")}</h2>
         <p style={{ maxWidth: 820 }}>{t("home.audience")}</p>

@@ -2,13 +2,29 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useI18n } from "../i18n/useI18n";
 
+type ProductLegal = "default" | "husket" | "kvittek";
+
 const Footer: React.FC = () => {
   const year = new Date().getFullYear();
   const { t } = useI18n();
   const location = useLocation();
 
-  const isHusketRoute = location.pathname === "/husket" || location.pathname.startsWith("/husket/");
-  const legalBase = isHusketRoute ? "/husket" : "";
+  const isHusketRoute =
+    location.pathname === "/husket" || location.pathname.startsWith("/husket/");
+
+  const isKvittekRoute =
+    location.pathname === "/receipts" ||
+    location.pathname.startsWith("/receipts/") ||
+    location.pathname === "/kvittek";
+
+  const productLegal: ProductLegal = isHusketRoute
+    ? "husket"
+    : isKvittekRoute
+      ? "kvittek"
+      : "default";
+
+  const legalBase = productLegal === "husket" ? "/husket" : productLegal === "kvittek" ? "/receipts" : "";
+  const labelBase = productLegal === "husket" ? "footer.husketLinks" : productLegal === "kvittek" ? "footer.kvittekLinks" : "footer.links";
 
   return (
     <footer className="footer">
@@ -18,24 +34,16 @@ const Footer: React.FC = () => {
         </span>
 
         <nav className="footer-links">
-          <Link to={`${legalBase}/kjopsvilkar`}>
-            {isHusketRoute ? t("footer.husketLinks.termsPurchase") : t("footer.links.termsPurchase")}
-          </Link>
+          <Link to={`${legalBase}/kjopsvilkar`}>{t(`${labelBase}.termsPurchase`)}</Link>
           <span>·</span>
 
-          <Link to={`${legalBase}/brukervilkar`}>
-            {isHusketRoute ? t("footer.husketLinks.termsUse") : t("footer.links.termsUse")}
-          </Link>
+          <Link to={`${legalBase}/brukervilkar`}>{t(`${labelBase}.termsUse`)}</Link>
           <span>·</span>
 
-          <Link to={`${legalBase}/personvern`}>
-            {isHusketRoute ? t("footer.husketLinks.privacy") : t("footer.links.privacy")}
-          </Link>
+          <Link to={`${legalBase}/personvern`}>{t(`${labelBase}.privacy`)}</Link>
           <span>·</span>
 
-          <Link to={`${legalBase}/refusjon`}>
-            {isHusketRoute ? t("footer.husketLinks.refund") : t("footer.links.refund")}
-          </Link>
+          <Link to={`${legalBase}/refusjon`}>{t(`${labelBase}.refund`)}</Link>
         </nav>
       </div>
     </footer>

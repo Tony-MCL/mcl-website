@@ -39,6 +39,12 @@ const no = {
       privacy: "husk'et personvern",
       refund: "husk'et refusjon",
     },
+    kvittekLinks: {
+      termsPurchase: "Kvittek kjøpsvilkår",
+      termsUse: "Kvittek brukervilkår",
+      privacy: "Kvittek personvern",
+      refund: "Kvittek refusjon",
+    },
   },
 
   home: {
@@ -79,7 +85,7 @@ const no = {
         badge: "App",
         body:
           "En praktisk mobilapp for å lagre, organisere og finne igjen kvitteringer når du faktisk trenger dem. Ta bilde, importer PDF eller skjermbilder, og ha dokumentasjonen klar for refusjon, retur, garanti eller videresalg.",
-        cta: "Se kvittek →",
+        cta: "Se Kvittek →",
       },
 
       services: {
@@ -185,8 +191,8 @@ const no = {
     next: {
       title: "Early access",
       body:
-        "husk'et er nå tilgjengelig på Google Play.",
-      cta: "Last ned fra Google Play →",
+        "husk'et er nå tilgjengelig i early access på Google Play. Hvis du vil prøve appen før den offisielle lanseringen, kan du bli med i husk'et testpanel. Medlemmer av gruppen får tilgang til den nåværende testversjonen og kan være med og forme appen før lansering.",
+      cta: "Bli med i testpanelet →",
     },
   },
 
@@ -829,10 +835,98 @@ const no = {
     },
 
     cta: {
-      title: "KVITTEK er nå tilgjengelig på Google Play",
+      title: "Vil du ha tidlig tilgang?",
       sub: "Få tidlig tilgang og hjelp oss forme produktet videre.",
-      button: "Last ned fra Google Play →",
+      button: "Ta kontakt",
       note: "Ingen forpliktelser. Bare ekte interesse.",
+    },
+  },
+
+  kvittekLanding: {
+    title: "Fordi kontroll gir trygghet",
+    intro:
+      "Uansett om du tar vare på kvitteringer for garanti, reklamasjon, jobb, reiseregninger eller bare for å holde orden, hjelper Kvittek deg med å samle dem på ett sted.",
+    problems: {
+      title: "Vanlige kvitteringsproblemer",
+      items: [
+        "Kvitteringer i skuffer",
+        "Leting i lommer og mapper",
+        "Stress når du plutselig trenger dokumentasjon",
+      ],
+    },
+    benefits: {
+      title: "Med Kvittek holder du enkelt orden på",
+      items: [
+        "Garanti og reklamasjon",
+        "Jobb- og reiseregninger",
+        "Utlegg og refusjoner",
+        "Organisering av kvitteringer",
+        "Sikker lagring og backup",
+      ],
+    },
+    reminder:
+      "Ta bilde av kvitteringen når du får den. Da vet du hvor den er når du trenger den.",
+    download: {
+      title: "Last ned Kvittek",
+      googleAlt: "Tilgjengelig på Google Play",
+      googleAria: "Last ned Kvittek fra Google Play",
+      appleAlt: "Last ned fra App Store",
+      appleAria: "Last ned Kvittek fra App Store",
+      appleSoon: "App Store kommer snart",
+    },
+    support: {
+      lead: "Spørsmål eller support?",
+    },
+    more: "Les mer om Kvittek →",
+  },
+
+  kvittekLegal: {
+    terms: {
+      title: "Brukervilkår for Kvittek",
+      intro: "Disse brukervilkårene gjelder for bruk av Kvittek, levert av Mathisens Morning Coffee Labs.",
+      sections: [
+        { title: "1. Bruk av appen", body: "Kvittek gir deg en personlig, ikke-overførbar rett til å bruke appen i samsvar med den funksjonaliteten som tilbys i den aktuelle versjonen. Appen skal ikke videreselges, redistribueres eller brukes i strid med gjeldende lovverk." },
+        { title: "2. Innhold du lagrer", body: "Du er selv ansvarlig for kvitteringer, bilder, filer, kategorier, mapper og annen informasjon du lagrer i appen. Du skal ikke lagre innhold du ikke har rett til å bruke, eller som krenker andres rettigheter." },
+        { title: "3. Konto og synkronisering", body: "Kvittek kan brukes lokalt på enheten. Dersom du oppretter Kvittek-konto eller bruker backup og synkronisering, lagres nødvendige data for å levere denne funksjonen på tvers av enheter." },
+        { title: "4. Tilgjengelighet og endringer", body: "Vi tilstreber at appen fungerer stabilt, men kan ikke garantere at alle funksjoner alltid er tilgjengelige eller feilfrie. Appen kan oppdateres, forbedres eller endres over tid." },
+        { title: "5. Ansvarsbegrensning", body: "Kvittek leveres som den er. Så langt loven tillater det, er vi ikke ansvarlige for indirekte tap, tap av data, tapt fortjeneste eller andre følgeskader som kan oppstå ved bruk av appen." },
+        { title: "6. Kontakt", body: "Spørsmål om appen eller disse vilkårene kan sendes til support@morningcoffeelabs.no." },
+      ],
+    },
+    privacy: {
+      title: "Personvern for Kvittek",
+      intro: "Denne personvernerklæringen beskriver hvordan Kvittek håndterer informasjon i appen og ved bruk av konto, backup og synkronisering.",
+      sections: [
+        { title: "1. Behandlingsansvarlig", body: "Mathisens Morning Coffee Labs er behandlingsansvarlig for personopplysninger som behandles i forbindelse med Kvittek." },
+        { title: "2. Hvilke opplysninger appen kan behandle", lead: "Når du bruker Kvittek, kan dette omfatte:", bullets: ["kvitteringer, bilder, PDF-er og skjermbilder du legger inn", "kategorier, mapper, notater og annen organisering du oppretter", "kontoopplysninger som e-postadresse dersom du oppretter konto", "teknisk informasjon som trengs for backup, synkronisering, feilsøking og sikker drift"] },
+        { title: "3. Formål", lead: "Opplysningene brukes til å:", bullets: ["lagre og vise kvitteringene dine i appen", "synkronisere og sikkerhetskopiere data når du bruker Kvittek-konto", "gjenopprette data på ny eller annen enhet", "gi support og rette feil når du ber om hjelp"] },
+        { title: "4. Lokal lagring og konto", body: "Kvittek er laget for at kvitteringer skal være enkle å lagre og finne igjen. Data kan lagres lokalt på enheten. Dersom du aktiverer konto, backup eller synkronisering, overføres nødvendige data til våre tjenesteleverandører for å levere denne funksjonen." },
+        { title: "5. Tredjeparter", body: "Vi kan bruke underleverandører for innlogging, skylagring, betaling, appdistribusjon og drift. Disse skal kun behandle data for å levere tjenesten og ikke for egne formål." },
+        { title: "6. Sletting", body: "Du kan be om sletting av konto og tilhørende data ved å kontakte support@morningcoffeelabs.no. Enkelte opplysninger kan måtte beholdes så lenge vi er pålagt det etter lov, for eksempel regnskaps- og betalingsdokumentasjon." },
+        { title: "7. Kontakt", body: "For spørsmål om personvern kan du kontakte support@morningcoffeelabs.no." },
+      ],
+    },
+    purchase: {
+      title: "Kjøpsvilkår for Kvittek",
+      intro: "Disse kjøpsvilkårene gjelder for kjøp og abonnement knyttet til Kvittek.",
+      sections: [
+        { title: "1. Partene", body: "Selger er Mathisens Morning Coffee Labs. Kjøper er personen som kjøper eller abonnerer på Kvittek via App Store, Google Play eller annen godkjent kjøpskanal." },
+        { title: "2. Produkt og tilgang", body: "Kvittek leveres som en mobilapp. Enkelte funksjoner, som konto, backup, synkronisering eller utvidet bruk, kan være knyttet til betalt abonnement eller kjøp." },
+        { title: "3. Pris og betaling", body: "Pris, valuta og betalingsvilkår vises i App Store eller Google Play før kjøpet bekreftes. Betaling og eventuell fornyelse håndteres av den aktuelle butikken." },
+        { title: "4. Abonnement", body: "Dersom du kjøper abonnement, fornyes dette i henhold til vilkårene i App Store eller Google Play. Abonnement administreres og sies opp via kontoinnstillingene i den butikken hvor kjøpet ble gjort." },
+        { title: "5. Levering", body: "Digitale funksjoner aktiveres normalt kort tid etter gjennomført betaling, forutsatt at betaling og butikkbekreftelse er registrert korrekt." },
+        { title: "6. Kontakt", body: "Spørsmål om Kvittek, tilgang eller kjøp kan sendes til support@morningcoffeelabs.no." },
+      ],
+    },
+    refund: {
+      title: "Refusjon for Kvittek",
+      intro: "Her beskriver vi hvordan refusjon og klager håndteres for kjøp knyttet til Kvittek.",
+      sections: [
+        { title: "1. Kjøp via App Store eller Google Play", body: "Kjøp og abonnement i Kvittek håndteres normalt av App Store eller Google Play. Refusjonsforespørsler må som hovedregel sendes gjennom den butikken hvor kjøpet ble gjort." },
+        { title: "2. Tekniske problemer", body: "Dersom du har betalt, men ikke får tilgang til betalte funksjoner på grunn av teknisk feil, ber vi deg kontakte support@morningcoffeelabs.no. Vi vil forsøke å hjelpe deg med å gjenopprette tilgang eller finne en rimelig løsning." },
+        { title: "3. Oppsigelse av abonnement", body: "Abonnement kan sies opp via App Store eller Google Play. Allerede betalte perioder refunderes normalt ikke av oss, men du beholder tilgangen ut perioden dersom butikken ikke bestemmer noe annet." },
+        { title: "4. Hva du bør sende oss", lead: "Ved support bør du sende:", bullets: ["hvilken butikk kjøpet ble gjort i", "dato for kjøp", "e-postadressen som er brukt i Kvittek", "en kort beskrivelse av problemet"] },
+      ],
     },
   },
 
