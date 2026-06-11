@@ -20,10 +20,15 @@ import RefusjonPage from "./pages/RefusjonPage";
 
 import HusketPage from "./pages/HusketPage";
 import ReceiptPage from "./pages/ReceiptPage";
+import ReceiptLandingPage from "./pages/ReceiptLandingPage";
 import HusketKjopsvilkarPage from "./pages/HusketKjopsvilkarPage";
 import HusketBrukervilkarPage from "./pages/HusketBrukervilkarPage";
 import HusketPersonvernPage from "./pages/HusketPersonvernPage";
 import HusketRefusjonPage from "./pages/HusketRefusjonPage";
+import KvittekKjopsvilkarPage from "./pages/KvittekKjopsvilkarPage";
+import KvittekBrukervilkarPage from "./pages/KvittekBrukervilkarPage";
+import KvittekPersonvernPage from "./pages/KvittekPersonvernPage";
+import KvittekRefusjonPage from "./pages/KvittekRefusjonPage";
 
 const AppShell: React.FC = () => {
   const location = useLocation();
@@ -32,13 +37,14 @@ const AppShell: React.FC = () => {
     location.pathname === "/husket" ||
     location.pathname.startsWith("/husket/") ||
     location.pathname === "/receipts" ||
-    location.pathname.startsWith("/receipts/");
+    location.pathname.startsWith("/receipts/") ||
+    location.pathname === "/kvittek";
 
   return (
     <div className="app-shell">
       <ScrollToTop />
 
-      {/*!isCleanProductRoute ? <WatermarkLayer /> : null */}
+      {/*!isCleanProductRoute ? <WatermarkLayer /> : null*/}
 
       <Header />
 
@@ -55,7 +61,8 @@ const AppShell: React.FC = () => {
           {/* Produktsider */}
           <Route path="/progress" element={<ProgressPage />} />
           <Route path="/husket" element={<HusketPage />} />
-          <Route path="/receipts" element={<ReceiptPage />} />
+          <Route path="/kvittek" element={<ReceiptPage />} />
+          <Route path="/receipts" element={<ReceiptLandingPage />} />
 
           {/* Generell legal */}
           <Route path="/kjopsvilkar" element={<KjopsvilkarPage />} />
@@ -77,6 +84,12 @@ const AppShell: React.FC = () => {
             element={<HusketPersonvernPage />}
           />
           <Route path="/husket/refusjon" element={<HusketRefusjonPage />} />
+
+          {/* Kvittek legal */}
+          <Route path="/receipts/kjopsvilkar" element={<KvittekKjopsvilkarPage />} />
+          <Route path="/receipts/brukervilkar" element={<KvittekBrukervilkarPage />} />
+          <Route path="/receipts/personvern" element={<KvittekPersonvernPage />} />
+          <Route path="/receipts/refusjon" element={<KvittekRefusjonPage />} />
 
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
