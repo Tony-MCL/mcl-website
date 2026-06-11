@@ -275,8 +275,10 @@ const no = {
       tagline:
         "Fra utfordringer til idéer – og videre til løsninger som tåler virkeligheten.",
       p1:
-        "Morning Coffee Labs utvikler egne digitale verktøy og apper, men hjelper også kunder med å forme utfordringer, behov og idéer til funksjonelle løsninger. Enten utgangspunktet er en konkret problemstilling eller en tidlig idé, er målet å skape verktøy som er enkle å bruke, enkle å vedlikeholde og bygget for reell bruk over tid. Enten det gjelder egne idéer, bestillingsutvikling eller idébanken, er målet det samme: tydelig struktur, forutsigbar funksjonalitet og løsninger som tåler virkeligheten.",
+        "Morning Coffee Labs utvikler egne digitale verktøy og apper, men hjelper også kunder med å forme utfordringer, behov og idéer til funksjonelle løsninger. Enten utgangspunktet er en konkret problemstilling eller en tidlig idé, er målet å skape verktøy som er enkle å bruke, enkle å vedlikeholde og bygget for reell bruk over tid.",
       p2:
+        "Enten det gjelder egne idéer, bestillingsutvikling eller idébanken, er målet det samme: tydelig struktur, forutsigbar funksjonalitet og løsninger som tåler virkeligheten.",
+      p3:
         "Vi starter med et problem som faktisk koster tid, fokus eller kvalitet. Deretter gjør vi det om til en idé som kan testes og bygges. Til slutt leverer vi en løsning som er enkel å ta i bruk, lett å vedlikeholde – og tydelig i hva den gjør.",
       back: "← Tilbake til forsiden",
       contact: "Ta kontakt →",
