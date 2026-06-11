@@ -275,8 +275,10 @@ const en = {
       tagline:
         "From challenges to ideas — and onward to solutions built for real life.",
       p1:
-        "Morning Coffee Labs develops its own digital tools and apps, while also helping customers turn challenges, needs and ideas into practical solutions. Whether the starting point is a specific problem or an early-stage concept, the goal is to create tools that are easy to use, easy to maintain and built for long-term real-world use. Whether it is our own ideas, custom development or ideas from the lab, the goal remains the same: clear structure, predictable functionality and solutions that stand the test of time.",
+        "Morning Coffee Labs develops its own digital tools and apps, while also helping customers turn challenges, needs and ideas into practical solutions. Whether the starting point is a specific problem or an early-stage concept, the goal is to create tools that are easy to use, easy to maintain and built for long-term real-world use.",
       p2:
+        "Whether it is our own ideas, custom development or ideas from the lab, the goal remains the same: clear structure, predictable functionality and solutions that stand the test of time.",
+      p3:
         "We start from a problem that actually costs time, focus, or quality. Then we shape it into an idea that can be tested and built. Finally, we deliver a solution that’s easy to adopt, easy to maintain — and clear about what it does.",
       back: "← Back to home",
       contact: "Get in touch →",
