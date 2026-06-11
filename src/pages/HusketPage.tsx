@@ -12,7 +12,7 @@ const googlePlayUrl =
   "https://play.google.com/store/apps/details?id=no.morningcoffeelabs.husket&pcampaignid=web_share";
 
 const HusketPage: React.FC = () => {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
