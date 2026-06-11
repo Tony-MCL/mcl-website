@@ -189,10 +189,9 @@ const en = {
       },
     },
     next: {
-      title: "Early access",
+      title: "Download husk'et",
       body:
-        "husk'et is now available on Google Play.",
-      cta: "Download from Google Play →",
+        "Your memories deserve better than being buried in your camera roll.",
     },
   },
 
