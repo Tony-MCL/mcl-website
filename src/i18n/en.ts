@@ -756,7 +756,7 @@ const en = {
  receipt: {
     hero: {
       title: "Never lose a receipt again.",
-      sub: "From capture to warranty, everything in one place. Ready when you need it.",
+      sub: "From purchase to warranty, everything in one place. Ready when you need it.",
       line: "No piles. No digging through photos  or e-mails. Just your receipts, organized.",
       cta: "Try early access",
     },
