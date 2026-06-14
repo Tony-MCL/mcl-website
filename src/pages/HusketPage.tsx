@@ -1,5 +1,9 @@
 import React, { useEffect } from "react";
 import { useI18n } from "../i18n/useI18n";
+import {
+  trackHusketGooglePlayClick,
+  trackHusketPageView,
+} from "../lib/kvittekAnalytics";
 
 const assetBase = import.meta.env.BASE_URL || "/";
 
@@ -16,13 +20,15 @@ const HusketPage: React.FC = () => {
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    trackHusketPageView();
   }, []);
+
+  const handleGooglePlayClick = () => {
+    trackHusketGooglePlayClick();
+  };
 
   return (
     <main className="page husket-page">
-      {/* =============================== */}
-      {/* HERO */}
-      {/* =============================== */}
       <section className="husket-hero-layout">
         <div className="husket-logo-wrap" aria-hidden="true">
           <img
@@ -35,12 +41,13 @@ const HusketPage: React.FC = () => {
         <div className="husket-hero-copy">
           <p className="husket-hero-tagline">{t("husket.hero.tagline")}</p>
           <p className="husket-hero-intro">{t("husket.hero.intro")}</p>
-        
+
           <a
             className="receipt-store-badge-link"
             href={googlePlayUrl}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={handleGooglePlayClick}
           >
             <img
               className="receipt-store-badge-image"
@@ -51,9 +58,6 @@ const HusketPage: React.FC = () => {
         </div>
       </section>
 
-      {/* =============================== */}
-      {/* QUICK GLIMPSE */}
-      {/* =============================== */}
       <section className="intro-card">
         <h3 style={{ marginTop: 0 }}>{t("husket.glimpse.title")}</h3>
 
@@ -93,9 +97,6 @@ const HusketPage: React.FC = () => {
         </div>
       </section>
 
-      {/* =============================== */}
-      {/* CONTENT */}
-      {/* =============================== */}
       <section className="intro-grid two-columns">
         <div className="intro-card">
           <h3>{t("husket.cards.capture.title")}</h3>
@@ -117,19 +118,17 @@ const HusketPage: React.FC = () => {
           <p>{t("husket.cards.privacy.body")}</p>
         </div>
 
-        {/* =============================== */}
-        {/* NEXT / COMING SOON */}
-        {/* =============================== */}
         <div className="intro-card" style={{ gridColumn: "1 / -1" }}>
           <h3 style={{ marginTop: 0 }}>{t("husket.next.title")}</h3>
-        
+
           <p style={{ marginBottom: "1rem" }}>{t("husket.next.body")}</p>
-        
+
           <a
             className="receipt-store-badge-link"
             href={googlePlayUrl}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={handleGooglePlayClick}
           >
             <img
               className="receipt-store-badge-image"
