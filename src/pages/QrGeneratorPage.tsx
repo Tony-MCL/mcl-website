@@ -1,6 +1,7 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { QRCodeCanvas } from "qrcode.react";
 import { useI18n } from "../i18n/useI18n";
+import { trackQrDownloadClick, trackQrPageView } from "../lib/kvittekAnalytics";
 
 const DEFAULT_VALUE = "https://morningcoffeelabs.no";
 const SIGNATURE_TEXT = "Generated at morningcoffeelabs.no";
@@ -16,6 +17,10 @@ const QrGeneratorPage: React.FC = () => {
   const [logoUrl, setLogoUrl] = useState<string | null>(null);
   const [logoSize, setLogoSize] = useState(22);
   const [logoBackground, setLogoBackground] = useState(false);
+
+  useEffect(() => {
+    trackQrPageView();
+  }, []);
 
   const handleLogoUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -38,6 +43,8 @@ const QrGeneratorPage: React.FC = () => {
   };
 
   const downloadPng = async () => {
+    await trackQrDownloadClick();
+
     const sourceCanvas = qrCanvasRef.current?.querySelector("canvas");
     if (!sourceCanvas) return;
 
@@ -85,7 +92,7 @@ const QrGeneratorPage: React.FC = () => {
     ctx.font = "34px sans-serif";
     ctx.textAlign = "right";
     ctx.textBaseline = "middle";
-    
+
     ctx.globalAlpha = 0.55;
     ctx.fillText(SIGNATURE_TEXT, outputSize - 24, outputSize + signatureArea / 2);
     ctx.globalAlpha = 1;
@@ -198,7 +205,7 @@ const QrGeneratorPage: React.FC = () => {
                 fgColor={fgColor}
                 includeMargin
               />
-          
+
               {logoUrl ? (
                 <div
                   className="qr-logo-overlay"
@@ -213,7 +220,7 @@ const QrGeneratorPage: React.FC = () => {
                 </div>
               ) : null}
             </div>
-          
+
             <div className="qr-signature" style={{ color: fgColor }}>
               {SIGNATURE_TEXT}
             </div>
