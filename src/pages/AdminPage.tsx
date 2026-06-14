@@ -7,11 +7,20 @@ import {
 } from "firebase/auth";
 import { auth } from "../firebase";
 import {
+  listenToHusketAnalytics,
   listenToKvittekAnalytics,
-  type KvittekAnalyticsData,
+  listenToQrAnalytics,
+  type AnalyticsData,
 } from "../lib/kvittekAnalytics";
 
 const ADMIN_EMAIL = "morningcoffeelabs@gmail.com";
+
+const emptyAnalytics: AnalyticsData = {
+  landingViews: 0,
+  googlePlayClicks: 0,
+  appStoreClicks: 0,
+  downloadClicks: 0,
+};
 
 const cardStyle: React.CSSProperties = {
   border: "1px solid var(--line, rgba(255,255,255,0.12))",
@@ -30,6 +39,10 @@ const inputStyle: React.CSSProperties = {
   font: "inherit",
 };
 
+function numberValue(value: unknown): number {
+  return typeof value === "number" ? value : 0;
+}
+
 function formatTimestamp(value: unknown): string {
   if (!value || typeof value !== "object") return "Ikke registrert ennå";
 
@@ -39,12 +52,10 @@ function formatTimestamp(value: unknown): string {
     return "Ikke registrert ennå";
   }
 
-  const date = maybeTimestamp.toDate();
-
   return new Intl.DateTimeFormat("no-NO", {
     dateStyle: "medium",
     timeStyle: "short",
-  }).format(date);
+  }).format(maybeTimestamp.toDate());
 }
 
 function StatCard(props: {
@@ -65,17 +76,30 @@ function StatCard(props: {
   );
 }
 
+function AnalyticsSection(props: {
+  title: string;
+  description: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <section style={{ ...cardStyle, marginBottom: "1rem" }}>
+      <h2 style={{ marginTop: 0 }}>{props.title}</h2>
+      <p style={{ marginTop: "-0.35rem", opacity: 0.72 }}>{props.description}</p>
+      {props.children}
+    </section>
+  );
+}
+
 const AdminPage: React.FC = () => {
   const [user, setUser] = useState<User | null>(null);
   const [authChecked, setAuthChecked] = useState(false);
   const [email, setEmail] = useState(ADMIN_EMAIL);
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState("");
-  const [analytics, setAnalytics] = useState<KvittekAnalyticsData>({
-    landingViews: 0,
-    googlePlayClicks: 0,
-    appStoreClicks: 0,
-  });
+
+  const [kvittek, setKvittek] = useState<AnalyticsData>(emptyAnalytics);
+  const [qr, setQr] = useState<AnalyticsData>(emptyAnalytics);
+  const [husket, setHusket] = useState<AnalyticsData>(emptyAnalytics);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -89,19 +113,39 @@ const AdminPage: React.FC = () => {
   useEffect(() => {
     if (!user || user.email !== ADMIN_EMAIL) return;
 
-    const unsubscribe = listenToKvittekAnalytics((data) => {
-      setAnalytics(data);
-    });
+    const unsubKvittek = listenToKvittekAnalytics(setKvittek);
+    const unsubQr = listenToQrAnalytics(setQr);
+    const unsubHusket = listenToHusketAnalytics(setHusket);
 
-    return unsubscribe;
+    return () => {
+      unsubKvittek();
+      unsubQr();
+      unsubHusket();
+    };
   }, [user]);
 
-  const totalStoreClicks = analytics.googlePlayClicks + analytics.appStoreClicks;
+  const kvittekStoreClicks =
+    numberValue(kvittek.googlePlayClicks) + numberValue(kvittek.appStoreClicks);
 
-  const storeClickRate = useMemo(() => {
-    if (!analytics.landingViews) return "0 %";
-    return `${Math.round((totalStoreClicks / analytics.landingViews) * 100)} %`;
-  }, [analytics.landingViews, totalStoreClicks]);
+  const kvittekStoreClickRate = useMemo(() => {
+    const views = numberValue(kvittek.landingViews);
+    if (!views) return "0 %";
+    return `${Math.round((kvittekStoreClicks / views) * 100)} %`;
+  }, [kvittek.landingViews, kvittekStoreClicks]);
+
+  const qrDownloadRate = useMemo(() => {
+    const views = numberValue(qr.landingViews);
+    const downloads = numberValue(qr.downloadClicks);
+    if (!views) return "0 %";
+    return `${Math.round((downloads / views) * 100)} %`;
+  }, [qr.landingViews, qr.downloadClicks]);
+
+  const husketClickRate = useMemo(() => {
+    const views = numberValue(husket.landingViews);
+    const clicks = numberValue(husket.googlePlayClicks);
+    if (!views) return "0 %";
+    return `${Math.round((clicks / views) * 100)} %`;
+  }, [husket.landingViews, husket.googlePlayClicks]);
 
   const handleLogin = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -132,7 +176,7 @@ const AdminPage: React.FC = () => {
         <section style={cardStyle}>
           <h1 style={{ marginTop: 0 }}>Admin</h1>
           <p style={{ opacity: 0.76 }}>
-            Logg inn for å se Kvittek-statistikk fra landingssiden.
+            Logg inn for å se statistikk for MCL-nettsiden.
           </p>
 
           <form onSubmit={handleLogin} style={{ display: "grid", gap: "0.9rem" }}>
@@ -197,9 +241,9 @@ const AdminPage: React.FC = () => {
           }}
         >
           <div>
-            <h1 style={{ margin: 0 }}>Kvittek Analytics</h1>
+            <h1 style={{ margin: 0 }}>MCL Analytics</h1>
             <p style={{ margin: "0.4rem 0 0", opacity: 0.72 }}>
-              Enkel telling av QR-/landingsside og butikk-klikk.
+              Enkel telling av sidebesøk, nedlastinger og butikk-klikk.
             </p>
           </div>
 
@@ -209,54 +253,98 @@ const AdminPage: React.FC = () => {
         </div>
       </section>
 
-      <section
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(210px, 1fr))",
-          gap: "1rem",
-          marginBottom: "1rem",
-        }}
+      <AnalyticsSection
+        title="Kvittek"
+        description="Landingssiden /receipts og klikk videre til appbutikkene."
       >
-        <StatCard
-          title="Landingsside åpnet"
-          value={analytics.landingViews}
-          description="Antall registrerte åpninger av /receipts."
-        />
-        <StatCard
-          title="Google Play-klikk"
-          value={analytics.googlePlayClicks}
-          description="Antall klikk på Google Play-knappen."
-        />
-        <StatCard
-          title="App Store-klikk"
-          value={analytics.appStoreClicks}
-          description="Antall klikk på App Store-knappen."
-        />
-        <StatCard
-          title="Videre til butikk"
-          value={storeClickRate}
-          description={`${totalStoreClicks} butikk-klikk totalt.`}
-        />
-      </section>
-
-      <section style={cardStyle}>
-        <h2 style={{ marginTop: 0 }}>Siste registreringer</h2>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(210px, 1fr))",
+            gap: "1rem",
+            marginBottom: "1rem",
+          }}
+        >
+          <StatCard title="Landingsside åpnet" value={numberValue(kvittek.landingViews)} />
+          <StatCard title="Google Play-klikk" value={numberValue(kvittek.googlePlayClicks)} />
+          <StatCard title="App Store-klikk" value={numberValue(kvittek.appStoreClicks)} />
+          <StatCard
+            title="Videre til butikk"
+            value={kvittekStoreClickRate}
+            description={`${kvittekStoreClicks} butikk-klikk totalt.`}
+          />
+        </div>
 
         <div style={{ display: "grid", gap: "0.65rem" }}>
           <p style={{ margin: 0 }}>
             <strong>Siste landingsside-visning:</strong>{" "}
-            {formatTimestamp(analytics.lastLandingViewAt)}
+            {formatTimestamp(kvittek.lastLandingViewAt)}
           </p>
           <p style={{ margin: 0 }}>
             <strong>Siste Google Play-klikk:</strong>{" "}
-            {formatTimestamp(analytics.lastGooglePlayClickAt)}
+            {formatTimestamp(kvittek.lastGooglePlayClickAt)}
           </p>
           <p style={{ margin: 0 }}>
             <strong>Siste App Store-klikk:</strong>{" "}
-            {formatTimestamp(analytics.lastAppStoreClickAt)}
+            {formatTimestamp(kvittek.lastAppStoreClickAt)}
           </p>
         </div>
-      </section>
+      </AnalyticsSection>
+
+      <AnalyticsSection
+        title="QR-generator"
+        description="Besøk på QR-generatoren og klikk på Last ned-knappen."
+      >
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(210px, 1fr))",
+            gap: "1rem",
+            marginBottom: "1rem",
+          }}
+        >
+          <StatCard title="Side åpnet" value={numberValue(qr.landingViews)} />
+          <StatCard title="Nedlastinger" value={numberValue(qr.downloadClicks)} />
+          <StatCard title="Nedlastingsrate" value={qrDownloadRate} />
+        </div>
+
+        <div style={{ display: "grid", gap: "0.65rem" }}>
+          <p style={{ margin: 0 }}>
+            <strong>Siste sidevisning:</strong> {formatTimestamp(qr.lastLandingViewAt)}
+          </p>
+          <p style={{ margin: 0 }}>
+            <strong>Siste nedlasting:</strong> {formatTimestamp(qr.lastDownloadClickAt)}
+          </p>
+        </div>
+      </AnalyticsSection>
+
+      <AnalyticsSection
+        title="Husk’et"
+        description="Besøk på Husk’et-siden og klikk videre til Google Play."
+      >
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(210px, 1fr))",
+            gap: "1rem",
+            marginBottom: "1rem",
+          }}
+        >
+          <StatCard title="Side åpnet" value={numberValue(husket.landingViews)} />
+          <StatCard title="Google Play-klikk" value={numberValue(husket.googlePlayClicks)} />
+          <StatCard title="Videre til butikk" value={husketClickRate} />
+        </div>
+
+        <div style={{ display: "grid", gap: "0.65rem" }}>
+          <p style={{ margin: 0 }}>
+            <strong>Siste sidevisning:</strong> {formatTimestamp(husket.lastLandingViewAt)}
+          </p>
+          <p style={{ margin: 0 }}>
+            <strong>Siste Google Play-klikk:</strong>{" "}
+            {formatTimestamp(husket.lastGooglePlayClickAt)}
+          </p>
+        </div>
+      </AnalyticsSection>
     </main>
   );
 };
