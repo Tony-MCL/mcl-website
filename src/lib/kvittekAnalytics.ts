@@ -1,82 +1,166 @@
 import {
   doc,
+  getDoc,
+  onSnapshot,
+  setDoc,
+  updateDoc,
   increment,
   serverTimestamp,
-  setDoc,
-  onSnapshot,
-  type Unsubscribe,
 } from "firebase/firestore";
 import { db } from "../firebase";
 
-export type KvittekAnalyticsData = {
-  landingViews: number;
-  googlePlayClicks: number;
-  appStoreClicks: number;
+export type AnalyticsData = {
+  landingViews?: number;
+  googlePlayClicks?: number;
+  appStoreClicks?: number;
+  downloadClicks?: number;
+
   lastLandingViewAt?: unknown;
   lastGooglePlayClickAt?: unknown;
   lastAppStoreClickAt?: unknown;
+  lastDownloadClickAt?: unknown;
 };
 
-const analyticsRef = doc(db, "analytics", "kvittekLanding");
+export type KvittekAnalyticsData = AnalyticsData;
+
+const kvittekRef = doc(db, "analytics", "kvittekLanding");
+const qrRef = doc(db, "analytics", "qrGenerator");
+const husketRef = doc(db, "analytics", "husket");
+
+async function ensureDocumentExists(
+  ref: typeof kvittekRef,
+  defaults: Record<string, unknown>
+) {
+  const snapshot = await getDoc(ref);
+
+  if (!snapshot.exists()) {
+    await setDoc(ref, defaults);
+  }
+}
+
+/* =========================
+   KVITTEK
+========================= */
 
 export async function trackKvittekLandingView() {
-  try {
-    await setDoc(
-      analyticsRef,
-      {
-        landingViews: increment(1),
-        lastLandingViewAt: serverTimestamp(),
-      },
-      { merge: true }
-    );
-  } catch (error) {
-    console.warn("Could not track Kvittek landing view:", error);
-  }
+  await ensureDocumentExists(kvittekRef, {
+    landingViews: 0,
+    googlePlayClicks: 0,
+    appStoreClicks: 0,
+  });
+
+  await updateDoc(kvittekRef, {
+    landingViews: increment(1),
+    lastLandingViewAt: serverTimestamp(),
+  });
 }
 
 export async function trackKvittekGooglePlayClick() {
-  try {
-    await setDoc(
-      analyticsRef,
-      {
-        googlePlayClicks: increment(1),
-        lastGooglePlayClickAt: serverTimestamp(),
-      },
-      { merge: true }
-    );
-  } catch (error) {
-    console.warn("Could not track Google Play click:", error);
-  }
+  await ensureDocumentExists(kvittekRef, {
+    landingViews: 0,
+    googlePlayClicks: 0,
+    appStoreClicks: 0,
+  });
+
+  await updateDoc(kvittekRef, {
+    googlePlayClicks: increment(1),
+    lastGooglePlayClickAt: serverTimestamp(),
+  });
 }
 
 export async function trackKvittekAppStoreClick() {
-  try {
-    await setDoc(
-      analyticsRef,
-      {
-        appStoreClicks: increment(1),
-        lastAppStoreClickAt: serverTimestamp(),
-      },
-      { merge: true }
-    );
-  } catch (error) {
-    console.warn("Could not track App Store click:", error);
-  }
+  await ensureDocumentExists(kvittekRef, {
+    landingViews: 0,
+    googlePlayClicks: 0,
+    appStoreClicks: 0,
+  });
+
+  await updateDoc(kvittekRef, {
+    appStoreClicks: increment(1),
+    lastAppStoreClickAt: serverTimestamp(),
+  });
 }
 
-export function listenToKvittekAnalytics(
-  callback: (data: KvittekAnalyticsData) => void
-): Unsubscribe {
-  return onSnapshot(analyticsRef, (snapshot) => {
-    const data = snapshot.data() ?? {};
+/* =========================
+   QR GENERATOR
+========================= */
 
-    callback({
-      landingViews: Number(data.landingViews ?? 0),
-      googlePlayClicks: Number(data.googlePlayClicks ?? 0),
-      appStoreClicks: Number(data.appStoreClicks ?? 0),
-      lastLandingViewAt: data.lastLandingViewAt,
-      lastGooglePlayClickAt: data.lastGooglePlayClickAt,
-      lastAppStoreClickAt: data.lastAppStoreClickAt,
-    });
+export async function trackQrPageView() {
+  await ensureDocumentExists(qrRef, {
+    landingViews: 0,
+    downloadClicks: 0,
+  });
+
+  await updateDoc(qrRef, {
+    landingViews: increment(1),
+    lastLandingViewAt: serverTimestamp(),
+  });
+}
+
+export async function trackQrDownloadClick() {
+  await ensureDocumentExists(qrRef, {
+    landingViews: 0,
+    downloadClicks: 0,
+  });
+
+  await updateDoc(qrRef, {
+    downloadClicks: increment(1),
+    lastDownloadClickAt: serverTimestamp(),
+  });
+}
+
+/* =========================
+   HUSK'ET
+========================= */
+
+export async function trackHusketPageView() {
+  await ensureDocumentExists(husketRef, {
+    landingViews: 0,
+    googlePlayClicks: 0,
+  });
+
+  await updateDoc(husketRef, {
+    landingViews: increment(1),
+    lastLandingViewAt: serverTimestamp(),
+  });
+}
+
+export async function trackHusketGooglePlayClick() {
+  await ensureDocumentExists(husketRef, {
+    landingViews: 0,
+    googlePlayClicks: 0,
+  });
+
+  await updateDoc(husketRef, {
+    googlePlayClicks: increment(1),
+    lastGooglePlayClickAt: serverTimestamp(),
+  });
+}
+
+/* =========================
+   LISTENERS
+========================= */
+
+export function listenToKvittekAnalytics(
+  callback: (data: AnalyticsData) => void
+) {
+  return onSnapshot(kvittekRef, (snapshot) => {
+    callback((snapshot.data() as AnalyticsData) ?? {});
+  });
+}
+
+export function listenToQrAnalytics(
+  callback: (data: AnalyticsData) => void
+) {
+  return onSnapshot(qrRef, (snapshot) => {
+    callback((snapshot.data() as AnalyticsData) ?? {});
+  });
+}
+
+export function listenToHusketAnalytics(
+  callback: (data: AnalyticsData) => void
+) {
+  return onSnapshot(husketRef, (snapshot) => {
+    callback((snapshot.data() as AnalyticsData) ?? {});
   });
 }
