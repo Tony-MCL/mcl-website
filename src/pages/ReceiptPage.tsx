@@ -342,8 +342,8 @@ const ReceiptPage: React.FC = () => {
 
           <p className="receipt-cta-note">
             {activeLang === "en"
-              ? "Available on Google Play. App Store is coming soon."
-              : "Tilgjengelig på Google Play. App Store kommer snart."}
+              ? "Available on Google Play and App Store."
+              : "Tilgjengelig på Google Play og App Store."}
           </p>
         </div>
       </section>
