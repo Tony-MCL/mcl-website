@@ -7,7 +7,7 @@ const assetBase = import.meta.env.BASE_URL || "/";
 const googlePlayUrl =
   "https://play.google.com/store/apps/details?id=com.morningcoffeelabs.kvittek";
 
-const appStoreUrl = "";
+const appStoreUrl = "https://apps.apple.com/no/app/kvittek/id6777185540";
 
 const storeBadges = {
   no: {
