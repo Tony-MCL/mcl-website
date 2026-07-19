@@ -4,6 +4,7 @@ import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Seo from "./components/Seo";
 
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
@@ -42,6 +43,7 @@ const AppShell: React.FC = () => {
 
   return (
     <div className="app-shell">
+      <Seo />
       <ScrollToTop />
 
       <Header />
@@ -80,7 +82,8 @@ const AppShell: React.FC = () => {
         </Routes>
       </div>
 
-      <Footer />
+      {!isCleanProductRoute && <Footer />}
+      {isCleanProductRoute && <Footer />}
     </div>
   );
 };
