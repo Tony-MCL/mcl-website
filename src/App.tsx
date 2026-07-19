@@ -1,6 +1,6 @@
 import React from "react";
 import ScrollToTop from "./ScrollToTop";
-import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -32,15 +32,6 @@ import KvittekPersonvernPage from "./pages/KvittekPersonvernPage";
 import KvittekRefusjonPage from "./pages/KvittekRefusjonPage";
 
 const AppShell: React.FC = () => {
-  const location = useLocation();
-
-  const isCleanProductRoute =
-    location.pathname === "/husket" ||
-    location.pathname.startsWith("/husket/") ||
-    location.pathname === "/receipts" ||
-    location.pathname.startsWith("/receipts/") ||
-    location.pathname === "/kvittek";
-
   return (
     <div className="app-shell">
       <Seo />
@@ -82,8 +73,7 @@ const AppShell: React.FC = () => {
         </Routes>
       </div>
 
-      {!isCleanProductRoute && <Footer />}
-      {isCleanProductRoute && <Footer />}
+      <Footer />
     </div>
   );
 };
