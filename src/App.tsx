@@ -30,6 +30,8 @@ import KvittekKjopsvilkarPage from "./pages/KvittekKjopsvilkarPage";
 import KvittekBrukervilkarPage from "./pages/KvittekBrukervilkarPage";
 import KvittekPersonvernPage from "./pages/KvittekPersonvernPage";
 import KvittekRefusjonPage from "./pages/KvittekRefusjonPage";
+import FindBackPrivacyPage from "./pages/FindBackPrivacyPage";
+import FindBackTermsPage from "./pages/FindBackTermsPage";
 
 const AppShell: React.FC = () => {
   return (
@@ -68,6 +70,9 @@ const AppShell: React.FC = () => {
           <Route path="/receipts/brukervilkar" element={<KvittekBrukervilkarPage />} />
           <Route path="/receipts/personvern" element={<KvittekPersonvernPage />} />
           <Route path="/receipts/refusjon" element={<KvittekRefusjonPage />} />
+
+          <Route path="/findback-privacy" element={<FindBackPrivacyPage />} />
+          <Route path="/findback-terms" element={<FindBackTermsPage />} />
 
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
