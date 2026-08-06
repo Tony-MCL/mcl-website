@@ -32,6 +32,8 @@ import KvittekPersonvernPage from "./pages/KvittekPersonvernPage";
 import KvittekRefusjonPage from "./pages/KvittekRefusjonPage";
 import FindBackPrivacyPage from "./pages/FindBackPrivacyPage";
 import FindBackTermsPage from "./pages/FindBackTermsPage";
+import FuryOPrivacyPage from "./pages/FuryOPrivacyPage";
+import FuryOTermsPage from "./pages/FuryOTermsPage";
 
 const AppShell: React.FC = () => {
   return (
@@ -73,6 +75,9 @@ const AppShell: React.FC = () => {
 
           <Route path="/findback-privacy" element={<FindBackPrivacyPage />} />
           <Route path="/findback-terms" element={<FindBackTermsPage />} />
+
+          <Route path="/fury-o/privacy" element={<FuryOPrivacyPage />} />
+          <Route path="/fury-o/terms" element={<FuryOTermsPage />} />
 
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
