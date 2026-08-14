@@ -34,6 +34,8 @@ import FindBackPrivacyPage from "./pages/FindBackPrivacyPage";
 import FindBackTermsPage from "./pages/FindBackTermsPage";
 import FuryOPrivacyPage from "./pages/FuryOPrivacyPage";
 import FuryOTermsPage from "./pages/FuryOTermsPage";
+import R4PrivacyPage from "./pages/R4PrivacyPage";
+import R4TermsPage from "./pages/R4TermsPage";
 
 const AppShell: React.FC = () => {
   return (
@@ -78,6 +80,9 @@ const AppShell: React.FC = () => {
 
           <Route path="/fury-o/privacy" element={<FuryOPrivacyPage />} />
           <Route path="/fury-o/terms" element={<FuryOTermsPage />} />
+
+          <Route path="/r4/privacy" element={<R4PrivacyPage />} />
+          <Route path="/r4/terms" element={<R4TermsPage />} />
 
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
