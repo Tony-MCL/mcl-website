@@ -36,6 +36,8 @@ import FuryOPrivacyPage from "./pages/FuryOPrivacyPage";
 import FuryOTermsPage from "./pages/FuryOTermsPage";
 import R4PrivacyPage from "./pages/R4PrivacyPage";
 import R4TermsPage from "./pages/R4TermsPage";
+import MosaicMePrivacyPage from "./pages/MosaicMePrivacyPage";
+import MosaicMeTermsPage from "./pages/MosaicMeTermsPage";
 
 const AppShell: React.FC = () => {
   return (
@@ -83,6 +85,9 @@ const AppShell: React.FC = () => {
 
           <Route path="/r4/privacy" element={<R4PrivacyPage />} />
           <Route path="/r4/terms" element={<R4TermsPage />} />
+
+          <Route path="/mosaic-me/privacy" element={<MosaicMePrivacyPage />} />
+          <Route path="/mosaic-me/terms" element={<MosaicMeTermsPage />} />
 
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
