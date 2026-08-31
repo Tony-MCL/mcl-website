@@ -1,6 +1,6 @@
 import React from "react";
 import ScrollToTop from "./ScrollToTop";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -20,6 +20,11 @@ import PersonvernPage from "./pages/PersonvernPage";
 import RefusjonPage from "./pages/RefusjonPage";
 
 import HusketPage from "./pages/HusketPage";
+import FindBackPage from "./pages/FindBackPage";
+import FuryOPage from "./pages/FuryOPage";
+import R4Page from "./pages/R4Page";
+import MosaicMePage from "./pages/MosaicMePage";
+import BopGamePage from "./pages/BopGamePage";
 import ReceiptPage from "./pages/ReceiptPage";
 import ReceiptLandingPage from "./pages/ReceiptLandingPage";
 import HusketKjopsvilkarPage from "./pages/HusketKjopsvilkarPage";
@@ -30,6 +35,7 @@ import KvittekKjopsvilkarPage from "./pages/KvittekKjopsvilkarPage";
 import KvittekBrukervilkarPage from "./pages/KvittekBrukervilkarPage";
 import KvittekPersonvernPage from "./pages/KvittekPersonvernPage";
 import KvittekRefusjonPage from "./pages/KvittekRefusjonPage";
+import ReceiptDeleteAccountPage from "./pages/ReceiptDeleteAccountPage";
 import FindBackPrivacyPage from "./pages/FindBackPrivacyPage";
 import FindBackTermsPage from "./pages/FindBackTermsPage";
 import FuryOPrivacyPage from "./pages/FuryOPrivacyPage";
@@ -40,6 +46,20 @@ import MosaicMePrivacyPage from "./pages/MosaicMePrivacyPage";
 import MosaicMeTermsPage from "./pages/MosaicMeTermsPage";
 
 const AppShell: React.FC = () => {
+  const location = useLocation();
+
+  const isCleanProductRoute =
+    location.pathname === "/husket" ||
+    location.pathname.startsWith("/husket/") ||
+    location.pathname === "/findback" ||
+    location.pathname === "/fury-o" ||
+    location.pathname === "/r4" ||
+    location.pathname === "/mosaic-me" ||
+    location.pathname === "/bop" ||
+    location.pathname === "/receipts" ||
+    location.pathname.startsWith("/receipts/") ||
+    location.pathname === "/kvittek";
+
   return (
     <div className="app-shell">
       <Seo />
@@ -59,6 +79,11 @@ const AppShell: React.FC = () => {
 
           <Route path="/progress" element={<ProgressPage />} />
           <Route path="/husket" element={<HusketPage />} />
+          <Route path="/findback" element={<FindBackPage />} />
+          <Route path="/fury-o" element={<FuryOPage />} />
+          <Route path="/r4" element={<R4Page />} />
+          <Route path="/mosaic-me" element={<MosaicMePage />} />
+          <Route path="/bop" element={<BopGamePage />} />
           <Route path="/kvittek" element={<ReceiptPage />} />
           <Route path="/receipts" element={<ReceiptLandingPage />} />
 
@@ -76,6 +101,7 @@ const AppShell: React.FC = () => {
           <Route path="/receipts/brukervilkar" element={<KvittekBrukervilkarPage />} />
           <Route path="/receipts/personvern" element={<KvittekPersonvernPage />} />
           <Route path="/receipts/refusjon" element={<KvittekRefusjonPage />} />
+          <Route path="/receipts/delete-account" element={<ReceiptDeleteAccountPage />} />
 
           <Route path="/findback-privacy" element={<FindBackPrivacyPage />} />
           <Route path="/findback-terms" element={<FindBackTermsPage />} />

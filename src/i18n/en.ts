@@ -6,6 +6,9 @@ const en = {
       about: "About",
       contact: "Contact",
       progress: "Progress",
+      apps: "Our apps",
+      inLab: "In the lab",
+      workshop: "Workshop",
     },
     theme: {
       ariaToLight: "Switch to light mode",
@@ -27,6 +30,10 @@ const en = {
 
   footer: {
     copyright: "Morning Coffee Labs",
+    site: "Morning Coffee Labs",
+    legal: "Terms and privacy",
+    siteNavLabel: "About the website",
+    legalNavLabel: "Legal information",
     links: {
       termsPurchase: "Purchase terms",
       termsUse: "Terms of use",
@@ -44,6 +51,61 @@ const en = {
       termsUse: "Kvittek terms of use",
       privacy: "Kvittek privacy policy",
       refund: "Kvittek refunds",
+    },
+  },
+
+  homeNew: {
+    hero: {
+      kicker: "Independent app and game studio",
+      title: "Mobile apps for everyday life. Games for fun.",
+      body: "Morning Coffee Labs creates mobile apps, games and digital tools – with simple use, clear purpose and respect for your time.",
+      continuityTitle: "Built for more than launch day.",
+      continuityBody: "We choose solutions we can operate, maintain and carry forward, so our apps can remain available to users over time.",
+      cta: "See what we have made",
+      mark: "APPS · GAMES · IDEAS",
+    },
+    apps: {
+      kicker: "Out in the world",
+      title: "Our apps and games",
+      intro: "Ideas large and small that became real products – made, tested and released to users.",
+      kvittek: "Keep, organize and find receipts again when you actually need them.",
+      findback: "Save where you left something, then find your way back when memory lets you down.",
+      husket: "A calm place for photos, notes and the details you want to find again later.",
+      fury: "A simple and surprisingly difficult circle game, made for short breaks and one more round.",
+      r4: "Fast, reusable messages directly from your keyboard – especially useful while gaming.",
+    },
+    now: {
+      kicker: "On the workbench",
+      title: "What we are working on now",
+      intro: "Two very different projects share our main focus right now: one useful tool and one new game universe.",
+      priority: "Active main project",
+      mosaic: "A private and safe plural app giving systems, alters and the people around them a new option after established services disappeared.",
+      bopTitle: "BOP's first adventure",
+      bop: "A colourful bounce-and-precision game with handcrafted levels, chaotic chain reactions and a more player-friendly advertising model.",
+      bopAlt: "Placeholder for the BOP game",
+    },
+    pipeline: {
+      kicker: "Next in the workshop",
+      title: "What is waiting in line",
+      intro: "Some projects are well underway. Others are left to mature until the time is right.",
+      taptoken: "A mobile project in development. Its visual identity and product presentation will come later.",
+      husket: "The next generation of husk'et, with an improved flow and more possibilities than today's app.",
+      ideasTitle: "The idea bank",
+      ideas: "New app ideas, game concepts and small experiments that might become the next MCL product.",
+    },
+    status: {
+      available: "Available now",
+      availableBoth: "Google Play + App Store",
+      inDevelopment: "In development",
+      workingTitle: "Working title",
+      visualComing: "Artwork coming",
+    },
+    actions: { readMore: "Read more", visit: "See the idea bank" },
+    origin: {
+      kicker: "And then the ‘boring’ things",
+      title: "Digital tools for real work",
+      body: "Professional tools for structure, documentation and project work were the origin of Morning Coffee Labs. They receive less attention right now, but the workshop still has room for them.",
+      cta: "Enter the workshop",
     },
   },
 
@@ -140,6 +202,12 @@ const en = {
       badgeOne: "Mobile app",
       badgeTwo: "Offline-first",
     },
+    download: {
+      title: "Download husk'et",
+      googleAria: "Open husk'et in Google Play",
+      googleAlt: "Get husk'et on Google Play",
+    },
+    support: "Questions or need help?",
     cards: {
       capture: {
         title: "Capture quickly",
@@ -566,6 +634,118 @@ const en = {
           "a short description of the issue",
         ],
       },
+    },
+  },
+
+  findback: {
+    title: "Find your way back. Simply.",
+    intro:
+      "Parked in a large area, found a good fishing spot or hunting post, discovered a great place outdoors – or want to return to a place in a city you are visiting for the first time?",
+    purpose: "FindBack remembers the place for you.",
+    how:
+      "Tap the save button to store your position. This gives you a dedicated FindBack button that opens the saved place in your phone's map app when you want to return.",
+    promise: "One saved position. Two simple buttons.",
+    privacy:
+      "No account, sign-in, advertising or subscription. Your position is stored only on your phone and stays there until you replace it with a new place.",
+    download: {
+      title: "Download FindBack",
+      googleAria: "Open FindBack in Google Play",
+      googleAlt: "Get FindBack on Google Play",
+      appleAria: "Open FindBack in the App Store",
+      appleAlt: "Download FindBack from the App Store",
+    },
+    support: "Questions or need help?",
+  },
+
+  fury: {
+    tagline: "One opening. More and more chaos. How long can you hold out?",
+    intro:
+      "FURY O is a fast arcade game where you control a rotating ring and try to catch balls coming from every direction – without getting hit.",
+    gameplay:
+      "Survive, catch balls, build scoring streaks and chase ever-higher scores as the pace increases. Bonus balls add extra points, Revive balls can save your run, and bombs do their best to end it.",
+    modes:
+      "The game starts simple, but quickly becomes less reasonable. Choose between Normal, Fury and Extreme Fury, and see how long your reactions can keep up.",
+    promise: "Easy to understand. Hard to master. Made for just one more round.",
+    download: {
+      title: "Download FURY O",
+      googleAria: "Open FURY O in Google Play",
+      googleAlt: "Get FURY O on Google Play",
+      appleAria: "Open FURY O in the App Store",
+      appleAlt: "Download FURY O from the App Store",
+    },
+    support: "Questions or need help?",
+  },
+
+  r4: {
+    tagline: "The texts you use often. Always within reach.",
+    intro:
+      "Save the messages and texts you use often and access them from a small floating button over other apps. Tap the text you need, paste it – and carry on where you left off.",
+    purpose: "Save once. Use again and again.",
+    audience:
+      "R4 was created for mobile-game leaders who repeatedly send the same event messages, rules and reminders. It works just as well for standard replies, work messages, addresses, instructions and any other text you use often.",
+    promise:
+      "R4 never sends anything on your behalf. You always decide where and when a text is pasted or sent.",
+    privacy:
+      "Your texts are stored locally on the device. No user account, required cloud service or AI changing what you wrote.",
+    platform:
+      "Available for Android. This version uses Android's ability to display a floating button over other apps.",
+    download: {
+      title: "Download R4",
+      googleAria: "Open R4 in Google Play",
+      googleAlt: "Get R4 on Google Play",
+    },
+    support: "Questions or need help?",
+  },
+
+  mosaicPage: {
+    tagline: "Many parts. One me.",
+    lead:
+      "Mosaic ME is a private, local-first companion for plural systems – built to help you keep track of alters, fronting, co-fronting, journals and the people you choose to share with.",
+    status: {
+      title: "The final pieces are being built",
+      body: "Mosaic ME is being prepared for launch. Store links will be added as soon as the app is published.",
+    },
+    system: {
+      title: "Your system, your way",
+      bodyOne:
+        "Create alters with their own names, avatars, pronouns, colours, symbols and descriptions. Use a practical list when managing your system, or a visual deck when you simply want to browse.",
+      bodyTwo:
+        "Keep track of who is fronting and co-fronting, review fronting history, and use the journal to preserve notes and experiences over time.",
+    },
+    private: {
+      title: "Private means private",
+      body:
+        "Information intended for sharing is deliberately kept separate from journals, internal notes, history and other private content. Nothing is shared unless you choose it.",
+    },
+    sharing: {
+      title: "Share with people you trust",
+      body:
+        "An optional account lets you connect with approved friends and choose which alters they can see. Friend Mode shows only what has actually been shared – not the private management side of your system.",
+    },
+    data: {
+      title: "Your data is not trapped",
+      body:
+        "Core information is stored locally on your device and can be exported and imported using the .mome format. Accounts, backup and synchronisation are additions – not requirements for retaining control of your own data.",
+    },
+    longTerm: {
+      title: "Built for the long term",
+      body:
+        "Mosaic ME prioritises privacy, data safety, stability, simplicity and user experience. The goal is a tool people can rely on without having to keep paying simply to continue using it.",
+      free: "The core Mosaic ME experience is free.",
+    },
+    support: "Questions about Mosaic ME?",
+  },
+
+  bopPage: {
+    kicker: "In development",
+    title: "BOP's first adventure",
+    tagline: "A colourful bounce-and-precision game with ever-increasing chaos.",
+    body:
+      "We are building handcrafted levels, chain reactions and a new BOP universe around one simple idea: aim, shoot and see where the ball goes. The game should be easy to understand, satisfying to master and use a more player-friendly advertising model.",
+    note: "The game title, images and launch date will be revealed when the project is ready to show.",
+    status: {
+      title: "BOP is getting ready",
+      body: "The game is still in development. More images and details will arrive as the adventure takes shape.",
     },
   },
 

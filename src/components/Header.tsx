@@ -2,10 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useI18n } from "../i18n/useI18n";
 import type { Lang } from "../i18n";
-import { LINKS } from "../config/links";
 
 const assetBase = import.meta.env.BASE_URL || "/";
-const logoUrl = `${assetBase}mcl-logo.png`;
+const logoUrl = `${assetBase}mcl-logo_new.png`;
 
 type ThemeMode = "light" | "dark";
 
@@ -56,13 +55,6 @@ function getInitialTheme(): ThemeMode {
   return prefersDark ? "dark" : "light";
 }
 
-function withPrefs(href: string, prefs: { lang: Lang; theme: ThemeMode }) {
-  const u = new URL(href);
-  u.searchParams.set("lang", prefs.lang);
-  u.searchParams.set("theme", prefs.theme);
-  return u.toString();
-}
-
 const Header: React.FC = () => {
   const [open, setOpen] = useState(false);
   const [theme, setTheme] = useState<ThemeMode>("light");
@@ -93,15 +85,16 @@ const Header: React.FC = () => {
     closeMenu();
   };
 
-  // Ekstern lenke til ManageSystem med handoff
-  const msHref = withPrefs(LINKS.ms, { lang, theme });
-
   return (
     <>
       <header className="header">
         <div className="header-logo">
           <Link to="/" onClick={closeMenu}>
             <img src={logoUrl} alt="Morning Coffee Labs" />
+            <span className="header-wordmark">
+              <strong>Morning Coffee Labs</strong>
+              <small>Apps · Games · Ideas</small>
+            </span>
           </Link>
         </div>
 
@@ -110,16 +103,9 @@ const Header: React.FC = () => {
             {t("header.nav.home")}
           </Link>
 
-          <Link className={isActive("/idebank") ? "active" : ""} to="/idebank">
-            {t("header.nav.services")}
-          </Link>
-
-          <Link
-            className={isActive("/qr-generator") ? "active" : ""}
-            to="/qr-generator"
-          >
-            QR
-          </Link>
+          <a href="/#apps">{t("header.nav.apps")}</a>
+          <a href="/#lab">{t("header.nav.inLab")}</a>
+          <a href="/#workshop">{t("header.nav.workshop")}</a>
 
           <Link className={isActive("/om") ? "active" : ""} to="/om">
             {t("header.nav.about")}
@@ -129,15 +115,6 @@ const Header: React.FC = () => {
             {t("header.nav.contact")}
           </Link>
 
-          {/* Ekstern lenke til ManageSystem (Progress-landingsside) */}
-          <a
-            className={isActive("/progress") ? "active" : ""}
-            href={msHref}
-            onClick={closeMenu}
-            rel="noopener noreferrer"
-          >
-            {t("header.nav.progress")}
-          </a>
         </nav>
 
         <div className="header-actions">
@@ -182,13 +159,9 @@ const Header: React.FC = () => {
           {t("header.nav.home")}
         </Link>
 
-        <Link to="/idebank" onClick={closeMenu}>
-          {t("header.nav.services")}
-        </Link>
-
-        <Link to="/qr-generator" onClick={closeMenu}>
-          QR
-        </Link>
+        <a href="/#apps" onClick={closeMenu}>{t("header.nav.apps")}</a>
+        <a href="/#lab" onClick={closeMenu}>{t("header.nav.inLab")}</a>
+        <a href="/#workshop" onClick={closeMenu}>{t("header.nav.workshop")}</a>
 
         <Link to="/om" onClick={closeMenu}>
           {t("header.nav.about")}
@@ -197,11 +170,6 @@ const Header: React.FC = () => {
         <Link to="/kontakt" onClick={closeMenu}>
           {t("header.nav.contact")}
         </Link>
-
-        {/* Ekstern lenke til ManageSystem (Progress-landingsside) */}
-        <a href={msHref} onClick={closeMenu} rel="noopener noreferrer">
-          {t("header.nav.progress")}
-        </a>
 
         <button type="button" className="theme-toggle mobile" onClick={toggleLang}>
           <span className="theme-icon" aria-hidden="true">

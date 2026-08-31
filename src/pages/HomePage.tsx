@@ -1,139 +1,172 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useI18n } from "../i18n/useI18n";
-import { LINKS } from "../config/links";
+
+const assetBase = import.meta.env.BASE_URL || "/";
+
+function useMobileCarousel() {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const lane = ref.current;
+    if (!lane) return;
+
+    const mobileQuery = window.matchMedia("(max-width: 760px)");
+    let startX = 0;
+    let startIndex = 0;
+
+    const getCards = () => Array.from(lane.children) as HTMLElement[];
+    const getNearestIndex = (cards: HTMLElement[]) => {
+      let nearestIndex = 0;
+      let nearestDistance = Number.POSITIVE_INFINITY;
+
+      cards.forEach((card, index) => {
+        const cardPosition = card.offsetLeft - lane.offsetLeft;
+        const distance = Math.abs(cardPosition - lane.scrollLeft);
+        if (distance < nearestDistance) {
+          nearestDistance = distance;
+          nearestIndex = index;
+        }
+      });
+
+      return nearestIndex;
+    };
+
+    const onTouchStart = (event: TouchEvent) => {
+      if (!mobileQuery.matches || event.touches.length !== 1) return;
+      const cards = getCards();
+      startX = event.touches[0].clientX;
+      startIndex = getNearestIndex(cards);
+    };
+
+    const onTouchEnd = (event: TouchEvent) => {
+      if (!mobileQuery.matches || event.changedTouches.length !== 1) return;
+      const cards = getCards();
+      if (!cards.length) return;
+
+      const distance = startX - event.changedTouches[0].clientX;
+      const direction = Math.abs(distance) < 32 ? 0 : distance > 0 ? 1 : -1;
+      const targetIndex = direction === 0
+        ? getNearestIndex(cards)
+        : (startIndex + direction + cards.length) % cards.length;
+      const wraps = direction !== 0 && Math.abs(targetIndex - startIndex) > 1;
+
+      requestAnimationFrame(() => {
+        lane.scrollTo({
+          left: cards[targetIndex].offsetLeft - lane.offsetLeft,
+          behavior: wraps ? "auto" : "smooth",
+        });
+      });
+    };
+
+    lane.addEventListener("touchstart", onTouchStart, { passive: true });
+    lane.addEventListener("touchend", onTouchEnd, { passive: true });
+
+    return () => {
+      lane.removeEventListener("touchstart", onTouchStart);
+      lane.removeEventListener("touchend", onTouchEnd);
+    };
+  }, []);
+
+  return ref;
+}
+
+type ProductCardProps = {
+  name: string;
+  description: string;
+  image?: string;
+  imageClassName?: string;
+  accent: string;
+  href?: string;
+  cta?: string;
+};
+
+const ProductCard: React.FC<ProductCardProps> = ({ name, description, image, imageClassName = "", accent, href, cta }) => {
+  const content = <>
+    <div className="product-card-media" style={{ "--product-accent": accent } as React.CSSProperties}>
+      {image ? <img className={imageClassName} src={`${assetBase}${image}`} alt={`${name} logo`} /> : <div className="media-placeholder" aria-hidden="true"><span>{name.charAt(0)}</span></div>}
+    </div>
+    <div className="product-card-copy">
+      <h3>{name}</h3>
+      <p>{description}</p>
+      {cta ? <span className="text-link">{cta} <span aria-hidden="true">→</span></span> : null}
+    </div>
+  </>;
+
+  return href ? <Link className="product-card product-card-link" to={href}>{content}</Link> : <article className="product-card">{content}</article>;
+};
 
 const HomePage: React.FC = () => {
   const { t } = useI18n();
+  const appsCarouselRef = useMobileCarousel();
+  const currentCarouselRef = useMobileCarousel();
+  const pipelineCarouselRef = useMobileCarousel();
 
   return (
-    <main className="page home-page">
-      {/* HERO */}
-      <section className="hero">
-        <h1 className="hero-title">{t("home.hero.title")}</h1>
-
-        <p className="hero-tagline">{t("home.hero.tagline")}</p>
-
-        <p className="hero-sub" style={{ maxWidth: 820 }}>
-          {t("home.hero.sub")}
-        </p>
+    <main className="home-page-new">
+      <section className="home-hero" aria-labelledby="home-title">
+        <div className="home-hero-copy">
+          <span className="hero-kicker">{t("homeNew.hero.kicker")}</span>
+          <h1 id="home-title">{t("homeNew.hero.title")}</h1>
+          <p>{t("homeNew.hero.body")}</p>
+          <div className="hero-continuity">
+            <strong>{t("homeNew.hero.continuityTitle")}</strong>
+            <span>{t("homeNew.hero.continuityBody")}</span>
+          </div>
+          <a className="primary-button" href="#apps">{t("homeNew.hero.cta")}</a>
+        </div>
+        <div className="hero-cup-art" aria-hidden="true">
+          <img src={`${assetBase}mcl-cup-paint.png`} alt="" />
+        </div>
       </section>
 
-      {/* HVA SOM BYGGES */}
-      <section>
-        <h2 style={{ marginBottom: "0.6rem" }}>{t("home.sections.building")}</h2>
-
-        <section className="intro-grid">
-          {/* MANAGE PROGRESS – FULL BREDD */}
-          <div className="intro-card" style={{ gridColumn: "1 / -1" }}>
-            <h3>{t("home.cards.progress.title")}</h3>
-            <p>{t("home.cards.progress.body")}</p>
-
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                gap: "0.8rem",
-                marginTop: "1rem",
-              }}
-            >
-              <a
-                href={LINKS.ms}
-                className="hero-cta"
-                rel="noopener noreferrer"
-              >
-                {t("home.cards.progress.cta")}
-              </a>
-
-              <Link
-                to="/kontakt"
-                style={{
-                  alignSelf: "center",
-                  fontSize: "0.95rem",
-                  textDecoration: "underline",
-                }}
-              >
-                {t("home.cards.progress.contactCta")}
-              </Link>
-            </div>
-          </div>
-
-          {/* HUSKET */}
-          <div className="intro-card">
-            <div className="app-card-topline">
-              <span className="badge">{t("home.cards.husket.badge")}</span>
-            </div>
-
-            <h3>{t("home.cards.husket.title")}</h3>
-            <p>{t("home.cards.husket.body")}</p>
-
-            <p style={{ marginTop: "0.7rem" }}>
-              <Link to="/husket">{t("home.cards.husket.cta")}</Link>
-            </p>
-          </div>
-
-          {/* RECEIPT APP */}
-          <div className="intro-card">
-            <div className="app-card-topline">
-              <span className="badge">{t("home.cards.receipts.badge")}</span>
-            </div>
-
-            <h3>{t("home.cards.receipts.title")}</h3>
-            <p>{t("home.cards.receipts.body")}</p>
-
-            <p style={{ marginTop: "0.7rem" }}>
-              <Link to="/kvittek">{t("home.cards.receipts.cta")}</Link>
-            </p>
-          </div>
-
-          {/* TJENESTER */}
-          <div className="intro-card">
-            <h3>{t("home.cards.services.title")}</h3>
-            <p>{t("home.cards.services.body")}</p>
-
-            <p style={{ marginTop: "0.7rem" }}>
-              <Link to="/idebank">{t("home.cards.services.cta")}</Link>
-            </p>
-          </div>
-
-          <div className="intro-card">
-            <h3>{t("home.cards.documentation.title")}</h3>
-            <p>{t("home.cards.documentation.body")}</p>
-          </div>
-
-          <div className="intro-card">
-            <h3>{t("home.cards.realWorld.title")}</h3>
-            <p>{t("home.cards.realWorld.body")}</p>
-          </div>
-        </section>
+      <section className="home-section" id="apps" aria-labelledby="apps-title">
+        <div className="section-heading">
+          <div><span className="section-kicker">{t("homeNew.apps.kicker")}</span><h2 id="apps-title">{t("homeNew.apps.title")}</h2></div>
+          <p>{t("homeNew.apps.intro")}</p>
+        </div>
+        <div ref={appsCarouselRef} className="product-grid product-grid-featured">
+          <ProductCard name="Kvittek" description={t("homeNew.apps.kvittek")} image="kvitteklogo.png" accent="#ff9a3d" href="/receipts" cta={t("homeNew.actions.readMore")} />
+          <ProductCard name="FindBack" description={t("homeNew.apps.findback")} image="findback-icon.png" imageClassName="product-logo-app-icon" accent="#087cf0" href="/findback" cta={t("homeNew.actions.readMore")} />
+          <ProductCard name="husk'et" description={t("homeNew.apps.husket")} image="husketlogo.svg" accent="#ea386f" href="/husket" cta={t("homeNew.actions.readMore")} />
+          <ProductCard name="Fury O" description={t("homeNew.apps.fury")} image="fury-logo.png" imageClassName="product-logo-contain" accent="#ff6b2d" href="/fury-o" cta={t("homeNew.actions.readMore")} />
+          <ProductCard name="R4" description={t("homeNew.apps.r4")} image="r4-logo.png" imageClassName="product-logo-cover" accent="#a7e93d" href="/r4" cta={t("homeNew.actions.readMore")} />
+        </div>
       </section>
 
-      {/* PRINSIPPER */}
-      <section>
-        <h2 style={{ marginBottom: "0.6rem" }}>{t("home.sections.principles")}</h2>
-
-        <section className="intro-grid">
-          <div className="intro-card">
-            <h3>{t("home.principles.singleSource.title")}</h3>
-            <p>{t("home.principles.singleSource.body")}</p>
-          </div>
-
-          <div className="intro-card">
-            <h3>{t("home.principles.predictability.title")}</h3>
-            <p>{t("home.principles.predictability.body")}</p>
-          </div>
-
-          <div className="intro-card">
-            <h3>{t("home.principles.respect.title")}</h3>
-            <p>{t("home.principles.respect.body")}</p>
-          </div>
-        </section>
+      <section className="home-section lab-section" id="lab" aria-labelledby="lab-title">
+        <div className="section-heading section-heading-light">
+          <div><span className="section-kicker">{t("homeNew.now.kicker")}</span><h2 id="lab-title">{t("homeNew.now.title")}</h2></div>
+          <p>{t("homeNew.now.intro")}</p>
+        </div>
+        <div ref={currentCarouselRef} className="current-grid">
+          <Link className="current-project current-project-link current-project-mosaic" to="/mosaic-me">
+            <div className="current-media"><img src={`${assetBase}mosaic_me_logo.png`} alt="Mosaic ME logo" /></div>
+            <div className="current-copy"><span className="project-number">01</span><span className="section-kicker">{t("homeNew.now.priority")}</span><h3>Mosaic ME</h3><p>{t("homeNew.now.mosaic")}</p></div>
+          </Link>
+          <Link className="current-project current-project-link current-project-bop" to="/bop">
+            <div className="current-media bop-placeholder" aria-label={t("homeNew.now.bopAlt")}><span className="bop-ball" /><strong>BOP</strong><small>{t("homeNew.status.visualComing")}</small></div>
+            <div className="current-copy"><span className="project-number">02</span><span className="section-kicker">{t("homeNew.now.priority")}</span><h3>{t("homeNew.now.bopTitle")}</h3><p>{t("homeNew.now.bop")}</p></div>
+          </Link>
+        </div>
       </section>
 
-      {/* HVEM DETTE PASSER FOR */}
-      <section>
-        <h2 style={{ marginBottom: "0.6rem" }}>{t("home.sections.audience")}</h2>
-        <p style={{ maxWidth: 820 }}>{t("home.audience")}</p>
+      <section className="home-section pipeline-section" id="workshop" aria-labelledby="pipeline-title">
+        <div className="section-heading">
+          <div><span className="section-kicker">{t("homeNew.pipeline.kicker")}</span><h2 id="pipeline-title">{t("homeNew.pipeline.title")}</h2></div>
+          <p>{t("homeNew.pipeline.intro")}</p>
+        </div>
+        <div ref={pipelineCarouselRef} className="pipeline-list">
+          <article className="pipeline-item pipeline-taptoken"><span className="pipeline-index">01</span><div className="pipeline-icon" aria-hidden="true">T</div><div><h3>TapToken</h3><p>{t("homeNew.pipeline.taptoken")}</p></div><span className="pipeline-status">{t("homeNew.status.inDevelopment")}</span></article>
+          <article className="pipeline-item pipeline-husket"><span className="pipeline-index">02</span><img src={`${assetBase}husketlogo.svg`} alt="" aria-hidden="true" /><div><h3>husk'et v2</h3><p>{t("homeNew.pipeline.husket")}</p></div><span className="pipeline-status">{t("homeNew.status.workingTitle")}</span></article>
+          <article className="pipeline-item pipeline-ideas"><span className="pipeline-index">03</span><div className="pipeline-icon" aria-hidden="true">+</div><div><h3>{t("homeNew.pipeline.ideasTitle")}</h3><p>{t("homeNew.pipeline.ideas")}</p></div><Link className="pipeline-status pipeline-link" to="/idebank">{t("homeNew.actions.visit")}</Link></article>
+        </div>
+      </section>
+
+      <section className="origin-note" aria-labelledby="origin-title">
+        <div className="origin-icon" aria-hidden="true">⌁</div>
+        <div><span className="section-kicker">{t("homeNew.origin.kicker")}</span><h2 id="origin-title">{t("homeNew.origin.title")}</h2><p>{t("homeNew.origin.body")}</p></div>
+        <Link className="origin-link" to="/idebank">{t("homeNew.origin.cta")} <span aria-hidden="true">→</span></Link>
       </section>
     </main>
   );

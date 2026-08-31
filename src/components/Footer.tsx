@@ -4,6 +4,11 @@ import { useI18n } from "../i18n/useI18n";
 
 type ProductLegal = "default" | "husket" | "kvittek";
 
+type SimpleProductLegal = {
+  terms: string;
+  privacy: string;
+};
+
 const Footer: React.FC = () => {
   const year = new Date().getFullYear();
   const { t } = useI18n();
@@ -17,6 +22,17 @@ const Footer: React.FC = () => {
     location.pathname.startsWith("/receipts/") ||
     location.pathname === "/kvittek";
 
+  const simpleProductLegal: SimpleProductLegal | null =
+    location.pathname === "/findback" || location.pathname.startsWith("/findback-")
+      ? { terms: "/findback-terms", privacy: "/findback-privacy" }
+      : location.pathname === "/fury-o" || location.pathname.startsWith("/fury-o/")
+        ? { terms: "/fury-o/terms", privacy: "/fury-o/privacy" }
+        : location.pathname === "/r4" || location.pathname.startsWith("/r4/")
+          ? { terms: "/r4/terms", privacy: "/r4/privacy" }
+          : location.pathname === "/mosaic-me" || location.pathname.startsWith("/mosaic-me/")
+            ? { terms: "/mosaic-me/terms", privacy: "/mosaic-me/privacy" }
+            : null;
+
   const productLegal: ProductLegal = isHusketRoute
     ? "husket"
     : isKvittekRoute
@@ -29,22 +45,37 @@ const Footer: React.FC = () => {
   return (
     <footer className="footer">
       <div className="footer-inner">
-        <span className="footer-copy">
-          {t("footer.copyright")} © {year}
-        </span>
-
-        <nav className="footer-links">
-          <Link to={`${legalBase}/kjopsvilkar`}>{t(`${labelBase}.termsPurchase`)}</Link>
-          <span>·</span>
-
-          <Link to={`${legalBase}/brukervilkar`}>{t(`${labelBase}.termsUse`)}</Link>
-          <span>·</span>
-
-          <Link to={`${legalBase}/personvern`}>{t(`${labelBase}.privacy`)}</Link>
-          <span>·</span>
-
-          <Link to={`${legalBase}/refusjon`}>{t(`${labelBase}.refund`)}</Link>
-        </nav>
+        <div className="footer-brand" aria-hidden="true">
+          <img src={`${import.meta.env.BASE_URL || "/"}mcl-logo_new.png`} alt="" />
+        </div>
+        <div className="footer-content">
+          <div className="footer-nav-groups">
+            <nav aria-label={t("footer.siteNavLabel")}>
+              <strong>{t("footer.site")}</strong>
+              <Link to="/">{t("header.nav.home")}</Link>
+              <Link to="/om">{t("header.nav.about")}</Link>
+              <Link to="/kontakt">{t("header.nav.contact")}</Link>
+              <Link to="/idebank">{t("header.nav.workshop")}</Link>
+            </nav>
+            <nav aria-label={t("footer.legalNavLabel")}>
+              <strong>{t("footer.legal")}</strong>
+              {simpleProductLegal ? (
+                <>
+                  <Link to={simpleProductLegal.terms}>{t("footer.links.termsUse")}</Link>
+                  <Link to={simpleProductLegal.privacy}>{t("footer.links.privacy")}</Link>
+                </>
+              ) : (
+                <>
+                  <Link to={`${legalBase}/kjopsvilkar`}>{t(`${labelBase}.termsPurchase`)}</Link>
+                  <Link to={`${legalBase}/brukervilkar`}>{t(`${labelBase}.termsUse`)}</Link>
+                  <Link to={`${legalBase}/personvern`}>{t(`${labelBase}.privacy`)}</Link>
+                  <Link to={`${legalBase}/refusjon`}>{t(`${labelBase}.refund`)}</Link>
+                </>
+              )}
+            </nav>
+          </div>
+          <span className="footer-copy">{t("footer.copyright")} © {year}</span>
+        </div>
       </div>
     </footer>
   );

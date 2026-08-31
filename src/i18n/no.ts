@@ -6,6 +6,9 @@ const no = {
       about: "Om",
       contact: "Kontakt",
       progress: "Progress",
+      apps: "Våre apper",
+      inLab: "I labben nå",
+      workshop: "Verkstedet",
     },
     theme: {
       ariaToLight: "Bytt til lys modus",
@@ -27,6 +30,10 @@ const no = {
 
   footer: {
     copyright: "Morning Coffee Labs",
+    site: "Morning Coffee Labs",
+    legal: "Vilkår og personvern",
+    siteNavLabel: "Om nettstedet",
+    legalNavLabel: "Juridisk informasjon",
     links: {
       termsPurchase: "Kjøpsvilkår",
       termsUse: "Brukervilkår",
@@ -44,6 +51,61 @@ const no = {
       termsUse: "Kvittek brukervilkår",
       privacy: "Kvittek personvern",
       refund: "Kvittek refusjon",
+    },
+  },
+
+  homeNew: {
+    hero: {
+      kicker: "Uavhengig app- og spillstudio",
+      title: "Mobilapper for hverdagen. Spill for moro skyld.",
+      body: "Morning Coffee Labs utvikler egne mobilapper, spill og digitale verktøy – med enkel bruk, tydelig funksjon og respekt for tiden din.",
+      continuityTitle: "Bygget for mer enn lanseringsdagen.",
+      continuityBody: "Vi velger løsninger vi kan drifte, vedlikeholde og videreføre, slik at appene våre kan forbli tilgjengelige for brukerne også over tid.",
+      cta: "Se hva vi har laget",
+      mark: "APPER · SPILL · IDÉER",
+    },
+    apps: {
+      kicker: "Ute i verden",
+      title: "Våre apper og spill",
+      intro: "Små og store idéer som er blitt til ekte produkter – laget, testet og sendt ut til brukere.",
+      kvittek: "Ta vare på, organiser og finn igjen kvitteringer når du faktisk trenger dem.",
+      findback: "Lagre hvor du la igjen noe, og finn veien tilbake når hukommelsen ikke spiller på lag.",
+      husket: "Et rolig sted for bilder, notater og detaljene du gjerne vil finne igjen senere.",
+      fury: "Et enkelt og overraskende vanskelig sirkelspill, laget for korte pauser og én runde til.",
+      r4: "Raske, gjenbrukbare meldinger rett fra tastaturet – særlig nyttig når du spiller.",
+    },
+    now: {
+      kicker: "På arbeidsbenken",
+      title: "Dette arbeider vi med nå",
+      intro: "To ulike prosjekter deler hovedfokuset akkurat nå: ett nyttig verktøy og ett nytt spillunivers.",
+      priority: "Aktivt hovedprosjekt",
+      mosaic: "En privat og trygg plural-app for å gi systemer, alters og menneskene rundt dem et nytt alternativ etter at etablerte tjenester har forsvunnet.",
+      bopTitle: "BOPs første eventyr",
+      bop: "Et fargerikt sprett- og presisjonsspill med håndbygde baner, kaotiske kjedereaksjoner og en mer spiller­vennlig reklamemodell.",
+      bopAlt: "Plassholder for BOP-spillet",
+    },
+    pipeline: {
+      kicker: "Videre i verkstedet",
+      title: "Det neste som står i kø",
+      intro: "Noen prosjekter er godt i gang. Andre får ligge og modne til tiden er riktig.",
+      taptoken: "Et mobilprosjekt under utvikling. Egen visuell profil og produktpresentasjon kommer senere.",
+      husket: "Neste generasjon av husk'et, med videreutviklet flyt og flere muligheter enn dagens app.",
+      ideasTitle: "Idébanken",
+      ideas: "Nye appidéer, spillkonsepter og små eksperimenter som kan bli det neste MCL-produktet.",
+    },
+    status: {
+      available: "Tilgjengelig nå",
+      availableBoth: "Google Play + App Store",
+      inDevelopment: "Under utvikling",
+      workingTitle: "Arbeidstittel",
+      visualComing: "Grafikk kommer",
+    },
+    actions: { readMore: "Les mer", visit: "Se idébanken" },
+    origin: {
+      kicker: "Og så de «kjedelige» tingene",
+      title: "Digitale verktøy for ekte arbeid",
+      body: "Faglige programmer for struktur, dokumentasjon og prosjektarbeid var opphavet til Morning Coffee Labs. De får mindre oppmerksomhet akkurat nå, men verkstedet har fortsatt plass til dem.",
+      cta: "Inn i verkstedet",
     },
   },
 
@@ -140,6 +202,12 @@ const no = {
       badgeOne: "Mobil app",
       badgeTwo: "Offline-first",
     },
+    download: {
+      title: "Last ned husk'et",
+      googleAria: "Åpne husk'et i Google Play",
+      googleAlt: "Last ned husk'et fra Google Play",
+    },
+    support: "Spørsmål eller behov for hjelp?",
     cards: {
       capture: {
         title: "Fang det raskt",
@@ -566,6 +634,118 @@ const no = {
           "en kort beskrivelse av problemet",
         ],
       },
+    },
+  },
+
+  findback: {
+    title: "Finn tilbake. Helt enkelt.",
+    intro:
+      "Har du parkert på et stort område, funnet en god fiskeplass eller jaktpost, oppdaget et fint sted på tur – eller vil du finne tilbake til et sted i en by du besøker for første gang?",
+    purpose: "FindBack husker stedet for deg.",
+    how:
+      "Trykk på lagreknappen for å lagre posisjonen. Da får du en egen FindBack-knapp som åpner det lagrede stedet i kartappen når du vil tilbake.",
+    promise: "Én lagret posisjon. To enkle knapper.",
+    privacy:
+      "Ingen konto, innlogging, reklame eller abonnement. Posisjonen lagres bare på telefonen din og blir der til du erstatter den med et nytt sted.",
+    download: {
+      title: "Last ned FindBack",
+      googleAria: "Åpne FindBack i Google Play",
+      googleAlt: "Last ned FindBack fra Google Play",
+      appleAria: "Åpne FindBack i App Store",
+      appleAlt: "Last ned FindBack fra App Store",
+    },
+    support: "Spørsmål eller behov for hjelp?",
+  },
+
+  fury: {
+    tagline: "Én åpning. Stadig mer kaos. Hvor lenge holder du ut?",
+    intro:
+      "FURY O er et raskt arkadespill der du styrer en roterende ring og forsøker å fange ballene som kommer fra alle kanter – uten å bli truffet.",
+    gameplay:
+      "Overlev, fang baller, bygg poengserier og jakt på stadig høyere score mens tempoet øker. Bonusballer gir ekstra poeng, Revive-baller kan redde runden, og bomber gjør sitt beste for å avslutte den.",
+    modes:
+      "Spillet starter enkelt, men blir raskt mindre rimelig. Velg mellom Normal, Fury og Extreme Fury, og se hvor langt reaksjonsevnen faktisk holder.",
+    promise: "Enkelt å forstå. Vanskelig å mestre. Laget for «bare én runde til».",
+    download: {
+      title: "Last ned FURY O",
+      googleAria: "Åpne FURY O i Google Play",
+      googleAlt: "Last ned FURY O fra Google Play",
+      appleAria: "Åpne FURY O i App Store",
+      appleAlt: "Last ned FURY O fra App Store",
+    },
+    support: "Spørsmål eller behov for hjelp?",
+  },
+
+  r4: {
+    tagline: "Tekstene du bruker ofte. Alltid innen rekkevidde.",
+    intro:
+      "Lagre meldingene og tekstene du bruker ofte, og hent dem frem i en liten flytende knapp over andre apper. Trykk på teksten du trenger, lim den inn – og fortsett der du var.",
+    purpose: "Lagre én gang. Bruk igjen og igjen.",
+    audience:
+      "R4 ble laget for ledere i mobilspill som stadig sender de samme eventmeldingene, reglene og påminnelsene. Den fungerer like godt til standardsvar, arbeidsmeldinger, adresser, instruksjoner og andre tekster du bruker ofte.",
+    promise:
+      "R4 sender ingenting på dine vegne. Du bestemmer alltid selv hvor og når teksten limes inn eller sendes.",
+    privacy:
+      "Tekstene lagres lokalt på enheten. Ingen brukerkonto, nødvendig skytjeneste eller AI som endrer det du har skrevet.",
+    platform:
+      "Tilgjengelig for Android. Denne versjonen bruker Androids mulighet til å vise en flytende knapp over andre apper.",
+    download: {
+      title: "Last ned R4",
+      googleAria: "Åpne R4 i Google Play",
+      googleAlt: "Last ned R4 fra Google Play",
+    },
+    support: "Spørsmål eller behov for hjelp?",
+  },
+
+  mosaicPage: {
+    tagline: "Mange deler. Ett meg.",
+    lead:
+      "Mosaic ME er en privat, lokal-først følgesvenn for plurale systemer – laget for å holde oversikt over alters, fronting, co-fronting, journaler og menneskene du selv velger å dele med.",
+    status: {
+      title: "De siste delene bygges nå",
+      body: "Mosaic ME klargjøres for lansering. Butikklenker kommer så snart appen er publisert.",
+    },
+    system: {
+      title: "Ditt system, på din måte",
+      bodyOne:
+        "Opprett alters med egne navn, avatarer, pronomen, farger, symboler og beskrivelser. Bruk en praktisk liste når du administrerer systemet, eller en visuell kortstokk når du vil bla gjennom det.",
+      bodyTwo:
+        "Hold oversikt over hvem som fronter og co-fronter, se tilbake på frontinghistorikken og bruk journalen til å ta vare på notater og opplevelser over tid.",
+    },
+    private: {
+      title: "Privat betyr privat",
+      body:
+        "Informasjon som kan deles, holdes bevisst adskilt fra journaler, interne notater, historikk og annet privat innhold. Ingenting deles uten at du velger det.",
+    },
+    sharing: {
+      title: "Del med mennesker du stoler på",
+      body:
+        "Med en valgfri konto kan du koble deg til godkjente venner og velge hvilke alters de får se. Vennemodus viser bare det som faktisk er delt – ikke den private administrasjonen av systemet.",
+    },
+    data: {
+      title: "Dataene dine blir ikke låst inne",
+      body:
+        "Kjerneinformasjonen lagres lokalt på enheten og kan eksporteres og importeres i .mome-format. Konto, sikkerhetskopiering og synkronisering er tillegg – ikke et krav for å beholde kontrollen over egne data.",
+    },
+    longTerm: {
+      title: "Bygget for å vare",
+      body:
+        "Mosaic ME prioriterer personvern, datasikkerhet, stabilitet, enkelhet og brukeropplevelse. Målet er et verktøy mennesker kan stole på, uten at de må fortsette å betale bare for å kunne bruke det.",
+      free: "Kjerneopplevelsen i Mosaic ME er gratis.",
+    },
+    support: "Spørsmål om Mosaic ME?",
+  },
+
+  bopPage: {
+    kicker: "Under utvikling",
+    title: "BOPs første eventyr",
+    tagline: "Et fargerikt sprett- og presisjonsspill med stadig mer kaos.",
+    body:
+      "Vi bygger håndlagde baner, kjedereaksjoner og et eget BOP-univers rundt en enkel idé: sikt, skyt og se hvor ballen tar veien. Spillet skal være lett å forstå, tilfredsstillende å mestre og ha en mer spillervennlig reklamemodell.",
+    note: "Spillnavn, bilder og lanseringsdato kommer når prosjektet er klart for å vises frem.",
+    status: {
+      title: "BOP gjør seg klar",
+      body: "Spillet er fortsatt under utvikling. Flere bilder og detaljer kommer etter hvert som eventyret tar form.",
     },
   },
 
