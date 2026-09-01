@@ -44,6 +44,7 @@ import R4PrivacyPage from "./pages/R4PrivacyPage";
 import R4TermsPage from "./pages/R4TermsPage";
 import MosaicMePrivacyPage from "./pages/MosaicMePrivacyPage";
 import MosaicMeTermsPage from "./pages/MosaicMeTermsPage";
+import MosaicMeDeleteAccountPage from "./pages/MosaicMeDeleteAccountPage";
 
 const AppShell: React.FC = () => {
   const location = useLocation();
@@ -55,6 +56,7 @@ const AppShell: React.FC = () => {
     location.pathname === "/fury-o" ||
     location.pathname === "/r4" ||
     location.pathname === "/mosaic-me" ||
+    location.pathname.startsWith("/mosaic-me/") ||
     location.pathname === "/bop" ||
     location.pathname === "/receipts" ||
     location.pathname.startsWith("/receipts/") ||
@@ -114,6 +116,7 @@ const AppShell: React.FC = () => {
 
           <Route path="/mosaic-me/privacy" element={<MosaicMePrivacyPage />} />
           <Route path="/mosaic-me/terms" element={<MosaicMeTermsPage />} />
+          <Route path="/mosaic-me/delete-account" element={<MosaicMeDeleteAccountPage />} />
 
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
