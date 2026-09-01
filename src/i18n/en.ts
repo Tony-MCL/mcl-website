@@ -106,6 +106,7 @@ const en = {
       title: "Digital tools for real work",
       body: "Professional tools for structure, documentation and project work were the origin of Morning Coffee Labs. They receive less attention right now, but the workshop still has room for them.",
       cta: "Enter the workshop",
+      qrCta: "Create QR code",
     },
   },
 

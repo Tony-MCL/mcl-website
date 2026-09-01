@@ -106,6 +106,7 @@ const no = {
       title: "Digitale verktøy for ekte arbeid",
       body: "Faglige programmer for struktur, dokumentasjon og prosjektarbeid var opphavet til Morning Coffee Labs. De får mindre oppmerksomhet akkurat nå, men verkstedet har fortsatt plass til dem.",
       cta: "Inn i verkstedet",
+      qrCta: "Lag QR-kode",
     },
   },
 

@@ -166,7 +166,10 @@ const HomePage: React.FC = () => {
       <section className="origin-note" aria-labelledby="origin-title">
         <div className="origin-icon" aria-hidden="true">⌁</div>
         <div><span className="section-kicker">{t("homeNew.origin.kicker")}</span><h2 id="origin-title">{t("homeNew.origin.title")}</h2><p>{t("homeNew.origin.body")}</p></div>
-        <Link className="origin-link" to="/idebank">{t("homeNew.origin.cta")} <span aria-hidden="true">→</span></Link>
+        <div className="origin-actions">
+          <Link className="origin-link" to="/qr-generator">{t("homeNew.origin.qrCta")} <span aria-hidden="true">→</span></Link>
+          <Link className="origin-link origin-link-secondary" to="/idebank">{t("homeNew.origin.cta")} <span aria-hidden="true">→</span></Link>
+        </div>
       </section>
     </main>
   );
