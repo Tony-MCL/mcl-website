@@ -10,4 +10,5 @@ export const LINKS = {
   furyGooglePlay: "https://play.google.com/store/apps/details?id=com.morningcoffeelabs.furyo",
   furyAppStore: "https://apps.apple.com/us/app/fury-o/id6798349790",
   r4GooglePlay: "https://play.google.com/store/apps/details?id=com.morningcoffeelabs.r4",
+  r4AppStore: "https://apps.apple.com/us/app/r4-easy-access/id6803176387",
 } as const;

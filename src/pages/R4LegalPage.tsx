@@ -45,17 +45,17 @@ const legalContent: Record<"no" | "en", Record<LegalType, LegalDocument>> = {
         {
           title: "4. Liste over startbare apper",
           body:
-            "Når du velger hvilke apper du vil bruke sammen med R4, kan R4 vise en liste over startbare apper som er installert på enheten. Dette brukes kun for at du skal kunne velge målapp. Valgene dine lagres lokalt på enheten.",
+            "På Android kan R4 vise en liste over startbare apper som er installert på enheten når du velger hvilke apper du vil bruke sammen med R4. Dette brukes kun for at du skal kunne velge målapp. Valgene dine lagres lokalt på enheten.",
         },
         {
-          title: "5. Overlay-tillatelse",
+          title: "5. Overlay og tastaturtilgang",
           body:
-            "R4 ber om Android-tillatelse til å vises over andre apper. Tillatelsen brukes kun til å vise den synlige, brukerbetjente R4-overlayen. R4 bruker ikke denne tillatelsen til å lese, overvåke eller styre andre apper.",
+            "På Android ber R4 om tillatelse til å vises over andre apper. Tillatelsen brukes kun til å vise den synlige, brukerbetjente R4-overlayen. På iPhone og iPad fungerer R4 som et eget tastatur for å gjøre lagrede tekster tilgjengelige i tekstfelt. R4 bruker ikke disse funksjonene til å lese, overvåke eller styre andre apper.",
         },
         {
           title: "6. Utklippstavle",
           body:
-            "Når du trykker på en lagret melding i overlayen, kopierer R4 meldingsteksten til Androids utklippstavle. R4 limer ikke inn eller sender teksten automatisk. Du velger selv hvor og om teksten skal limes inn.",
+            "Når du velger en lagret melding, kopierer eller setter R4 inn meldingsteksten via funksjonene som er tilgjengelige på enheten din. R4 sender ikke teksten automatisk. Du velger selv hvor og om teksten skal limes inn eller sendes.",
         },
         {
           title: "7. Ingen analyse, annonser eller sporing",
@@ -97,7 +97,7 @@ const legalContent: Record<"no" | "en", Record<LegalType, LegalDocument>> = {
         {
           title: "2. Hva R4 gjør",
           body:
-            "R4 lar deg opprette og lagre egne tekster lokalt på enheten og gjøre dem tilgjengelige i en flytende overlay over andre Android-apper. Når du velger en lagret melding, kopieres teksten til systemets utklippstavle.",
+            "R4 lar deg opprette og lagre egne tekster lokalt på enheten og gjøre dem tilgjengelige raskt. På Android skjer dette gjennom en flytende overlay over andre apper. På iPhone og iPad skjer det gjennom et eget tastatur. Når du velger en lagret melding, kan teksten kopieres eller settes inn med funksjonene som er tilgjengelige på enheten.",
         },
         {
           title: "3. Ingen automatisk sending",
@@ -115,9 +115,9 @@ const legalContent: Record<"no" | "en", Record<LegalType, LegalDocument>> = {
             "R4 kan brukes sammen med andre apper, men Morning Coffee Labs er ikke tilknyttet eller ansvarlig for disse appene. Bruk av tredjepartsapper er underlagt deres egne vilkår, regler og personvernpraksis.",
         },
         {
-          title: "6. Overlay og systembegrensninger",
+          title: "6. Systemfunksjoner og begrensninger",
           body:
-            "R4 er avhengig av Androids overlay- og utklippstavlefunksjoner. Endringer i Android, enhetsprodusentens programvare eller andre apper kan påvirke hvordan funksjonen virker.",
+            "R4 er avhengig av systemfunksjoner som overlay, tastaturutvidelser og utklippstavle. Endringer i Android, iOS, iPadOS, enhetsprodusentens programvare eller andre apper kan påvirke hvordan funksjonen virker.",
         },
         {
           title: "7. Lokal lagring og sikkerhetskopi",
@@ -166,17 +166,17 @@ const legalContent: Record<"no" | "en", Record<LegalType, LegalDocument>> = {
         {
           title: "4. List of launchable apps",
           body:
-            "When you choose which apps to use with R4, R4 may display a list of launchable apps installed on your device. This is used only so you can select a target app. Your choices are stored locally on the device.",
+            "On Android, R4 may display a list of launchable apps installed on your device when you choose which apps to use with R4. This is used only so you can select a target app. Your choices are stored locally on the device.",
         },
         {
-          title: "5. Overlay permission",
+          title: "5. Overlay and keyboard access",
           body:
-            "R4 requests Android permission to display over other apps. This permission is used only to show the visible, user-controlled R4 overlay. R4 does not use this permission to read, monitor, or control other apps.",
+            "On Android, R4 requests permission to display over other apps. This permission is used only to show the visible, user-controlled R4 overlay. On iPhone and iPad, R4 works as a custom keyboard to make saved texts available in text fields. R4 does not use these features to read, monitor, or control other apps.",
         },
         {
           title: "6. Clipboard",
           body:
-            "When you tap a saved message in the overlay, R4 copies the message text to the Android clipboard. R4 does not automatically paste or send the text. You choose where and whether to paste it.",
+            "When you select a saved message, R4 copies or inserts the message text using the functions available on your device. R4 does not automatically send the text. You choose where and whether to paste or send it.",
         },
         {
           title: "7. No analytics, advertising, or tracking",
@@ -218,7 +218,7 @@ const legalContent: Record<"no" | "en", Record<LegalType, LegalDocument>> = {
         {
           title: "2. What R4 does",
           body:
-            "R4 lets you create and store your own text locally on your device and keep it available in a floating overlay above other Android apps. When you select a saved message, the text is copied to the system clipboard.",
+            "R4 lets you create and store your own text locally on your device and keep it quickly available. On Android, this is done through a floating overlay above other apps. On iPhone and iPad, it is done through a custom keyboard. When you select a saved message, the text can be copied or inserted using the functions available on your device.",
         },
         {
           title: "3. No automatic sending",
@@ -236,9 +236,9 @@ const legalContent: Record<"no" | "en", Record<LegalType, LegalDocument>> = {
             "R4 may be used together with other apps, but Morning Coffee Labs is not affiliated with or responsible for those apps. Use of third-party apps is subject to their own terms, rules, and privacy practices.",
         },
         {
-          title: "6. Overlay and system limitations",
+          title: "6. System features and limitations",
           body:
-            "R4 depends on Android overlay and clipboard functionality. Changes to Android, device manufacturer software, or other apps may affect how the functionality works.",
+            "R4 depends on system features such as overlays, keyboard extensions and clipboard functionality. Changes to Android, iOS, iPadOS, device manufacturer software or other apps may affect how the functionality works.",
         },
         {
           title: "7. Local storage and backup",

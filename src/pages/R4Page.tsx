@@ -5,13 +5,19 @@ import { useI18n } from "../i18n/useI18n";
 const assetBase = import.meta.env.BASE_URL || "/";
 
 const storeBadges = {
-  no: `${assetBase}google-play-badge-no.svg`,
-  en: `${assetBase}google-play-badge-en.svg`,
+  no: {
+    google: `${assetBase}google-play-badge-no.svg`,
+    apple: `${assetBase}app-store-badge-no.svg`,
+  },
+  en: {
+    google: `${assetBase}google-play-badge-en.svg`,
+    apple: `${assetBase}app-store-badge-en.svg`,
+  },
 } as const;
 
 const R4Page: React.FC = () => {
   const { t, lang } = useI18n();
-  const badge = lang === "en" ? storeBadges.en : storeBadges.no;
+  const badges = lang === "en" ? storeBadges.en : storeBadges.no;
 
   return (
     <main className="page receipt-landing-page">
@@ -53,8 +59,22 @@ const R4Page: React.FC = () => {
             >
               <img
                 className="receipt-store-badge-image"
-                src={badge}
+                src={badges.google}
                 alt={t("r4.download.googleAlt")}
+              />
+            </a>
+
+            <a
+              className="receipt-store-badge-link"
+              href={LINKS.r4AppStore}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={t("r4.download.appleAria")}
+            >
+              <img
+                className="receipt-store-badge-image"
+                src={badges.apple}
+                alt={t("r4.download.appleAlt")}
               />
             </a>
           </div>
