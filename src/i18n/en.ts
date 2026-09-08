@@ -77,12 +77,14 @@ const en = {
     now: {
       kicker: "On the workbench",
       title: "What we are working on now",
-      intro: "Two very different projects share our main focus right now: one useful tool and one new game universe.",
+      intro: "Several different projects share our main focus right now: apps, games and a practical workflow between office and field.",
       priority: "Active main project",
+      workTool: "Work tool in development",
       mosaic: "A private and safe plural app giving systems, alters and the people around them a new option after established services disappeared.",
       bopTitle: "BOP's first adventure",
       bop: "A colourful bounce-and-precision game with handcrafted levels, chaotic chain reactions and a more player-friendly advertising model.",
       bopAlt: "Placeholder for the BOP game",
+      mineOppdrag: "A lightweight web and mobile workflow for checklists, photos and documentation between office and field – built for small and mid-sized businesses that need control without a heavy system.",
     },
     pipeline: {
       kicker: "Next in the workshop",
@@ -750,6 +752,45 @@ const en = {
       title: "BOP is getting ready",
       body: "The game is still in development. More images and details will arrive as the adventure takes shape.",
     },
+  },
+
+  mineOppdragPage: {
+    tagline: "Checklists, photos and field work – made simpler.",
+    lead:
+      "Mine Oppdrag is a lightweight web and mobile app for businesses that need to send assignments from office to field, receive the right photos back, and keep simple control of the documentation.",
+    status: {
+      title: "In active development",
+      body: "Mine Oppdrag is being built as a practical work tool for small and mid-sized businesses. More screenshots, pricing and pilot information will be added later.",
+    },
+    flow: {
+      title: "From office to field and back again",
+      bodyOne:
+        "The office creates an assignment with points, checklists and photo requirements. The field user receives it on mobile, completes the work and sends the documentation back.",
+      bodyTwo:
+        "Once the office has received and checked the delivery, the assignment can be downloaded and archived. The cloud is used for transport and coordination, not as a permanent photo archive.",
+    },
+    checklists: {
+      title: "Checklists that follow the assignment",
+      body:
+        "Standard points, registrations and simple forms can be included with an assignment, helping field work become more consistent each time.",
+    },
+    photos: {
+      title: "The right photos back",
+      body:
+        "Photos are captured on the phone and linked to the correct assignment point, so the office does not have to search through camera rolls, messages and emails afterwards.",
+    },
+    archive: {
+      title: "Control before archiving",
+      body:
+        "Completed assignments can be reviewed on the web before they are archived. The goal is simple documentation that is easy to find again later.",
+    },
+    fit: {
+      title: "For teams that need flow, not a large system",
+      body:
+        "Mine Oppdrag is intended for electricians, installers, inspectors, operations staff and smaller contractors who need a clear office-to-field workflow without the cost and weight of larger trade and documentation systems.",
+      promise: "Affordable, practical and built around the work that actually needs to be done.",
+    },
+    support: "Interested in Mine Oppdrag?",
   },
 
   husketLegal: {

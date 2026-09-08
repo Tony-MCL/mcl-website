@@ -77,12 +77,14 @@ const no = {
     now: {
       kicker: "På arbeidsbenken",
       title: "Dette arbeider vi med nå",
-      intro: "To ulike prosjekter deler hovedfokuset akkurat nå: ett nyttig verktøy og ett nytt spillunivers.",
+      intro: "Flere ulike prosjekter deler hovedfokuset akkurat nå: apper, spill og en praktisk arbeidsflyt mellom kontor og felt.",
       priority: "Aktivt hovedprosjekt",
+      workTool: "Arbeidsverktøy under bygging",
       mosaic: "En privat og trygg plural-app for å gi systemer, alters og menneskene rundt dem et nytt alternativ etter at etablerte tjenester har forsvunnet.",
       bopTitle: "BOPs første eventyr",
       bop: "Et fargerikt sprett- og presisjonsspill med håndbygde baner, kaotiske kjedereaksjoner og en mer spiller­vennlig reklamemodell.",
       bopAlt: "Plassholder for BOP-spillet",
+      mineOppdrag: "En lettvekts web- og mobilflyt for sjekklister, bilder og dokumentasjon mellom kontor og felt – laget for små og mellomstore virksomheter som trenger kontroll uten et tungt system.",
     },
     pipeline: {
       kicker: "Videre i verkstedet",
@@ -750,6 +752,45 @@ const no = {
       title: "BOP gjør seg klar",
       body: "Spillet er fortsatt under utvikling. Flere bilder og detaljer kommer etter hvert som eventyret tar form.",
     },
+  },
+
+  mineOppdragPage: {
+    tagline: "Sjekklister, bilder og feltarbeid – gjort enklere.",
+    lead:
+      "Mine Oppdrag er en lettvekts web- og mobilapp for virksomheter som trenger å sende oppgaver fra kontor til felt, få riktige bilder tilbake og holde enkel kontroll på dokumentasjonen.",
+    status: {
+      title: "Under aktiv utvikling",
+      body: "Mine Oppdrag bygges som et praktisk arbeidsverktøy for små og mellomstore virksomheter. Flere skjermbilder, priser og pilotinformasjon kommer etter hvert.",
+    },
+    flow: {
+      title: "Fra kontor til felt og tilbake igjen",
+      bodyOne:
+        "Kontoret oppretter et oppdrag med punkter, sjekklister og bildebehov. Feltbrukeren mottar oppdraget på mobil, gjennomfører arbeidet og sender dokumentasjonen tilbake.",
+      bodyTwo:
+        "Når kontoret har mottatt og kontrollert leveransen, kan oppdraget lastes ned og arkiveres. Skyen brukes som transport og koordinering, ikke som et permanent bildearkiv.",
+    },
+    checklists: {
+      title: "Sjekklister som følger oppdraget",
+      body:
+        "Standardpunkter, registreringer og enkle skjemaer kan følge med oppdraget, slik at feltarbeidet blir mer likt utført hver gang.",
+    },
+    photos: {
+      title: "Riktige bilder tilbake",
+      body:
+        "Bilder tas på telefonen og knyttes til riktig punkt i oppdraget, slik at kontoret slipper å lete i kameraruller, meldinger og e-poster etterpå.",
+    },
+    archive: {
+      title: "Kontroll før arkivering",
+      body:
+        "Fullførte oppdrag kan kontrolleres på web før de arkiveres. Målet er enkel dokumentasjon som er lett å hente frem igjen senere.",
+    },
+    fit: {
+      title: "For de som trenger flyt, ikke et stort system",
+      body:
+        "Mine Oppdrag er tenkt for elektrikere, montører, kontrollører, driftspersonell og mindre entreprenører som trenger en ryddig kontor-til-felt-flyt uten kostnaden og tyngden fra større fag- og dokumentasjonssystemer.",
+      promise: "Rimelig, praktisk og bygget rundt jobben som faktisk skal gjøres.",
+    },
+    support: "Interessert i Mine Oppdrag?",
   },
 
   husketLegal: {

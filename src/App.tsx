@@ -25,6 +25,7 @@ import FuryOPage from "./pages/FuryOPage";
 import R4Page from "./pages/R4Page";
 import MosaicMePage from "./pages/MosaicMePage";
 import BopGamePage from "./pages/BopGamePage";
+import MineOppdragPage from "./pages/MineOppdragPage";
 import ReceiptPage from "./pages/ReceiptPage";
 import ReceiptLandingPage from "./pages/ReceiptLandingPage";
 import HusketKjopsvilkarPage from "./pages/HusketKjopsvilkarPage";
@@ -44,7 +45,6 @@ import R4PrivacyPage from "./pages/R4PrivacyPage";
 import R4TermsPage from "./pages/R4TermsPage";
 import MosaicMePrivacyPage from "./pages/MosaicMePrivacyPage";
 import MosaicMeTermsPage from "./pages/MosaicMeTermsPage";
-import MosaicMeDeleteAccountPage from "./pages/MosaicMeDeleteAccountPage";
 
 const AppShell: React.FC = () => {
   const location = useLocation();
@@ -56,8 +56,8 @@ const AppShell: React.FC = () => {
     location.pathname === "/fury-o" ||
     location.pathname === "/r4" ||
     location.pathname === "/mosaic-me" ||
-    location.pathname.startsWith("/mosaic-me/") ||
     location.pathname === "/bop" ||
+    location.pathname === "/mine-oppdrag" ||
     location.pathname === "/receipts" ||
     location.pathname.startsWith("/receipts/") ||
     location.pathname === "/kvittek";
@@ -86,6 +86,7 @@ const AppShell: React.FC = () => {
           <Route path="/r4" element={<R4Page />} />
           <Route path="/mosaic-me" element={<MosaicMePage />} />
           <Route path="/bop" element={<BopGamePage />} />
+          <Route path="/mine-oppdrag" element={<MineOppdragPage />} />
           <Route path="/kvittek" element={<ReceiptPage />} />
           <Route path="/receipts" element={<ReceiptLandingPage />} />
 
@@ -116,7 +117,6 @@ const AppShell: React.FC = () => {
 
           <Route path="/mosaic-me/privacy" element={<MosaicMePrivacyPage />} />
           <Route path="/mosaic-me/terms" element={<MosaicMeTermsPage />} />
-          <Route path="/mosaic-me/delete-account" element={<MosaicMeDeleteAccountPage />} />
 
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

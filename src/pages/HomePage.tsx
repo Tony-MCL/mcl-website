@@ -148,6 +148,10 @@ const HomePage: React.FC = () => {
             <div className="current-media bop-placeholder" aria-label={t("homeNew.now.bopAlt")}><span className="bop-ball" /><strong>BOP</strong><small>{t("homeNew.status.visualComing")}</small></div>
             <div className="current-copy"><span className="project-number">02</span><span className="section-kicker">{t("homeNew.now.priority")}</span><h3>{t("homeNew.now.bopTitle")}</h3><p>{t("homeNew.now.bop")}</p></div>
           </Link>
+          <Link className="current-project current-project-link current-project-mine-oppdrag" to="/mine-oppdrag">
+            <div className="current-media mine-oppdrag-media"><img src={`${assetBase}mine_oppdrag_logo.png`} alt="Mine Oppdrag logo" /></div>
+            <div className="current-copy"><span className="project-number">03</span><span className="section-kicker">{t("homeNew.now.workTool")}</span><h3>Mine Oppdrag</h3><p>{t("homeNew.now.mineOppdrag")}</p></div>
+          </Link>
         </div>
       </section>
 
