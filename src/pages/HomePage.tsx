@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { LINKS } from "../config/links";
 import { useI18n } from "../i18n/useI18n";
 
 const assetBase = import.meta.env.BASE_URL || "/";
@@ -132,6 +133,11 @@ const HomePage: React.FC = () => {
           <ProductCard name="Fury O" description={t("homeNew.apps.fury")} image="fury-logo.png" imageClassName="product-logo-contain" accent="#ff6b2d" href="/fury-o" cta={t("homeNew.actions.readMore")} />
           <ProductCard name="R4" description={t("homeNew.apps.r4")} image="r4-logo.png" imageClassName="product-logo-cover" accent="#a7e93d" href="/r4" cta={t("homeNew.actions.readMore")} />
         </div>
+        <p className="peerpush-home-link">
+          <a href={LINKS.r4PeerPush} target="_blank" rel="noopener noreferrer">
+            {t("homeNew.apps.r4PeerPush")}
+          </a>
+        </p>
       </section>
 
       <section className="home-section lab-section" id="lab" aria-labelledby="lab-title">

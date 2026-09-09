@@ -73,6 +73,7 @@ const no = {
       husket: "Et rolig sted for bilder, notater og detaljene du gjerne vil finne igjen senere.",
       fury: "Et enkelt og overraskende vanskelig sirkelspill, laget for korte pauser og én runde til.",
       r4: "Raske, gjenbrukbare meldinger rett fra tastaturet – særlig nyttig når du spiller.",
+      r4PeerPush: "R4 på PeerPush",
     },
     now: {
       kicker: "På arbeidsbenken",
@@ -699,6 +700,7 @@ const no = {
       appleAria: "Åpne R4 i App Store",
       appleAlt: "Last ned R4 fra App Store",
     },
+    peerPush: "R4 på PeerPush",
     support: "Spørsmål eller behov for hjelp?",
   },
 

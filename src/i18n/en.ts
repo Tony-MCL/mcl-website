@@ -73,6 +73,7 @@ const en = {
       husket: "A calm place for photos, notes and the details you want to find again later.",
       fury: "A simple and surprisingly difficult circle game, made for short breaks and one more round.",
       r4: "Fast, reusable messages directly from your keyboard – especially useful while gaming.",
+      r4PeerPush: "R4 on PeerPush",
     },
     now: {
       kicker: "On the workbench",
@@ -699,6 +700,7 @@ const en = {
       appleAria: "Open R4 in the App Store",
       appleAlt: "Download R4 from the App Store",
     },
+    peerPush: "R4 on PeerPush",
     support: "Questions or need help?",
   },
 

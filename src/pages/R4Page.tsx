@@ -81,6 +81,11 @@ const R4Page: React.FC = () => {
         </section>
 
         <p className="r4-landing-platform">{t("r4.platform")}</p>
+        <p className="r4-peerpush-link">
+          <a href={LINKS.r4PeerPush} target="_blank" rel="noopener noreferrer">
+            {t("r4.peerPush")}
+          </a>
+        </p>
 
         <p className="receipt-landing-support">
           <span>{t("r4.support")}</span>
