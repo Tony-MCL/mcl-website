@@ -73,7 +73,6 @@ const en = {
       husket: "A calm place for photos, notes and the details you want to find again later.",
       fury: "A simple and surprisingly difficult circle game, made for short breaks and one more round.",
       r4: "Fast, reusable messages directly from your keyboard – especially useful while gaming.",
-      r4PeerPush: "R4 on PeerPush",
     },
     now: {
       kicker: "On the workbench",
@@ -658,6 +657,7 @@ const en = {
       appleAria: "Open FindBack in the App Store",
       appleAlt: "Download FindBack from the App Store",
     },
+    peerPush: "FindBack on PeerPush",
     support: "Questions or need help?",
   },
 
@@ -677,6 +677,7 @@ const en = {
       appleAria: "Open FURY O in the App Store",
       appleAlt: "Download FURY O from the App Store",
     },
+    peerPush: "FURY O on PeerPush",
     support: "Questions or need help?",
   },
 
@@ -1101,6 +1102,7 @@ const en = {
       appleAria: "Download Kvittek from the App Store",
       appleSoon: "App Store coming soon",
     },
+    peerPush: "Kvittek on PeerPush",
     support: {
       lead: "Questions or support?",
     },

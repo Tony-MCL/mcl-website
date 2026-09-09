@@ -77,6 +77,12 @@ const FindBackPage: React.FC = () => {
           </div>
         </section>
 
+        <p className="product-peerpush-link">
+          <a href={LINKS.findbackPeerPush} target="_blank" rel="noopener noreferrer">
+            {t("findback.peerPush")}
+          </a>
+        </p>
+
         <p className="receipt-landing-support">
           <span>{t("findback.support")}</span>
           <a href="mailto:post@morningcoffeelabs.no">

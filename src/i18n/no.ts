@@ -73,7 +73,6 @@ const no = {
       husket: "Et rolig sted for bilder, notater og detaljene du gjerne vil finne igjen senere.",
       fury: "Et enkelt og overraskende vanskelig sirkelspill, laget for korte pauser og én runde til.",
       r4: "Raske, gjenbrukbare meldinger rett fra tastaturet – særlig nyttig når du spiller.",
-      r4PeerPush: "R4 på PeerPush",
     },
     now: {
       kicker: "På arbeidsbenken",
@@ -658,6 +657,7 @@ const no = {
       appleAria: "Åpne FindBack i App Store",
       appleAlt: "Last ned FindBack fra App Store",
     },
+    peerPush: "FindBack på PeerPush",
     support: "Spørsmål eller behov for hjelp?",
   },
 
@@ -677,6 +677,7 @@ const no = {
       appleAria: "Åpne FURY O i App Store",
       appleAlt: "Last ned FURY O fra App Store",
     },
+    peerPush: "FURY O på PeerPush",
     support: "Spørsmål eller behov for hjelp?",
   },
 
@@ -1101,6 +1102,7 @@ const no = {
       appleAria: "Last ned Kvittek fra App Store",
       appleSoon: "App Store kommer snart",
     },
+    peerPush: "Kvittek på PeerPush",
     support: {
       lead: "Spørsmål eller support?",
     },

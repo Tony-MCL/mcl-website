@@ -198,6 +198,12 @@ const ReceiptLandingPage: React.FC = () => {
           </div>
         </section>
 
+        <p className="product-peerpush-link">
+          <a href={LINKS.kvittekPeerPush} target="_blank" rel="noopener noreferrer">
+            {t("kvittekLanding.peerPush")}
+          </a>
+        </p>
+
         <p className="receipt-landing-support">
           <span>{t("kvittekLanding.support.lead")}</span>
           <a href="mailto:post@morningcoffeelabs.no">post@morningcoffeelabs.no</a>

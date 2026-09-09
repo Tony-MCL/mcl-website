@@ -34,9 +34,9 @@
 .product-card-copy h3 { margin: 0 0 .6rem; font-size: 1.35rem; }
 .product-card-copy p { min-height: 5.5em; margin-bottom: 1rem; color: var(--mcl-text-dim); font-size: .94rem; line-height: 1.55; }
 .text-link { color: #5e45e8; font-size: .9rem; font-weight: 750; }
-.peerpush-home-link { margin: 1rem 0 0; font-size: .85rem; font-weight: 750; }
-.peerpush-home-link a, .r4-peerpush-link a { color: var(--mcl-text-dim); text-decoration: none; }
-.peerpush-home-link a:hover, .r4-peerpush-link a:hover { color: #6e36ff; text-decoration: underline; text-underline-offset: .18em; }
+.product-peerpush-link { margin: .85rem auto 0; font-size: .86rem; font-weight: 750; }
+.product-peerpush-link a { color: var(--mcl-text-dim); text-decoration: none; }
+.product-peerpush-link a:hover { color: #6e36ff; text-decoration: underline; text-underline-offset: .18em; }
 .lab-section { max-width: none; padding-left: max(2rem, calc((100vw - 1180px) / 2 + 2rem)); padding-right: max(2rem, calc((100vw - 1180px) / 2 + 2rem)); background: radial-gradient(circle at 12% 10%, rgba(30, 125, 255, .32), transparent 30%), radial-gradient(circle at 90% 80%, rgba(238, 55, 169, .25), transparent 32%), #080b1c; color: #f8f9ff; }
 .lab-section .section-heading { max-width: 1180px; margin-left: auto; margin-right: auto; }
 .section-heading-light > p { color: #b6bedc; }.section-heading-light .section-kicker { color: #65d7ff; }
@@ -1325,12 +1325,6 @@ html[data-theme="dark"] .fury-landing-promise {
   color: var(--mcl-text-dim);
   font-size: 0.9rem;
   line-height: 1.5;
-}
-
-.r4-peerpush-link {
-  margin: 0.8rem auto 0;
-  font-size: 0.86rem;
-  font-weight: 750;
 }
 
 html[data-theme="dark"] .r4-landing-card {

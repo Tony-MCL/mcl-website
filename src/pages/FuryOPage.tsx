@@ -79,6 +79,12 @@ const FuryOPage: React.FC = () => {
           </div>
         </section>
 
+        <p className="product-peerpush-link">
+          <a href={LINKS.furyPeerPush} target="_blank" rel="noopener noreferrer">
+            {t("fury.peerPush")}
+          </a>
+        </p>
+
         <p className="receipt-landing-support">
           <span>{t("fury.support")}</span>
           <a href="mailto:post@morningcoffeelabs.no">
