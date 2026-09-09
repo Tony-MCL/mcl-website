@@ -58,8 +58,8 @@ const MineOppdragPage: React.FC = () => {
 
       <p className="receipt-landing-support project-preview-support">
         <span>{t("mineOppdragPage.support")}</span>
-        <a href="mailto:support@morningcoffeelabs.no">
-          support@morningcoffeelabs.no
+        <a href="mailto:post@morningcoffeelabs.no">
+          post@morningcoffeelabs.no
         </a>
       </p>
     </main>

@@ -200,7 +200,7 @@ const ReceiptLandingPage: React.FC = () => {
 
         <p className="receipt-landing-support">
           <span>{t("kvittekLanding.support.lead")}</span>
-          <a href="mailto:support@morningcoffeelabs.no">support@morningcoffeelabs.no</a>
+          <a href="mailto:post@morningcoffeelabs.no">post@morningcoffeelabs.no</a>
         </p>
 
         <p className="receipt-landing-product-link">

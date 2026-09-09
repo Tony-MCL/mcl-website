@@ -1115,7 +1115,7 @@ const en = {
         { title: "3. Account and synchronization", body: "Kvittek can be used locally on your device. If you create a Kvittek account or use backup and synchronization, necessary data is stored to provide this functionality across devices." },
         { title: "4. Availability and changes", body: "We aim for the app to function reliably, but we cannot guarantee that all features will always be available or error-free. The app may be updated, improved, or changed over time." },
         { title: "5. Limitation of liability", body: "Kvittek is provided as is. To the extent permitted by law, we are not liable for indirect losses, loss of data, loss of profit, or other consequential damages arising from use of the app." },
-        { title: "6. Contact", body: "Questions about the app or these terms can be sent to support@morningcoffeelabs.no." },
+        { title: "6. Contact", body: "Questions about the app or these terms can be sent to post@morningcoffeelabs.no." },
       ],
     },
     privacy: {
@@ -1127,8 +1127,8 @@ const en = {
         { title: "3. Purpose", lead: "The information is used to:", bullets: ["store and show your receipts in the app", "synchronize and back up data when you use a Kvittek account", "restore data on a new or different device", "provide support and fix issues when you ask for help"] },
         { title: "4. Local storage and account", body: "Kvittek is designed to make receipts easy to store and find again. Data may be stored locally on your device. If you activate account, backup, or synchronization, necessary data is transferred to our service providers to deliver that functionality." },
         { title: "5. Third parties", body: "We may use service providers for login, cloud storage, payment, app distribution, and operation. They may only process data to provide the service and not for their own purposes." },
-        { title: "6. Deletion", body: "You can request deletion of your account and related data by contacting support@morningcoffeelabs.no. Some information may need to be retained where required by law, such as accounting or payment documentation." },
-        { title: "7. Contact", body: "For privacy questions, contact support@morningcoffeelabs.no." },
+        { title: "6. Deletion", body: "You can request deletion of your account and related data by contacting post@morningcoffeelabs.no. Some information may need to be retained where required by law, such as accounting or payment documentation." },
+        { title: "7. Contact", body: "For privacy questions, contact post@morningcoffeelabs.no." },
       ],
     },
     purchase: {
@@ -1140,7 +1140,7 @@ const en = {
         { title: "3. Price and payment", body: "Price, currency, and payment terms are shown in App Store or Google Play before the purchase is confirmed. Payment and any renewal are handled by the relevant store." },
         { title: "4. Subscription", body: "If you purchase a subscription, it renews according to the terms in App Store or Google Play. Subscriptions are managed and cancelled through the account settings in the store where the purchase was made." },
         { title: "5. Delivery", body: "Digital features are normally activated shortly after payment, provided that payment and store confirmation are registered correctly." },
-        { title: "6. Contact", body: "Questions about Kvittek, access, or purchases can be sent to support@morningcoffeelabs.no." },
+        { title: "6. Contact", body: "Questions about Kvittek, access, or purchases can be sent to post@morningcoffeelabs.no." },
       ],
     },
     refund: {
@@ -1148,7 +1148,7 @@ const en = {
       intro: "This page describes how refunds and complaints are handled for purchases related to Kvittek.",
       sections: [
         { title: "1. Purchases via App Store or Google Play", body: "Purchases and subscriptions in Kvittek are normally handled by App Store or Google Play. Refund requests should generally be submitted through the store where the purchase was made." },
-        { title: "2. Technical issues", body: "If you have paid but do not get access to paid features due to a technical issue, contact support@morningcoffeelabs.no. We will try to help restore access or find a reasonable solution." },
+        { title: "2. Technical issues", body: "If you have paid but do not get access to paid features due to a technical issue, contact post@morningcoffeelabs.no. We will try to help restore access or find a reasonable solution." },
         { title: "3. Subscription cancellation", body: "Subscriptions can be cancelled through App Store or Google Play. Already paid periods are normally not refunded by us, but you keep access until the end of the period unless the store decides otherwise." },
         { title: "4. What to send us", lead: "For support, please send:", bullets: ["which store the purchase was made in", "purchase date", "the email address used in Kvittek", "a short description of the issue"] },
       ],

@@ -58,8 +58,8 @@ const MosaicMePage: React.FC = () => {
 
       <p className="receipt-landing-support project-preview-support">
         <span>{t("mosaicPage.support")}</span>
-        <a href="mailto:support@morningcoffeelabs.no">
-          support@morningcoffeelabs.no
+        <a href="mailto:post@morningcoffeelabs.no">
+          post@morningcoffeelabs.no
         </a>
       </p>
     </main>

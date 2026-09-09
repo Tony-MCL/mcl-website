@@ -79,8 +79,8 @@ const FindBackPage: React.FC = () => {
 
         <p className="receipt-landing-support">
           <span>{t("findback.support")}</span>
-          <a href="mailto:support@morningcoffeelabs.no">
-            support@morningcoffeelabs.no
+          <a href="mailto:post@morningcoffeelabs.no">
+            post@morningcoffeelabs.no
           </a>
         </p>
       </section>
