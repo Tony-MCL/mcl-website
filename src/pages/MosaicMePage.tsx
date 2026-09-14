@@ -1,10 +1,11 @@
 import React from "react";
+import { LINKS } from "../config/links";
 import { useI18n } from "../i18n/useI18n";
 
 const assetBase = import.meta.env.BASE_URL || "/";
 
 const MosaicMePage: React.FC = () => {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
 
   return (
     <main className="page project-preview-page mosaic-preview-page">
@@ -20,13 +21,25 @@ const MosaicMePage: React.FC = () => {
         <p className="project-preview-tagline">{t("mosaicPage.tagline")}</p>
         <p className="project-preview-lead">{t("mosaicPage.lead")}</p>
 
-        <div className="project-preview-status">
-          <img src={`${assetBase}mcl_under_construction.png`} alt="" />
-          <div>
-            <strong>{t("mosaicPage.status.title")}</strong>
-            <span>{t("mosaicPage.status.body")}</span>
+        <section className="receipt-landing-download" aria-labelledby="mosaic-download-title">
+          <h2 id="mosaic-download-title">{t("mosaicPage.status.title")}</h2>
+          <div className="receipt-store-badges">
+            <a
+              className="receipt-store-badge-link"
+              href={LINKS.mosaicGooglePlay}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={t("mosaicPage.download.googleAria")}
+            >
+              <img
+                className="receipt-store-badge-image"
+                src={`${assetBase}google-play-badge-${lang === "en" ? "en" : "no"}.svg`}
+                alt={t("mosaicPage.download.googleAlt")}
+              />
+            </a>
           </div>
-        </div>
+          <p>{t("mosaicPage.status.body")}</p>
+        </section>
       </section>
 
       <section className="mosaic-story" aria-labelledby="mosaic-system-title">

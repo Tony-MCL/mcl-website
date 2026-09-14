@@ -126,6 +126,7 @@ const HomePage: React.FC = () => {
           <p>{t("homeNew.apps.intro")}</p>
         </div>
         <div ref={appsCarouselRef} className="product-grid product-grid-featured">
+          <ProductCard name="Mosaic ME" description={t("homeNew.apps.mosaic")} image="mosaic_me_logo.png" imageClassName="product-logo-contain" accent="#9064e8" href="/mosaic-me" cta={t("homeNew.actions.readMore")} />
           <ProductCard name="Kvittek" description={t("homeNew.apps.kvittek")} image="kvitteklogo.png" accent="#ff9a3d" href="/receipts" cta={t("homeNew.actions.readMore")} />
           <ProductCard name="FindBack" description={t("homeNew.apps.findback")} image="findback-icon.png" imageClassName="product-logo-app-icon" accent="#087cf0" href="/findback" cta={t("homeNew.actions.readMore")} />
           <ProductCard name="husk'et" description={t("homeNew.apps.husket")} image="husketlogo.svg" accent="#ea386f" href="/husket" cta={t("homeNew.actions.readMore")} />
@@ -140,17 +141,13 @@ const HomePage: React.FC = () => {
           <p>{t("homeNew.now.intro")}</p>
         </div>
         <div ref={currentCarouselRef} className="current-grid">
-          <Link className="current-project current-project-link current-project-mosaic" to="/mosaic-me">
-            <div className="current-media"><img src={`${assetBase}mosaic_me_logo.png`} alt="Mosaic ME logo" /></div>
-            <div className="current-copy"><span className="project-number">01</span><span className="section-kicker">{t("homeNew.now.priority")}</span><h3>Mosaic ME</h3><p>{t("homeNew.now.mosaic")}</p></div>
-          </Link>
           <Link className="current-project current-project-link current-project-bop" to="/bop">
             <div className="current-media bop-placeholder" aria-label={t("homeNew.now.bopAlt")}><span className="bop-ball" /><strong>BOP</strong><small>{t("homeNew.status.visualComing")}</small></div>
-            <div className="current-copy"><span className="project-number">02</span><span className="section-kicker">{t("homeNew.now.priority")}</span><h3>{t("homeNew.now.bopTitle")}</h3><p>{t("homeNew.now.bop")}</p></div>
+            <div className="current-copy"><span className="project-number">01</span><span className="section-kicker">{t("homeNew.now.priority")}</span><h3>{t("homeNew.now.bopTitle")}</h3><p>{t("homeNew.now.bop")}</p></div>
           </Link>
           <Link className="current-project current-project-link current-project-mine-oppdrag" to="/mine-oppdrag">
             <div className="current-media mine-oppdrag-media"><img src={`${assetBase}mine_oppdrag_logo.png`} alt="Mine Oppdrag logo" /></div>
-            <div className="current-copy"><span className="project-number">03</span><span className="section-kicker">{t("homeNew.now.workTool")}</span><h3>Mine Oppdrag</h3><p>{t("homeNew.now.mineOppdrag")}</p></div>
+            <div className="current-copy"><span className="project-number">02</span><span className="section-kicker">{t("homeNew.now.workTool")}</span><h3>Mine Oppdrag</h3><p>{t("homeNew.now.mineOppdrag")}</p></div>
           </Link>
         </div>
       </section>

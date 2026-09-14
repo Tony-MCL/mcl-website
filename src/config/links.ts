@@ -1,4 +1,5 @@
 export const LINKS = {
+  mosaicGooglePlay: "https://play.google.com/store/apps/details?id=com.morningcoffeelabs.mosaicme",
   mcl: "https://morningcoffeelabs.no",
   ms: "https://managesystem.no",
   progress: "https://progress.managesystem.no",

@@ -65,6 +65,7 @@ const no = {
       mark: "APPER · SPILL · IDÉER",
     },
     apps: {
+      mosaic: "En privat plural-app for alters, fronting og journaler – med dataene dine lagret lokalt og deling på dine premisser.",
       kicker: "Ute i verden",
       title: "Våre apper og spill",
       intro: "Små og store idéer som er blitt til ekte produkter – laget, testet og sendt ut til brukere.",
@@ -80,7 +81,6 @@ const no = {
       intro: "Flere ulike prosjekter deler hovedfokuset akkurat nå: apper, spill og en praktisk arbeidsflyt mellom kontor og felt.",
       priority: "Aktivt hovedprosjekt",
       workTool: "Arbeidsverktøy under bygging",
-      mosaic: "En privat og trygg plural-app for å gi systemer, alters og menneskene rundt dem et nytt alternativ etter at etablerte tjenester har forsvunnet.",
       bopTitle: "BOPs første eventyr",
       bop: "Et fargerikt sprett- og presisjonsspill med håndbygde baner, kaotiske kjedereaksjoner og en mer spiller­vennlig reklamemodell.",
       bopAlt: "Plassholder for BOP-spillet",
@@ -710,8 +710,12 @@ const no = {
     lead:
       "Mosaic ME er en privat, lokal-først følgesvenn for plurale systemer – laget for å holde oversikt over alters, fronting, co-fronting, journaler og menneskene du selv velger å dele med.",
     status: {
-      title: "De siste delene bygges nå",
-      body: "Mosaic ME klargjøres for lansering. Butikklenker kommer så snart appen er publisert.",
+      title: "Last ned Mosaic ME",
+      body: "Tilgjengelig på Google Play. App Store-versjonen kommer senere.",
+    },
+    download: {
+      googleAria: "Last ned Mosaic ME på Google Play",
+      googleAlt: "Tilgjengelig på Google Play",
     },
     system: {
       title: "Ditt system, på din måte",

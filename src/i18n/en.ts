@@ -65,6 +65,7 @@ const en = {
       mark: "APPS · GAMES · IDEAS",
     },
     apps: {
+      mosaic: "A private plural app for alters, fronting and journals – with your data stored locally and sharing on your terms.",
       kicker: "Out in the world",
       title: "Our apps and games",
       intro: "Ideas large and small that became real products – made, tested and released to users.",
@@ -80,7 +81,6 @@ const en = {
       intro: "Several different projects share our main focus right now: apps, games and a practical workflow between office and field.",
       priority: "Active main project",
       workTool: "Work tool in development",
-      mosaic: "A private and safe plural app giving systems, alters and the people around them a new option after established services disappeared.",
       bopTitle: "BOP's first adventure",
       bop: "A colourful bounce-and-precision game with handcrafted levels, chaotic chain reactions and a more player-friendly advertising model.",
       bopAlt: "Placeholder for the BOP game",
@@ -710,8 +710,12 @@ const en = {
     lead:
       "Mosaic ME is a private, local-first companion for plural systems – built to help you keep track of alters, fronting, co-fronting, journals and the people you choose to share with.",
     status: {
-      title: "The final pieces are being built",
-      body: "Mosaic ME is being prepared for launch. Store links will be added as soon as the app is published.",
+      title: "Download Mosaic ME",
+      body: "Available on Google Play. The App Store version is coming later.",
+    },
+    download: {
+      googleAria: "Download Mosaic ME on Google Play",
+      googleAlt: "Get it on Google Play",
     },
     system: {
       title: "Your system, your way",
