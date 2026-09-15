@@ -711,9 +711,11 @@ const en = {
       "Mosaic ME is a private, local-first companion for plural systems – built to help you keep track of alters, fronting, co-fronting, journals and the people you choose to share with.",
     status: {
       title: "Download Mosaic ME",
-      body: "Available on Google Play. The App Store version is coming later.",
+      body: "Available on Google Play and the App Store.",
     },
     download: {
+      appleAria: "Download Mosaic ME on the App Store",
+      appleAlt: "Download on the App Store",
       googleAria: "Download Mosaic ME on Google Play",
       googleAlt: "Get it on Google Play",
     },

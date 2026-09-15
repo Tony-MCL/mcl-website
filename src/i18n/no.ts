@@ -711,9 +711,11 @@ const no = {
       "Mosaic ME er en privat, lokal-først følgesvenn for plurale systemer – laget for å holde oversikt over alters, fronting, co-fronting, journaler og menneskene du selv velger å dele med.",
     status: {
       title: "Last ned Mosaic ME",
-      body: "Tilgjengelig på Google Play. App Store-versjonen kommer senere.",
+      body: "Tilgjengelig på Google Play og App Store.",
     },
     download: {
+      appleAria: "Last ned Mosaic ME fra App Store",
+      appleAlt: "Last ned fra App Store",
       googleAria: "Last ned Mosaic ME på Google Play",
       googleAlt: "Tilgjengelig på Google Play",
     },

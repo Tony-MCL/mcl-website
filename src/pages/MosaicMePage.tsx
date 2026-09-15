@@ -20,26 +20,6 @@ const MosaicMePage: React.FC = () => {
         </h1>
         <p className="project-preview-tagline">{t("mosaicPage.tagline")}</p>
         <p className="project-preview-lead">{t("mosaicPage.lead")}</p>
-
-        <section className="receipt-landing-download" aria-labelledby="mosaic-download-title">
-          <h2 id="mosaic-download-title">{t("mosaicPage.status.title")}</h2>
-          <div className="receipt-store-badges">
-            <a
-              className="receipt-store-badge-link"
-              href={LINKS.mosaicGooglePlay}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={t("mosaicPage.download.googleAria")}
-            >
-              <img
-                className="receipt-store-badge-image"
-                src={`${assetBase}google-play-badge-${lang === "en" ? "en" : "no"}.svg`}
-                alt={t("mosaicPage.download.googleAlt")}
-              />
-            </a>
-          </div>
-          <p>{t("mosaicPage.status.body")}</p>
-        </section>
       </section>
 
       <section className="mosaic-story" aria-labelledby="mosaic-system-title">
@@ -67,6 +47,39 @@ const MosaicMePage: React.FC = () => {
         <h2 id="mosaic-long-term-title">{t("mosaicPage.longTerm.title")}</h2>
         <p>{t("mosaicPage.longTerm.body")}</p>
         <strong>{t("mosaicPage.longTerm.free")}</strong>
+      </section>
+
+      <section className="receipt-landing-download" aria-labelledby="mosaic-download-title">
+        <h2 id="mosaic-download-title">{t("mosaicPage.status.title")}</h2>
+        <div className="receipt-store-badges">
+          <a
+            className="receipt-store-badge-link"
+            href={LINKS.mosaicGooglePlay}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={t("mosaicPage.download.googleAria")}
+          >
+            <img
+              className="receipt-store-badge-image"
+              src={`${assetBase}google-play-badge-${lang === "en" ? "en" : "no"}.svg`}
+              alt={t("mosaicPage.download.googleAlt")}
+            />
+          </a>
+          <a
+            className="receipt-store-badge-link"
+            href={LINKS.mosaicAppStore}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={t("mosaicPage.download.appleAria")}
+          >
+            <img
+              className="receipt-store-badge-image"
+              src={`${assetBase}app-store-badge-${lang === "en" ? "en" : "no"}.svg`}
+              alt={t("mosaicPage.download.appleAlt")}
+            />
+          </a>
+        </div>
+        <p>{t("mosaicPage.status.body")}</p>
       </section>
 
       <p className="receipt-landing-support project-preview-support">
