@@ -3,9 +3,31 @@ import en from "./en";
 
 export type Lang = "no" | "en";
 
+const noWithHeroActions = {
+  ...no,
+  homeNew: {
+    ...no.homeNew,
+    hero: {
+      ...no.homeNew.hero,
+      discordCta: "Chat med oss på Discord",
+    },
+  },
+} as const;
+
+const enWithHeroActions = {
+  ...en,
+  homeNew: {
+    ...en.homeNew,
+    hero: {
+      ...en.homeNew.hero,
+      discordCta: "Chat with us on Discord",
+    },
+  },
+} as const;
+
 export const dictionaries = {
-  no,
-  en,
+  no: noWithHeroActions,
+  en: enWithHeroActions,
 } as const;
 
 export const DEFAULT_LANG: Lang = "no";
