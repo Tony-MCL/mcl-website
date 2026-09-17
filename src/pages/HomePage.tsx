@@ -113,7 +113,18 @@ const HomePage: React.FC = () => {
             <strong>{t("homeNew.hero.continuityTitle")}</strong>
             <span>{t("homeNew.hero.continuityBody")}</span>
           </div>
-          <a className="primary-button" href="#apps">{t("homeNew.hero.cta")}</a>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: ".75rem" }}>
+            <a className="primary-button" href="#apps">{t("homeNew.hero.cta")}</a>
+            <a
+              className="primary-button"
+              href="https://discord.gg/D5gQgV6PfU"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ background: "transparent", color: "var(--mcl-text)", border: "1px solid var(--mcl-border)", boxShadow: "none" }}
+            >
+              Visit us on Discord
+            </a>
+          </div>
         </div>
         <div className="hero-cup-art" aria-hidden="true">
           <img src={`${assetBase}mcl-cup-paint.png`} alt="" />
