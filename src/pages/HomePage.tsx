@@ -122,7 +122,7 @@ const HomePage: React.FC = () => {
               rel="noopener noreferrer"
               style={{ background: "transparent", color: "var(--mcl-text)", border: "1px solid var(--mcl-border)", boxShadow: "none" }}
             >
-              Visit us on Discord
+              {t("homeNew.hero.discordCta")}
             </a>
           </div>
         </div>
