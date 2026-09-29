@@ -114,7 +114,7 @@ const HomePage: React.FC = () => {
             <span>{t("homeNew.hero.continuityBody")}</span>
           </div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: ".75rem" }}>
-            <a className="primary-button" href="#apps">{t("homeNew.hero.cta")}</a>
+            <a className="primary-button" href="#solutions">{t("homeNew.hero.cta")}</a>
             <a
               className="primary-button"
               href="https://discord.gg/D5gQgV6PfU"
@@ -131,9 +131,9 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      <section className="home-section" id="apps" aria-labelledby="apps-title">
+      <section className="home-section" id="solutions" aria-labelledby="solutions-title">
         <div className="section-heading">
-          <div><span className="section-kicker">{t("homeNew.apps.kicker")}</span><h2 id="apps-title">{t("homeNew.apps.title")}</h2></div>
+          <div><span className="section-kicker">{t("homeNew.apps.kicker")}</span><h2 id="solutions-title">{t("homeNew.apps.title")}</h2></div>
           <p>{t("homeNew.apps.intro")}</p>
         </div>
         <div ref={appsCarouselRef} className="product-grid product-grid-featured">
@@ -146,9 +146,9 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      <section className="home-section lab-section" id="lab" aria-labelledby="lab-title">
+      <section className="home-section lab-section" id="ideas" aria-labelledby="ideas-title">
         <div className="section-heading section-heading-light">
-          <div><span className="section-kicker">{t("homeNew.now.kicker")}</span><h2 id="lab-title">{t("homeNew.now.title")}</h2></div>
+          <div><span className="section-kicker">{t("homeNew.now.kicker")}</span><h2 id="ideas-title">{t("homeNew.now.title")}</h2></div>
           <p>{t("homeNew.now.intro")}</p>
         </div>
         <div ref={currentCarouselRef} className="current-grid">
@@ -163,9 +163,9 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      <section className="home-section pipeline-section" id="workshop" aria-labelledby="pipeline-title">
+      <section className="home-section pipeline-section" id="challenges" aria-labelledby="challenges-title">
         <div className="section-heading">
-          <div><span className="section-kicker">{t("homeNew.pipeline.kicker")}</span><h2 id="pipeline-title">{t("homeNew.pipeline.title")}</h2></div>
+          <div><span className="section-kicker">{t("homeNew.pipeline.kicker")}</span><h2 id="challenges-title">{t("homeNew.pipeline.title")}</h2></div>
           <p>{t("homeNew.pipeline.intro")}</p>
         </div>
         <div ref={pipelineCarouselRef} className="pipeline-list">
