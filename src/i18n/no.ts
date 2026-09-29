@@ -85,6 +85,8 @@ const no = {
       bop: "Et fargerikt sprett- og presisjonsspill med håndbygde baner, kaotiske kjedereaksjoner og en mer spiller­vennlig reklamemodell.",
       bopAlt: "Plassholder for BOP-spillet",
       mineOppdrag: "En lettvekts web- og mobilflyt for sjekklister, bilder og dokumentasjon mellom kontor og felt – laget for små og mellomstore virksomheter som trenger kontroll uten et tungt system.",
+      personalTool: "Personlig verktøy under utvikling",
+      svengali: "En lokal, personlig AI-assistent som kan bygges og tilpasses rundt brukerens egne behov og arbeidsmåter – uten å være låst til én bestemt oppgave.",
     },
     pipeline: {
       kicker: "",
@@ -100,6 +102,7 @@ const no = {
       availableBoth: "Google Play + App Store",
       inDevelopment: "Under utvikling",
       workingTitle: "Arbeidstittel",
+      concept: "Konsept",
       visualComing: "Grafikk kommer",
     },
     actions: { readMore: "Les mer", visit: "Se idébanken" },
