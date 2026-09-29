@@ -94,6 +94,7 @@ const en = {
       intro: "Problems, needs and opportunities we believe deserve a solution.",
       taptoken: "A mobile project in development. Its visual identity and product presentation will come later.",
       husket: "The next generation of husk'et, with an improved flow and more possibilities than today's app.",
+      gems: "A private place to remember places and experiences you want to return to – or avoid. Your own personal collection of what was actually worth it.",
       ideasTitle: "The idea bank",
       ideas: "New app ideas, game concepts and small experiments that might become the next MCL product.",
     },
