@@ -103,9 +103,9 @@ const Header: React.FC = () => {
             {t("header.nav.home")}
           </Link>
 
-          <a href="/#apps">{t("header.nav.apps")}</a>
-          <a href="/#lab">{t("header.nav.inLab")}</a>
-          <a href="/#workshop">{t("header.nav.workshop")}</a>
+          <a href="/#solutions">{t("header.nav.solutions")}</a>
+          <a href="/#ideas">{t("header.nav.ideas")}</a>
+          <a href="/#challenges">{t("header.nav.challenges")}</a>
 
           <Link className={isActive("/om") ? "active" : ""} to="/om">
             {t("header.nav.about")}
@@ -159,9 +159,9 @@ const Header: React.FC = () => {
           {t("header.nav.home")}
         </Link>
 
-        <a href="/#apps" onClick={closeMenu}>{t("header.nav.apps")}</a>
-        <a href="/#lab" onClick={closeMenu}>{t("header.nav.inLab")}</a>
-        <a href="/#workshop" onClick={closeMenu}>{t("header.nav.workshop")}</a>
+        <a href="/#solutions" onClick={closeMenu}>{t("header.nav.solutions")}</a>
+        <a href="/#ideas" onClick={closeMenu}>{t("header.nav.ideas")}</a>
+        <a href="/#challenges" onClick={closeMenu}>{t("header.nav.challenges")}</a>
 
         <Link to="/om" onClick={closeMenu}>
           {t("header.nav.about")}
