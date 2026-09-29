@@ -160,6 +160,10 @@ const HomePage: React.FC = () => {
             <div className="current-media mine-oppdrag-media"><img src={`${assetBase}mine_oppdrag_logo.png`} alt="Mine Oppdrag logo" /></div>
             <div className="current-copy"><span className="project-number">02</span><span className="section-kicker">{t("homeNew.now.workTool")}</span><h3>Mine Oppdrag</h3><p>{t("homeNew.now.mineOppdrag")}</p></div>
           </Link>
+          <article className="current-project current-project-svengali">
+            <div className="current-media bop-placeholder" aria-hidden="true"><strong>SG</strong><small>{t("homeNew.status.inDevelopment")}</small></div>
+            <div className="current-copy"><span className="project-number">03</span><span className="section-kicker">{t("homeNew.now.personalTool")}</span><h3>SvenGali</h3><p>{t("homeNew.now.svengali")}</p></div>
+          </article>
         </div>
       </section>
 
@@ -170,7 +174,7 @@ const HomePage: React.FC = () => {
         </div>
         <div ref={pipelineCarouselRef} className="pipeline-list">
           <article className="pipeline-item pipeline-taptoken"><span className="pipeline-index">01</span><div className="pipeline-icon" aria-hidden="true">T</div><div><h3>TapToken</h3><p>{t("homeNew.pipeline.taptoken")}</p></div><span className="pipeline-status">{t("homeNew.status.inDevelopment")}</span></article>
-          <article className="pipeline-item pipeline-husket"><span className="pipeline-index">02</span><img src={`${assetBase}husketlogo.svg`} alt="" aria-hidden="true" /><div><h3>husk'et v2</h3><p>{t("homeNew.pipeline.husket")}</p></div><span className="pipeline-status">{t("homeNew.status.workingTitle")}</span></article>
+          <article className="pipeline-item pipeline-husket"><span className="pipeline-index">02</span><div className="pipeline-icon" aria-hidden="true">G</div><div><h3>Gems I Found</h3><p>{t("homeNew.pipeline.gems")}</p></div><span className="pipeline-status">{t("homeNew.status.concept")}</span></article>
           <article className="pipeline-item pipeline-ideas"><span className="pipeline-index">03</span><div className="pipeline-icon" aria-hidden="true">+</div><div><h3>{t("homeNew.pipeline.ideasTitle")}</h3><p>{t("homeNew.pipeline.ideas")}</p></div><Link className="pipeline-status pipeline-link" to="/idebank">{t("homeNew.actions.visit")}</Link></article>
         </div>
       </section>
