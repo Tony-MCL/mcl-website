@@ -94,6 +94,7 @@ const no = {
       intro: "Problemer, behov og muligheter vi tror fortjener en løsning.",
       taptoken: "Et mobilprosjekt under utvikling. Egen visuell profil og produktpresentasjon kommer senere.",
       husket: "Neste generasjon av husk'et, med videreutviklet flyt og flere muligheter enn dagens app.",
+      gems: "Et privat sted for å huske steder og opplevelser du vil tilbake til – eller styre unna. Din egen personlige samling av hva som faktisk var verdt det.",
       ideasTitle: "Idébanken",
       ideas: "Nye appidéer, spillkonsepter og små eksperimenter som kan bli det neste MCL-produktet.",
     },
