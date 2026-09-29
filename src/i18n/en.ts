@@ -85,6 +85,8 @@ const en = {
       bop: "A colourful bounce-and-precision game with handcrafted levels, chaotic chain reactions and a more player-friendly advertising model.",
       bopAlt: "Placeholder for the BOP game",
       mineOppdrag: "A lightweight web and mobile workflow for checklists, photos and documentation between office and field – built for small and mid-sized businesses that need control without a heavy system.",
+      personalTool: "Personal tool in development",
+      svengali: "A local, personal AI assistant that can be built and adapted around each user’s own needs and ways of working – without being locked to one specific task.",
     },
     pipeline: {
       kicker: "",
@@ -100,6 +102,7 @@ const en = {
       availableBoth: "Google Play + App Store",
       inDevelopment: "In development",
       workingTitle: "Working title",
+      concept: "Concept",
       visualComing: "Artwork coming",
     },
     actions: { readMore: "Read more", visit: "See the idea bank" },
