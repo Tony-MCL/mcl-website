@@ -26,6 +26,7 @@ import R4Page from "./pages/R4Page";
 import MosaicMePage from "./pages/MosaicMePage";
 import BopGamePage from "./pages/BopGamePage";
 import MineOppdragPage from "./pages/MineOppdragPage";
+import ElKraftTorgetPage from "./pages/ElKraftTorgetPage";
 import ReceiptPage from "./pages/ReceiptPage";
 import ReceiptLandingPage from "./pages/ReceiptLandingPage";
 import HusketKjopsvilkarPage from "./pages/HusketKjopsvilkarPage";
@@ -58,6 +59,7 @@ const AppShell: React.FC = () => {
     location.pathname === "/mosaic-me" ||
     location.pathname === "/bop" ||
     location.pathname === "/mine-oppdrag" ||
+    location.pathname === "/elkrafttorget" ||
     location.pathname === "/receipts" ||
     location.pathname.startsWith("/receipts/") ||
     location.pathname === "/kvittek";
@@ -87,6 +89,7 @@ const AppShell: React.FC = () => {
           <Route path="/mosaic-me" element={<MosaicMePage />} />
           <Route path="/bop" element={<BopGamePage />} />
           <Route path="/mine-oppdrag" element={<MineOppdragPage />} />
+          <Route path="/elkrafttorget" element={<ElKraftTorgetPage />} />
           <Route path="/kvittek" element={<ReceiptPage />} />
           <Route path="/receipts" element={<ReceiptLandingPage />} />
 
