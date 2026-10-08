@@ -160,10 +160,10 @@ const HomePage: React.FC = () => {
             <div className="current-media mine-oppdrag-media"><img src={`${assetBase}mine_oppdrag_logo.png`} alt="Mine Oppdrag logo" /></div>
             <div className="current-copy"><span className="project-number">02</span><span className="section-kicker">{t("homeNew.now.workTool")}</span><h3>Mine Oppdrag</h3><p>{t("homeNew.now.mineOppdrag")}</p></div>
           </Link>
-          <article className="current-project current-project-svengali">
-            <div className="current-media bop-placeholder" aria-hidden="true"><strong>SG</strong><small>{t("homeNew.status.inDevelopment")}</small></div>
-            <div className="current-copy"><span className="project-number">03</span><span className="section-kicker">{t("homeNew.now.personalTool")}</span><h3>SvenGali</h3><p>{t("homeNew.now.svengali")}</p></div>
-          </article>
+          <Link className="current-project current-project-link current-project-elkrafttorget" to="/elkrafttorget">
+            <div className="current-media elkrafttorget-media"><img src={`${assetBase}elkrafttorget_icon_light.png`} alt="ElKraftTorget" /></div>
+            <div className="current-copy"><span className="project-number">03</span><span className="section-kicker">{t("homeNew.now.workTool")}</span><h3>ElKraftTorget</h3><p>{t("elkrafttorget.home")}</p></div>
+          </Link>
         </div>
       </section>
 

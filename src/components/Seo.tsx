@@ -47,6 +47,10 @@ const SEO_BY_PATH: Record<string, SeoConfig> = {
     description:
       "Husk'et er en personlig app for å samle, bevare og dele minner med menneskene som betyr mest.",
   },
+  "/elkrafttorget": {
+    title: "ElKraftTorget – Markedsplassen for elkraftmateriell",
+    description: "Overskudd hos én. Behov hos en annen. ElKraftTorget er en gratis B2B-markedsplass for tilgjengelig elkraftmateriell, restpartier og etterspørsler.",
+  },
   "/kvittek": {
     title: "Kvittek – Enkel orden på kvitteringene",
     description:

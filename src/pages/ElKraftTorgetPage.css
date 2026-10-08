@@ -1,0 +1,49 @@
+/* ElKraftTorget product page — scoped styles */
+.ekt-page { max-width: 1120px !important; padding-bottom: 3rem !important; }
+.ekt-page h2 { line-height: 1.2; letter-spacing: -.025em; }
+.ekt-page p { line-height: 1.75; }
+.ekt-visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+.ekt-hero { text-align: center; padding: clamp(1rem,4vw,3rem) 0 3rem; }
+.ekt-hero-brand { max-width: 920px; margin: 0 auto 1.2rem; }
+.ekt-logo { width: 100%; height: auto; display: block; object-fit: contain; }
+.ekt-eyebrow { display: inline-block; color: #007f49; font-size: .78rem; letter-spacing: .12em; font-weight: 800; }
+.ekt-intro { max-width: 780px; margin: 1.5rem auto; font-size: clamp(1.08rem,1.8vw,1.3rem); color: var(--mcl-text-dim); }
+.ekt-benefits { display: flex; justify-content: center; flex-wrap: wrap; gap: .65rem; }
+.ekt-benefits span { padding: .65rem .95rem; border-radius: 100px; background: var(--mcl-surface); border: 1px solid var(--mcl-border); font-weight: 650; font-size: .9rem; }
+.ekt-benefits span span { border: none; background: none; padding: 0; color: #009a58; }
+.ekt-section { margin: 2rem 0; }
+.ekt-statement { display: flex; gap: 1.75rem; align-items: center; border-radius: 24px; padding: clamp(1.4rem,4vw,3rem); background: linear-gradient(115deg,#09284b,#064b50); color: #fff; }
+.ekt-statement h2 { color: #fff; font-size: clamp(1.5rem,3vw,2.25rem); }
+.ekt-statement p { color: #e3f7f1; margin-bottom: 0; }
+.ekt-section-mark { color: #79d844; font-size: 4.5rem; font-weight: 700; }
+.ekt-listing-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; }
+.ekt-listing-card { background: var(--mcl-surface); border: 1px solid var(--mcl-border); border-radius: 24px; padding: clamp(1.4rem,3vw,2.5rem); box-shadow: 0 10px 30px rgba(0,0,0,.05); }
+.ekt-listing-card h2 { font-size: clamp(1.45rem,2.8vw,2rem); margin: .8rem 0; }
+.ekt-listing-card p { color: var(--mcl-text-dim); margin-bottom: 0; }
+.ekt-listing-tag { font-weight: 850; font-size: .85rem; letter-spacing: .12em; padding: .42rem .8rem; border-radius: 8px; background: #d9f7e6; color: #086339; }
+.ekt-need .ekt-listing-tag { background: #dceaff; color: #124a8b; }
+.ekt-sector { padding: 1.8rem 2rem; border-radius: 24px; background: var(--mcl-surface); border: 1px solid var(--mcl-border); }
+.ekt-sector ul { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .9rem 1.4rem; list-style: none; padding: 0; margin: 1.5rem 0 0; }
+.ekt-sector li { padding-left: 1.5rem; position: relative; color: var(--mcl-text-dim); }
+.ekt-sector li::before { content: "✓"; color: #00a15d; position: absolute; left: 0; font-weight: 800; }
+.ekt-explainer { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1.3rem; }
+.ekt-explainer article { padding: 1.5rem .7rem; }
+.ekt-explainer h2 { font-size: 1.5rem; }
+.ekt-explainer p { color: var(--mcl-text-dim); }
+.ekt-launch { display: flex; align-items: center; gap: 2rem; border: 1px solid #2e9473; border-radius: 24px; padding: clamp(1.5rem,4vw,3rem); background: color-mix(in srgb,#009d64 8%,var(--mcl-surface)); }
+.ekt-launch > img { width: 145px; max-width: 25%; object-fit: contain; flex-shrink: 0; }
+.ekt-launch h2 { margin-top: 0; }
+.ekt-launch small { display: block; margin-top: 1rem; color: var(--mcl-text-dim); }
+.ekt-contact { display: inline-flex; gap: .8rem; align-items: center; margin-top: .5rem; padding: .8rem 1.35rem; color: #fff; background: #007b53; border-radius: 100px; font-weight: 700; }
+.ekt-contact:hover { color: #fff; }
+.ekt-credit { color: var(--mcl-text-dim); text-align: center; font-size: .83rem; }
+.current-project-elkrafttorget .current-media { background: radial-gradient(circle at 50% 30%,#e2fff0,#b5e7d3); }
+.current-project-elkrafttorget .current-media img { max-width: 68%; max-height: 68%; }
+@media(max-width:680px) {
+ .ekt-hero { padding-top: 0; }
+ .ekt-statement { align-items: flex-start; gap: .8rem; }
+ .ekt-section-mark { font-size: 2.5rem; }
+ .ekt-listing-grid,.ekt-explainer,.ekt-sector ul { grid-template-columns: 1fr; }
+ .ekt-launch { flex-direction: column; text-align: center; }
+ .ekt-launch > img { max-width: 115px; }
+}

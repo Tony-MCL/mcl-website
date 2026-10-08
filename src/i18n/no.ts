@@ -1,4 +1,5 @@
 const no = {
+  elkrafttorget: { home: "ElKraftTorget – en gratis møteplass for overskuddsmateriell, restpartier og etterspørsler i elkraftbransjen." },
   header: {
     nav: {
       home: "Hjem",
