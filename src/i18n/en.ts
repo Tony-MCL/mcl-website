@@ -1,4 +1,5 @@
 const en = {
+  elkrafttorget: { home: "ElKraftTorget – a free marketplace for surplus electrical-power equipment, leftover stock and business requests." },
   header: {
     nav: {
       home: "Home",
