@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
@@ -251,6 +252,12 @@ const AdminPage: React.FC = () => {
             Logg ut
           </button>
         </div>
+      </section>
+
+      <section style={{ ...cardStyle, marginBottom: "1rem" }}>
+        <h2 style={{ marginTop: 0 }}>ElKraftTorget</h2>
+        <p>Kontoverifisering og administrasjon av firmatilknytning.</p>
+        <Link to="/admin/elkrafttorget">Åpne ElKraftTorget-administrasjon →</Link>
       </section>
 
       <AnalyticsSection
