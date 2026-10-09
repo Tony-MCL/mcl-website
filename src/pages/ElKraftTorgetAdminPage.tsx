@@ -88,7 +88,13 @@ export default function ElKraftTorgetAdminPage(){
    </section>)}
    {!loading&&!error&&rows.filter(r=>r.status==="pending").length===0&&<section style={panel}>Ingen forespørsler til kontroll.</section>}
    <section style={panel}><h2>Behandlede forespørsler</h2>
-    {rows.filter(r=>r.status!=="pending").map(r=><p key={r.id}>{r.companyName} ({r.orgNumber}) – {r.status==="approved"?"Godkjent":"Avvist"}</p>)}
+    {rows.filter(r=>r.status!=="pending").map(r=><div key={r.id} style={{padding:".85rem 0",borderBottom:"1px solid var(--line, rgba(255,255,255,.12))"}}>
+     <strong>{r.companyName}</strong>
+     <p style={{margin:".35rem 0"}}>Org.nr.: {r.orgNumber}</p>
+     <p style={{margin:".35rem 0"}}>E-post: {r.email}</p>
+     <p style={{margin:".35rem 0"}}>Status: {r.status==="approved"?"Godkjent":"Avvist"}</p>
+     <p style={{margin:".35rem 0",opacity:.75}}>Forespørsel sendt: {r.createdAt?new Date(r.createdAt).toLocaleString("nb-NO"):"Ukjent"}</p>
+    </div>)}
    </section>
   </>}
  </main>;
