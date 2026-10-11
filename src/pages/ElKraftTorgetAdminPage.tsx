@@ -138,6 +138,7 @@ export default function ElKraftTorgetAdminPage(){
     </div>
    </section>)}
    {section==="verification"&&subview==="new"&&!loading&&!error&&rows.filter(r=>r.status==="pending").length===0&&<section style={panel}>Ingen forespørsler til kontroll.</section>}
+   {section==="verification"&&subview==="processing"&&<section style={panel}><p>Ingen verifiseringsforespørsler under behandling. Verifiseringer behandles foreløpig direkte fra «Nye».</p></section>}
    {section==="reports"&&<><section style={{...panel,display:"none"}}><h2>Rapportering</h2><p>Rapporter er konfidensielle. Ingen tiltak eller varsler utføres automatisk.</p>
     <p>Nye: {reports.filter(r=>r.status==="pending").length} · Under vurdering: {reports.filter(r=>r.status==="in_review").length} · Ferdig vurdert: {reports.filter(r=>["completed","dismissed","reviewed"].includes(r.status)).length}</p>
    </section>
