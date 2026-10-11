@@ -24,7 +24,8 @@ export default function ElKraftTorgetAdminPage(){
  const [rows,setRows]=useState<RequestRow[]>([]);
  const [reports,setReports]=useState<ReportRow[]>([]);
  const [reportNote,setReportNote]=useState<Record<string,string>>({});
- const [section,setSection]=useState<"verification"|"reports">("reports");
+ const [section,setSection]=useState<"home"|"verification"|"reports">("home");
+ const [subview,setSubview]=useState<"new"|"processing"|"archive">("new");
  const [reportOutcome,setReportOutcome]=useState<Record<string,string>>({});
  const [loading,setLoading]=useState(false);
  const [busy,setBusy]=useState<string|null>(null);
@@ -95,19 +96,39 @@ export default function ElKraftTorgetAdminPage(){
     <input aria-label="Passord" type="password" value={password} onChange={e=>setPassword(e.target.value)} required/>
     <button style={button}>Logg inn</button></form></section>
    :user.email!==ADMIN_EMAIL?<section style={panel}><p>Ingen tilgang.</p><button style={button} onClick={()=>signOut(auth)}>Logg ut</button></section>
-   :<><section style={panel}>
-    <div style={{display:"flex",gap:12,flexWrap:"wrap",marginBottom:14}}>
-     <button style={{...button,fontWeight:section==="verification"?"bold":"normal"}} onClick={()=>setSection("verification")}>Kontoverifisering ({rows.filter(r=>r.status==="pending").length})</button>
-     <button style={{...button,fontWeight:section==="reports"?"bold":"normal"}} onClick={()=>setSection("reports")}>Rapportering ({reports.filter(r=>r.status==="pending"||r.status==="in_review").length})</button>
+   :<>
+   {section==="home"?<section style={panel}>
+    <h2>Administrasjonsforside</h2>
+    <p>Velg arbeidsområde.</p>
+    <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(240px,1fr))",gap:18}}>
+     <button style={{...panel,textAlign:"left",cursor:"pointer",color:"inherit",minHeight:155}} onClick={()=>{setSection("verification");setSubview("new");}}>
+      <strong style={{fontSize:24}}>Kontoverifisering</strong>
+      <p>Kontroll av brukernes firmatilknytning</p>
+      <strong>{rows.filter(r=>r.status==="pending").length} nye</strong>
+     </button>
+     <button style={{...panel,textAlign:"left",cursor:"pointer",color:"inherit",minHeight:155}} onClick={()=>{setSection("reports");setSubview("new");}}>
+      <strong style={{fontSize:24}}>Rapporteringer</strong>
+      <p>Vurder og arkiver rapporterte annonser</p>
+      <strong>{reports.filter(r=>r.status==="pending").length} nye · {reports.filter(r=>r.status==="in_review").length} under behandling</strong>
+     </button>
     </div>
-    <div style={{display:"flex",gap:12,alignItems:"center",flexWrap:"wrap"}}>
-     <button style={button} onClick={()=>void load()} disabled={loading}>{loading?"Laster...":"Oppdater liste"}</button>
-
-    </div>
-    {error&&<p role="alert" style={{color:"#d43f3f"}}>{error}</p>}
-    {message&&<p role="status">{message}</p>}
-   </section>
-   {section==="verification"&&rows.filter(r=>r.status==="pending").map(row=><section key={row.id} style={panel}>
+   </section>:<>
+   <div style={{display:"flex",gap:18,alignItems:"flex-start",flexWrap:"wrap"}}>
+    <nav aria-label="Administrasjonsmeny" style={{...panel,flex:"0 0 205px",display:"grid",gap:9}}>
+     <button style={button} onClick={()=>setSection("home")}>← Oversikt</button>
+     <strong>{section==="reports"?"Rapporteringer":"Kontoverifisering"}</strong>
+     {(["new","processing","archive"] as const).map(view=><button key={view} style={{...button,textAlign:"left",fontWeight:subview===view?"bold":"normal",background:subview===view?"rgba(96,165,250,.16)":undefined,color:"inherit"}} onClick={()=>setSubview(view)}>
+      {view==="new"?"Nye":view==="processing"?"Under behandling":"Arkiv"}
+     </button>)}
+     <button style={button} onClick={()=>{setSection(section==="reports"?"verification":"reports");setSubview("new");}}>Bytt til {section==="reports"?"kontoverifisering":"rapportering"}</button>
+    </nav>
+    <div style={{flex:"1 1 440px",minWidth:0}}>
+     <section style={panel}><h2 style={{marginTop:0}}>{section==="reports"?"Rapporteringer":"Kontoverifisering"} – {subview==="new"?"Nye":subview==="processing"?"Under behandling":"Arkiv"}</h2>
+      <button style={button} onClick={()=>void load()} disabled={loading}>{loading?"Laster...":"Oppdater"}</button>
+      {error&&<p role="alert" style={{color:"#d43f3f"}}>{error}</p>}
+      {message&&<p role="status">{message}</p>}
+     </section>
+   {section==="verification"&&subview==="new"&&rows.filter(r=>r.status==="pending").map(row=><section key={row.id} style={panel}>
     <h2 style={{marginTop:0}}>{row.companyName}</h2>
     <p>Org.nr.: {row.orgNumber}</p><p>Bruker: {row.email}</p>
     <p>Sendt: {row.createdAt?new Date(row.createdAt).toLocaleString("nb-NO"):"Ukjent"}</p>
@@ -116,11 +137,11 @@ export default function ElKraftTorgetAdminPage(){
      <button style={button} disabled={busy!==null} onClick={()=>void decide(row,"reject")}>Avvis</button>
     </div>
    </section>)}
-   {section==="verification"&&!loading&&!error&&rows.filter(r=>r.status==="pending").length===0&&<section style={panel}>Ingen forespørsler til kontroll.</section>}
-   {section==="reports"&&<><section style={panel}><h2>Rapportering</h2><p>Rapporter er konfidensielle. Ingen tiltak eller varsler utføres automatisk.</p>
+   {section==="verification"&&subview==="new"&&!loading&&!error&&rows.filter(r=>r.status==="pending").length===0&&<section style={panel}>Ingen forespørsler til kontroll.</section>}
+   {section==="reports"&&<><section style={{...panel,display:"none"}}><h2>Rapportering</h2><p>Rapporter er konfidensielle. Ingen tiltak eller varsler utføres automatisk.</p>
     <p>Nye: {reports.filter(r=>r.status==="pending").length} · Under vurdering: {reports.filter(r=>r.status==="in_review").length} · Ferdig vurdert: {reports.filter(r=>["completed","dismissed","reviewed"].includes(r.status)).length}</p>
    </section>
-   {(["pending","in_review","completed"] as const).map(stage=><section key={stage} style={panel}>
+   {(["pending","in_review","completed"] as const).filter(stage=>(subview==="new"&&stage==="pending")||(subview==="processing"&&stage==="in_review")||(subview==="archive"&&stage==="completed")).map(stage=><section key={stage} style={panel}>
     <h2>{stage==="pending"?"Nye rapporteringer":stage==="in_review"?"Under vurdering":"Ferdig vurdert – arkiv"}</h2>
     {reports.filter(r=>stage==="completed"?["completed","dismissed","reviewed"].includes(r.status):r.status===stage).map(row=><article key={row.id} style={{borderTop:"1px solid var(--line,rgba(255,255,255,.12))",padding:"1rem 0"}}>
      <h3>{row.listing?.title||"Annonse ikke funnet"}</h3>
@@ -150,7 +171,7 @@ export default function ElKraftTorgetAdminPage(){
     </article>)}
     {!reports.some(r=>stage==="completed"?["completed","dismissed","reviewed"].includes(r.status):r.status===stage)&&<p>Ingen rapporter.</p>}
    </section>)}</>}
-   {section==="verification"&&<section style={panel}><h2>Behandlede forespørsler</h2>
+   {section==="verification"&&subview==="archive"&&<section style={panel}><h2>Behandlede forespørsler</h2>
     {rows.filter(r=>r.status!=="pending").map(r=><div key={r.id} style={{padding:".85rem 0",borderBottom:"1px solid var(--line, rgba(255,255,255,.12))"}}>
      <strong>{r.companyName}</strong>
      <p style={{margin:".35rem 0"}}>Org.nr.: {r.orgNumber}</p>
@@ -159,6 +180,8 @@ export default function ElKraftTorgetAdminPage(){
      <p style={{margin:".35rem 0",opacity:.75}}>Forespørsel sendt: {r.createdAt?new Date(r.createdAt).toLocaleString("nb-NO"):"Ukjent"}</p>
     </div>)}
    </section>}
+    </div>
+   </div></>}
   </>}
  </main>;
 }
