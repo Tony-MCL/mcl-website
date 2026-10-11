@@ -96,6 +96,10 @@ export default function ElKraftTorgetAdminPage(){
     <button style={button}>Logg inn</button></form></section>
    :user.email!==ADMIN_EMAIL?<section style={panel}><p>Ingen tilgang.</p><button style={button} onClick={()=>signOut(auth)}>Logg ut</button></section>
    :<><section style={panel}>
+    <div style={{display:"flex",gap:12,flexWrap:"wrap",marginBottom:14}}>
+     <button style={{...button,fontWeight:section==="verification"?"bold":"normal"}} onClick={()=>setSection("verification")}>Kontoverifisering ({rows.filter(r=>r.status==="pending").length})</button>
+     <button style={{...button,fontWeight:section==="reports"?"bold":"normal"}} onClick={()=>setSection("reports")}>Rapportering ({reports.filter(r=>r.status==="pending"||r.status==="in_review").length})</button>
+    </div>
     <div style={{display:"flex",gap:12,alignItems:"center",flexWrap:"wrap"}}>
      <button style={button} onClick={()=>void load()} disabled={loading}>{loading?"Laster...":"Oppdater liste"}</button>
 
