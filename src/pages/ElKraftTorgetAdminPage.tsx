@@ -5,6 +5,7 @@ import {auth} from "../firebase";
 
 const ADMIN_EMAIL="morningcoffeelabs@gmail.com";
 const ENDPOINT="https://europe-west1-elkrafttorget-no.cloudfunctions.net/verificationAdmin";
+const ACCOUNTS_ENDPOINT="https://europe-west1-elkrafttorget-no.cloudfunctions.net/accountModerationAdmin";
 const MODERATION_ENDPOINT="https://europe-west1-elkrafttorget-no.cloudfunctions.net/listingModerationAdmin";
 const REPORTS_ENDPOINT="https://europe-west1-elkrafttorget-no.cloudfunctions.net/reportsAdmin";
 const reasons:Record<string,string>={misleading:"Feil eller villedende informasjon",fraud:"Mistanke om svindel",prohibited:"Uegnet eller ulovlig innhold",spam:"Spam eller gjentatt annonsering",other:"Annet"};
@@ -14,6 +15,7 @@ type RequestRow={
  status:"pending"|"approved"|"rejected";createdAt:string|null;
 };
 type ReportRow={id:string;listingId:string;reporterUid:string;listingOwnerUid:string;reason:string;comment:string;status:"pending"|"in_review"|"completed"|"dismissed"|"reviewed";createdAt:string|null;reviewedAt?:string|null;adminNote?:string;outcome?:string;listing?:{title:string;category:string;status:string;company:string}|null;reporter?:{name:string;email:string;companyName:string}|null;owner?:{name:string;email:string;companyName:string}|null};
+type AccountRow={uid:string;name:string;email:string;companyName:string;accountStatus:"active"|"suspended";suspensionReason:string};
 type ModerationRow={id:string;title:string;company:string;ownerUid:string;status:string;moderationStatus:"visible"|"hidden";moderationReason:string;moderatedAt:string|null};
 const panel:React.CSSProperties={border:"1px solid var(--line, rgba(255,255,255,.15))",borderRadius:16,padding:"1.2rem",marginBottom:"1rem",background:"var(--panel,rgba(255,255,255,.04))"};
 const button:React.CSSProperties={padding:".65rem 1rem",borderRadius:8,cursor:"pointer"};
@@ -27,7 +29,8 @@ export default function ElKraftTorgetAdminPage(){
  const [reports,setReports]=useState<ReportRow[]>([]);
  const [reportNote,setReportNote]=useState<Record<string,string>>({});
  const [listings,setListings]=useState<ModerationRow[]>([]);
- const [section,setSection]=useState<"home"|"verification"|"reports"|"moderation">("home");
+ const [accounts,setAccounts]=useState<AccountRow[]>([]);
+ const [section,setSection]=useState<"home"|"verification"|"reports"|"moderation"|"accounts">("home");
  const [subview,setSubview]=useState<"new"|"processing"|"archive">("new");
  const [reportOutcome,setReportOutcome]=useState<Record<string,string>>({});
  const [loading,setLoading]=useState(false);
@@ -52,6 +55,10 @@ export default function ElKraftTorgetAdminPage(){
    const moderationBody=await moderationResponse.json();
    if(!moderationResponse.ok)throw new Error(moderationBody.error||"Kunne ikke hente annonser");
    setListings(moderationBody.listings||[]);
+   const accountResponse=await fetch(ACCOUNTS_ENDPOINT,{headers:{Authorization:`Bearer ${token}`}});
+   const accountBody=await accountResponse.json();
+   if(!accountResponse.ok)throw new Error(accountBody.error||"Kunne ikke hente brukere");
+   setAccounts(accountBody.users||[]);
   }catch(e){setError(e instanceof Error?e.message:"Kunne ikke hente forespørsler");}
   finally{setLoading(false);}
  },[user]);
@@ -103,6 +110,23 @@ export default function ElKraftTorgetAdminPage(){
   }catch(e){setError(e instanceof Error?e.message:"Kunne ikke moderere annonsen");}
   finally{setBusy(null);}
  };
+ const moderateAccount=async(row:AccountRow,action:"suspend"|"restore")=>{
+  if(!user)return;
+  const reason=window.prompt(action==="suspend"?"Begrunn sperring av kontoen:":"Begrunn gjenåpning av kontoen:");
+  if(reason===null)return;
+  if(reason.trim().length<3){setError("Begrunnelsen må være minst tre tegn.");return;}
+  if(!window.confirm(action==="suspend"?"Sperre kontoen og skjule alle brukerens annonser?":"Gjenåpne kontoen og gjenopprette annonsene som ikke er moderert separat?"))return;
+  setBusy(row.uid);setError("");setMessage("");
+  try{
+   const token=await user.getIdToken();
+   const response=await fetch(ACCOUNTS_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json",Authorization:`Bearer ${token}`},body:JSON.stringify({uid:row.uid,action,reason:reason.trim()})});
+   const body=await response.json();
+   if(!response.ok)throw new Error(body.error||"Kunne ikke behandle kontoen");
+   setMessage("Kontostatus oppdatert. Berørte annonser: "+body.affectedListings);
+   await load();
+  }catch(e){setError(e instanceof Error?e.message:"Kunne ikke behandle kontoen");}
+  finally{setBusy(null);}
+ };
  const login=async(e:React.FormEvent)=>{
   e.preventDefault();setError("");
   try{await signInWithEmailAndPassword(auth,email.trim(),password);setPassword("");}
@@ -140,13 +164,18 @@ export default function ElKraftTorgetAdminPage(){
       <p>Skjul og gjenopprett annonser</p>
       <strong>{listings.filter(l=>l.moderationStatus==="hidden").length} skjulte</strong>
      </button>
+     <button style={{...panel,textAlign:"left",cursor:"pointer",color:"inherit",minHeight:155}} onClick={()=>setSection("accounts")}>
+      <strong style={{fontSize:24}}>Brukerkontroll</strong>
+      <p>Sperr og gjenåpne brukerkontoer</p>
+      <strong>{accounts.filter(a=>a.accountStatus==="suspended").length} sperrede</strong>
+     </button>
     </div>
    </section>:<>
    <div style={{display:"flex",gap:18,alignItems:"flex-start",flexWrap:"wrap"}}>
     <nav aria-label="Administrasjonsmeny" style={{...panel,flex:"0 0 205px",display:"grid",gap:9}}>
      <button style={button} onClick={()=>setSection("home")}>← Oversikt</button>
-     <strong>{section==="reports"?"Rapporteringer":section==="moderation"?"Annonsemoderering":"Kontoverifisering"}</strong>
-     {section!=="moderation"&&(["new","processing","archive"] as const).map(view=><button key={view} style={{...button,textAlign:"left",fontWeight:subview===view?"bold":"normal",background:subview===view?"rgba(96,165,250,.16)":undefined,color:"inherit"}} onClick={()=>setSubview(view)}>
+     <strong>{section==="reports"?"Rapporteringer":section==="moderation"?"Annonsemoderering":section==="accounts"?"Brukerkontroll":"Kontoverifisering"}</strong>
+     {section!=="moderation"&&section!=="accounts"&&(["new","processing","archive"] as const).map(view=><button key={view} style={{...button,textAlign:"left",fontWeight:subview===view?"bold":"normal",background:subview===view?"rgba(96,165,250,.16)":undefined,color:"inherit"}} onClick={()=>setSubview(view)}>
       {view==="new"?"Nye":view==="processing"?"Under behandling":"Arkiv"}
      </button>)}
 
@@ -157,6 +186,17 @@ export default function ElKraftTorgetAdminPage(){
       {error&&<p role="alert" style={{color:"#d43f3f"}}>{error}</p>}
       {message&&<p role="status">{message}</p>}
      </section>
+   {section==="accounts"&&<section style={panel}>
+    <h2>Brukerkontoer</h2>
+    <p>En sperret konto kan ikke bruke annonsefunksjonene. Annonsene skjules automatisk, men slettes ikke.</p>
+    {accounts.map(row=><article key={row.uid} style={{borderTop:"1px solid var(--line,rgba(255,255,255,.12))",padding:"1rem 0"}}>
+     <h3>{row.name||row.email}</h3>
+     <p>{row.email} · {row.companyName} · {row.accountStatus==="suspended"?"Sperret":"Aktiv"}</p>
+     {row.suspensionReason&&<p>Siste begrunnelse: {row.suspensionReason}</p>}
+     <button style={button} disabled={busy!==null} onClick={()=>void moderateAccount(row,row.accountStatus==="suspended"?"restore":"suspend")}>{row.accountStatus==="suspended"?"Gjenåpne konto":"Sperr konto"}</button>
+    </article>)}
+    {!accounts.length&&<p>Ingen brukere funnet.</p>}
+   </section>}
    {section==="moderation"&&<section style={panel}>
     <h2>Annonsene</h2>
     <p>Skjuling fjerner annonsen fra appens offentlige visninger. Annonsen og historikken beholdes.</p>
