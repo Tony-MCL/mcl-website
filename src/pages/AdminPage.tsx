@@ -97,6 +97,8 @@ const AdminPage: React.FC = () => {
   const [email, setEmail] = useState(ADMIN_EMAIL);
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState("");
+  const [adminView,setAdminView]=useState<"home"|"analytics">("home");
+  const [analyticsView,setAnalyticsView]=useState<"kvittek"|"qr"|"husket">("kvittek");
 
   const [kvittek, setKvittek] = useState<AnalyticsData>(emptyAnalytics);
   const [qr, setQr] = useState<AnalyticsData>(emptyAnalytics);
@@ -242,9 +244,9 @@ const AdminPage: React.FC = () => {
           }}
         >
           <div>
-            <h1 style={{ margin: 0 }}>MCL Analytics</h1>
+            <h1 style={{ margin: 0 }}>Morning Coffee Labs – Admin</h1>
             <p style={{ margin: "0.4rem 0 0", opacity: 0.72 }}>
-              Enkel telling av sidebesøk, nedlastinger og butikk-klikk.
+              Administrasjon og statistikk for MCL-produktene.
             </p>
           </div>
 
@@ -254,13 +256,31 @@ const AdminPage: React.FC = () => {
         </div>
       </section>
 
-      <section style={{ ...cardStyle, marginBottom: "1rem" }}>
-        <h2 style={{ marginTop: 0 }}>ElKraftTorget</h2>
-        <p>Kontoverifisering og administrasjon av firmatilknytning.</p>
-        <Link to="/admin/elkrafttorget">Åpne ElKraftTorget-administrasjon →</Link>
-      </section>
-
-      <AnalyticsSection
+      {adminView==="home"?<section style={{...cardStyle,marginBottom:"1rem"}}>
+       <h2 style={{marginTop:0}}>Administrasjonsforside</h2>
+       <p>Velg området du vil administrere.</p>
+       <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(240px,1fr))",gap:18}}>
+        <Link to="/admin/elkrafttorget" style={{...cardStyle,display:"block",minHeight:155,color:"inherit",textDecoration:"none"}}>
+         <h2>ElKraftTorget</h2>
+         <p>Kontoverifisering, rapportering og moderering</p>
+         <strong>Åpne administrasjon →</strong>
+        </Link>
+        <button type="button" onClick={()=>setAdminView("analytics")} style={{...cardStyle,textAlign:"left",cursor:"pointer",minHeight:155,color:"inherit"}}>
+         <h2>MCL Analytics</h2>
+         <p>Statistikk for Kvittek, QR-generator og Husk’et</p>
+         <strong>Åpne statistikk →</strong>
+        </button>
+       </div>
+      </section>:<div style={{display:"flex",gap:18,alignItems:"flex-start",flexWrap:"wrap"}}>
+       <nav aria-label="Statistikkmeny" style={{...cardStyle,flex:"0 0 205px",display:"grid",gap:9,marginBottom:"1rem"}}>
+        <button type="button" className="status-button" onClick={()=>setAdminView("home")}>← Oversikt</button>
+        <strong>Statistikk</strong>
+        {(["kvittek","qr","husket"] as const).map(view=><button type="button" key={view} className="status-button" style={{textAlign:"left",fontWeight:analyticsView===view?"bold":"normal",opacity:analyticsView===view?1:.7}} onClick={()=>setAnalyticsView(view)}>
+         {view==="kvittek"?"Kvittek":view==="qr"?"QR-generator":"Husk’et"}
+        </button>)}
+       </nav>
+       <div style={{flex:"1 1 440px",minWidth:0}}>
+      {analyticsView==="kvittek"&&<AnalyticsSection
         title="Kvittek"
         description="Landingssiden /receipts og klikk videre til appbutikkene."
       >
@@ -296,9 +316,9 @@ const AdminPage: React.FC = () => {
             {formatTimestamp(kvittek.lastAppStoreClickAt)}
           </p>
         </div>
-      </AnalyticsSection>
+      </AnalyticsSection>}
 
-      <AnalyticsSection
+      {analyticsView==="qr"&&<AnalyticsSection
         title="QR-generator"
         description="Besøk på QR-generatoren og klikk på Last ned-knappen."
       >
@@ -323,9 +343,9 @@ const AdminPage: React.FC = () => {
             <strong>Siste nedlasting:</strong> {formatTimestamp(qr.lastDownloadClickAt)}
           </p>
         </div>
-      </AnalyticsSection>
+      </AnalyticsSection>}
 
-      <AnalyticsSection
+      {analyticsView==="husket"&&<AnalyticsSection
         title="Husk’et"
         description="Besøk på Husk’et-siden og klikk videre til Google Play."
       >
@@ -351,7 +371,9 @@ const AdminPage: React.FC = () => {
             {formatTimestamp(husket.lastGooglePlayClickAt)}
           </p>
         </div>
-      </AnalyticsSection>
+      </AnalyticsSection>}
+       </div>
+      </div>}
     </main>
   );
 };
