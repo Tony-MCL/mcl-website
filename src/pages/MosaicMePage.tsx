@@ -82,6 +82,12 @@ const MosaicMePage: React.FC = () => {
         <p>{t("mosaicPage.status.body")}</p>
       </section>
 
+      <p className="product-peerpush-link">
+        <a href={LINKS.mosaicPeerPush} target="_blank" rel="noopener noreferrer">
+          {lang === "en" ? "Mosaic ME on PeerPush" : "Mosaic ME på PeerPush"}
+        </a>
+      </p>
+
       <p className="receipt-landing-support project-preview-support">
         <span>{t("mosaicPage.support")}</span>
         <a href="mailto:post@morningcoffeelabs.no">
