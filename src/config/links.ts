@@ -1,5 +1,6 @@
 export const LINKS = {
   mosaicAppStore: "https://apps.apple.com/us/app/mosaic-me-many-parts-one-me/id6811087999",
+  mosaicPeerPush: "https://peerpush.com/p/mosaic-me",
   mosaicGooglePlay: "https://play.google.com/store/apps/details?id=com.morningcoffeelabs.mosaicme",
   mcl: "https://morningcoffeelabs.no",
   ms: "https://managesystem.no",
