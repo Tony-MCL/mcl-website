@@ -1790,3 +1790,23 @@ html[data-theme="dark"] .receipt-landing-list-icon-good {
 @media (max-width: 700px) {
   .mosaic-screenshot-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.65rem; }
 }
+
+/* Admin analytics: native select popup must follow the active theme. */
+.admin-analytics-select {
+  color-scheme: light;
+  background-color: #fff !important;
+  color: #1b2030 !important;
+}
+.admin-analytics-select option {
+  background-color: #fff;
+  color: #1b2030;
+}
+html[data-theme="dark"] .admin-analytics-select {
+  color-scheme: dark;
+  background-color: #202331 !important;
+  color: #f5f6fa !important;
+}
+html[data-theme="dark"] .admin-analytics-select option {
+  background-color: #202331;
+  color: #f5f6fa;
+}
