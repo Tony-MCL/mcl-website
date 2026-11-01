@@ -1771,3 +1771,22 @@ html[data-theme="dark"] .receipt-landing-list-icon-good {
   }
 
 }
+
+/* Mosaic ME product screenshots */
+.mosaic-screenshot-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+.mosaic-screenshot-gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  border: 1px solid var(--mcl-border);
+  box-shadow: var(--mcl-shadow);
+}
+@media (max-width: 700px) {
+  .mosaic-screenshot-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.65rem; }
+}
