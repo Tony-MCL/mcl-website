@@ -43,6 +43,17 @@ const R4Page: React.FC = () => {
         <p className="r4-landing-promise">{t("r4.promise")}</p>
         <p className="r4-landing-privacy">{t("r4.privacy")}</p>
 
+
+        <section className="mosaic-story" aria-labelledby="r4-how-title">
+          <h2 id="r4-how-title">{lang === "en" ? "How R4 works" : "Slik fungerer R4"}</h2>
+          <p>{lang === "en"
+            ? "Write and save messages you use often. When you need one again, select it instead of typing it from scratch."
+            : "Skriv og lagre meldinger du bruker ofte. Neste gang du trenger en melding, velger du den i stedet for å skrive alt på nytt."}</p>
+          <p>{lang === "en"
+            ? "On Android, R4 offers a floating overlay for quick access. On iPhone, saved messages are available through a custom keyboard."
+            : "På Android gir R4 rask tilgang via en flytende boble. På iPhone finner du de lagrede meldingene via et eget tastatur."}</p>
+        </section>
+
         <section
           className="receipt-landing-download"
           aria-labelledby="r4-download-title"
