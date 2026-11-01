@@ -23,6 +23,21 @@ const MosaicMePage: React.FC = () => {
         <p><strong>{t("mosaicPage.freeIntro")}</strong></p>
       </section>
 
+      <section className="mosaic-story" aria-labelledby="mosaic-screenshots-title">
+        <h2 id="mosaic-screenshots-title">{lang === "en" ? "Explore Mosaic ME" : "Se Mosaic ME i bruk"}</h2>
+        <div className="mosaic-screenshot-gallery">
+          {Array.from({ length: 6 }, (_, index) => (
+            <img
+              key={index}
+              src={`${assetBase}mosaic_me_screen_${index + 1}.jpg`}
+              alt={`Mosaic ME – ${lang === "en" ? "app screenshot" : "skjermbilde fra appen"} ${index + 1}`}
+              loading="lazy"
+              decoding="async"
+            />
+          ))}
+        </div>
+      </section>
+
       <section className="mosaic-story" aria-labelledby="mosaic-alternative-title">
         <h2 id="mosaic-alternative-title">{t("mosaicPage.alternative.title")}</h2>
         <p>{t("mosaicPage.alternative.body")}</p>
