@@ -48,7 +48,9 @@ match /siteAnalytics/{pageId} {
       (c.views == 0 && c.googlePlay == 0 && c.appStore == 1);
   }
 
-  allow read: if isAdmin();
+  // Public get is needed for client-side Firestore transactions. Only aggregate counts are stored.
+  allow get: if allowedPage();
+  allow list: if isAdmin();
 
   allow create: if allowedPage() && (
     isAdmin() ||
