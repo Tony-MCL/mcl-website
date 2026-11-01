@@ -33,8 +33,8 @@ const R4Page: React.FC = () => {
           />
         </div>
 
-        <h1 id="r4-title" className="receipt-landing-visually-hidden">
-          R4
+        <h1 id="r4-title" >
+          R4 – {lang === "en" ? "Save and reuse messages" : "Lagre og gjenbruk meldinger"}
         </h1>
         <p className="r4-landing-tagline">{t("r4.tagline")}</p>
         <p className="receipt-landing-intro">{t("r4.intro")}</p>
