@@ -51,6 +51,36 @@ const FindBackPage: React.FC = () => {
             : "Nyttig når du utforsker en ny by, skal tilbake til hotellet eller vil finne igjen bilen."}</p>
         </section>
 
+        <section className="mosaic-story" aria-labelledby="findback-screenshots-title">
+          <h2 id="findback-screenshots-title">{lang === "en" ? "See how FindBack works" : "Se hvor enkelt FindBack fungerer"}</h2>
+          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "flex-start", gap: 24 }}>
+            <figure style={{ flex: "1 1 230px", maxWidth: 320, margin: 0 }}>
+              <img
+                src={`${assetBase}findback_1.png`}
+                alt={lang === "en" ? "FindBack app showing the Save Location and Find Back buttons" : "FindBack-appen med knappene for å lagre posisjonen og finne tilbake"}
+                loading="lazy"
+                decoding="async"
+                style={{ display: "block", width: "100%", height: "auto", borderRadius: 14 }}
+              />
+              <figcaption style={{ marginTop: 10, textAlign: "center" }}>
+                {lang === "en" ? "1. Save your location with one tap." : "1. Lagre posisjonen med ett trykk."}
+              </figcaption>
+            </figure>
+            <figure style={{ flex: "1 1 230px", maxWidth: 320, margin: 0 }}>
+              <img
+                src={`${assetBase}findback_2.png`}
+                alt={lang === "en" ? "Map app showing a pin at the location saved with FindBack" : "Kartapp med en markør på posisjonen som ble lagret i FindBack"}
+                loading="lazy"
+                decoding="async"
+                style={{ display: "block", width: "100%", height: "auto", borderRadius: 14 }}
+              />
+              <figcaption style={{ marginTop: 10, textAlign: "center" }}>
+                {lang === "en" ? "2. Open the saved location in your map app." : "2. Åpne den lagrede posisjonen i kartappen."}
+              </figcaption>
+            </figure>
+          </div>
+        </section>
+
         <section
           className="receipt-landing-download"
           aria-labelledby="findback-download-title"
