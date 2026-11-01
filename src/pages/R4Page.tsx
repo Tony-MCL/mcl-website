@@ -54,6 +54,20 @@ const R4Page: React.FC = () => {
             : "På Android gir R4 rask tilgang via en flytende boble. På iPhone finner du de lagrede meldingene via et eget tastatur."}</p>
         </section>
 
+        <section className="mosaic-story" aria-labelledby="r4-demo-title">
+          <h2 id="r4-demo-title">{lang === "en" ? "See R4 in action" : "Se R4 i bruk"}</h2>
+          <video
+            controls
+            playsInline
+            preload="metadata"
+            aria-label={lang === "en" ? "R4 app demonstration" : "Demonstrasjon av R4-appen"}
+            style={{ display: "block", width: "100%", maxWidth: 420, height: "auto", margin: "0 auto", borderRadius: 14 }}
+          >
+            <source src={`${assetBase}R4-second.mp4`} type="video/mp4" />
+            {lang === "en" ? "Your browser does not support video playback." : "Nettleseren din støtter ikke videoavspilling."}
+          </video>
+        </section>
+
         <section
           className="receipt-landing-download"
           aria-labelledby="r4-download-title"
