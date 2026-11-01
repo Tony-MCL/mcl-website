@@ -41,6 +41,14 @@ const SEO_BY_PATH: Record<string, SeoConfig> = {
     title: "Mosaic ME – Free Plural System Tracker for iOS & Android",
     description: "Private plural system tracker for alters, fronting, co-fronting and journals. Free core features, no account required. iOS and Android.",
   },
+  "/r4": {
+    title: "R4 – Save and Reuse Messages on Android & iPhone",
+    description: "Save frequently used messages and reuse them quickly with R4. Android floating overlay and iPhone custom keyboard. Available on Google Play and the App Store.",
+  },
+  "/findback": {
+    title: "FindBack – Save Your Location and Find Your Way Back",
+    description: "Save your location with one tap and find your way back later. A simple location-saving app for travel, parking and exploring. Android and iPhone.",
+  },
   "/progress": {
     title: "Manage Progress – Enkel fremdriftsplanlegging",
     description:
