@@ -40,6 +40,17 @@ const FindBackPage: React.FC = () => {
         <p className="findback-landing-promise">{t("findback.promise")}</p>
         <p className="findback-landing-privacy">{t("findback.privacy")}</p>
 
+
+        <section className="mosaic-story" aria-labelledby="findback-how-title">
+          <h2 id="findback-how-title">{lang === "en" ? "Two buttons. One simple idea." : "To knapper. Én enkel idé."}</h2>
+          <p>{lang === "en"
+            ? "Tap Save Location when you want to remember a place. Later, tap Find Back to open directions to the saved location."
+            : "Trykk Save Location når du vil huske et sted. Senere trykker du Find Back for å åpne veibeskrivelse tilbake til den lagrede posisjonen."}</p>
+          <p>{lang === "en"
+            ? "Useful when exploring a new city, returning to your hotel or finding your parked car."
+            : "Nyttig når du utforsker en ny by, skal tilbake til hotellet eller vil finne igjen bilen."}</p>
+        </section>
+
         <section
           className="receipt-landing-download"
           aria-labelledby="findback-download-title"
