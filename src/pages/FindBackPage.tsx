@@ -33,7 +33,7 @@ const FindBackPage: React.FC = () => {
           />
         </div>
 
-        <h1 id="findback-title">{t("findback.title")}</h1>
+        <h1 id="findback-title">{lang === "en" ? "FindBack – Save your location and find your way back" : "FindBack – Lagre posisjonen din og finn tilbake"}</h1>
         <p className="receipt-landing-intro">{t("findback.intro")}</p>
         <p className="findback-landing-purpose">{t("findback.purpose")}</p>
         <p className="findback-landing-how">{t("findback.how")}</p>
