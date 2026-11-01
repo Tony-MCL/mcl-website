@@ -33,8 +33,8 @@ const R4Page: React.FC = () => {
           />
         </div>
 
-        <h1 id="r4-title" className="receipt-landing-visually-hidden">
-          R4
+        <h1 id="r4-title" >
+          R4 – {lang === "en" ? "Save and reuse messages" : "Lagre og gjenbruk meldinger"}
         </h1>
         <p className="r4-landing-tagline">{t("r4.tagline")}</p>
         <p className="receipt-landing-intro">{t("r4.intro")}</p>
@@ -42,6 +42,31 @@ const R4Page: React.FC = () => {
         <p className="r4-landing-copy">{t("r4.audience")}</p>
         <p className="r4-landing-promise">{t("r4.promise")}</p>
         <p className="r4-landing-privacy">{t("r4.privacy")}</p>
+
+
+        <section className="mosaic-story" aria-labelledby="r4-how-title">
+          <h2 id="r4-how-title">{lang === "en" ? "How R4 works" : "Slik fungerer R4"}</h2>
+          <p>{lang === "en"
+            ? "Write and save messages you use often. When you need one again, select it instead of typing it from scratch."
+            : "Skriv og lagre meldinger du bruker ofte. Neste gang du trenger en melding, velger du den i stedet for å skrive alt på nytt."}</p>
+          <p>{lang === "en"
+            ? "On Android, R4 offers a floating overlay for quick access. On iPhone, saved messages are available through a custom keyboard."
+            : "På Android gir R4 rask tilgang via en flytende boble. På iPhone finner du de lagrede meldingene via et eget tastatur."}</p>
+        </section>
+
+        <section className="mosaic-story" aria-labelledby="r4-demo-title">
+          <h2 id="r4-demo-title">{lang === "en" ? "See R4 in action" : "Se R4 i bruk"}</h2>
+          <video
+            controls
+            playsInline
+            preload="metadata"
+            aria-label={lang === "en" ? "R4 app demonstration" : "Demonstrasjon av R4-appen"}
+            style={{ display: "block", width: "100%", maxWidth: 420, height: "auto", margin: "0 auto", borderRadius: 14 }}
+          >
+            <source src={`${assetBase}R4-second.mp4`} type="video/mp4" />
+            {lang === "en" ? "Your browser does not support video playback." : "Nettleseren din støtter ikke videoavspilling."}
+          </video>
+        </section>
 
         <section
           className="receipt-landing-download"
