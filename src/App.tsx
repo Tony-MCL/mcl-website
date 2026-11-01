@@ -1,5 +1,7 @@
 import React from "react";
 import ScrollToTop from "./ScrollToTop";
+import { useEffect } from "react";
+import { pageIdForPath, trackSiteEvent } from "./lib/siteAnalytics";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 
 import Header from "./components/Header";
@@ -50,6 +52,27 @@ import MosaicMeTermsPage from "./pages/MosaicMeTermsPage";
 
 const AppShell: React.FC = () => {
   const location = useLocation();
+
+  useEffect(() => {
+    const id = pageIdForPath(location.pathname);
+    if (id) void trackSiteEvent(id, "views").catch((error) => console.warn("Analytics view tracking failed", error));
+  }, [location.pathname]);
+
+  useEffect(() => {
+    const onClick = (event: MouseEvent) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+      const anchor = target.closest("a[href]");
+      if (!(anchor instanceof HTMLAnchorElement)) return;
+      const id = pageIdForPath(window.location.pathname);
+      if (!id) return;
+      const url = new URL(anchor.href);
+      const metric = url.hostname === "play.google.com" ? "googlePlay" : url.hostname === "apps.apple.com" ? "appStore" : null;
+      if (metric) void trackSiteEvent(id, metric).catch((error) => console.warn("Analytics click tracking failed", error));
+    };
+    document.addEventListener("click", onClick);
+    return () => document.removeEventListener("click", onClick);
+  }, []);
 
   const isCleanProductRoute =
     location.pathname === "/husket" ||
