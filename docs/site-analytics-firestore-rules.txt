@@ -1,0 +1,89 @@
+# Add this match block INSIDE your existing match /databases/{database}/documents.
+# Do not replace existing rules; existing analytics and admin functionality must remain.
+#
+# IMPORTANT: This is a rule fragment, not a complete firestore.rules file.
+# Deploy the merged rules in Firebase Console before publishing the React changes.
+#
+# Client-side public event tracking is inherently susceptible to fake traffic.
+# These rules restrict unauthenticated clients to increments of exactly one metric.
+match /siteAnalytics/{pageId} {
+  function isAdmin() {
+    return request.auth != null &&
+      request.auth.token.email == "morningcoffeelabs@gmail.com";
+  }
+
+  function allowedPage() {
+    return pageId in [
+      "home", "mosaic-me", "findback", "r4", "receipts", "husket",
+      "fury-o", "progress", "bop", "mine-oppdrag", "elkrafttorget", "qr-generator"
+    ];
+  }
+
+  function validCounters(c) {
+    return c.keys().hasOnly(["views", "googlePlay", "appStore"]) &&
+      c.keys().hasAll(["views", "googlePlay", "appStore"]) &&
+      c.views is int && c.googlePlay is int && c.appStore is int &&
+      c.views >= 0 && c.googlePlay >= 0 && c.appStore >= 0;
+  }
+
+  function isSingleIncrement(before, after) {
+    return (
+      after.views == before.views + 1 &&
+      after.googlePlay == before.googlePlay &&
+      after.appStore == before.appStore
+    ) || (
+      after.views == before.views &&
+      after.googlePlay == before.googlePlay + 1 &&
+      after.appStore == before.appStore
+    ) || (
+      after.views == before.views &&
+      after.googlePlay == before.googlePlay &&
+      after.appStore == before.appStore + 1
+    );
+  }
+
+  function isFirstEvent(c) {
+    return (c.views == 1 && c.googlePlay == 0 && c.appStore == 0) ||
+      (c.views == 0 && c.googlePlay == 1 && c.appStore == 0) ||
+      (c.views == 0 && c.googlePlay == 0 && c.appStore == 1);
+  }
+
+  allow read: if isAdmin();
+
+  allow create: if allowedPage() && (
+    isAdmin() ||
+    (
+      request.resource.data.keys().hasOnly(["total", "period", "resetAt", "lastEventAt"]) &&
+      request.resource.data.keys().hasAll(["total", "period", "resetAt", "lastEventAt"]) &&
+      validCounters(request.resource.data.total) &&
+      validCounters(request.resource.data.period) &&
+      isFirstEvent(request.resource.data.total) &&
+      request.resource.data.period == request.resource.data.total &&
+      request.resource.data.resetAt == request.time &&
+      request.resource.data.lastEventAt == request.time
+    )
+  );
+
+  allow update: if allowedPage() && (
+    (
+      isAdmin() &&
+      request.resource.data.total == resource.data.total
+    ) ||
+    (
+      request.resource.data.diff(resource.data).affectedKeys().hasOnly(["total", "period", "lastEventAt"]) &&
+      validCounters(request.resource.data.total) &&
+      validCounters(request.resource.data.period) &&
+      isSingleIncrement(resource.data.total, request.resource.data.total) &&
+      isSingleIncrement(resource.data.period, request.resource.data.period) &&
+      request.resource.data.total.views - resource.data.total.views ==
+        request.resource.data.period.views - resource.data.period.views &&
+      request.resource.data.total.googlePlay - resource.data.total.googlePlay ==
+        request.resource.data.period.googlePlay - resource.data.period.googlePlay &&
+      request.resource.data.total.appStore - resource.data.total.appStore ==
+        request.resource.data.period.appStore - resource.data.period.appStore &&
+      request.resource.data.lastEventAt == request.time
+    )
+  );
+
+  allow delete: if false;
+}
