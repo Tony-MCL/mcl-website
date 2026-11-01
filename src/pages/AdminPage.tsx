@@ -7,7 +7,7 @@ import {
   type User,
 } from "firebase/auth";
 import { auth } from "../firebase";
-import { listenToSiteAnalytics, resetSiteAnalyticsPeriod, TRACKED_PAGES, type PageAnalytics } from "../lib/siteAnalytics";
+import { listenToSiteAnalytics, listenToArchivedPeriods, resetSiteAnalyticsPeriod, TRACKED_PAGES, type ArchivedPeriod, type PageAnalytics } from "../lib/siteAnalytics";
 import {
   listenToHusketAnalytics,
   listenToKvittekAnalytics,
@@ -102,6 +102,7 @@ const AdminPage: React.FC = () => {
   const [analyticsView,setAnalyticsView]=useState<"site"|"kvittek"|"qr"|"husket">("site");
 
   const [siteStats, setSiteStats] = useState<Record<string, PageAnalytics>>({});
+  const [periodHistory, setPeriodHistory] = useState<ArchivedPeriod[]>([]);
   const [resetError, setResetError] = useState("");
   const [resetBusy, setResetBusy] = useState(false);
   const [selectedPage, setSelectedPage] = useState<string>("mosaic-me");
@@ -115,6 +116,11 @@ const AdminPage: React.FC = () => {
       return () => unsubscribers.forEach((unsubscribe) => unsubscribe());
     })();
   }, [user]);
+
+  useEffect(() => {
+    if (!user || user.email !== ADMIN_EMAIL) return;
+    return listenToArchivedPeriods(selectedPage, setPeriodHistory);
+  }, [user, selectedPage]);
 
   const handlePeriodReset = async () => {
     const label = TRACKED_PAGES.find((page) => page.id === selectedPage)?.label ?? selectedPage;
@@ -348,6 +354,14 @@ const AdminPage: React.FC = () => {
           <button type="button" className="status-button" disabled={resetBusy} onClick={handlePeriodReset}>
             {resetBusy?"Nullstiller...":"Nullstill periode for valgt side"}
           </button>
+          <h3 style={{margin:"0.5rem 0 0"}}>Tidligere perioder</h3>
+          {periodHistory.length === 0 ? <p style={{margin:0,opacity:0.7}}>Ingen avsluttede perioder ennå.</p> :
+            <div style={{display:"grid",gap:8}}>
+              {periodHistory.map((period) => <div key={period.id} style={cardStyle}>
+                <strong>{formatTimestamp(period.startedAt)} – {formatTimestamp(period.endedAt)}</strong>
+                <p style={{margin:"0.4rem 0 0"}}>Visninger: {period.counts.views ?? 0} · Google Play: {period.counts.googlePlay ?? 0} · App Store: {period.counts.appStore ?? 0}</p>
+              </div>)}
+            </div>}
           {resetError && <p role="alert" style={{color:"#ff9f9f"}}>{resetError}</p>}
         </div>
       </AnalyticsSection>}
