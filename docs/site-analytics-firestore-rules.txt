@@ -88,4 +88,9 @@ match /siteAnalytics/{pageId} {
   );
 
   allow delete: if false;
+
+  match /periods/{periodId} {
+    allow read, create: if isAdmin();
+    allow update, delete: if false;
+  }
 }
