@@ -1,4 +1,4 @@
-import { doc, onSnapshot, runTransaction, serverTimestamp, Timestamp } from "firebase/firestore";
+import { collection, doc, onSnapshot, query, orderBy, limit, runTransaction, serverTimestamp, Timestamp } from "firebase/firestore";
 import { db } from "../firebase";
 
 export const TRACKED_PAGES = [
@@ -18,6 +18,7 @@ export const TRACKED_PAGES = [
 
 export type Metric = "views" | "googlePlay" | "appStore";
 export type Counters = Record<Metric, number>;
+export type ArchivedPeriod = { id: string; counts: Counters; startedAt?: Timestamp; endedAt?: Timestamp };
 export type PageAnalytics = {
   total: Counters;
   period: Counters;
@@ -58,6 +59,14 @@ export function listenToSiteAnalytics(id: string, callback: (data: PageAnalytics
   });
 }
 
+export function listenToArchivedPeriods(id: string, callback: (periods: ArchivedPeriod[]) => void) {
+  const archive = query(collection(db, "siteAnalytics", id, "periods"), orderBy("endedAt", "desc"), limit(10));
+  return onSnapshot(archive, (snapshot) => callback(snapshot.docs.map((item) => ({
+    id: item.id,
+    ...(item.data() as Omit<ArchivedPeriod, "id">),
+  }))));
+}
+
 /** Only the authenticated administrator may reset a period; totals remain untouched. */
 export async function resetSiteAnalyticsPeriod(id: string): Promise<void> {
   if (!allowed.has(id)) throw new Error("Unknown page");
@@ -67,6 +76,13 @@ export async function resetSiteAnalyticsPeriod(id: string): Promise<void> {
     if (!snapshot.exists()) {
       transaction.set(ref, { total: zero(), period: zero(), resetAt: serverTimestamp() });
     } else {
+      const data = snapshot.data() as PageAnalytics;
+      const archiveRef = doc(collection(db, "siteAnalytics", id, "periods"));
+      transaction.set(archiveRef, {
+        counts: { ...zero(), ...data.period },
+        startedAt: data.resetAt ?? serverTimestamp(),
+        endedAt: serverTimestamp(),
+      });
       transaction.update(ref, { period: zero(), resetAt: serverTimestamp() });
     }
   });
