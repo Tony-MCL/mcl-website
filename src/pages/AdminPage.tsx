@@ -99,7 +99,6 @@ const AdminPage: React.FC = () => {
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState("");
   const [adminView,setAdminView]=useState<"home"|"analytics">("home");
-  const [analyticsView,setAnalyticsView]=useState<"site"|"kvittek"|"qr"|"husket">("site");
 
   const [siteStats, setSiteStats] = useState<Record<string, PageAnalytics>>({});
   const [periodHistory, setPeriodHistory] = useState<ArchivedPeriod[]>([]);
@@ -307,16 +306,9 @@ const AdminPage: React.FC = () => {
          <strong>Åpne statistikk →</strong>
         </button>
        </div>
-      </section>:<div style={{display:"flex",gap:18,alignItems:"flex-start",flexWrap:"wrap"}}>
-       <nav aria-label="Statistikkmeny" style={{...cardStyle,flex:"0 0 205px",display:"grid",gap:9,marginBottom:"1rem"}}>
-        <button type="button" className="status-button" onClick={()=>setAdminView("home")}>← Oversikt</button>
-        <strong>Statistikk</strong>
-        {(["site","kvittek","qr","husket"] as const).map(view=><button type="button" key={view} className="status-button" style={{textAlign:"left",fontWeight:analyticsView===view?"bold":"normal",opacity:analyticsView===view?1:.7}} onClick={()=>setAnalyticsView(view)}>
-         {view==="site"?"Alle sider":view==="kvittek"?"Kvittek":view==="qr"?"QR-generator":"Husk’et"}
-        </button>)}
-       </nav>
-       <div style={{flex:"1 1 440px",minWidth:0}}>
-      {analyticsView==="site" && <AnalyticsSection title="Alle sider" description="Nye målinger fra aktiveringstidspunktet. Tidligere statistikk for Kvittek, QR-generator og Husk’et ligger i egne faner.">
+      </section>:<div>
+        <button type="button" className="status-button" style={{marginBottom:"1rem"}} onClick={()=>setAdminView("home")}>← Oversikt</button>
+      {<AnalyticsSection title="Alle sider" description="Nye målinger fra aktiveringstidspunktet. Tidligere statistikk for Kvittek, QR-generator og Husk’et finner du nederst på siden.">
         <div style={{overflowX:"auto"}}>
           <table style={{width:"100%",borderCollapse:"collapse",textAlign:"right"}}>
             <thead><tr><th style={{textAlign:"left",padding:8}}>Side</th><th>Periode</th><th>Totalt</th><th>Butikk-klikk periode</th><th>Butikk-klikk totalt</th></tr></thead>
@@ -339,7 +331,7 @@ const AdminPage: React.FC = () => {
         </div>
         <div style={{marginTop:"1.5rem",display:"grid",gap:12}}>
           <h3 style={{margin:0}}>Detaljer og nullstilling</h3>
-          <select style={inputStyle} value={selectedPage} onChange={(event)=>setSelectedPage(event.target.value)}>
+          <select className="admin-analytics-select" style={inputStyle} value={selectedPage} onChange={(event)=>setSelectedPage(event.target.value)}>
             {TRACKED_PAGES.map((page)=><option key={page.id} value={page.id}>{page.label}</option>)}
           </select>
           <p style={{margin:0}}>Siste nullstilling: {formatTimestamp(siteStats[selectedPage]?.resetAt)}</p>
@@ -366,7 +358,7 @@ const AdminPage: React.FC = () => {
         </div>
       </AnalyticsSection>}
 
-      {analyticsView==="kvittek"&&<AnalyticsSection
+      <details style={{...cardStyle,marginBottom:"1rem"}}><summary style={{cursor:"pointer",fontWeight:700}}>Tidligere statistikk – Kvittek</summary><div style={{marginTop:"1rem"}}><AnalyticsSection
         title="Kvittek"
         description="Landingssiden /receipts og klikk videre til appbutikkene."
       >
@@ -402,9 +394,9 @@ const AdminPage: React.FC = () => {
             {formatTimestamp(kvittek.lastAppStoreClickAt)}
           </p>
         </div>
-      </AnalyticsSection>}
+      </AnalyticsSection></div></details>
 
-      {analyticsView==="qr"&&<AnalyticsSection
+      <details style={{...cardStyle,marginBottom:"1rem"}}><summary style={{cursor:"pointer",fontWeight:700}}>Tidligere statistikk – QR-generator</summary><div style={{marginTop:"1rem"}}><AnalyticsSection
         title="QR-generator"
         description="Besøk på QR-generatoren og klikk på Last ned-knappen."
       >
@@ -429,9 +421,9 @@ const AdminPage: React.FC = () => {
             <strong>Siste nedlasting:</strong> {formatTimestamp(qr.lastDownloadClickAt)}
           </p>
         </div>
-      </AnalyticsSection>}
+      </AnalyticsSection></div></details>
 
-      {analyticsView==="husket"&&<AnalyticsSection
+      <details style={{...cardStyle,marginBottom:"1rem"}}><summary style={{cursor:"pointer",fontWeight:700}}>Tidligere statistikk – Husk’et</summary><div style={{marginTop:"1rem"}}><AnalyticsSection
         title="Husk’et"
         description="Besøk på Husk’et-siden og klikk videre til Google Play."
       >
@@ -457,8 +449,7 @@ const AdminPage: React.FC = () => {
             {formatTimestamp(husket.lastGooglePlayClickAt)}
           </p>
         </div>
-      </AnalyticsSection>}
-       </div>
+      </AnalyticsSection></div></details>
       </div>}
     </main>
   );
