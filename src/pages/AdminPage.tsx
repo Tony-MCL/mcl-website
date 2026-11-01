@@ -308,7 +308,7 @@ const AdminPage: React.FC = () => {
        </div>
       </section>:<div>
         <button type="button" className="status-button" style={{marginBottom:"1rem"}} onClick={()=>setAdminView("home")}>← Oversikt</button>
-      {<AnalyticsSection title="Alle sider" description="Nye målinger fra aktiveringstidspunktet. Tidligere statistikk for Kvittek, QR-generator og Husk’et ligger i egne faner.">
+      {<AnalyticsSection title="Alle sider" description="Nye målinger fra aktiveringstidspunktet. Tidligere statistikk for Kvittek, QR-generator og Husk’et finner du nederst på siden.">
         <div style={{overflowX:"auto"}}>
           <table style={{width:"100%",borderCollapse:"collapse",textAlign:"right"}}>
             <thead><tr><th style={{textAlign:"left",padding:8}}>Side</th><th>Periode</th><th>Totalt</th><th>Butikk-klikk periode</th><th>Butikk-klikk totalt</th></tr></thead>
