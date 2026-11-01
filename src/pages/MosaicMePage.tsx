@@ -15,11 +15,17 @@ const MosaicMePage: React.FC = () => {
           src={`${assetBase}mosaic_me_logo.png`}
           alt="Mosaic ME"
         />
-        <h1 id="mosaic-title" className="receipt-landing-visually-hidden">
-          Mosaic ME
+        <h1 id="mosaic-title" >
+          Mosaic ME – {t("mosaicPage.seoHeading")}
         </h1>
         <p className="project-preview-tagline">{t("mosaicPage.tagline")}</p>
         <p className="project-preview-lead">{t("mosaicPage.lead")}</p>
+        <p><strong>{t("mosaicPage.freeIntro")}</strong></p>
+      </section>
+
+      <section className="mosaic-story" aria-labelledby="mosaic-alternative-title">
+        <h2 id="mosaic-alternative-title">{t("mosaicPage.alternative.title")}</h2>
+        <p>{t("mosaicPage.alternative.body")}</p>
       </section>
 
       <section className="mosaic-story" aria-labelledby="mosaic-system-title">

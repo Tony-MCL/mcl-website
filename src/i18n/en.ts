@@ -711,6 +711,12 @@ const en = {
   },
 
   mosaicPage: {
+    seoHeading: "Private Plural System Tracker",
+    freeIntro: "Free core features. No account required. No ads.",
+    alternative: {
+      title: "Looking for a Simply Plural or Octocon alternative?",
+      body: "Mosaic ME offers alter profiles, fronting and co-fronting tracking, journals and optional sharing with trusted friends. It uses its own .mome export format; direct import from Simply Plural or Octocon is not currently offered.",
+    },
     tagline: "Many parts. One me.",
     lead:
       "Mosaic ME is a private, local-first companion for plural systems – built to help you keep track of alters, fronting, co-fronting, journals and the people you choose to share with.",

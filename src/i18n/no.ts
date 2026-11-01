@@ -711,6 +711,12 @@ const no = {
   },
 
   mosaicPage: {
+    seoHeading: "Privat app for plurale systemer",
+    freeIntro: "Gratis kjernefunksjoner. Ingen konto nødvendig. Ingen reklame.",
+    alternative: {
+      title: "Ser du etter et alternativ til Simply Plural eller Octocon?",
+      body: "Mosaic ME tilbyr alter-profiler, oversikt over fronting og co-fronting, journal og valgfri deling med venner du stoler på. Appen bruker sitt eget .mome-format for eksport; direkte import fra Simply Plural eller Octocon tilbys foreløpig ikke.",
+    },
     tagline: "Mange deler. Ett meg.",
     lead:
       "Mosaic ME er en privat, lokal-først følgesvenn for plurale systemer – laget for å holde oversikt over alters, fronting, co-fronting, journaler og menneskene du selv velger å dele med.",

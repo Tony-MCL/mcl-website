@@ -37,6 +37,10 @@ const SEO_BY_PATH: Record<string, SeoConfig> = {
     title: "QR-generator – Morning Coffee Labs",
     description: "Lag en enkel QR-kode direkte i nettleseren.",
   },
+  "/mosaic-me": {
+    title: "Mosaic ME – Free Plural System Tracker for iOS & Android",
+    description: "Private plural system tracker for alters, fronting, co-fronting and journals. Free core features, no account required. iOS and Android.",
+  },
   "/progress": {
     title: "Manage Progress – Enkel fremdriftsplanlegging",
     description:
