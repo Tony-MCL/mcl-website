@@ -63,6 +63,14 @@ const SEO_BY_PATH: Record<string, SeoConfig> = {
     title: "ElKraftTorget – Markedsplassen for elkraftmateriell",
     description: "Overskudd hos én. Behov hos en annen. ElKraftTorget er en gratis B2B-markedsplass for tilgjengelig elkraftmateriell, restpartier og etterspørsler.",
   },
+  "/elkrafttorget/personvern": {
+    title: "Personvernerklæring for ElKraftTorget",
+    description: "Hvordan ElKraftTorget behandler kontoopplysninger, annonser, kontaktinformasjon og varslinger.",
+  },
+  "/elkrafttorget/brukervilkar": {
+    title: "Brukervilkår for ElKraftTorget",
+    description: "Vilkår for bedrifter som bruker ElKraftTorget til å tilby eller etterlyse elkraftmateriell.",
+  },
   "/kvittek": {
     title: "Kvittek – Enkel orden på kvitteringene",
     description:
