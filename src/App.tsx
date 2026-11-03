@@ -30,6 +30,7 @@ import MosaicMePage from "./pages/MosaicMePage";
 import BopGamePage from "./pages/BopGamePage";
 import MineOppdragPage from "./pages/MineOppdragPage";
 import ElKraftTorgetPage from "./pages/ElKraftTorgetPage";
+import ElKraftTorgetLegalPage from "./pages/ElKraftTorgetLegalPage";
 import ReceiptPage from "./pages/ReceiptPage";
 import ReceiptLandingPage from "./pages/ReceiptLandingPage";
 import HusketKjopsvilkarPage from "./pages/HusketKjopsvilkarPage";
@@ -115,6 +116,8 @@ const AppShell: React.FC = () => {
           <Route path="/bop" element={<BopGamePage />} />
           <Route path="/mine-oppdrag" element={<MineOppdragPage />} />
           <Route path="/elkrafttorget" element={<ElKraftTorgetPage />} />
+          <Route path="/elkrafttorget/personvern" element={<ElKraftTorgetLegalPage kind="privacy" />} />
+          <Route path="/elkrafttorget/brukervilkar" element={<ElKraftTorgetLegalPage kind="terms" />} />
           <Route path="/kvittek" element={<ReceiptPage />} />
           <Route path="/receipts" element={<ReceiptLandingPage />} />
 
