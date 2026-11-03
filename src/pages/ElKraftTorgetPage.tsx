@@ -7,8 +7,8 @@ const assetBase = import.meta.env.BASE_URL || "/";
 const copy = {
   no: {
     eyebrow: "NY BRANSJEMARKEDSPLASS · UNDER UTVIKLING",
-    intro: "En gratis møteplass for bedrifter innen elkraft, energi og tilknyttet industri. Her kan virksomheter tilby overskuddsmateriell, restpartier og tilgjengelige komponenter – eller etterlyse det de trenger.",
-    free: "Gratis å bruke", direct: "Direkte kontakt mellom bedrifter", noFees: "Ingen salgsprovisjon",
+    intro: "En møteplass for bedrifter innen elkraft, energi og tilknyttet industri. Her kan virksomheter tilby overskuddsmateriell, restpartier og tilgjengelige komponenter – eller etterlyse det de trenger.",
+    free: "Gratis annonsering ved lansering", direct: "Direkte kontakt mellom bedrifter", noFees: "Ingen salgsprovisjon",
     pointTitle: "La verdifullt materiell komme til nytte",
     pointBody: "Materiell som ligger på lager hos én virksomhet, kan være akkurat det en annen trenger. ElKraftTorget skal gjøre det enklere å koble disse behovene.",
     have: "HAR", haveTitle: "Tilby det du har", haveBody: "Har dere kabelrester, komponenter, prosjektoverskudd eller materiell som ikke lenger skal brukes? Gjør det synlig for andre i bransjen.",
@@ -26,8 +26,8 @@ const copy = {
   },
   en: {
     eyebrow: "NEW INDUSTRY MARKETPLACE · IN DEVELOPMENT",
-    intro: "A free marketplace for companies in electrical power, energy and related industries. Businesses can offer surplus equipment, leftover stock and available components – or post requests for what they need.",
-    free: "Free to use", direct: "Direct business-to-business contact", noFees: "No sales commission",
+    intro: "A marketplace for companies in electrical power, energy and related industries. Businesses can offer surplus equipment, leftover stock and available components – or post requests for what they need.",
+    free: "Free listings at launch", direct: "Direct business-to-business contact", noFees: "No sales commission",
     pointTitle: "Put valuable equipment to work",
     pointBody: "Equipment sitting in one company's warehouse may be exactly what another company needs. ElKraftTorget aims to connect supply and demand.",
     have: "HAVE", haveTitle: "Offer what you have", haveBody: "Spare cable, components, project surplus or equipment you no longer need? Make it visible to other companies in the industry.",
