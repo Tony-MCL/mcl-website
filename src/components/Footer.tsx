@@ -23,7 +23,9 @@ const Footer: React.FC = () => {
     location.pathname === "/kvittek";
 
   const simpleProductLegal: SimpleProductLegal | null =
-    location.pathname === "/findback" || location.pathname.startsWith("/findback-")
+    location.pathname === "/elkrafttorget" || location.pathname.startsWith("/elkrafttorget/")
+      ? { terms: "/elkrafttorget/brukervilkar", privacy: "/elkrafttorget/personvern" }
+      :     location.pathname === "/findback" || location.pathname.startsWith("/findback-")
       ? { terms: "/findback-terms", privacy: "/findback-privacy" }
       : location.pathname === "/fury-o" || location.pathname.startsWith("/fury-o/")
         ? { terms: "/fury-o/terms", privacy: "/fury-o/privacy" }
