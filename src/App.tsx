@@ -31,6 +31,7 @@ import BopGamePage from "./pages/BopGamePage";
 import MineOppdragPage from "./pages/MineOppdragPage";
 import ElKraftTorgetPage from "./pages/ElKraftTorgetPage";
 import ElKraftTorgetLegalPage from "./pages/ElKraftTorgetLegalPage";
+import ElKraftTorgetDeleteAccountPage from "./pages/ElKraftTorgetDeleteAccountPage";
 import ReceiptPage from "./pages/ReceiptPage";
 import ReceiptLandingPage from "./pages/ReceiptLandingPage";
 import HusketKjopsvilkarPage from "./pages/HusketKjopsvilkarPage";
@@ -118,6 +119,7 @@ const AppShell: React.FC = () => {
           <Route path="/elkrafttorget" element={<ElKraftTorgetPage />} />
           <Route path="/elkrafttorget/personvern" element={<ElKraftTorgetLegalPage kind="privacy" />} />
           <Route path="/elkrafttorget/brukervilkar" element={<ElKraftTorgetLegalPage kind="terms" />} />
+          <Route path="/elkrafttorget/slett-konto" element={<ElKraftTorgetDeleteAccountPage />} />
           <Route path="/kvittek" element={<ReceiptPage />} />
           <Route path="/receipts" element={<ReceiptLandingPage />} />
 
