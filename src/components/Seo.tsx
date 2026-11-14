@@ -67,6 +67,10 @@ const SEO_BY_PATH: Record<string, SeoConfig> = {
     title: "Personvernerklæring for ElKraftTorget",
     description: "Hvordan ElKraftTorget behandler kontoopplysninger, annonser, kontaktinformasjon og varslinger.",
   },
+  "/elkrafttorget/slett-konto": {
+    title: "Slett ElKraftTorget-konto – Morning Coffee Labs",
+    description: "Slik sletter du ElKraftTorget-kontoen din i appen eller ber om kontosletting uten tilgang til appen.",
+  },
   "/elkrafttorget/brukervilkar": {
     title: "Brukervilkår for ElKraftTorget",
     description: "Vilkår for bedrifter som bruker ElKraftTorget til å tilby eller etterlyse elkraftmateriell.",
