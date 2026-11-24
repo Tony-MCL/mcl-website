@@ -22,7 +22,8 @@ service cloud.firestore {
       function allowedPage() {
         return pageId in [
           "home", "mosaic-me", "findback", "r4", "receipts", "husket",
-          "fury-o", "progress", "bop", "mine-oppdrag", "elkrafttorget", "qr-generator"
+          "fury-o", "progress", "bop", "mine-oppdrag", "elkrafttorget",
+          "elkrafttorget-landing", "qr-generator"
         ];
       }
     
