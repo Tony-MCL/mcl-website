@@ -15,7 +15,6 @@ import IdeaBankPage from "./pages/IdeaBankPage";
 import ProgressPage from "./pages/ProgressPage";
 import QrGeneratorPage from "./pages/QrGeneratorPage";
 import AdminPage from "./pages/AdminPage";
-import ElKraftTorgetAdminPage from "./pages/ElKraftTorgetAdminPage";
 
 import KjopsvilkarPage from "./pages/KjopsvilkarPage";
 import BrukervilkarPage from "./pages/BrukervilkarPage";
@@ -104,7 +103,6 @@ const AppShell: React.FC = () => {
           <Route path="/kontakt" element={<ContactPage />} />
           <Route path="/idebank" element={<IdeaBankPage />} />
           <Route path="/admin" element={<AdminPage />} />
-          <Route path="/admin/elkrafttorget" element={<ElKraftTorgetAdminPage />} />
 
           <Route path="/qr-generator" element={<QrGeneratorPage />} />
 
