@@ -1,5 +1,4 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { Link } from "react-router-dom";
 import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
@@ -98,12 +97,13 @@ const AdminPage: React.FC = () => {
   const [email, setEmail] = useState(ADMIN_EMAIL);
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState("");
-  const [adminView,setAdminView]=useState<"home"|"analytics">("home");
-
+  
   const [siteStats, setSiteStats] = useState<Record<string, PageAnalytics>>({});
   const [periodHistory, setPeriodHistory] = useState<ArchivedPeriod[]>([]);
   const [resetError, setResetError] = useState("");
   const [resetBusy, setResetBusy] = useState(false);
+  const [resetPageId, setResetPageId] = useState<string | null>(null);
+  const [resetSuccess, setResetSuccess] = useState("");
   const [selectedPage, setSelectedPage] = useState<string>("mosaic-me");
 
   useEffect(() => {
@@ -121,15 +121,48 @@ const AdminPage: React.FC = () => {
     return listenToArchivedPeriods(selectedPage, setPeriodHistory);
   }, [user, selectedPage]);
 
-  const handlePeriodReset = async () => {
-    const label = TRACKED_PAGES.find((page) => page.id === selectedPage)?.label ?? selectedPage;
-    if (!window.confirm(`Nullstille gjeldende periode for ${label}? Totaltallene beholdes.`)) return;
+  const handlePeriodReset = async (pageId: string) => {
+    if (resetBusy) return;
+    const label = TRACKED_PAGES.find((page) => page.id === pageId)?.label ?? pageId;
+    if (!window.confirm(`Nullstille gjeldende periode for ${label}? Totaltallene beholdes, og perioden arkiveres.`)) return;
     setResetBusy(true);
+    setResetPageId(pageId);
     setResetError("");
+    setResetSuccess("");
     try {
-      await resetSiteAnalyticsPeriod(selectedPage);
+      await resetSiteAnalyticsPeriod(pageId);
+      setResetSuccess(`Perioden for ${label} er nullstilt.`);
     } catch {
-      setResetError("Nullstilling feilet. Kontroller Firestore-regler og administratorrettigheter.");
+      setResetError(`Nullstilling feilet for ${label}. Kontroller Firestore-regler og administratorrettigheter.`);
+    } finally {
+      setResetBusy(false);
+      setResetPageId(null);
+    }
+  };
+
+  const handleResetAllPeriods = async () => {
+    if (resetBusy) return;
+    if (!window.confirm(`Nullstille gjeldende periode for alle ${TRACKED_PAGES.length} sider? Totaltallene beholdes, og periodene arkiveres.`)) return;
+    setResetBusy(true);
+    setResetPageId(null);
+    setResetError("");
+    setResetSuccess("");
+    const failedPages: string[] = [];
+    try {
+      // Sequential transactions avoid overlapping writes and preserve existing archives.
+      for (const page of TRACKED_PAGES) {
+        try {
+          await resetSiteAnalyticsPeriod(page.id);
+        } catch (error) {
+          console.error(`Analytics reset failed for ${page.label}`, error);
+          failedPages.push(page.label);
+        }
+      }
+      if (failedPages.length) {
+        setResetError(`Kunne ikke nullstille: ${failedPages.join(", ")}. Øvrige sider ble nullstilt.`);
+      } else {
+        setResetSuccess("Alle periodene er nullstilt. Totaltallene er beholdt.");
+      }
     } finally {
       setResetBusy(false);
     }
@@ -291,72 +324,126 @@ const AdminPage: React.FC = () => {
         </div>
       </section>
 
-      {adminView==="home"?<section style={{...cardStyle,marginBottom:"1rem"}}>
-       <h2 style={{marginTop:0}}>Administrasjonsforside</h2>
-       <p>Velg området du vil administrere.</p>
-       <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(240px,1fr))",gap:18}}>
-        <Link to="/admin/elkrafttorget" style={{...cardStyle,display:"block",minHeight:155,color:"inherit",textDecoration:"none"}}>
-         <h2>ElKraftTorget</h2>
-         <p>Kontoverifisering, rapportering og moderering</p>
-         <strong>Åpne administrasjon →</strong>
-        </Link>
-        <button type="button" onClick={()=>setAdminView("analytics")} style={{...cardStyle,textAlign:"left",cursor:"pointer",minHeight:155,color:"inherit"}}>
-         <h2>MCL Analytics</h2>
-         <p>Statistikk for hovedsiden og alle produktsidene</p>
-         <strong>Åpne statistikk →</strong>
-        </button>
-       </div>
-      </section>:<div>
-        <button type="button" className="status-button" style={{marginBottom:"1rem"}} onClick={()=>setAdminView("home")}>← Oversikt</button>
-      {<AnalyticsSection title="Alle sider" description="Nye målinger fra aktiveringstidspunktet. Tidligere statistikk for Kvittek, QR-generator og Husk’et finner du nederst på siden.">
-        <div style={{overflowX:"auto"}}>
-          <table style={{width:"100%",borderCollapse:"collapse",textAlign:"right"}}>
-            <thead><tr><th style={{textAlign:"left",padding:8}}>Side</th><th>Periode</th><th>Totalt</th><th>Butikk-klikk periode</th><th>Butikk-klikk totalt</th></tr></thead>
-            <tbody>{TRACKED_PAGES.map((page) => {
-              const data = siteStats[page.id];
-              const p = data?.period;
-              const t = data?.total;
-              return <tr key={page.id} style={{borderTop:"1px solid var(--mcl-border)"}}>
-                <td style={{padding:8,textAlign:"left"}}>{page.label}</td>
-                <td>{p?.views ?? 0}</td><td>{t?.views ?? 0}</td>
-                <td>{(p?.googlePlay ?? 0)+(p?.appStore ?? 0)}</td>
-                <td>{(t?.googlePlay ?? 0)+(t?.appStore ?? 0)}</td>
-              </tr>;
-            })}</tbody>
+      <AnalyticsSection
+        title="Alle sider"
+        description="Nye målinger fra aktiveringstidspunktet. Tidligere statistikk for Kvittek, QR-generator og Husk’et finner du nederst på siden."
+      >
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(210px, 1fr))",
+            gap: "1rem",
+            marginBottom: "1.5rem",
+          }}
+        >
+          <div style={cardStyle}>
+            <p style={{ margin: "0 0 0.45rem", opacity: 0.72 }}>Sidevisninger – periode</p>
+            <strong style={{ display: "block", fontSize: "2rem", lineHeight: 1.1 }}>
+              {TRACKED_PAGES.reduce((sum, page) => sum + (siteStats[page.id]?.period.views ?? 0), 0)}
+            </strong>
+            <button
+              type="button"
+              className="status-button"
+              style={{ marginTop: "1rem" }}
+              disabled={resetBusy}
+              onClick={handleResetAllPeriods}
+            >
+              {resetBusy && resetPageId === null ? "Nullstiller alle..." : "Nullstill alle perioder"}
+            </button>
+          </div>
+          <StatCard
+            title="Sidevisninger – totalt"
+            value={TRACKED_PAGES.reduce((sum, page) => sum + (siteStats[page.id]?.total.views ?? 0), 0)}
+          />
+        </div>
+
+        <div style={{ overflowX: "auto" }}>
+          <table style={{ width: "100%", borderCollapse: "collapse", textAlign: "right" }}>
+            <thead>
+              <tr>
+                <th style={{ textAlign: "left", padding: 8 }}>Side</th>
+                <th>Periode</th>
+                <th>Totalt</th>
+                <th>Butikk-klikk periode</th>
+                <th>Butikk-klikk totalt</th>
+                <th style={{ padding: 8 }}>Nullstilling</th>
+              </tr>
+            </thead>
+            <tbody>
+              {TRACKED_PAGES.map((page) => {
+                const data = siteStats[page.id];
+                const p = data?.period;
+                const t = data?.total;
+                return (
+                  <tr key={page.id} style={{ borderTop: "1px solid var(--mcl-border)" }}>
+                    <td style={{ padding: 8, textAlign: "left" }}>{page.label}</td>
+                    <td>{p?.views ?? 0}</td>
+                    <td>{t?.views ?? 0}</td>
+                    <td>{(p?.googlePlay ?? 0) + (p?.appStore ?? 0)}</td>
+                    <td>{(t?.googlePlay ?? 0) + (t?.appStore ?? 0)}</td>
+                    <td style={{ padding: 8 }}>
+                      <button
+                        type="button"
+                        className="status-button"
+                        disabled={resetBusy}
+                        onClick={() => void handlePeriodReset(page.id)}
+                        aria-label={`Nullstill periode for ${page.label}`}
+                        style={{ whiteSpace: "nowrap" }}
+                      >
+                        {resetBusy && resetPageId === page.id ? "Nullstiller..." : "Nullstill"}
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
           </table>
         </div>
-        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(210px,1fr))",gap:"1rem",marginTop:"1.5rem"}}>
-          <StatCard title="Sidevisninger – periode" value={TRACKED_PAGES.reduce((sum,page)=>sum+(siteStats[page.id]?.period.views ?? 0),0)}/>
-          <StatCard title="Sidevisninger – totalt" value={TRACKED_PAGES.reduce((sum,page)=>sum+(siteStats[page.id]?.total.views ?? 0),0)}/>
-        </div>
-        <div style={{marginTop:"1.5rem",display:"grid",gap:12}}>
-          <h3 style={{margin:0}}>Detaljer og nullstilling</h3>
-          <select className="admin-analytics-select" style={inputStyle} value={selectedPage} onChange={(event)=>setSelectedPage(event.target.value)}>
-            {TRACKED_PAGES.map((page)=><option key={page.id} value={page.id}>{page.label}</option>)}
+
+        {resetError && <p role="alert" style={{ color: "#ff9f9f", marginBottom: 0 }}>{resetError}</p>}
+        {resetSuccess && <p role="status" style={{ marginBottom: 0 }}>{resetSuccess}</p>}
+
+        <div style={{ marginTop: "1.5rem", display: "grid", gap: 12 }}>
+          <h3 style={{ margin: 0 }}>Detaljer og tidligere perioder</h3>
+          <select
+            className="admin-analytics-select"
+            style={inputStyle}
+            value={selectedPage}
+            onChange={(event) => setSelectedPage(event.target.value)}
+            aria-label="Velg side for detaljer og periodehistorikk"
+          >
+            {TRACKED_PAGES.map((page) => (
+              <option key={page.id} value={page.id}>{page.label}</option>
+            ))}
           </select>
-          <p style={{margin:0}}>Siste nullstilling: {formatTimestamp(siteStats[selectedPage]?.resetAt)}</p>
-          <p style={{margin:0}}>Siste registrering: {formatTimestamp(siteStats[selectedPage]?.lastEventAt)}</p>
-          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(150px,1fr))",gap:12}}>
-            {(["views","googlePlay","appStore"] as const).map((metric)=><div key={metric} style={cardStyle}>
-              <strong>{metric==="views"?"Sidevisninger":metric==="googlePlay"?"Google Play":"App Store"}</strong>
-              <p style={{margin:"0.5rem 0"}}>Periode: {siteStats[selectedPage]?.period[metric] ?? 0}</p>
-              <p style={{margin:0}}>Totalt: {siteStats[selectedPage]?.total[metric] ?? 0}</p>
-            </div>)}
+          <p style={{ margin: 0 }}>Siste nullstilling: {formatTimestamp(siteStats[selectedPage]?.resetAt)}</p>
+          <p style={{ margin: 0 }}>Siste registrering: {formatTimestamp(siteStats[selectedPage]?.lastEventAt)}</p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 12 }}>
+            {(["views", "googlePlay", "appStore"] as const).map((metric) => (
+              <div key={metric} style={cardStyle}>
+                <strong>{metric === "views" ? "Sidevisninger" : metric === "googlePlay" ? "Google Play" : "App Store"}</strong>
+                <p style={{ margin: "0.5rem 0" }}>Periode: {siteStats[selectedPage]?.period[metric] ?? 0}</p>
+                <p style={{ margin: 0 }}>Totalt: {siteStats[selectedPage]?.total[metric] ?? 0}</p>
+              </div>
+            ))}
           </div>
-          <button type="button" className="status-button" disabled={resetBusy} onClick={handlePeriodReset}>
-            {resetBusy?"Nullstiller...":"Nullstill periode for valgt side"}
-          </button>
-          <h3 style={{margin:"0.5rem 0 0"}}>Tidligere perioder</h3>
-          {periodHistory.length === 0 ? <p style={{margin:0,opacity:0.7}}>Ingen avsluttede perioder ennå.</p> :
-            <div style={{display:"grid",gap:8}}>
-              {periodHistory.map((period) => <div key={period.id} style={cardStyle}>
-                <strong>{formatTimestamp(period.startedAt)} – {formatTimestamp(period.endedAt)}</strong>
-                <p style={{margin:"0.4rem 0 0"}}>Visninger: {period.counts.views ?? 0} · Google Play: {period.counts.googlePlay ?? 0} · App Store: {period.counts.appStore ?? 0}</p>
-              </div>)}
-            </div>}
-          {resetError && <p role="alert" style={{color:"#ff9f9f"}}>{resetError}</p>}
+          <h3 style={{ margin: "0.5rem 0 0" }}>Tidligere perioder</h3>
+          {periodHistory.length === 0 ? (
+            <p style={{ margin: 0, opacity: 0.7 }}>Ingen avsluttede perioder ennå.</p>
+          ) : (
+            <div style={{ display: "grid", gap: 8 }}>
+              {periodHistory.map((period) => (
+                <div key={period.id} style={cardStyle}>
+                  <strong>{formatTimestamp(period.startedAt)} – {formatTimestamp(period.endedAt)}</strong>
+                  <p style={{ margin: "0.4rem 0 0" }}>
+                    Visninger: {period.counts.views ?? 0} · Google Play: {period.counts.googlePlay ?? 0} · App Store: {period.counts.appStore ?? 0}
+                  </p>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
-      </AnalyticsSection>}
+      </AnalyticsSection>
 
       <details style={{...cardStyle,marginBottom:"1rem"}}><summary style={{cursor:"pointer",fontWeight:700}}>Tidligere statistikk – Kvittek</summary><div style={{marginTop:"1rem"}}><AnalyticsSection
         title="Kvittek"
@@ -450,7 +537,6 @@ const AdminPage: React.FC = () => {
           </p>
         </div>
       </AnalyticsSection></div></details>
-      </div>}
     </main>
   );
 };
