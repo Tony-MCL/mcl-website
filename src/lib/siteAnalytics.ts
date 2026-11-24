@@ -13,6 +13,7 @@ export const TRACKED_PAGES = [
   { id: "bop", path: "/bop", label: "WildShot BOP", stores: false },
   { id: "mine-oppdrag", path: "/mine-oppdrag", label: "DokSmia", stores: false },
   { id: "elkrafttorget", path: "/elkrafttorget", label: "ElKraftTorget", stores: false },
+  { id: "elkrafttorget-landing", path: "https://elkrafttorget.no/", label: "ElKraftTorget.no – landingsside", stores: false },
   { id: "qr-generator", path: "/qr-generator", label: "QR-generator", stores: false },
 ] as const;
 
